@@ -1,0 +1,317 @@
+/* Ultimate */
+button, button.ultimate, button.medium,
+.button, .button.ultimate, .button.medium {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding: var(--unit-3) var(--unit-5);
+	background: var(--action-default);
+	border: 1px solid var(--action-default);
+	border-radius: var(--rounded-8);
+	color: var(--white);
+	font-family: var(--font-family-secondary);
+	font-style: normal;
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-action);
+	line-height: var(--line-height-button);
+	text-decoration: none;
+	width: fit-content;
+	cursor: pointer;
+	text-align: center;
+	user-select: none;
+	overflow: hidden;
+}
+button:hover,
+.button:hover, .ultimate:hover {
+	background: var(--action-hovered);
+	border: 1px solid var(--action-hovered);
+}
+button:focus,
+.button:focus, .ultimate:focus {
+	box-shadow: var(--shadow-white), var(--shadow-blue-50);
+}
+button:active,
+.button:active, .ultimate:active {
+	background: var(--action-pressed);
+	border: 1px solid var(--action-pressed);
+	box-shadow: none;
+}
+button:disabled, button.disabled,
+.button:disabled, .button.disabled, .ultimate.disabled, .destructive.disabled {
+	background: var(--interactive-disabled) !important;
+	color: var(--text-disabled);
+	border: 1px solid var(--interactive-disabled) !important;
+	pointer-events: none;
+}
+
+/* Primary */
+button.primary,
+.button.primary {
+	background: var(--action-neutral-default);
+	border: 1px solid var(--action-neutral-default);
+
+}
+button.primary:hover,
+.button.primary:hover {
+	background: var(--action-neutral-hovered);
+	border: 1px solid var(--action-neutral-hovered);
+}
+button.primary:focus,
+.button.primary:focus {
+	box-shadow: var(--shadow-white), var(--shadow-blue-50);
+}
+button.primary:active,
+.button.primary:active {
+	background: var(--action-neutral-pressed);
+	border: 1px solid var(--action-neutral-pressed);
+	box-shadow: none;
+}
+
+/* Secondary */
+button.secondary,
+.button.secondary {
+	background-color: var(--transparent);
+	border: 1px solid var(--border-default);
+	color: var(--icon-hovered);
+}
+button.secondary:hover,
+.button.secondary:hover {
+	background: var(--surface-subdued);
+	border: 1px solid var(--border-default);
+}
+button.secondary:focus,
+.button.secondary:focus {
+	background: var(--surface-default);
+	box-shadow: var(--shadow-white), var(--shadow-blue-50);
+}
+button.secondary:active,
+.button.secondary:active {
+	background: var(--surface-pressed);
+	border: 1px solid var(--border-default);
+	box-shadow: none;
+}
+button.secondary[data-icon].only:before,
+.button.secondary[data-icon].only:before {
+	color: var(--icon-default);
+}
+button.secondary[data-icon].only:active,
+.button.secondary[data-icon].only:active {
+	background: var(--surface-hovered);
+}
+button.secondary.disabled,
+.button.secondary.disabled {
+	background: var(--surface-disabled) !important;
+	border: 1px solid var(--border-disabled);
+	color: var(--text-disabled);
+}
+
+/* Destructive */
+button.destructive,
+.button.destructive {
+	background: var(--interactive-critical);
+	border: 1px solid var(--border-critical);
+}
+button.destructive:hover,
+.button.destructive:hover {
+	background: var(--red-80);
+	border: 1px solid var(--red-80);
+}
+button.destructive:focus,
+.button.destructive:focus {
+	box-shadow: var(--shadow-white), var(--shadow-blue-50);
+}
+button.destructive:active,
+.button.destructive:active {
+	background: var(--red-90);
+	border: 1px solid var(--red-90);
+	box-shadow: none;
+}
+
+/* Quiet */
+button.quiet,
+.button.quiet {
+	background-color: var(--transparent);
+	color: var(--action-default);
+	border: 1px solid var(--transparent);
+}
+button.quiet:hover,
+.button.quiet:hover {
+	background: var(--surface-hovered);
+	border: 1px solid var(--surface-hovered);
+}
+button.quiet:focus,
+.button.quiet:focus {
+	background: var(--surface-default);
+	box-shadow: var(--shadow-white), var(--shadow-blue-50);
+}
+button.quiet:active,
+.button.quiet:active {
+	color: var(--action-pressed);
+	background-color: var(--transparent);
+	border: 1px solid var(--transparent);
+	box-shadow: none;
+}
+button.quiet.disabled,
+.button.quiet.disabled {
+	background: var(--action-disabled);
+	color: var(--text-disabled);
+}
+button.quiet.disabled[data-icon],
+.button.quiet.disabled[data-icon] {
+	background-color: var(--transparent) !important;
+	color: var(--interactive-foreground);
+}
+button.quiet.disabled[data-icon].only,
+.button.quiet.disabled[data-icon].only {
+	background: var(--surface-disabled) !important;
+}
+
+/* Button Sizes */
+button.small,
+.button.small {
+	padding: var(--unit-2) var(--unit-3);
+	font-size: var(--font-size-body-sm);
+}
+button.large,
+.button.large {
+	padding: var(--unit-4) var(--unit-6);
+}
+
+/* With Icon */
+button[data-icon].disabled:before,
+.button[data-icon].disabled:before {
+	color: var(--text-disabled) !important;
+}
+button[data-icon].small:before,
+.button[data-icon].small:before {
+	height: var(--unit-5);
+	width: var(--unit-5);
+    font-size: var(--font-size-button-sm);
+}
+button.ultimate[data-icon]:before,
+.button.ultimate[data-icon]:before,
+button.primary[data-icon]:before,
+.button.primary[data-icon]:before,
+button.destructive[data-icon]:before,
+.button.destructive[data-icon]:before {
+	color: var(--icon-inverse);
+}
+button.secondary[data-icon]:before,
+.button.secondary[data-icon]:before {
+	color: var(--icon-default);
+}
+button.quiet[data-icon]:before,
+.button.quiet[data-icon]:before {
+	color: var(--action-default);
+}
+button.quiet[data-icon].disabled:before,
+.button.quiet[data-icon].disabled:before {
+	color: var(--interactive-foreground) !important;
+}
+button[data-icon].left,
+.button[data-icon].left {
+	flex-direction: row;
+}
+button[data-icon].right,
+.button[data-icon].right {
+	flex-direction: row-reverse;
+}
+
+/* Icon Only */
+button[data-icon].only:before,
+.button[data-icon].only:before {
+	font-size: var(--font-size-icon-only);
+}
+button[data-icon].only.small,
+.button[data-icon].only.small {
+	padding: var(--unit-2);
+}
+button[data-icon].only, .button[data-icon].only.medium,
+.button[data-icon].only, .button[data-icon].only.medium {
+	padding: var(--unit-3);
+}
+button[data-icon].only.large,
+.button[data-icon].only.large {
+	padding: var(--unit-4);
+}
+button[data-icon].only.small:before,
+.button[data-icon].only.small:before {
+	height: var(--unit-6);
+    width: var(--unit-6);
+	font-size: var(--font-size-button-lg);
+}
+button[data-icon].only:before, .button[data-icon].only.medium:before,
+.button[data-icon].only:before, .button[data-icon].only.medium:before {
+	height: var(--unit-6);
+    width: var(--unit-6);
+}
+button[data-icon].only.large:before,
+.button[data-icon].only.large:before {
+    height: var(--unit-6);
+    width: var(--unit-6);
+}
+button.ultimate[data-icon].only.disabled:before,
+.button.ultimate[data-icon].only.disabled:before,
+button.primary[data-icon].only.disabled:before,
+.button.primary[data-icon].only.disabled:before,
+button.secondary[data-icon].only.disabled:before,
+.button.secondary[data-icon].only.disabled:before {
+	color: var(--icon-disabled) !important;
+}
+
+/* Floating Button */
+button.float,
+.button.float {
+	border-radius: var(--unit-8);
+	box-shadow: var(--elevation-4);
+}
+button.float:focus,
+.button.float:focus {
+	box-shadow: var(--elevation-4), var(--shadow-white), var(--shadow-blue-50);
+}
+
+/* Onload */
+button.onload:before,
+.button.onload:before {
+	content: '';
+	border: var(--unit-2) solid;
+    border-radius: 50%;
+    border-color: var(--white-0-75) var(--white-0-25) var(--white-0-25) var(--white-0-25);
+	margin-right: var(--unit-3);
+	width: var(--unit-6);
+	height: var(--unit-6);
+	animation: spin 1s linear infinite;
+}
+button.secondary.onload:before,
+.button.secondary.onload:before {
+	border-color: var(--gray-50-75) var(--gray-50-25) var(--gray-50-25) var(--gray-50-25) !important;
+}
+button.quiet.onload:before,
+.button.quiet.onload:before {
+	border-color: var(--blue-70-75) var(--blue-70-25) var(--blue-70-25) var(--blue-70-25) !important;
+}
+button.small.onload:before,
+.button.small.onload:before {
+	width: var(--unit-3);
+	height: var(--unit-3);
+	border-width: var(--unit-1);
+}
+button.medium.onload:before,
+.button.medium.onload:before {
+	width: var(--unit-4);
+	height: var(--unit-4);
+	border-width: calc(var(--unit-1) + (var(--unit-1) / 2));
+}
+button.large.onload:before,
+.button.large.onload:before {
+	width: calc(var(--unit-5) - var(--unit-1));
+	height: calc(var(--unit-5) - var(--unit-1));
+	border-width: calc(var(--unit-1) + (var(--unit-1) / 2));
+}
+
+/* Size */
+button.full,
+.button.full {
+	width: 100%;
+}

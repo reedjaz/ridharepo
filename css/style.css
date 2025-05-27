@@ -1,0 +1,106 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.stage {
+    background-color: var(--slate-100);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+}
+.stage.init:before {
+    content: "";
+    transition: none;
+    opacity: 1;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    pointer-events: none;
+    user-select: none;
+}
+.stage:before {
+    content: "";
+    background: var(--white);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+    transition: all var(--transition-slow) ease;
+    z-index: 50;
+    pointer-events: none;
+    user-select: none;
+}
+.stage .hud {
+    transition: all var(--transition-slow) ease;
+    display: flex;
+}
+.stage .header {
+    height: var(--site-header);
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+.stage .main {
+    flex-grow: 1;
+    position: relative;
+}
+.stage .main, .stage .main > div {
+    width: 100vw;
+}
+.stage .footer {
+    height: var(--site-footer);
+    position: relative;
+    flex-shrink: 0;
+}
+.progress-bar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.bar {
+    background-color: var(--slate-200);
+    width: calc(100% - (2 * var(--site-padding)));
+    height: var(--unit-6);
+    border-radius: var(--rounded-full);
+    overflow: hidden;
+    transition: all var(--transition-slow) ease;
+}
+.completed {
+    content: "";
+    background-color: var(--indigo-400);
+    display: flex;
+    transition: inherit;
+    height: 100%;
+    border-radius: var(--rounded-full);
+    width: 100%;
+    max-width: 100%;
+}
+
+/* IMMERSIVE: SHOW BOTH HEADER AND FOOTER */
+.stage.immersive .header {
+    margin-top: calc(var(--site-header) * -1);
+}
+.stage.immersive .footer {
+    margin-bottom: calc(var(--site-header) * -1);
+}
+
+/* IMMERSIVE: SHOW HEADER (HIDE FOOTER) */
+.stage.showheader .header {
+    margin-top: 0;
+}
+.stage.showheader .footer {
+    margin-bottom: calc(var(--site-header) * -1);
+}
+
+/* IMMERSIVE: SHOW FOOTER (HIDE HEADER) */
+.stage.showfooter .header {
+    margin-top: calc(var(--site-header) * -1);
+}
+.stage.showfooter .footer {
+    margin-bottom: 0;
+}

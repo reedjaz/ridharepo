@@ -1,0 +1,1057 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+
+/*----------------------*/
+/* COLORS */
+
+/* Spectrum */
+--black   : #000000;
+--white   : #ffffff;
+
+--slate-50:  #f8fafc;
+--slate-100: #f1f5f9;
+--slate-200: #e2e8f0;
+--slate-300: #cbd5e1;
+--slate-400: #94a3b8;
+--slate-500: #64748b;
+--slate-600: #475569;
+--slate-700: #334155;
+--slate-800: #1e293b;
+--slate-900: #0f172a;
+
+--gray-50:  #f9fafb;
+--gray-100: #f3f4f6;
+--gray-200: #e5e7eb;
+--gray-300: #d1d5db;
+--gray-400: #9ca3af;
+--gray-500: #6b7280;
+--gray-600: #4b5563;
+--gray-700: #374151;
+--gray-800: #1f2937;
+--gray-900: #111827;
+
+--zinc-50:  #fafafa;
+--zinc-100: #f4f4f5;
+--zinc-200: #e4e4e7;
+--zinc-300: #d4d4d8;
+--zinc-400: #a1a1aa;
+--zinc-500: #71717a;
+--zinc-600: #52525b;
+--zinc-700: #3f3f46;
+--zinc-800: #27272a;
+--zinc-900: #18181b;
+
+--neutral-50:  #fafafa;
+--neutral-100: #f5f5f5;
+--neutral-200: #e5e5e5;
+--neutral-300: #d4d4d4;
+--neutral-400: #a3a3a3;
+--neutral-500: #737373;
+--neutral-600: #525252;
+--neutral-700: #404040;
+--neutral-800: #262626;
+--neutral-900: #171717;
+
+--stone-50:  #fafaf9;
+--stone-100: #f5f5f4;
+--stone-200: #e7e5e4;
+--stone-300: #d6d3d1;
+--stone-400: #a8a29e;
+--stone-500: #78716c;
+--stone-600: #57534e;
+--stone-700: #44403c;
+--stone-800: #292524;
+--stone-900: #1c1917;
+
+--red-50:  #fef2f2;
+--red-100: #fee2e2;
+--red-200: #fecaca;
+--red-300: #fca5a5;
+--red-400: #f87171;
+--red-500: #ef4444;
+--red-600: #dc2626;
+--red-700: #b91c1c;
+--red-800: #991b1b;
+--red-900: #7f1d1d;
+
+--orange-50:  #fff7ed;
+--orange-100: #ffedd5;
+--orange-200: #fed7aa;
+--orange-300: #fdba74;
+--orange-400: #fb923c;
+--orange-500: #f97316;
+--orange-600: #ea580c;
+--orange-700: #c2410c;
+--orange-800: #9a3412;
+--orange-900: #7c2d12;
+
+--amber-50:  #fffbeb;
+--amber-100: #fef3c7;
+--amber-200: #fde68a;
+--amber-300: #fcd34d;
+--amber-400: #fbbf24;
+--amber-500: #f59e0b;
+--amber-600: #d97706;
+--amber-700: #b45309;
+--amber-800: #92400e;
+--amber-900: #78350f;
+
+--yellow-50:  #fefce8;
+--yellow-100: #fef9c3;
+--yellow-200: #fef08a;
+--yellow-300: #fde047;
+--yellow-400: #facc15;
+--yellow-500: #eab308;
+--yellow-600: #ca8a04;
+--yellow-700: #a16207;
+--yellow-800: #854d0e;
+--yellow-900: #713f12;
+
+--lime-50:  #f7fee7;
+--lime-100: #ecfccb;
+--lime-200: #d9f99d;
+--lime-300: #bef264;
+--lime-400: #a3e635;
+--lime-500: #84cc16;
+--lime-600: #65a30d;
+--lime-700: #4d7c0f;
+--lime-800: #3f6212;
+--lime-900: #365314;
+
+--green-50:  #f0fdf4;
+--green-100: #dcfce7;
+--green-200: #bbf7d0;
+--green-300: #86efac;
+--green-400: #4ade80;
+--green-500: #22c55e;
+--green-600: #16a34a;
+--green-700: #15803d;
+--green-800: #166534;
+--green-900: #14532d;
+
+--emerald-50:  #ecfdf5;
+--emerald-100: #d1fae5;
+--emerald-200: #a7f3d0;
+--emerald-300: #6ee7b7;
+--emerald-400: #34d399;
+--emerald-500: #10b981;
+--emerald-600: #059669;
+--emerald-700: #047857;
+--emerald-800: #065f46;
+--emerald-900: #064e3b;
+
+--teal-50:  #f0fdfa;
+--teal-100: #ccfbf1;
+--teal-200: #99f6e4;
+--teal-300: #5eead4;
+--teal-400: #2dd4bf;
+--teal-500: #14b8a6;
+--teal-600: #0d9488;
+--teal-700: #0f766e;
+--teal-800: #115e59;
+--teal-900: #134e4a;
+
+--cyan-50:  #ecfeff;
+--cyan-100: #cffafe;
+--cyan-200: #a5f3fc;
+--cyan-300: #67e8f9;
+--cyan-400: #22d3ee;
+--cyan-500: #06b6d4;
+--cyan-600: #0891b2;
+--cyan-700: #0e7490;
+--cyan-800: #155e75;
+--cyan-900: #164e63;
+
+--sky-50:  #e0f2fe;
+--sky-100: #bae6fd;
+--sky-200: #7dd3fc;
+--sky-300: #38bdf8;
+--sky-400: #0ea5e9;
+--sky-500: #0284c7;
+--sky-600: #0369a1;
+--sky-700: #075985;
+--sky-800: #0c4a6e;
+--sky-900: #0a4369;
+
+--blue-50:  #eff6ff;
+--blue-100: #dbeafe;
+--blue-200: #bfdbfe;
+--blue-300: #93c5fd;
+--blue-400: #60a5fa;
+--blue-500: #3b82f6;
+--blue-600: #2563eb;
+--blue-700: #1d4ed8;
+--blue-800: #1e40af;
+--blue-900: #1e3a8a;
+
+--indigo-50:  #eef2ff;
+--indigo-100: #e0e7ff;
+--indigo-200: #c7d2fe;
+--indigo-300: #a5b4fc;
+--indigo-400: #818cf8;
+--indigo-500: #6366f1;
+--indigo-600: #4f46e5;
+--indigo-700: #4338ca;
+--indigo-800: #3730a3;
+--indigo-900: #312e81;
+
+--violet-50:  #f5f3ff;
+--violet-100: #ede9fe;
+--violet-200: #ddd6fe;
+--violet-300: #c4b5fd;
+--violet-400: #a78bfa;
+--violet-500: #8b5cf6;
+--violet-600: #7c3aed;
+--violet-700: #6d28d9;
+--violet-800: #5b21b6;
+--violet-900: #4c1d95;
+
+--purple-50:  #faf5ff;
+--purple-100: #f3e8ff;
+--purple-200: #e9d5ff;
+--purple-300: #d8b4fe;
+--purple-400: #c084fc;
+--purple-500: #a855f7;
+--purple-600: #9333ea;
+--purple-700: #7e22ce;
+--purple-800: #6b21a8;
+--purple-900: #581c87;
+
+--fuchsia-50:  #fdf4ff;
+--fuchsia-100: #fae8ff;
+--fuchsia-200: #f5d0fe;
+--fuchsia-300: #f0abfc;
+--fuchsia-400: #e879f9;
+--fuchsia-500: #d946ef;
+--fuchsia-600: #c026d3;
+--fuchsia-700: #a21caf;
+--fuchsia-800: #86198f;
+--fuchsia-900: #701a75;
+
+--pink-50:  #fdf2f8;
+--pink-100: #fce7f3;
+--pink-200: #fbcfe8;
+--pink-300: #f9a8d4;
+--pink-400: #f472b6;
+--pink-500: #ec4899;
+--pink-600: #db2777;
+--pink-700: #be185d;
+--pink-800: #9d174d;
+--pink-900: #831843;
+
+--rose-50:  #fff1f2;
+--rose-100: #ffe4e6;
+--rose-200: #fecdd3;
+--rose-300: #fda4af;
+--rose-400: #fb7185;
+--rose-500: #f43f5e;
+--rose-600: #e11d48;
+--rose-700: #be123c;
+--rose-800: #9f1239;
+--rose-900: #881337;
+
+/* Text */
+--text-default      : var(--gray-900);
+--text-subdued      : var(--gray-600);
+--text-disabled      : var(--gray-500);
+--text-inverse      : var(--white0);
+--text-inverse-subdued   : var(--gray-200);
+--text-success      : var(--green-600);
+--text-success-darker    : var(--green-800);
+--text-critical      : var(--red-600);
+--text-critical-darker    : var(--red-800);
+--text-informational     : var(--blue-600);
+--text-informational-darker : var(--blue-800);
+--text-warning      : var(--orange-700);
+--text-warning-darker    : var(--orange-800);
+
+/* Background */
+--bg-default : var(--gray-50);
+
+/* Surface */
+--surface-default   : var(--white);
+--surface-subdued   : var(--gray-50);
+--surface-hovered   : var(--gray-100);
+--surface-disabled   : var(--gray-100);
+--surface-foreground  : var(--gray-900);
+--surface-pressed   : var(--gray-200);
+
+/* Surface Selected */
+--surface-selected-default : var(--gray-100);
+--surface-selected-hovered : var(--gray-300);
+
+/* Surface Neutral */
+--surface-neutral-default : var(--gray-200);
+--surface-neutral-subdued : var(--gray-100);
+
+/* Surface Success */
+--surface-success-default : var(--green-300);
+--surface-success-subdued : var(--green-50);
+--surface-success-darker : var(--green-900);
+
+/* Surface Critical */
+--surface-critical-default : var(--red-100);
+--surface-critical-subdued : var(--red-50);
+--surface-critical-darker : var(--red-900);
+
+/* Surface Informational */
+--surface-informational-default : var(--cyan-300);
+--surface-informational-subdued : var(--cyan-50);
+--surface-informational-darker : var(--cyan-900);
+
+/* Surface Warning */
+--surface-warning-default : var(--orange-200);
+--surface-warning-subdued : var(--orange-100);
+--surface-warning-darker : var(--orange-900);
+
+/* Interactive */
+--interactive-default   : var(--blue-700);
+--interactive-hovered   : var(--blue-800);
+--interactive-focused   : var(--blue-500);
+--interactive-disabled   : var(--gray-300);
+--interactive-foreground  : var(--blue-400);
+--interactive-critical   : var(--red-600);
+
+/* Border */
+--border-high   : var(--gray-700);
+--border-default  : var(--gray-500);
+--border-subdued  : var(--gray-300);
+--border-disabled  : var(--gray-200);
+--border-hovered  : var(--gray-800);
+--border-pressed  : var(--gray-900);
+
+--border-success  : var(--green-500);
+--border-critical  : var(--red-600);
+--border-informational : var(--blue-500);
+--border-warning  : var(--orange-400);
+
+/* Action */
+--action-default  : var(--blue-700);
+--action-hovered : var(--blue-800);
+--action-pressed : var(--blue-900);
+--action-disabled : var(--gray-300);
+
+/* Action Neutral */
+--action-neutral-default  : var(--gray-900);
+--action-neutral-hovered : var(--gray-900);
+--action-neutral-pressed : var(--black0);
+
+/* Expressive */
+--expressive-surface-dark-blue : var(--blue-900);
+
+/* Icon */
+--icon-default     : var(--gray-800);
+--icon-subdued     : var(--gray-500);
+--icon-hovered     : var(--gray-900);
+--icon-pressed     : var(--gray-900);
+--icon-disabled    : var(--gray-400);
+--icon-inverse     : var(--gray-50);
+--icon-success     : var(--green-500);
+--icon-critical    : var(--red-600);
+--icon-informational  : var(--blue-800);
+--icon-warning     : var(--orange-500);
+
+/* Base */
+--base-primary   : var(--blue-700);
+--base-success   : var(--green-600);
+--base-critical   : var(--red-700);
+--base-informational : var(--blue-500);
+--base-warning   : var(--orange-300);
+
+/* Overlay */
+--overlay-default : var(--gray-100-70);
+
+/*----------------------*/
+/* TYPOGRAPHY */
+
+/* Fonts */
+--font-family-primary : "Andika", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
+--font-family-secondary : "Andika", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
+--font-family-icons  : "Material Symbols Outlined";
+
+--font-weight-light  : 200;
+--font-weight-regular : 400;
+--font-weight-bold  : 600;
+--font-weight-extrabold : 800;
+
+/* Font Size */
+--font-size-helper   : 0.75rem;  /* 12px */
+--font-size-body-sm   : 0.875rem;  /* 13px */
+--font-size-body   : 1rem;   /* 15px */
+--font-size-body-lg   : 1.25rem;  /* 20px */
+--font-size-action   : 1rem;   /* 15px */
+--font-size-subheading  : 0.875rem;  /* 13px */
+--font-size-heading-sm  : 1.0625rem; /* 16px */
+--font-size-heading-md  : 1.1875rem; /* 18px */
+--font-size-heading-lg  : 1.375rem;  /* 22px */
+--font-size-eyebrow-sm  : 0.75rem;  /* 12px */
+--font-size-eyebrow-md  : 1rem;   /* 15px */
+--font-size-eyebrow-lg  : 1.25rem;  /* 17px */
+--font-size-display-sm  : 1.5rem;  /* 24px */
+--font-size-display-md  : 1.75rem;  /* 28px */
+--font-size-display-lg  : 2rem;   /* 32px */
+--font-size-headline-xs  : 2.625rem;  /* 42px */
+--font-size-headline-sm  : 3.375rem;  /* 54px */
+--font-size-headline-md  : 4rem;   /* 64px */
+--font-size-headline-lg  : 5rem;   /* 80px */
+
+--font-size-button-sm  : 1.0625rem; /* 16px */
+--font-size-button-md  : 1.25rem;  /* 20px */
+--font-size-button-lg  : 1.25rem;  /* 20px */
+--font-size-icon-only  : 1.5rem;  /* 24px */
+
+/* Font Weight */
+--font-weight-helper  : var(--font-weight-regular);
+--font-weight-body-sm  : var(--font-weight-regular);
+--font-weight-body   : var(--font-weight-regular);
+--font-weight-body-lg  : var(--font-weight-regular);
+--font-weight-action  : var(--font-weight-bold);
+--font-weight-subheading : var(--font-weight-bold);
+--font-weight-heading-sm : var(--font-weight-bold);
+--font-weight-heading-md : var(--font-weight-bold);
+--font-weight-heading-lg : var(--font-weight-bold);
+--font-weight-eyebrow-sm : var(--font-weight-regular);
+--font-weight-eyebrow-md : var(--font-weight-regular);
+--font-weight-eyebrow-lg : var(--font-weight-regular);
+--font-weight-display-sm : var(--font-weight-bold);
+--font-weight-display-md : var(--font-weight-bold);
+--font-weight-display-lg : var(--font-weight-bold);
+--font-weight-headline-xs : var(--font-weight-bold);
+--font-weight-headline-sm : var(--font-weight-bold);
+--font-weight-headline-md : var(--font-weight-bold);
+--font-weight-headline-lg : var(--font-weight-bold);
+
+/* Font Weight Bold */
+--font-weight-bold-helper  : var(--font-weight-bold);
+--font-weight-bold-body-sm  : var(--font-weight-bold);
+--font-weight-bold-body   : var(--font-weight-bold);
+--font-weight-bold-body-lg  : var(--font-weight-bold);
+--font-weight-bold-action  : var(--font-weight-extrabold);
+--font-weight-bold-subheading : var(--font-weight-extrabold);
+--font-weight-bold-heading-sm : var(--font-weight-extrabold);
+--font-weight-bold-heading-md : var(--font-weight-extrabold);
+--font-weight-bold-heading-lg : var(--font-weight-extrabold);
+--font-weight-bold-eyebrow-sm : var(--font-weight-bold);
+--font-weight-bold-eyebrow-md : var(--font-weight-bold);
+--font-weight-bold-eyebrow-lg : var(--font-weight-bold);
+--font-weight-bold-display-sm : var(--font-weight-extrabold);
+--font-weight-bold-display-md : var(--font-weight-extrabold);
+--font-weight-bold-display-lg : var(--font-weight-extrabold);
+--font-weight-bold-headline-xs : var(--font-weight-extrabold);
+--font-weight-bold-headline-sm : var(--font-weight-extrabold);
+--font-weight-bold-headline-md : var(--font-weight-extrabold);
+--font-weight-bold-headline-lg : var(--font-weight-extrabold);
+
+/* Line Height */
+--line-height-helper   : 1rem;
+--line-height-body-sm   : 1.25rem;
+--line-height-body    : 1.5rem; 
+--line-height-body-lg   : 1.75rem;
+--line-height-action   : 1.5rem; 
+--line-height-subheading  : 1rem;
+--line-height-heading-sm  : 1.375rem;
+--line-height-heading-md  : 1.5rem;
+--line-height-heading-lg  : 1.75rem;
+--line-height-eyebrow-sm  : 1rem;
+--line-height-eyebrow-md  : 1.5rem; 
+--line-height-eyebrow-lg  : 1.5rem;
+--line-height-display-sm  : 1.75rem; 
+--line-height-display-md  : 2.25rem;
+--line-height-display-lg  : 2.25rem; 
+--line-height-headline-xs  : 3rem;
+--line-height-headline-sm  : 3.875rem;
+--line-height-headline-md  : 4.5rem;
+--line-height-headline-lg  : 5.5rem;
+
+--line-height-button   : 140%;
+
+/* Font Family */
+--font-family-helper   : var(--font-family-secondary);
+--font-family-body-sm   : var(--font-family-secondary);
+--font-family-body    : var(--font-family-secondary);
+--font-family-body-lg   : var(--font-family-secondary);
+--font-family-action   : var(--font-family-secondary);
+--font-family-subheading  : var(--font-family-secondary);
+--font-family-heading-sm  : var(--font-family-primary);
+--font-family-heading-md  : var(--font-family-primary);
+--font-family-heading-lg  : var(--font-family-primary);
+--font-family-eyebrow-sm  : var(--font-family-secondary);
+--font-family-eyebrow-md  : var(--font-family-secondary);
+--font-family-eyebrow-lg  : var(--font-family-secondary);
+--font-family-display-sm  : var(--font-family-primary);
+--font-family-display-md  : var(--font-family-primary);
+--font-family-display-lg  : var(--font-family-primary);
+--font-family-headline-xs  : var(--font-family-primary);
+--font-family-headline-sm  : var(--font-family-primary);
+--font-family-headline-md  : var(--font-family-primary);
+--font-family-headline-lg  : var(--font-family-primary);
+
+/*----------------------*/
+/* UNITS */
+
+--unit-0 : 0;
+--unit-1 : 2px;
+--unit-2 : 4px;
+--unit-3 : 8px;
+--unit-4 : 12px;
+--unit-5 : 16px;
+--unit-6 : 20px;
+--unit-7 : 24px;
+--unit-8 : 28px;
+--unit-9 : 32px;
+--unit-10 : 40px;
+--unit-11 : 48px;
+--unit-12 : 64px;
+--unit-13 : 80px;
+--unit-14 : 96px;
+
+/*----------------------*/
+/* VH UNITS */
+
+--vh-0: 0vh;
+--vh-1: 1vh;
+--vh-2: 2vh;
+--vh-3: 3vh;
+--vh-4: 4vh;
+--vh-5: 5vh;
+--vh-6: 6vh;
+--vh-7: 7vh;
+--vh-8: 8vh;
+--vh-9: 9vh;
+--vh-10: 10vh;
+--vh-11: 11vh;
+--vh-12: 12vh;
+--vh-13: 13vh;
+--vh-14: 14vh;
+--vh-15: 15vh;
+--vh-16: 16vh;
+--vh-17: 17vh;
+--vh-18: 18vh;
+--vh-19: 19vh;
+--vh-20: 20vh;
+--vh-21: 21vh;
+--vh-22: 22vh;
+--vh-23: 23vh;
+--vh-24: 24vh;
+--vh-25: 25vh;
+--vh-26: 26vh;
+--vh-27: 27vh;
+--vh-28: 28vh;
+--vh-29: 29vh;
+--vh-30: 30vh;
+--vh-31: 31vh;
+--vh-32: 32vh;
+--vh-33: 33vh;
+--vh-34: 34vh;
+--vh-35: 35vh;
+--vh-36: 36vh;
+--vh-37: 37vh;
+--vh-38: 38vh;
+--vh-39: 39vh;
+--vh-40: 40vh;
+--vh-41: 41vh;
+--vh-42: 42vh;
+--vh-43: 43vh;
+--vh-44: 44vh;
+--vh-45: 45vh;
+--vh-46: 46vh;
+--vh-47: 47vh;
+--vh-48: 48vh;
+--vh-49: 49vh;
+--vh-50: 50vh;
+--vh-51: 51vh;
+--vh-52: 52vh;
+--vh-53: 53vh;
+--vh-54: 54vh;
+--vh-55: 55vh;
+--vh-56: 56vh;
+--vh-57: 57vh;
+--vh-58: 58vh;
+--vh-59: 59vh;
+--vh-60: 60vh;
+--vh-61: 61vh;
+--vh-62: 62vh;
+--vh-63: 63vh;
+--vh-64: 64vh;
+--vh-65: 65vh;
+--vh-66: 66vh;
+--vh-67: 67vh;
+--vh-68: 68vh;
+--vh-69: 69vh;
+--vh-70: 70vh;
+--vh-71: 71vh;
+--vh-72: 72vh;
+--vh-73: 73vh;
+--vh-74: 74vh;
+--vh-75: 75vh;
+--vh-76: 76vh;
+--vh-77: 77vh;
+--vh-78: 78vh;
+--vh-79: 79vh;
+--vh-80: 80vh;
+--vh-81: 81vh;
+--vh-82: 82vh;
+--vh-83: 83vh;
+--vh-84: 84vh;
+--vh-85: 85vh;
+--vh-86: 86vh;
+--vh-87: 87vh;
+--vh-88: 88vh;
+--vh-89: 89vh;
+--vh-90: 90vh;
+--vh-91: 91vh;
+--vh-92: 92vh;
+--vh-93: 93vh;
+--vh-94: 94vh;
+--vh-95: 95vh;
+--vh-96: 96vh;
+--vh-97: 97vh;
+--vh-98: 98vh;
+--vh-99: 99vh;
+--vh-100: 100vh;
+
+/*----------------------*/
+/* VW UNITS */
+
+--vw-0: 0vw;
+--vw-1: 1vw;
+--vw-2: 2vw;
+--vw-3: 3vw;
+--vw-4: 4vw;
+--vw-5: 5vw;
+--vw-6: 6vw;
+--vw-7: 7vw;
+--vw-8: 8vw;
+--vw-9: 9vw;
+--vw-10: 10vw;
+--vw-11: 11vw;
+--vw-12: 12vw;
+--vw-13: 13vw;
+--vw-14: 14vw;
+--vw-15: 15vw;
+--vw-16: 16vw;
+--vw-17: 17vw;
+--vw-18: 18vw;
+--vw-19: 19vw;
+--vw-20: 20vw;
+--vw-21: 21vw;
+--vw-22: 22vw;
+--vw-23: 23vw;
+--vw-24: 24vw;
+--vw-25: 25vw;
+--vw-26: 26vw;
+--vw-27: 27vw;
+--vw-28: 28vw;
+--vw-29: 29vw;
+--vw-30: 30vw;
+--vw-31: 31vw;
+--vw-32: 32vw;
+--vw-33: 33vw;
+--vw-34: 34vw;
+--vw-35: 35vw;
+--vw-36: 36vw;
+--vw-37: 37vw;
+--vw-38: 38vw;
+--vw-39: 39vw;
+--vw-40: 40vw;
+--vw-41: 41vw;
+--vw-42: 42vw;
+--vw-43: 43vw;
+--vw-44: 44vw;
+--vw-45: 45vw;
+--vw-46: 46vw;
+--vw-47: 47vw;
+--vw-48: 48vw;
+--vw-49: 49vw;
+--vw-50: 50vw;
+--vw-51: 51vw;
+--vw-52: 52vw;
+--vw-53: 53vw;
+--vw-54: 54vw;
+--vw-55: 55vw;
+--vw-56: 56vw;
+--vw-57: 57vw;
+--vw-58: 58vw;
+--vw-59: 59vw;
+--vw-60: 60vw;
+--vw-61: 61vw;
+--vw-62: 62vw;
+--vw-63: 63vw;
+--vw-64: 64vw;
+--vw-65: 65vw;
+--vw-66: 66vw;
+--vw-67: 67vw;
+--vw-68: 68vw;
+--vw-69: 69vw;
+--vw-70: 70vw;
+--vw-71: 71vw;
+--vw-72: 72vw;
+--vw-73: 73vw;
+--vw-74: 74vw;
+--vw-75: 75vw;
+--vw-76: 76vw;
+--vw-77: 77vw;
+--vw-78: 78vw;
+--vw-79: 79vw;
+--vw-80: 80vw;
+--vw-81: 81vw;
+--vw-82: 82vw;
+--vw-83: 83vw;
+--vw-84: 84vw;
+--vw-85: 85vw;
+--vw-86: 86vw;
+--vw-87: 87vw;
+--vw-88: 88vw;
+--vw-89: 89vw;
+--vw-90: 90vw;
+--vw-91: 91vw;
+--vw-92: 92vw;
+--vw-93: 93vw;
+--vw-94: 94vw;
+--vw-95: 95vw;
+--vw-96: 96vw;
+--vw-97: 97vw;
+--vw-98: 98vw;
+--vw-99: 99vw;
+--vw-100: 100vw;
+
+/*----------------------*/
+/* DVH UNITS */
+
+--dvh-0: 0dvh;
+--dvh-1: 1dvh;
+--dvh-2: 2dvh;
+--dvh-3: 3dvh;
+--dvh-4: 4dvh;
+--dvh-5: 5dvh;
+--dvh-6: 6dvh;
+--dvh-7: 7dvh;
+--dvh-8: 8dvh;
+--dvh-9: 9dvh;
+--dvh-10: 10dvh;
+--dvh-11: 11dvh;
+--dvh-12: 12dvh;
+--dvh-13: 13dvh;
+--dvh-14: 14dvh;
+--dvh-15: 15dvh;
+--dvh-16: 16dvh;
+--dvh-17: 17dvh;
+--dvh-18: 18dvh;
+--dvh-19: 19dvh;
+--dvh-20: 20dvh;
+--dvh-21: 21dvh;
+--dvh-22: 22dvh;
+--dvh-23: 23dvh;
+--dvh-24: 24dvh;
+--dvh-25: 25dvh;
+--dvh-26: 26dvh;
+--dvh-27: 27dvh;
+--dvh-28: 28dvh;
+--dvh-29: 29dvh;
+--dvh-30: 30dvh;
+--dvh-31: 31dvh;
+--dvh-32: 32dvh;
+--dvh-33: 33dvh;
+--dvh-34: 34dvh;
+--dvh-35: 35dvh;
+--dvh-36: 36dvh;
+--dvh-37: 37dvh;
+--dvh-38: 38dvh;
+--dvh-39: 39dvh;
+--dvh-40: 40dvh;
+--dvh-41: 41dvh;
+--dvh-42: 42dvh;
+--dvh-43: 43dvh;
+--dvh-44: 44dvh;
+--dvh-45: 45dvh;
+--dvh-46: 46dvh;
+--dvh-47: 47dvh;
+--dvh-48: 48dvh;
+--dvh-49: 49dvh;
+--dvh-50: 50dvh;
+--dvh-51: 51dvh;
+--dvh-52: 52dvh;
+--dvh-53: 53dvh;
+--dvh-54: 54dvh;
+--dvh-55: 55dvh;
+--dvh-56: 56dvh;
+--dvh-57: 57dvh;
+--dvh-58: 58dvh;
+--dvh-59: 59dvh;
+--dvh-60: 60dvh;
+--dvh-61: 61dvh;
+--dvh-62: 62dvh;
+--dvh-63: 63dvh;
+--dvh-64: 64dvh;
+--dvh-65: 65dvh;
+--dvh-66: 66dvh;
+--dvh-67: 67dvh;
+--dvh-68: 68dvh;
+--dvh-69: 69dvh;
+--dvh-70: 70dvh;
+--dvh-71: 71dvh;
+--dvh-72: 72dvh;
+--dvh-73: 73dvh;
+--dvh-74: 74dvh;
+--dvh-75: 75dvh;
+--dvh-76: 76dvh;
+--dvh-77: 77dvh;
+--dvh-78: 78dvh;
+--dvh-79: 79dvh;
+--dvh-80: 80dvh;
+--dvh-81: 81dvh;
+--dvh-82: 82dvh;
+--dvh-83: 83dvh;
+--dvh-84: 84dvh;
+--dvh-85: 85dvh;
+--dvh-86: 86dvh;
+--dvh-87: 87dvh;
+--dvh-88: 88dvh;
+--dvh-89: 89dvh;
+--dvh-90: 90dvh;
+--dvh-91: 91dvh;
+--dvh-92: 92dvh;
+--dvh-93: 93dvh;
+--dvh-94: 94dvh;
+--dvh-95: 95dvh;
+--dvh-96: 96dvh;
+--dvh-97: 97dvh;
+--dvh-98: 98dvh;
+--dvh-99: 99dvh;
+--dvh-100: 100dvh;
+
+/*----------------------*/
+/* DVW UNITS */
+
+--dvw-0: 0dvw;
+--dvw-1: 1dvw;
+--dvw-2: 2dvw;
+--dvw-3: 3dvw;
+--dvw-4: 4dvw;
+--dvw-5: 5dvw;
+--dvw-6: 6dvw;
+--dvw-7: 7dvw;
+--dvw-8: 8dvw;
+--dvw-9: 9dvw;
+--dvw-10: 10dvw;
+--dvw-11: 11dvw;
+--dvw-12: 12dvw;
+--dvw-13: 13dvw;
+--dvw-14: 14dvw;
+--dvw-15: 15dvw;
+--dvw-16: 16dvw;
+--dvw-17: 17dvw;
+--dvw-18: 18dvw;
+--dvw-19: 19dvw;
+--dvw-20: 20dvw;
+--dvw-21: 21dvw;
+--dvw-22: 22dvw;
+--dvw-23: 23dvw;
+--dvw-24: 24dvw;
+--dvw-25: 25dvw;
+--dvw-26: 26dvw;
+--dvw-27: 27dvw;
+--dvw-28: 28dvw;
+--dvw-29: 29dvw;
+--dvw-30: 30dvw;
+--dvw-31: 31dvw;
+--dvw-32: 32dvw;
+--dvw-33: 33dvw;
+--dvw-34: 34dvw;
+--dvw-35: 35dvw;
+--dvw-36: 36dvw;
+--dvw-37: 37dvw;
+--dvw-38: 38dvw;
+--dvw-39: 39dvw;
+--dvw-40: 40dvw;
+--dvw-41: 41dvw;
+--dvw-42: 42dvw;
+--dvw-43: 43dvw;
+--dvw-44: 44dvw;
+--dvw-45: 45dvw;
+--dvw-46: 46dvw;
+--dvw-47: 47dvw;
+--dvw-48: 48dvw;
+--dvw-49: 49dvw;
+--dvw-50: 50dvw;
+--dvw-51: 51dvw;
+--dvw-52: 52dvw;
+--dvw-53: 53dvw;
+--dvw-54: 54dvw;
+--dvw-55: 55dvw;
+--dvw-56: 56dvw;
+--dvw-57: 57dvw;
+--dvw-58: 58dvw;
+--dvw-59: 59dvw;
+--dvw-60: 60dvw;
+--dvw-61: 61dvw;
+--dvw-62: 62dvw;
+--dvw-63: 63dvw;
+--dvw-64: 64dvw;
+--dvw-65: 65dvw;
+--dvw-66: 66dvw;
+--dvw-67: 67dvw;
+--dvw-68: 68dvw;
+--dvw-69: 69dvw;
+--dvw-70: 70dvw;
+--dvw-71: 71dvw;
+--dvw-72: 72dvw;
+--dvw-73: 73dvw;
+--dvw-74: 74dvw;
+--dvw-75: 75dvw;
+--dvw-76: 76dvw;
+--dvw-77: 77dvw;
+--dvw-78: 78dvw;
+--dvw-79: 79dvw;
+--dvw-80: 80dvw;
+--dvw-81: 81dvw;
+--dvw-82: 82dvw;
+--dvw-83: 83dvw;
+--dvw-84: 84dvw;
+--dvw-85: 85dvw;
+--dvw-86: 86dvw;
+--dvw-87: 87dvw;
+--dvw-88: 88dvw;
+--dvw-89: 89dvw;
+--dvw-90: 90dvw;
+--dvw-91: 91dvw;
+--dvw-92: 92dvw;
+--dvw-93: 93dvw;
+--dvw-94: 94dvw;
+--dvw-95: 95dvw;
+--dvw-96: 96dvw;
+--dvw-97: 97dvw;
+--dvw-98: 98dvw;
+--dvw-99: 99dvw;
+--dvw-100: 100dvw;
+
+/*----------------------*/
+/* SPACINGS */
+
+--spacing-0  : var(--unit-0);
+--spacing-1  : var(--unit-1);
+--spacing-2  : var(--unit-2);
+--spacing-3  : var(--unit-3);
+--spacing-4  : var(--unit-4);
+--spacing-5  : var(--unit-5);
+--spacing-6  : var(--unit-6);
+--spacing-7  : var(--unit-7);
+--spacing-8  : var(--unit-8);
+--spacing-9  : var(--unit-9);
+--spacing-10 : var(--unit-10);
+--spacing-11 : var(--unit-11);
+--spacing-12 : var(--unit-12);
+--spacing-13 : var(--unit-13);
+--spacing-14 : var(--unit-14);
+
+/*----------------------*/
+/* ROUNDED */
+
+--rounded-0  : var(--unit-0);
+--rounded-4  : var(--unit-1);
+--rounded-8  : var(--unit-2);
+--rounded-12  : var(--unit-3);
+--rounded-16 : var(--unit-4);
+--rounded-20 : var(--unit-5);
+--rounded-24 : var(--unit-6);
+--rounded-28 : var(--unit-7);
+--rounded-full : 625rem;
+
+/*----------------------*/
+/* SPINNER */
+
+--spinner-border-sm  : 3px;
+--spinner-border-md  : 4.5px;
+--spinner-border-lg  : 6px;
+--spinner-sm   : var(--unit-7);
+--spinner-md   : var(--unit-9);
+--spinner-lg   : calc(var(--unit-10) + var(--unit-2));
+
+/*----------------------*/
+/* ELEVATIONS */
+
+--elevation-0: 0;
+--elevation-1: 0px 1px 1px var(--black-0-8), 0px 2px 1px -1px var(--black-0-2), 0px 1px 3px var(--black-0-10);
+--elevation-2: 0px 2px 2px var(--black-0-8), 0px 3px 1px -2px var(--black-0-2), 0px 1px 5px var(--black-0-10);
+--elevation-3: 0px 4px 5px var(--black-0-8), 0px 1px 10px var(--black-0-2), 0px 2px 4px -1px var(--black-0-10);
+--elevation-4: 0px 6px 10px var(--black-0-8), 0px 1px 18px var(--black-0-2), 0px 3px 5px -1px var(--black-0-10);
+--elevation-5: 0px 8px 10px 1px var(--black-0-8), 0px 3px 14px 2px var(--black-0-2), 0px 5px 5px -3px var(--black-0-10);
+--elevation-6: 0px 12px 17px 2px var(--black-0-8), 0px 5px 22px 4px var(--black-0-2), 0px 7px 8px -4px var(--black-0-10);
+--elevation-7: 0px 16px 24px 2px var(--black-0-8), 0px 6px 30px 5px var(--black-0-2), 0px 8px 10px -5px var(--black-0-10);
+--elevation-8: 0px 24px 38px 3px var(--black-0-8), 0px 9px 46px 8px var(--black-0-2), 0px 11px 15px -7px var(--black-0-10);
+
+/*----------------------*/
+/* COLORS WITH OPACITY AND SHADOWS */
+
+--transparent:  transparent;
+
+--black-0-2:  rgba(0, 0, 0, .02);
+--black-0-5:  rgba(0, 0, 0, .05);
+--black-0-8:  rgba(0, 0, 0, .08);
+--black-0-10: rgba(0, 0, 0, .1);
+
+--black-0-13:  rgba(0, 0, 0, .13);
+--black-0-25:  rgba(0, 0, 0, .25);
+--black-0-38:  rgba(0, 0, 0, .38);
+--black-0-50:  rgba(0, 0, 0, .50);
+--black-0-63:  rgba(0, 0, 0, .63);
+--black-0-75:  rgba(0, 0, 0, .75);
+--black-0-88:  rgba(0, 0, 0, .88);
+
+--white-0-13:  rgba(255, 255, 255, .13);
+--white-0-25:  rgba(255, 255, 255, .25);
+--white-0-38:  rgba(255, 255, 255, .38);
+--white-0-50:  rgba(255, 255, 255, .50);
+--white-0-63:  rgba(255, 255, 255, .63);
+--white-0-75:  rgba(255, 255, 255, .75);
+--white-0-88:  rgba(255, 255, 255, .88);
+
+--gray-50-25 : rgba(128, 132, 137, .25);
+--gray-50-75 : rgba(128, 132, 137, .75);
+--gray-100-70 : rgba(30, 31, 31, .7);
+
+--blue-70-25 : rgba(11, 95, 239, 0.25);
+--blue-70-75 : rgba(11, 95, 239, 0.75);
+
+--shadow-white : 0px 0px 0px 2px var(--white);
+--shadow-blue-50 : 0px 0px 0px 4px var(--blue-50);
+--shadow-black-5 : 0px 2px 1px var(--black-0-5);
+--shadow-black-25 : 0px 0px 1px var(--black-0-25);
+
+--shadow-focus : inset 0px 0px 0px 2px var(--blue-70);
+
+--switch-false-limit: calc(0% + (var(--unit-7) / 2));
+--switch-true-limit: calc(100% - (var(--unit-7) / 2));
+
+/*----------------------*/
+/* ICONS */
+
+--font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+/*----------------------*/
+/* TRANSITION SPEED */
+
+--transition-slow : 0.45s;
+--transition-medium : 0.3s;
+--transition-fast : 0.15s;
+
+/*----------------------*/
+/* SUPERGRAPHIC COLOR */
+
+--sg-color-1: var(--blue-80);
+--sg-color-2: var(--blue-50);
+--sg-color-3: var(--blue-20);
+
+/*----------------------*/
+/* SITEWIDE VARIABLES */
+
+--site-theme-color : var(--blue-70);
+--site-header  : var(--vh-17);
+--site-footer  : var(--vh-17);
+--site-padding  : var(--unit-6);
+--site-banner  : calc(var(--unit-14) * 5);
+--site-logo   : url('/assets/images/site-logo/site-logo.svg');
+--site-logo-dark : url('/assets/images/site-logo/site-logo-dark.svg');
+
+}
