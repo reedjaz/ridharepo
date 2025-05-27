@@ -1032,9 +1032,11 @@
 /*----------------------*/
 /* TRANSITION SPEED */
 
+--transition-extra-slow : 0.65s;
 --transition-slow : 0.45s;
 --transition-medium : 0.3s;
 --transition-fast : 0.15s;
+--transition-extra-fast : 0.05s;
 
 /*----------------------*/
 /* SUPERGRAPHIC COLOR */

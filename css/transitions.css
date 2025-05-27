@@ -291,7 +291,7 @@ input, textarea {
 }
 .button, button,
 button.stepper-button:before {
-	transition: all var(--transition-medium) ease;
+	transition: all var(--transition-extra-fast) ease;
 }
 .list, .list-item {
 	transition: all var(--transition-fast) ease;

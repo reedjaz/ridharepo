@@ -5,37 +5,37 @@ button, button.ultimate, button.medium,
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	padding: var(--unit-3) var(--unit-5);
+	padding: var(--vh-2) var(--vh-5);
 	background: var(--action-default);
 	border: 1px solid var(--action-default);
-	border-radius: var(--rounded-8);
+	border-radius: var(--vh-2);
 	color: var(--white);
 	font-family: var(--font-family-secondary);
 	font-style: normal;
 	font-weight: var(--font-weight-bold);
-	font-size: var(--font-size-action);
-	line-height: var(--line-height-button);
+	font-size: var(--vh-3);
+	line-height: var(--vh-3);
 	text-decoration: none;
 	width: fit-content;
 	cursor: pointer;
 	text-align: center;
 	user-select: none;
 	overflow: hidden;
+	position: relative;
+	bottom: calc(var(--vh-1) / 2);
+	box-shadow: 0 calc(var(--vh-1) / 2) 0 var(--action-pressed);
 }
 button:hover,
 .button:hover, .ultimate:hover {
 	background: var(--action-hovered);
 	border: 1px solid var(--action-hovered);
 }
-button:focus,
-.button:focus, .ultimate:focus {
-	box-shadow: var(--shadow-white), var(--shadow-blue-50);
-}
 button:active,
 .button:active, .ultimate:active {
 	background: var(--action-pressed);
 	border: 1px solid var(--action-pressed);
-	box-shadow: none;
+	bottom: 0;
+	box-shadow: 0 0 0 var(--action-pressed);
 }
 button:disabled, button.disabled,
 .button:disabled, .button.disabled, .ultimate.disabled, .destructive.disabled {
