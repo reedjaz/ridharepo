@@ -9,12 +9,10 @@ function loadHTML(selector, url, options = {}) {
             if (stage) {
                 stage.classList.remove('showheader', 'showfooter', 'immersive');
 
-                // Convert boolean to string type if needed
                 if (typeof options.hideHUD === 'boolean') {
                     options.hideHUD = options.hideHUD ? 'both' : 'none';
                 }
 
-                // Set HUD visibility
                 switch (options.hideHUD) {
                     case 'both':
                         stage.classList.add('immersive');
@@ -61,7 +59,6 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
             void newWrapper.offsetWidth;
 
             newWrapper.classList.remove(`transition-in-${transition}`);
-            newWrapper.classList.add('active');
 
             const prevScene = main.querySelector('.scene-prev');
             if (prevScene) {

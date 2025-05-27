@@ -8,8 +8,6 @@ section, .container {
     padding-left: var(--site-padding);
     overflow: hidden;
     position: relative;
-    display: flex;
-    flex-direction: row;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
