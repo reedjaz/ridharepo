@@ -1,7 +1,7 @@
 {
     "name": "Belajar Bersama Gantar",
     "short_name": "App",
-    "start_url": "/",
+    "start_url": "./index.html",
     "display": "fullscreen",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
