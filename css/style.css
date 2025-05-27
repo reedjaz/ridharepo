@@ -51,6 +51,9 @@ body {
 .stage .main, .stage .main > div {
     width: 100vw;
 }
+.stage .main section {
+    padding: 0 var(--unit-14);
+}
 .stage .footer {
     height: var(--site-footer);
     position: relative;

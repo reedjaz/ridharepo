@@ -9,6 +9,8 @@ function loadHTML(selector, url, options = {}) {
             if (stage) {
                 stage.classList.remove('showheader', 'showfooter', 'immersive');
 
+                applyAmazingTitleEffect();
+                
                 if (typeof options.hideHUD === 'boolean') {
                     options.hideHUD = options.hideHUD ? 'both' : 'none';
                 }
@@ -34,6 +36,7 @@ function loadHTML(selector, url, options = {}) {
 
 // Fungsi Load Scene tanpa transisi
 function loadScene(name, hideHUD = 'none') {
+    applyAmazingTitleEffect();
     return loadHTML('#main .scene', `scene/${name}.html`, { hideHUD });
 }
 
@@ -68,6 +71,8 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
                 }, 500);
             }
 
+            applyAmazingTitleEffect();
+
             if (typeof hideHUD === 'boolean') {
                 hideHUD = hideHUD ? 'both' : 'none';
             }
@@ -95,11 +100,12 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
 
 // DOM Ready
 window.addEventListener('load', () => {
+    firstScene = 'logo';
     Promise.all([
         loadHTML('#header', 'components/header.html'),
         loadHTML('#footer', 'components/footer.html')
     ]).then(() => {
-        return loadScene('splash', 'both');
+        return loadScene(firstScene, 'both');
     }).then(() => {
         const stage = document.querySelector('.stage');
 

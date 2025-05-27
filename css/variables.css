@@ -376,30 +376,30 @@
 --font-weight-extrabold : 800;
 
 /* Font Size */
---font-size-helper      : 1.1111vh;   /* 12px */
---font-size-body-sm     : 1.2037vh;   /* 13px */
---font-size-body        : 1.3889vh;   /* 15px */
---font-size-body-lg     : 1.8519vh;   /* 20px */
---font-size-action      : 1.3889vh;   /* 15px */
---font-size-subheading  : 1.2037vh;   /* 13px */
---font-size-heading-sm  : 1.4815vh;   /* 16px */
---font-size-heading-md  : 1.6667vh;   /* 18px */
---font-size-heading-lg  : 2.0370vh;   /* 22px */
---font-size-eyebrow-sm  : 1.1111vh;   /* 12px */
---font-size-eyebrow-md  : 1.3889vh;   /* 15px */
---font-size-eyebrow-lg  : 1.5741vh;   /* 17px */
---font-size-display-sm  : 2.2222vh;   /* 24px */
---font-size-display-md  : 2.5926vh;   /* 28px */
---font-size-display-lg  : 2.9630vh;   /* 32px */
---font-size-headline-xs : 3.8889vh;   /* 42px */
---font-size-headline-sm : 5.0000vh;   /* 54px */
---font-size-headline-md : 5.9259vh;   /* 64px */
---font-size-headline-lg : 7.4074vh;   /* 80px */
+--font-size-helper      : 1.11vh;   /* 12px */
+--font-size-body-sm     : 1.20vh;   /* 13px */
+--font-size-body        : 1.30vh;   /* 15px */
+--font-size-body-lg     : 1.85vh;   /* 20px */
+--font-size-action      : 1.39vh;   /* 15px */
+--font-size-subheading  : 1.20vh;   /* 13px */
+--font-size-heading-sm  : 1.48vh;   /* 16px */
+--font-size-heading-md  : 1.67vh;   /* 18px */
+--font-size-heading-lg  : 2.04vh;   /* 22px */
+--font-size-eyebrow-sm  : 1.11vh;   /* 12px */
+--font-size-eyebrow-md  : 1.39vh;   /* 15px */
+--font-size-eyebrow-lg  : 1.57vh;   /* 17px */
+--font-size-display-sm  : 2.22vh;   /* 24px */
+--font-size-display-md  : 2.59vh;   /* 28px */
+--font-size-display-lg  : 2.96vh;   /* 32px */
+--font-size-headline-xs : 3.89vh;   /* 42px */
+--font-size-headline-sm : 5.00vh;   /* 54px */
+--font-size-headline-md : 5.93vh;   /* 64px */
+--font-size-headline-lg : 7.41vh;   /* 80px */
 
---font-size-button-sm   : 1.4815vh;   /* 16px */
---font-size-button-md   : 1.8519vh;   /* 20px */
---font-size-button-lg   : 1.8519vh;   /* 20px */
---font-size-icon-only   : 2.2222vh;   /* 24px */
+--font-size-button-sm   : 1.48vh;   /* 16px */
+--font-size-button-md   : 1.85vh;   /* 20px */
+--font-size-button-lg   : 1.85vh;   /* 20px */
+--font-size-icon-only   : 2.22vh;   /* 24px */
 
 /* Font Weight */
 --font-weight-helper  : var(--font-weight-regular);
@@ -444,25 +444,25 @@
 --font-weight-bold-headline-lg : var(--font-weight-extrabold);
 
 /* Line Height */
---line-height-helper   : 1rem;
---line-height-body-sm   : 1.25rem;
---line-height-body    : 1.5rem; 
---line-height-body-lg   : 1.75rem;
---line-height-action   : 1.5rem; 
---line-height-subheading  : 1rem;
---line-height-heading-sm  : 1.375rem;
---line-height-heading-md  : 1.5rem;
---line-height-heading-lg  : 1.75rem;
---line-height-eyebrow-sm  : 1rem;
---line-height-eyebrow-md  : 1.5rem; 
---line-height-eyebrow-lg  : 1.5rem;
---line-height-display-sm  : 1.75rem; 
---line-height-display-md  : 2.25rem;
---line-height-display-lg  : 2.25rem; 
---line-height-headline-xs  : 3rem;
---line-height-headline-sm  : 3.875rem;
---line-height-headline-md  : 4.5rem;
---line-height-headline-lg  : 5.5rem;
+--line-height-helper      : 1.48vh;   /* 16px */
+--line-height-body-sm     : 1.85vh;   /* 20px */
+--line-height-body        : 2.22vh;   /* 24px */ 
+--line-height-body-lg     : 2.59vh;   /* 28px */
+--line-height-action      : 2.22vh;   /* 24px */ 
+--line-height-subheading  : 1.48vh;   /* 16px */
+--line-height-heading-sm  : 2.04vh;   /* 22px */
+--line-height-heading-md  : 2.22vh;   /* 24px */
+--line-height-heading-lg  : 2.59vh;   /* 28px */
+--line-height-eyebrow-sm  : 1.48vh;   /* 16px */
+--line-height-eyebrow-md  : 2.22vh;   /* 24px */ 
+--line-height-eyebrow-lg  : 2.22vh;   /* 24px */
+--line-height-display-sm  : 2.59vh;   /* 28px */ 
+--line-height-display-md  : 3.33vh;   /* 36px */
+--line-height-display-lg  : 3.33vh;   /* 36px */ 
+--line-height-headline-xs : 4.44vh;   /* 48px */
+--line-height-headline-sm : 5.74vh;   /* 62px */
+--line-height-headline-md : 6.67vh;   /* 72px */
+--line-height-headline-lg : 8.15vh;   /* 88px */
 
 --line-height-button   : 140%;
 
@@ -951,12 +951,12 @@
 --rounded-0  : var(--unit-0);
 --rounded-4  : var(--unit-1);
 --rounded-8  : var(--unit-2);
---rounded-12  : var(--unit-3);
+--rounded-12 : var(--unit-3);
 --rounded-16 : var(--unit-4);
 --rounded-20 : var(--unit-5);
 --rounded-24 : var(--unit-6);
 --rounded-28 : var(--unit-7);
---rounded-full : 625rem;
+--rounded-full : 925.93vh; /* 625rem; */
 
 /*----------------------*/
 /* SPINNER */

@@ -1,4 +1,5 @@
 const cssFiles = [
+    'anim',
     'button',
     'colors',
     'elevations',
@@ -7,6 +8,7 @@ const cssFiles = [
     'normalize',
     'rounded',
     'section',
+    'separator',
     'spacings',
     'style',
     'transitions',

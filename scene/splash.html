@@ -1,6 +1,57 @@
-<section class="flex column justify-center items-center height-100"
+<section class="flex column justify-center items-center height-100 py-14"
     style="background-image: url('assets/bg-title.jpg');">
-    <h3>Menyimak Dongeng Fabel</h3>
-    <h1 class="headline-lg">Kue Kimu</h1>
-    <button onclick="loadSceneTrans('main-menu', 'footer', 'slide-left')">Mulai Sekarang</button>
+    <div class="flex row gap-10 full height-full">
+        <div class="flex column width-50 height-full gap-12">
+            <div class="flex column items-center">
+                <h1 class="headline-xs text-center text-balance text-indigo-900 unsel">Belajar Seru dari Cerita</h1>
+                <h2 class="amazing-title big-title-a funny weight-800 unsel">DONGENG</h2>
+            </div>
+            <div class="grid grid-2 gap-10 full height-full">
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4">
+                    <button class="flex width-50 height-45" onclick="soundman.play('decide');loadSceneTrans('main-menu', 'none', 'fade')">1</button>
+                    <div class="display-lg text-center text-slate-600 text-uppercase">Mulai Belajar</div>
+                </div>
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4">
+                    <button class="flex column width-50 height-45">
+                        <div>HH</div>
+                    </button>
+                    <div class="display-lg text-center text-slate-600 text-uppercase">Simak Dongeng</div>
+                </div>
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4">
+                    <button class="flex column width-50 height-45">
+                        <div>HH</div>
+                    </button>
+                    <div class="display-lg text-center text-slate-600 text-uppercase">Simak Dongeng</div>
+                </div>
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4">
+                    <button class="flex column width-50 height-45">
+                        <div>HH</div>
+                    </button>
+                    <div class="display-lg text-center text-slate-600 text-uppercase">Main</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex column width-50 height-full justify-between">
+            <div class="flex row">
+                <div class="flex column text-center">Petunjuk Penggunaan</div>
+                <div class="separator-6 horizontal"></div>
+                <div class="flex column text-center">Profil Pengembang</div>
+                <div class="separator-6 horizontal"></div>
+                <div class="flex column text-center">Sumber dan Referensi</div>
+            </div>
+            <dotlottie-player
+                src="assets/anim/gantar-splash.json"
+                background="transparent"
+                speed="1"
+                renderer="svg"
+                id="gantar-splash"
+                class="flex full height-full"
+                loop
+                autoplay>
+            </dotlottie-player>
+            <div class="flex column items-end">
+                <h3 class="name-fase">Fase A</h3>
+            </div>
+        </div>
+    </div>
 </section>

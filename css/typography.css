@@ -1,3 +1,87 @@
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-Light.otf') format('opentype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-LightItalic.otf') format('opentype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-RegularItalic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-Medium.otf') format('opentype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-MediumItalic.otf') format('opentype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-BoldItalic.otf') format('opentype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-Black.otf') format('opentype');
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-BlackItalic.otf') format('opentype');
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-Ultra.otf') format('opentype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Mikado';
+	src: url('assets/fonts/HvDTrial_Mikado-UltraItalic.otf') format('opentype');
+	font-weight: 900;
+	font-style: italic;
+}
+
 .helper {
 	font-family	: var(--font-family-helper);
 	font-size	: var(--font-size-helper); 
@@ -191,3 +275,122 @@
 .text-end {
 	text-align: end;
 }
+
+.amazing-wrapper {
+	position: relative;
+	display: inline-block;
+}
+
+.amazing-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: var(--indigo-500);
+	-webkit-text-stroke: var(--unit-4) var(--white);
+	z-index: 1;
+	pointer-events: none;
+	text-shadow: 0 var(--unit-4) 0 var(--indigo-300);
+	padding: var(--unit-2) 0;
+}
+
+.amazing-title {
+	position: relative;
+	color: var(--indigo-500);
+	z-index: 2;
+	padding: var(--unit-2) 0;
+}
+
+.hero em {
+	font-weight: var(--font-weight-extrabold);
+	font-style: unset;
+}
+
+em {
+	color: var(--text-informational);
+	font-style: unset;
+}
+
+h1 {
+	font-family: var(--font-family-headline-sm);
+	font-size: var(--font-size-headline-sm);
+	line-height: var(--line-height-headline-sm);
+	font-weight: var(--font-weight-headline-sm);
+}
+
+.text-wrap {
+	text-wrap: wrap;
+}
+
+.text-nowrap {
+	text-wrap: nowrap;
+}
+
+.text-balance {
+	text-wrap: balance;
+}
+
+.text-pretty {
+	text-wrap: pretty;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+.text-lowercase {
+	text-transform: lowercase;
+}
+.text-capitalize {
+	text-transform: capitalize;
+}
+
+.big-title-a {
+	font-size: calc(var(--unit-13) * 2);
+	line-height: calc(var(--unit-13) * 2);
+}
+
+.name-fase {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 12;
+	font-size: var(--unit-11);
+	line-height: var(--unit-11);
+	color: var(--white);
+	font-weight: 800;
+	box-shadow: 0 var(--unit-3) 0 var(--orange-600);
+	padding: var(--unit-5) var(--unit-8);
+	background-color: var(--orange-500);
+	border-radius: var(--rounded-24);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.funny {
+	font-family: "Mikado";
+}
+
+.weight-100 { font-weight: 100; }
+.weight-200 { font-weight: 200; }
+.weight-300 { font-weight: 300; }
+.weight-400 { font-weight: 400; }
+.weight-500 { font-weight: 500; }
+.weight-600 { font-weight: 600; }
+.weight-700 { font-weight: 700; }
+.weight-800 { font-weight: 800; }
+.weight-900 { font-weight: 900; }
+
+.text-size-1 { font-size: var(--unit-1); }
+.text-size-2 { font-size: var(--unit-2); }
+.text-size-3 { font-size: var(--unit-3); }
+.text-size-4 { font-size: var(--unit-4); }
+.text-size-5 { font-size: var(--unit-5); }
+.text-size-6 { font-size: var(--unit-6); }
+.text-size-7 { font-size: var(--unit-7); }
+.text-size-8 { font-size: var(--unit-8); }
+.text-size-9 { font-size: var(--unit-9); }
+.text-size-10 { font-size: var(--unit-10); }
+.text-size-11 { font-size: var(--unit-11); }
+.text-size-12 { font-size: var(--unit-12); }
+.text-size-13 { font-size: var(--unit-13); }
+.text-size-14 { font-size: var(--unit-14); }

@@ -1,0 +1,19 @@
+#gantar-splash {
+    position: relative;
+    transform: scale(1.65);
+    transform-origin: 50% 50%;
+    margin: 20vh 0 0 5vh;
+    pointer-events: none;
+    animation: slide-up-in 1.25s ease forwards;
+}
+@keyframes slide-up-in {
+    from {
+        transform: scale(1.65) rotate(-40deg) translateY(100%);
+        opacity: 1;
+    }
+    
+    to {
+        transform: scale(1.65) rotate(0deg)translateY(0);
+        opacity: 1;
+    }
+}

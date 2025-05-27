@@ -16,7 +16,6 @@ section > div, .container > .wrapper {
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     gap: var(--unit-8);
     position: relative;
@@ -47,14 +46,14 @@ section.hero {
     background-size: cover;
     background-position: center;
 }*/
-main section.hero {
+/* main section.hero {
     height: 80vh;
     min-height: 768px;
     gap: var(--unit-14);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+} */
 main section:first-child .wrapper,
 section.hero .wrapper {
     gap: var(--unit-14);

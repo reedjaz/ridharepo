@@ -6,8 +6,11 @@
 	<meta name="theme-color" content="#0468cc" id="themeColorMeta">
 	<link rel="manifest" href="/manifest.json">
 	<title>Menyimak Dongeng Fabel - Belajar Bersama Gantar</title>
+	<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
 <body class="init">
-	<div class="fs-button" onclick="goFullscreen()">FS</div>
+	<div class="fs-button" onclick="goFullscreen()" style="left: 14vh;">FS</div>
+	<button id="toggle-bgm" class="fs-button">🔊</button>
 	<div class="stage init immersive">
 		<header id="header" class="hud header"></header>
 		<main id="main" class="main">
@@ -20,4 +23,6 @@
 <script src="js/loadlist.js"></script>
 <script src="js/fetch.js"></script>
 <script src="js/sw.js"></script>
+<script src="js/soundman.js"></script>
+<script src="js/typography.js"></script>
 </html>
