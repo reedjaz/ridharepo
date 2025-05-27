@@ -104,3 +104,18 @@ body {
 .stage.showfooter .footer {
     margin-bottom: 0;
 }
+
+.fs-button {
+    width: var(--vh-7);
+    height: var(--vh-7);
+    background-color: var(--indigo-500);
+    border-radius: var(--rounded-full);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    position: absolute;
+    z-index: 999;
+    top: var(--vh-1);
+    left: var(--vh-1);
+}
