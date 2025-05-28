@@ -257,6 +257,12 @@ label:has(+ .select) {
     -moz-user-select: none;
     -webkit-user-drag: none;
 }
+.unsel-reset {
+    pointer-events: auto;
+    user-select: auto;
+    -moz-user-select: initial;
+    -webkit-user-drag: auto;
+}
 
 @media (min-width: 1025px) {
 

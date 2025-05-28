@@ -6,6 +6,7 @@ const cssFiles = [
     'flexbox',
     'grid',
     'normalize',
+    'opening',
     'rounded',
     'section',
     'separator',

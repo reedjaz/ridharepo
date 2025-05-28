@@ -1,0 +1,11 @@
+.splash-screen {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    z-index: 1024;
+}
+
+.splash-screen.show {
+    opacity: 1;
+}

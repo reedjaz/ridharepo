@@ -52,7 +52,7 @@ body {
     width: 100vw;
 }
 .stage .main section {
-    padding: 0 var(--unit-14);
+    padding: 0 calc(var(--unit-12) + var(--unit-12));
 }
 .stage .footer {
     height: var(--site-footer);

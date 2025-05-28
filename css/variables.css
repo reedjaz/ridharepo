@@ -1083,7 +1083,7 @@
 --site-theme-color : var(--blue-70);
 --site-header  : calc(var(--unit-14) * 2);
 --site-footer  : calc(var(--unit-14) * 2);
---site-padding  : var(--unit-6);
+--site-padding  : var(--unit-8);
 --site-banner  : calc(var(--unit-14) * 5);
 --site-logo   : url('/assets/images/site-logo/site-logo.svg');
 --site-logo-dark : url('/assets/images/site-logo/site-logo-dark.svg');

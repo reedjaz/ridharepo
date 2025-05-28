@@ -1,7 +1,7 @@
 const soundman = {
     sources: {
-        click: 'assets/audio/click.mp3',
         decide: 'assets/audio/decide.mp3',
+        click: 'assets/audio/click.mp3',
         win: 'assets/audio/win.mp3',
         lose: 'assets/audio/lose.mp3',
         bgm: 'assets/audio/bgm.mp3'

@@ -3,8 +3,14 @@ function loadHTML(selector, url, options = {}) {
     return fetch(url)
         .then(res => res.text())
         .then(html => {
+            const el = document.querySelector(selector);
+            el.innerHTML = html;
+            
+            if (options.name) {
+                el.classList.add(`scene-${options.name}`);
+            }
+            
             document.querySelector(selector).innerHTML = html;
-
             const stage = document.querySelector('.stage');
             if (stage) {
                 stage.classList.remove('showheader', 'showfooter', 'immersive');
@@ -37,7 +43,8 @@ function loadHTML(selector, url, options = {}) {
 // Fungsi Load Scene tanpa transisi
 function loadScene(name, hideHUD = 'none') {
     applyAmazingTitleEffect();
-    return loadHTML('#main .scene', `scene/${name}.html`, { hideHUD });
+    setupBtnSFX();
+    return loadHTML('#main .scene', `scene/${name}.html`, { hideHUD, name });
 }
 
 // Fungsi Load Scene dengan transisi
@@ -45,6 +52,7 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
     const main = document.querySelector('#main');
     const oldScene = main.querySelector('.scene');
 
+    
     if (oldScene) {
         oldScene.classList.remove('scene');
         oldScene.classList.add('scene-prev');
@@ -56,7 +64,9 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
     return fetch(`scene/${name}.html`)
         .then(res => res.text())
         .then(html => {
+            
             newWrapper.innerHTML = html;
+            newWrapper.classList.add(`scene-${name}`);
             main.appendChild(newWrapper);
 
             void newWrapper.offsetWidth;
@@ -72,6 +82,7 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
             }
 
             applyAmazingTitleEffect();
+            setupBtnSFX();
 
             if (typeof hideHUD === 'boolean') {
                 hideHUD = hideHUD ? 'both' : 'none';
@@ -100,13 +111,11 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
 
 // DOM Ready
 window.addEventListener('load', () => {
-    firstScene = 'logo';
+    firstScene = 'splash';
     Promise.all([
         loadHTML('#header', 'components/header.html'),
         loadHTML('#footer', 'components/footer.html')
     ]).then(() => {
-        return loadScene(firstScene, 'both');
-    }).then(() => {
         const stage = document.querySelector('.stage');
 
         if (stage) {
@@ -115,12 +124,7 @@ window.addEventListener('load', () => {
                 stage.classList.add('immersive');
                 stage.classList.remove('init');
                 document.body.classList.remove('init');
-            }, 30);
+            }, 300);
         }
     });
 });
-
-// Kamu bisa bikin sistem navigasi di sini juga, misalnya:
-// document.getElementById("next-button").onclick = () => {
-    //   loadHTML('#main-scene', 'scene/intro.html');
-// };
