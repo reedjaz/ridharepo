@@ -17,5 +17,4 @@ function setupBtnSFX() {
             soundman.play('click');
         });
     });
-    
 }

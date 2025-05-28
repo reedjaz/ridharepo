@@ -5,6 +5,7 @@ const cssFiles = [
     'elevations',
     'flexbox',
     'grid',
+    'gantar',
     'normalize',
     'opening',
     'rounded',

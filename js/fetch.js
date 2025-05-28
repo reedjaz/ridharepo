@@ -1,3 +1,10 @@
+// Mapping Kebutuhan VO
+const sceneVOMap = {
+    'title': { sound: 'vo-title', delay: 1000 },
+    'main-menu': { sound: 'vo-main-menu', delay: 1000 },
+    'gameover': { sound: 'vo-lose', delay: 1500 }
+};
+
 // Fungsi Load HTML
 function loadHTML(selector, url, options = {}) {
     return fetch(url)
@@ -44,6 +51,13 @@ function loadHTML(selector, url, options = {}) {
 function loadScene(name, hideHUD = 'none') {
     applyAmazingTitleEffect();
     setupBtnSFX();
+    soundman.stopChannel('voice');
+    const config = sceneVOMap[name];
+    if (config) {
+        setTimeout(() => {
+            soundman.play(config.sound);
+        }, config.delay);
+    }
     return loadHTML('#main .scene', `scene/${name}.html`, { hideHUD, name });
 }
 
@@ -64,7 +78,7 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
     return fetch(`scene/${name}.html`)
         .then(res => res.text())
         .then(html => {
-            
+
             newWrapper.innerHTML = html;
             newWrapper.classList.add(`scene-${name}`);
             main.appendChild(newWrapper);
@@ -83,6 +97,7 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
 
             applyAmazingTitleEffect();
             setupBtnSFX();
+            soundman.stopChannel('voice');
 
             if (typeof hideHUD === 'boolean') {
                 hideHUD = hideHUD ? 'both' : 'none';
@@ -106,15 +121,22 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
                         break;
                 }
             }
-        });
+            const config = sceneVOMap[name];
+            if (config) {
+                setTimeout(() => {
+                    soundman.play(config.sound);
+                }, config.delay);
+            }
+        }
+    );
 }
 
 // DOM Ready
 window.addEventListener('load', () => {
     firstScene = 'splash';
     Promise.all([
-        loadHTML('#header', 'components/header.html'),
-        loadHTML('#footer', 'components/footer.html')
+        loadHTML('#header', 'components/header/hdr-empty.html'),
+        loadHTML('#footer', 'components/footer/ftr-empty.html')
     ]).then(() => {
         const stage = document.querySelector('.stage');
 

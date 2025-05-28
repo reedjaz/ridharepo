@@ -8,12 +8,8 @@
 </div>
 <div class="splash-screen flex column justify-center items-center height-100 width-100 text-size-8 gap-4" id="screen3"
     onclick="
-        soundman.loop('bgm', 0.25);
-        loadSceneTrans('title', 'both', 'zoom-out').then(() => {
-            setTimeout(() => {
-                soundman.play('decide');
-            }, 2000);
-        });
+        soundman.play('bgm', 0.25);
+        loadSceneTrans('title', 'both', 'zoom-out');
     ">
     <button>Mulai</button>
 </div>

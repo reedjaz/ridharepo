@@ -956,6 +956,12 @@
 --rounded-20 : var(--unit-5);
 --rounded-24 : var(--unit-6);
 --rounded-28 : var(--unit-7);
+--rounded-32 : var(--unit-8);
+--rounded-40 : var(--unit-9);
+--rounded-48 : var(--unit-10);
+--rounded-64 : var(--unit-11);
+--rounded-80 : var(--unit-12);
+--rounded-96 : var(--unit-13);
 --rounded-full : 925.93vh; /* 625rem; */
 
 /*----------------------*/

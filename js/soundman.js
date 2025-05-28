@@ -4,73 +4,114 @@ const soundman = {
         click: 'assets/audio/click.mp3',
         win: 'assets/audio/win.mp3',
         lose: 'assets/audio/lose.mp3',
-        bgm: 'assets/audio/bgm.mp3'
+        bgm: 'assets/audio/bgm.mp3',
+        'vo-title': 'assets/audio/vo-title.mp3',
+        'vo-intro': 'assets/audio/vo-intro.mp3',
+        'vo-exit': 'assets/audio/vo-exit.mp3'
     },
 
     sounds: {},
+    channels: {
+        bgm: null,
+        sfx: [],
+        voice: []
+    },
 
     init() {
         for (let name in this.sources) {
             const audio = new Audio(this.sources[name]);
             audio.preload = 'auto';
-            this.sounds[name] = audio;
-        }
-    },
 
-    play(name, volume = 1.0) {
-        const sound = this.sounds[name];
-        if (sound) {
             if (name === 'bgm') {
-                sound.currentTime = 0;
-                sound.volume = volume;
-                sound.play();
+                audio.loop = true;
+                this.channels.bgm = audio;
             } else {
-                const clone = sound.cloneNode();
-                clone.volume = volume;
-                clone.play();
+                this.sounds[name] = audio;
             }
         }
     },
 
-    loop(name, volume = 1.0) {
-        const sound = this.sounds[name];
-        if (sound) {
-            sound.loop = true;
-            sound.volume = volume;
-            sound.currentTime = 0;
-            sound.play();
+    play(name, volume = 1.0) {
+        if (name === 'bgm') {
+            const bgm = this.channels.bgm;
+            if (!bgm) return;
+            bgm.currentTime = 0;
+            bgm.volume = volume;
+            bgm.play().catch(err => console.warn('Autoplay BGM gagal:', err));
+            return;
         }
+
+        let channelName = 'sfx';
+        if (name.startsWith('vo-')) {
+            channelName = 'voice';
+        }
+
+        const baseSound = this.sounds[name];
+        if (!baseSound) return;
+
+        const clone = baseSound.cloneNode();
+        clone.volume = volume;
+        clone.play().catch(err => console.warn(`Play ${channelName} ${name} gagal:`, err));
+
+        this.channels[channelName].push(clone);
+
+        clone.addEventListener('ended', () => {
+            const index = this.channels[channelName].indexOf(clone);
+            if (index !== -1) this.channels[channelName].splice(index, 1);
+        });
     },
 
     stop(name) {
-        const sound = this.sounds[name];
-        if (sound) {
-            sound.pause();
-            sound.currentTime = 0;
-            sound.loop = false;
+        if (name === 'bgm') {
+            const bgm = this.channels.bgm;
+            if (!bgm) return;
+            bgm.pause();
+            bgm.currentTime = 0;
+            return;
+        }
+
+        if (name.startsWith('vo-')) {
+            this.stopChannel('voice');
+        } else {
+            this.stopChannel('sfx');
         }
     },
 
-    setVolume(name, value) {
-        const sound = this.sounds[name];
-        if (sound) {
-            sound.volume = value;
+    setVolume(channelName, volume) {
+        if (channelName === 'bgm') {
+            const bgm = this.channels.bgm;
+            if (!bgm) return;
+            bgm.volume = volume;
+        } else if (channelName === 'sfx' || channelName === 'voice') {
+            this.channels[channelName].forEach(sound => {
+                sound.volume = volume;
+            });
         }
     },
-    
+
     toggleMuteBGM() {
-        const bgm = this.sounds['bgm'];
-        if (bgm) {
-            bgm.muted = !bgm.muted;
-            return bgm.muted;
-        }
+        const bgm = this.channels.bgm;
+        if (!bgm) return false;
+        bgm.muted = !bgm.muted;
+        return bgm.muted;
     },
-    
-    isBgmMuted() {
-        const bgm = this.sounds['bgm'];
-        return bgm?.muted ?? false;
-    }
 
+    isBgmMuted() {
+        const bgm = this.channels.bgm;
+        return bgm?.muted ?? false;
+    },
+
+    stopChannel(channelName) {
+        if (channelName === 'bgm') {
+            this.stop('bgm');
+        } else if (channelName === 'sfx' || channelName === 'voice') {
+            this.channels[channelName].forEach(sound => {
+                sound.pause();
+                sound.currentTime = 0;
+            });
+            this.channels[channelName] = [];
+        }
+    }
 };
 
 window.addEventListener('DOMContentLoaded', () => {

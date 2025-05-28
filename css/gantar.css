@@ -1,0 +1,9 @@
+#gantar-splash {
+    position: relative;
+    transform: scale(1.65);
+    transform-origin: 50% 50%;
+    margin: 20vh 0 0 5vh;
+    pointer-events: none;
+    animation: slideInUp 1.25s ease forwards;
+    z-index: 10;
+}
