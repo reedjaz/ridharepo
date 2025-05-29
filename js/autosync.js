@@ -55,21 +55,22 @@ function highlightTranscriptDuringAudio(audio, el) {
 }
 
 function playVOForElement(target) {
-    console.log("Play VO triggered", target);
     const el = (typeof target === 'string') ? document.querySelector(target) : target;
     if (!el) return console.warn('Elemen tidak ditemukan:', target);
 
     const audioName = el.dataset.audio;
     const transcriptVarName = el.dataset.transcript;
 
-    const audio = soundman.sounds[audioName];
     const transcript = window[transcriptVarName];
-
-    if (!audio || !transcript) return;
+    if (!transcript) return console.warn('Transkrip tidak ditemukan:', transcriptVarName);
 
     renderTranscriptToElement(el, transcript);
+
+    const audio = soundman.play(audioName);
+    if (!audio) return console.warn('Audio tidak ditemukan atau gagal diputar:', audioName);
+
     audio.currentTime = 0;
     audio.play().then(() => {
         highlightTranscriptDuringAudio(audio, el);
-    });
+    }).catch(err => console.warn('Gagal mainkan audio:', err));
 }

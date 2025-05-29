@@ -34,32 +34,34 @@ const soundman = {
     play(name, volume = 1.0) {
         if (name === 'bgm') {
             const bgm = this.channels.bgm;
-            if (!bgm) return;
+            if (!bgm) return null;
             bgm.currentTime = 0;
             bgm.volume = volume;
             bgm.play().catch(err => console.warn('Autoplay BGM gagal:', err));
-            return;
+            return bgm;
         }
-
+    
         let channelName = 'sfx';
         if (name.startsWith('vo-')) {
             channelName = 'voice';
         }
-
+    
         const baseSound = this.sounds[name];
-        if (!baseSound) return;
-
+        if (!baseSound) return null;
+    
         const clone = baseSound.cloneNode();
         clone.volume = volume;
         clone.play().catch(err => console.warn(`Play ${channelName} ${name} gagal:`, err));
-
+    
         this.channels[channelName].push(clone);
-
+    
         clone.addEventListener('ended', () => {
             const index = this.channels[channelName].indexOf(clone);
             if (index !== -1) this.channels[channelName].splice(index, 1);
         });
-    },
+    
+        return clone;
+    },    
 
     stop(name) {
         if (name === 'bgm') {
