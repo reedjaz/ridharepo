@@ -1,27 +1,26 @@
-window.voTitle = [
-    { word: "Halo", start: 0, end: 0.42 },
-    { word: "teman-teman!", start: 0.42, end: 1.42 },
-    { word: "Perkenalkan,", start: 1.42, end: 2.38 },
-    { word: "aku", start: 2.38, end: 2.81 },
-    { word: "Gantar,", start: 2.81, end: 3.48 },
-    { word: "si", start: 3.48, end: 3.86 },
-    { word: "gajah", start: 3.86, end: 4.29 },
-    { word: "pintar!", start: 4.29, end: 5.38 },
-    { word: "Hari", start: 5.38, end: 5.66 },
-    { word: "ini", start: 5.66, end: 6.46 },
-    { word: "kita", start: 6.46, end: 6.74 },
-    { word: "akan", start: 6.74, end: 7.07 },
-    { word: "menyimak", start: 7.07, end: 7.46 },
-    { word: "sebuah", start: 7.46, end: 7.84 },
-    { word: "dongeng", start: 7.84, end: 8.13 },
-    { word: "seru", start: 8.13, end: 8.57 },
-    { word: "berjudul", start: 8.57, end: 9.16 },
-    { word: "\"Kue", start: 9.16, end: 9.5 },
-    { word: "Kimu\".", start: 9.5, end: 10.45 },
-    { word: "Yuk,", start: 10.45, end: 10.91 },
-    { word: "belajar", start: 10.91, end: 11.36 },
-    { word: "bersamaku!", start: 11.36, end: 12.9 },
-  ];
+function kebabToCamel(str) {
+    return str.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+}
+
+function readAloud(nameKebab, play = true) {
+    const nameCamel = kebabToCamel(nameKebab);
+    
+    return fetch(`assets/autosync/${nameKebab}.json`)
+    .then(res => {
+        if (!res.ok) throw new Error(`Gagal load ${nameKebab}.json`);
+        return res.json();
+    })
+    .then(data => {
+        window[nameCamel] = data;
+        
+        if (play) {
+            playVOForElement(nameKebab);
+        }
+        
+        return data;
+    })
+    .catch(err => console.error('Error di readAloud:', err));
+}
 
 function renderTranscriptToElement(el, transcript) {
     el.innerHTML = '';
@@ -31,7 +30,7 @@ function renderTranscriptToElement(el, transcript) {
         span.dataset.start = item.start;
         span.dataset.end = item.end;
         el.appendChild(span);
-
+        
         if (index < transcript.length - 1) {
             el.appendChild(document.createTextNode(' '));
         }
@@ -54,23 +53,51 @@ function highlightTranscriptDuringAudio(audio, el) {
     requestAnimationFrame(update);
 }
 
-function playVOForElement(target) {
-    const el = (typeof target === 'string') ? document.querySelector(target) : target;
-    if (!el) return console.warn('Elemen tidak ditemukan:', target);
-
-    const audioName = el.dataset.audio;
-    const transcriptVarName = el.dataset.transcript;
-
-    const transcript = window[transcriptVarName];
-    if (!transcript) return console.warn('Transkrip tidak ditemukan:', transcriptVarName);
-
+function playVOForElement(nameKebab) {
+    const id = nameKebab;
+    const nameCamel = kebabToCamel(nameKebab);
+    const el = document.getElementById(id);
+    if (!el) {
+        console.warn('Elemen dengan id tidak ditemukan:', id);
+        return;
+    }
+    
+    const transcript = window[nameCamel];
+    if (!transcript) {
+        console.warn(`Transkrip tidak ditemukan di window['${nameCamel}']`);
+        return;
+    }
     renderTranscriptToElement(el, transcript);
-
-    const audio = soundman.play(audioName);
-    if (!audio) return console.warn('Audio tidak ditemukan atau gagal diputar:', audioName);
-
+    
+    const audio = soundman.play(nameKebab);
+    if (!audio) {
+        console.warn(`Audio dengan key '${nameKebab}' tidak ditemukan atau gagal diputar.`);
+        return;
+    }
+    
     audio.currentTime = 0;
     audio.play().then(() => {
         highlightTranscriptDuringAudio(audio, el);
     }).catch(err => console.warn('Gagal mainkan audio:', err));
+}
+
+function loadAndRenderAllVoTexts() {
+    const elements = document.querySelectorAll('.vo-text');
+    elements.forEach(el => {
+        const id = el.id;
+        if (!id) return;
+        
+        const nameCamel = kebabToCamel(id);
+        
+        fetch(`assets/autosync/${id}.json`)
+        .then(res => {
+            if (!res.ok) throw new Error(`Gagal load ${id}.json`);
+            return res.json();
+        })
+        .then(data => {
+            window[nameCamel] = data;
+            renderTranscriptToElement(el, data);
+        })
+        .catch(err => console.error(`Error load/render transcript ${id}:`, err));
+    });
 }
