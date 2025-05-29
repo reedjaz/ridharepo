@@ -23,7 +23,7 @@
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(var(--unit-12));
     }
 
     100% {

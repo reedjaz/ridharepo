@@ -121,23 +121,23 @@ body.init *,
 /* bounce in (simple) */
 .transition-in-bounce {
 	opacity: 0;
-	transform: translateY(-50px);
+	transform: translateY(calc(var(--unit-11) * -1));
 	animation: bounceIn 0.5s forwards ease-out;
 }
 
 @keyframes bounceIn {
 	0% {
 		opacity: 0;
-		transform: translateY(-50px);
+		transform: translateY(calc(var(--unit-11) * -1));
 	}
 
 	60% {
 		opacity: 1;
-		transform: translateY(10px);
+		transform: translateY(var(--unit-4));
 	}
 
 	80% {
-		transform: translateY(-5px);
+		transform: translateY(calc(var(--unit-2) * -1));
 	}
 
 	100% {
@@ -277,12 +277,12 @@ body.init *,
 	}
 
 	20% {
-		transform: translateY(-10px);
+		transform: translateY(calc(var(--unit-4) * -1));
 	}
 
 	100% {
 		opacity: 0;
-		transform: translateY(50px);
+		transform: translateY(var(--unit-11));
 	}
 }
 
