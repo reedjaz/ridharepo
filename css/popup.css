@@ -1,0 +1,57 @@
+.popup {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.popup.show {
+    pointer-events: auto;
+}
+
+/* Overlay fade */
+.popup-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(var(--unit-6));
+}
+
+.popup.show .popup-overlay {
+    opacity: 1;
+}
+
+/* Wrapper zoom + fade */
+.popup-content-wrapper {
+    position: relative;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+.popup.show .popup-content-wrapper {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup-content {
+    background: var(--amber-100);
+    padding: var(--unit-10);
+    border-radius: var(--rounded-32);
+    width: 100vw;
+    max-width: var(--vh-72);
+    border: var(--unit-3) solid var(--amber-500);
+    box-shadow: 0 var(--unit-4) 0 var(--amber-700);
+    padding-top: var(--unit-13);
+}
+
+.popup-content .amazing-wrapper {
+    margin-top: calc((var(--unit-14) + var(--unit-8)) * -1);
+    margin-bottom: var(--unit-5);
+}

@@ -1,0 +1,469 @@
+/* SWITCH REGULAR */
+.switch {
+	display: flex;
+	position: relative;
+	padding: var(--unit-2) 0 var(--unit-2) calc(var(--unit-11) + var(--unit-4));
+	font-family: var(--font-family-body);
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-body);
+	line-height: var(--line-height-body);
+	user-select: none;
+	color: var(--text-default);
+    align-items: center;
+}
+.switch .label {
+	cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.switch .label .helper {
+	margin-top: 0;
+}
+.switch input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.switch .mark {
+	position: absolute;
+	left: 0;
+    height: var(--unit-7);
+	width: calc(var(--unit-11) - var(--unit-1));
+	border: calc(var(--unit-1) / 2) solid var(--border-default);
+	background: var(--surface-subdued);
+	border-radius: var(--rounded-full);
+	display: flex;
+    align-items: center;
+	cursor: pointer;
+	box-sizing: content-box;
+    overflow: hidden;
+}
+.switch .mark:before {
+	content: "";
+	position: absolute;
+	display: flex;
+	opacity: 1;
+	width: calc(0% + (var(--unit-7) / 2));
+	height: var(--unit-7);
+    left: 0;
+    background: var(--action-default);
+}
+.switch input:checked ~  .mark:before {
+	width: calc(100% - (var(--unit-7) / 2));
+}
+	background: var(--surface-selected-default);
+	border: calc(var(--unit-1) / 2) solid var(--gray-400);
+}
+.switch:hover input ~ .mark:before {
+	background: var(--action-hovered);
+}
+.switch:hover input ~ .mark:after {
+    color: var(--gray-400);
+    box-shadow: 0 0 0 calc(var(--unit-1) / 2) var(--gray-400);
+}
+.switch input:checked ~ .mark {
+	background: var(--surface-default);
+	border: calc(var(--unit-1) / 2) solid var(--action-default);
+}
+.switch:hover input:checked ~ .mark {
+	background: var(--surface-subdued);
+	border: calc(var(--unit-1) / 2) solid var(--action-hovered);
+}
+.switch input:checked ~ .mark:after {
+	content: "";
+    transform: rotate(0deg);
+    left: calc(100% - var(--unit-7));
+	background: var(--surface-default);
+	background-image: url(../assets/sw-check.svg);
+    background-size: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+    color: var(--action-default);
+    box-shadow: 0 0 0 calc(var(--unit-1) / 2) var(--action-default);
+}
+.switch:hover input:checked ~ .mark:after {
+    color: var(--action-hovered);
+    box-shadow: 0 0 0 calc(var(--unit-1) / 2) var(--action-hovered);
+}
+.switch .mark:after {
+	content: "";
+	position: absolute;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	opacity: 1;
+	width: var(--unit-7);
+	height: var(--unit-7);
+    left: 0;
+    overflow: hidden;
+    background: var(--surface-default);
+	background-image: url(../assets/sw-uncheck.svg);
+    background-size: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: var(--rounded-full);
+    font-family: var(--font-family-icons);
+    font-size: var(--font-size-action);
+    font-weight: var(--font-weight-bold);
+    box-shadow: 0 0 0 calc(var(--unit-1) / 2) var(--border-default);
+    color: var(--border-default);
+    transform: rotate(-90deg);
+}
+.switch.right {
+	padding: var(--unit-2) calc(var(--unit-11) + var(--unit-4)) var(--unit-2) 0;
+}
+.switch.right .mark {
+	left: unset;
+	right: 0;
+}
+.switch input:disabled ~ .mark,
+.switch:hover input:disabled ~ .mark {
+	background: var(--surface-pressed);
+	border: calc(var(--unit-1) / 2) solid var(--action-disabled);
+}
+.switch input:disabled ~ .mark:before {
+	background: var(--surface-pressed);
+}
+.switch input:disabled ~ .mark:after {
+	color: var(--gray-400);
+    box-shadow: 0 0 0 calc(var(--unit-1) / 2) var(--action-disabled);
+}
+.switch input:disabled ~ .mark:after {
+	color: var(--gray-400);
+    box-shadow: 0 0 0 calc(var(--unit-1) / 2) var(--action-disabled);
+    background: var(--surface-disabled);
+}
+.switch input:disabled:checked ~ .mark:before {
+	background: var(--action-disabled);
+}
+.switch input:disabled:checked ~ .mark:after {
+	color: var(--gray-400);
+    box-shadow: 0 0 0 calc(var(--unit-1) / 2) var(--action-disabled);
+}
+
+
+/* SWITCH MEDIUM */
+.switch.medium {
+	display: flex;
+	position: relative;
+	padding: var(--unit-4) 0 var(--unit-4) calc(var(--unit-12) + var(--unit-6));
+	font-family: var(--font-family-body);
+	font-size: var(--unit-7);
+	font-weight: var(--font-weight-body);
+	line-height: var(--unit-7);
+	user-select: none;
+	color: var(--text-default);
+	align-items: center;
+}
+
+.switch.medium .label {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+}
+
+.switch.medium .label .helper {
+	margin-top: 0;
+}
+
+.switch.medium input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.switch.medium .mark {
+	position: absolute;
+	left: 0;
+	height: var(--unit-9);
+	width: calc(var(--unit-12) - var(--unit-1));
+	border: var(--unit-1) solid var(--border-default);
+	background: var(--surface-subdued);
+	border-radius: var(--rounded-full);
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	box-sizing: content-box;
+	overflow: hidden;
+}
+
+.switch.medium .mark:before {
+	content: "";
+	position: absolute;
+	display: flex;
+	opacity: 1;
+	width: calc(0% + (var(--unit-9) / 2));
+	height: var(--unit-9);
+	left: 0;
+	background: var(--action-default);
+}
+
+.switch.medium input:checked~.mark:before {
+	width: calc(100% - (var(--unit-9) / 2));
+}
+
+.switch.medium:hover input~.mark {
+	background: var(--surface-selected-default);
+	border: var(--unit-1) solid var(--gray-400);
+}
+
+.switch.medium:hover input~.mark:before {
+	background: var(--action-hovered);
+}
+
+.switch.medium:hover input~.mark:after {
+	color: var(--gray-400);
+}
+
+.switch.medium input:checked~.mark {
+	background: var(--surface-default);
+	border: var(--unit-1) solid var(--action-default);
+}
+
+.switch.medium:hover input:checked~.mark {
+	background: var(--surface-subdued);
+	border: var(--unit-1) solid var(--action-hovered);
+}
+
+.switch.medium input:checked~.mark:after {
+	content: "";
+	transform: rotate(0deg);
+	left: calc(100% - var(--unit-9));
+	background: var(--surface-default);
+	background-image: url(../assets/sw-check.svg);
+	background-size: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: var(--action-default);
+	box-shadow: 0 0 0 var(--unit-1) var(--action-default);
+}
+
+.switch.medium:hover input:checked~.mark:after {
+	color: var(--action-hovered);
+	box-shadow: 0 0 0 var(--unit-1) var(--action-hovered);
+}
+
+.switch.medium .mark:after {
+	content: "";
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 1;
+	width: var(--unit-9);
+	height: var(--unit-9);
+	left: 0;
+	overflow: hidden;
+	background: var(--surface-default);
+	background-image: url(../assets/sw-uncheck.svg);
+	background-size: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: var(--rounded-full);
+	font-family: var(--font-family-icons);
+	font-size: var(--font-size-action);
+	font-weight: var(--font-weight-bold);
+	color: var(--border-default);
+	transform: rotate(-90deg);
+}
+
+.switch.medium.right {
+	padding: var(--unit-4) calc(var(--unit-12) + var(--unit-4)) var(--unit-4) 0;
+}
+
+.switch.medium.right .mark {
+	left: unset;
+	right: 0;
+}
+
+.switch.medium input:disabled~.mark,
+.switch.medium:hover input:disabled~.mark {
+	background: var(--surface-pressed);
+	border: var(--unit-1) solid var(--action-disabled);
+}
+
+.switch.medium input:disabled~.mark:before {
+	background: var(--surface-pressed);
+}
+
+.switch.medium input:disabled~.mark:after {
+	color: var(--gray-400);
+	box-shadow: 0 0 0 var(--unit-1) var(--action-disabled);
+	background: var(--surface-disabled);
+}
+
+.switch.medium input:disabled:checked~.mark:before {
+	background: var(--action-disabled);
+}
+
+.switch.medium input:disabled:checked~.mark:after {
+	color: var(--gray-400);
+	box-shadow: 0 0 0 var(--unit-1) var(--action-disabled);
+}
+
+/* SWITCH LARGE */
+.switch.large {
+	display: flex;
+	position: relative;
+	padding: var(--unit-6) var(--unit-0) var(--unit-6) calc(var(--unit-14) + var(--unit-7));
+	font-family: var(--font-family-body);
+	font-size: var(--unit-9);
+	font-weight: var(--font-weight-body);
+	line-height: var(--unit-9);
+	user-select: none;
+	color: var(--text-default);
+	align-items: center;
+}
+
+.switch.large .label {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+}
+
+.switch.large .label .helper {
+	margin-top: var(--unit-0);
+}
+
+.switch.large input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: var(--unit-0);
+	width: var(--unit-0);
+}
+
+.switch.large .mark {
+	position: absolute;
+	left: var(--unit-0);
+	height: var(--unit-11);
+	width: calc(var(--unit-14) - var(--unit-1));
+	border: var(--unit-2) solid var(--border-default);
+	background: var(--surface-subdued);
+	border-radius: var(--rounded-full);
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	box-sizing: content-box;
+	overflow: hidden;
+}
+
+.switch.large .mark:before {
+	content: "";
+	position: absolute;
+	display: flex;
+	opacity: 1;
+	width: calc(0% + (var(--unit-11) / 2));
+	height: var(--unit-11);
+	left: 0;
+	background: var(--action-default);
+}
+
+.switch.large input:checked~.mark:before {
+	width: calc(100% - (var(--unit-11) / 2));
+}
+
+.switch.large:hover input~.mark {
+	background: var(--surface-selected-default);
+	border: var(--unit-2) solid var(--gray-400);
+}
+
+.switch.large:hover input~.mark:before {
+	background: var(--action-hovered);
+}
+
+.switch.large:hover input~.mark:after {
+	color: var(--gray-400);
+	box-shadow: 0 0 0 var(--unit-2) var(--gray-400);
+}
+
+.switch.large input:checked~.mark {
+	background: var(--surface-default);
+	border: var(--unit-2) solid var(--action-default);
+}
+
+.switch.large:hover input:checked~.mark {
+	background: var(--surface-subdued);
+	border: var(--unit-2) solid var(--action-hovered);
+}
+
+.switch.large input:checked~.mark:after {
+	content: "";
+	transform: rotate(0deg);
+	left: calc(100% - var(--unit-11));
+	background: var(--surface-default);
+	background-image: url(../assets/sw-check.svg);
+	background-size: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: var(--action-default);
+	box-shadow: 0 0 0 var(--unit-2) var(--action-default);
+}
+
+.switch.large:hover input:checked~.mark:after {
+	color: var(--action-hovered);
+	box-shadow: 0 0 0 var(--unit-2) var(--action-hovered);
+}
+
+.switch.large .mark:after {
+	content: "";
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 1;
+	width: var(--unit-11);
+	height: var(--unit-11);
+	left: 0;
+	overflow: hidden;
+	background: var(--surface-default);
+	background-image: url(../assets/sw-uncheck.svg);
+	background-size: 70%;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: var(--rounded-full);
+	font-family: var(--font-family-icons);
+	font-size: var(--font-size-action);
+	font-weight: var(--font-weight-bold);
+	box-shadow: 0 0 0 var(--unit-2) var(--border-default);
+	color: var(--border-default);
+	transform: rotate(-90deg);
+}
+
+.switch.large.right {
+	padding: var(--unit-6) calc(var(--unit-14) + var(--unit-4)) var(--unit-6) var(--unit-0);
+}
+
+.switch.large.right .mark {
+	left: unset;
+	right: var(--unit-0);
+}
+
+.switch.large input:disabled~.mark,
+.switch.large:hover input:disabled~.mark {
+	background: var(--surface-pressed);
+	border: var(--unit-2) solid var(--action-disabled);
+}
+
+.switch.large input:disabled~.mark:before {
+	background: var(--surface-pressed);
+}
+
+.switch.large input:disabled~.mark:after {
+	color: var(--gray-400);
+	box-shadow: 0 0 0 var(--unit-2) var(--action-disabled);
+	background: var(--surface-disabled);
+}
+
+.switch.large input:disabled:checked~.mark:before {
+	background: var(--action-disabled);
+}
+
+.switch.large input:disabled:checked~.mark:after {
+	color: var(--gray-400);
+	box-shadow: 0 0 0 var(--unit-2) var(--action-disabled);
+}

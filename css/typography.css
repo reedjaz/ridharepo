@@ -1,83 +1,83 @@
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-Light.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-Light.otf');
 	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-LightItalic.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-LightItalic.otf');
 	font-weight: 300;
 	font-style: italic;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-Regular.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-Regular.otf');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-RegularItalic.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-RegularItalic.otf');
 	font-weight: 400;
 	font-style: italic;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-Medium.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-Medium.otf');
 	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-MediumItalic.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-MediumItalic.otf');
 	font-weight: 500;
 	font-style: italic;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-Bold.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-Bold.otf');
 	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-BoldItalic.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-BoldItalic.otf');
 	font-weight: 700;
 	font-style: italic;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-Black.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-Black.otf');
 	font-weight: 800;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-BlackItalic.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-BlackItalic.otf');
 	font-weight: 800;
 	font-style: italic;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-Ultra.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-Ultra.otf');
 	font-weight: 900;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HvDTrial Mikado';
-	src: url('assets/fonts/HvDTrial_Mikado-UltraItalic.otf') format('opentype');
+	font-family: 'Mikado';
+	src: url('fonts/HvDTrial_Mikado-UltraItalic.otf');
 	font-weight: 900;
 	font-style: italic;
 }
@@ -391,6 +391,16 @@ h1 {
 .weight-700 { font-weight: 700; }
 .weight-800 { font-weight: 800; }
 .weight-900 { font-weight: 900; }
+
+.weight-thin       { font-weight: 100; }  /* Sama seperti .weight-100 */
+.weight-extralight { font-weight: 200; }  /* Sama seperti .weight-200 */
+.weight-light      { font-weight: 300; }  /* Sama seperti .weight-300 */
+.weight-normal     { font-weight: 400; }  /* Sama seperti .weight-400 */
+.weight-medium     { font-weight: 500; }  /* Sama seperti .weight-500 */
+.weight-semibold   { font-weight: 600; }  /* Sama seperti .weight-600 */
+.weight-bold       { font-weight: 700; }  /* Sama seperti .weight-700 */
+.weight-extrabold  { font-weight: 800; }  /* Sama seperti .weight-800 */
+.weight-black      { font-weight: 900; }  /* Sama seperti .weight-900 */
 
 .text-size-1 { font-size: var(--unit-1); }
 .text-size-2 { font-size: var(--unit-2); }

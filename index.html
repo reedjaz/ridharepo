@@ -7,10 +7,10 @@
 	<link rel="manifest" href="/manifest.json">
 	<title>Menyimak Dongeng Fabel - Belajar Bersama Gantar</title>
 	<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+	<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="init">
-	<div class="fs-button" onclick="goFullscreen()" style="left: 14vh;">FS</div>
-	<button id="toggle-bgm" class="fs-button">🔊</button>
+	<div id="popup-buffer" class="popup hidden"></div>
 	<div class="stage init immersive">
 		<header id="header" class="hud header"></header>
 		<main id="main" class="main">
@@ -24,7 +24,9 @@
 <script src="js/fetch.js"></script>
 <script src="js/opening.js"></script>
 <script src="js/button.js"></script>
+<script src="js/popup.js"></script>
 <script src="js/sw.js"></script>
 <script src="js/soundman.js"></script>
+<script src="js/checkbox.js"></script>
 <script src="js/typography.js"></script>
 </html>

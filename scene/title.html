@@ -1,4 +1,4 @@
-<section class="flex column justify-center items-center height-100 py-14"
+<section class="flex column justify-center items-center height-100 pt-12 pb-13"
     style="background-image: url('assets/bg-title.jpg');">
     <div class="flex row gap-10 full height-full">
         <div class="flex column width-50 height-full gap-11">
@@ -7,41 +7,55 @@
                 <h2 class="amazing-title big-title-a funny weight-800 unsel animate-fadeInUp duration-8 delay-2 easing-ease">DONGENG</h2>
             </div>
             <div class="grid grid-2 gap-10 full height-full">
-                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4 animate-zoomIn duration-7 delay-3 easing-snappy">
-                    <button class="rounded-32 btn-decide flex column width-45 height-45" onclick="loadSceneTrans('main-menu', 'none', 'fade')">
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-7 animate-zoomIn duration-7 delay-3 easing-snappy">
+                    <button class="act-study rounded-32 btn-decide flex column width-45 height-45"
+                        onclick="loadSceneTrans('main-menu', 'none', 'fade')
+                    ">
                         <img class="height-7vh" src="assets/ic-1.svg" alt="">
                     </button>
-                    <div class="display-lg text-center text-slate-600 text-uppercase">Mulai Belajar</div>
+                    <div class="text-size-9 line-height-9 weight-bold text-center text-slate-600 text-uppercase">Mulai Belajar</div>
                 </div>
-                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4 animate-zoomIn duration-7 delay-4 easing-snappy">
-                    <button class="rounded-32 btn-decide flex column width-45 height-45">
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-7 animate-zoomIn duration-7 delay-4 easing-snappy">
+                    <button class="act-listen rounded-32 btn-decide flex column width-45 height-45
+                    
+                    ">
                         <img class="height-7vh" src="assets/ic-2.svg" alt="">
                     </button>
-                    <div class="display-lg text-center text-slate-600 text-uppercase">Simak Dongeng</div>
+                    <div class="text-size-9 line-height-9 weight-bold text-center text-slate-600 text-uppercase">Simak Dongeng</div>
                 </div>
-                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4 animate-zoomIn duration-7 delay-5 easing-snappy">
-                    <button class="rounded-32 btn-decide flex column width-45 height-45">
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-7 animate-zoomIn duration-7 delay-5 easing-snappy">
+                    <button class="act-quiz rounded-32 btn-decide flex column width-45 height-45
+
+                    ">
                         <img class="height-7vh" src="assets/ic-3.svg" alt="">
                     </button>
-                    <div class="display-lg text-center text-slate-600 text-uppercase">Coba Kuis</div>
+                    <div class="text-size-9 line-height-9 weight-bold text-center text-slate-600 text-uppercase">Coba Kuis</div>
                 </div>
-                <div class="flex column full rounded-24 surface-white items-center justify-center gap-4 animate-zoomIn duration-7 delay-6 easing-snappy">
-                    <button class="rounded-32 btn-decide flex column width-45 height-45">
+                <div class="flex column full rounded-24 surface-white items-center justify-center gap-7 animate-zoomIn duration-7 delay-6 easing-snappy">
+                    <button class="act-play rounded-32 btn-decide flex column width-45 height-45
+                        
+                    ">
                         <img class="height-7vh" src="assets/ic-4.svg" alt="">
                     </button>
-                    <div class="display-lg text-center text-slate-600 text-uppercase">Main</div>
+                    <div class="text-size-9 line-height-9 weight-bold text-center text-slate-600 text-uppercase">Main</div>
                 </div>
             </div>
         </div>
         <div class="flex column width-50 height-full justify-between">
-            <div class="flex row">
-                <div class="flex column text-center">Petunjuk</div>
-                <div class="separator-6 horizontal"></div>
-                <div class="flex column text-center">Pengembang</div>
-                <div class="separator-6 horizontal"></div>
-                <div class="flex column text-center">Referensi</div>
-                <div class="separator-6 horizontal"></div>
-                <div class="flex column text-center">Pengaturan</div>
+            <div class="flex row gap-7 justify-end">
+                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
+                    <button class="act-neutral btntext btn-click ico-sm"
+                        onclick="openSettings()">
+                        <i data-lucide="settings"></i>
+                    </button>
+                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Pengaturan</span>
+                </div>
+                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
+                    <button class="act-neutral btntext btn-click ico-sm">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Lainnya</span>
+                </div>
             </div>
             <dotlottie-player
                 src="assets/anim/gantar-splash.json"

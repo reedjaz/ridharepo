@@ -1,0 +1,45 @@
+<div class="popup-overlay" onclick="closeSettings()"></div>
+<div class="popup-content-wrapper">
+    <div class="popup-content setting-popup flex column gap-10">
+        <h2 class="text-size-13 line-height-13 funny amazing-title weight-bold text-indigo-700 full text-center">
+            Pengaturan</h2>
+        <div class="flex row full gap-6">
+            <label class="switch full large">
+                <input type="checkbox" id="toggle-bgm-checkbox" checked>
+                <span class="mark">
+                </span>
+                <span class="label">
+                    Musik Latar
+                </span>
+            </label>
+            <label class="switch full large">
+                <input type="checkbox" id="toggle-fs-checkbox" checked>
+                <span class="mark">
+                </span>
+                <span class="label">
+                    Layar Penuh
+                </span>
+            </label>
+        </div>
+        <div class="separator-3 vertical"></div>
+        <div class="flex column gap-6">
+            <div class="flex row full gap-6">
+                <button class="full act-study btn-click"
+                    onclick="
+                    closeSettings();
+                    loadSceneTrans('about', 'footer', 'zoom-out');
+                    ">Tentang
+                </button>
+                <button class="full act-study btn-click"
+                    onclick="
+                    closeSettings();
+                    loadSceneTrans('help', 'footer', 'zoom-out');
+                    ">Bantuan
+                </button>
+            </div>
+            <div class="flex row full gap-6">
+                <button class="full act-wrong btn-click" onclick="closeSettings()">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>

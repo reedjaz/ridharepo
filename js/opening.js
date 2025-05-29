@@ -8,14 +8,30 @@ function startSplashScreenSequence() {
     }
     
     function showScreen(index) {
-        if (index > 0) screens[index - 1].classList.remove("show");
-        screens[index].classList.add("show");
-        
+        if (index > 0) {
+            const prev = screens[index - 1];
+            prev.classList.remove("show");
+    
+            // Tunggu sampai transisi selesai, baru tambahkan .hidden
+            prev.addEventListener("transitionend", function handler() {
+                prev.classList.add("hidden");
+                prev.removeEventListener("transitionend", handler);
+            });
+        }
+    
+        const current = screens[index];
+        current.classList.remove("hidden");
+        // Biarkan browser memproses DOM sebelum menambahkan .show untuk transisi
+        requestAnimationFrame(() => {
+            current.classList.add("show");
+        });
+    
         if (index < screens.length - 1) {
             setTimeout(() => {
-                screens[index].classList.remove("show");
-                setTimeout(() => showScreen(index + 1), 500);
-            }, 1500);
+                current.classList.remove("show");
+                // .hidden akan ditambahkan setelah transisi selesai di event listener
+                setTimeout(() => showScreen(index + 1), 500); // jeda antar splash
+            }, 1500); // durasi tampil tiap splash
         }
     }
     

@@ -1074,7 +1074,7 @@
 --transition-slow : 0.45s;
 --transition-medium : 0.3s;
 --transition-fast : 0.15s;
---transition-extra-fast : 0.05s;
+--transition-extra-fast : 0.08s;
 
 /*----------------------*/
 /* SUPERGRAPHIC COLOR */
@@ -1093,5 +1093,8 @@
 --site-banner  : calc(var(--unit-14) * 5);
 --site-logo   : url('/assets/images/site-logo/site-logo.svg');
 --site-logo-dark : url('/assets/images/site-logo/site-logo-dark.svg');
+--btnwithcaption-width: 8.23vh;
+--btnwithcaption-height: 6.66vh;
+--btnwithcaption-wrapper: 12.31vh;
 
 }

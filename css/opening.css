@@ -1,11 +1,22 @@
 .splash-screen {
     position: absolute;
-    opacity: 0;
     transition: opacity 0.5s ease;
     text-align: center;
     z-index: 1024;
+    opacity: 0;
+    visibility: visible;
 }
 
 .splash-screen.show {
     opacity: 1;
+    visibility: visible;
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-screen button {
+    pointer-events: auto;
 }

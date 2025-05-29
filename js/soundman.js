@@ -1,11 +1,11 @@
 const soundman = {
     sources: {
+        bgm: 'assets/audio/bgm.mp3',
         decide: 'assets/audio/decide.mp3',
         click: 'assets/audio/click.mp3',
-        win: 'assets/audio/win.mp3',
+        hover: 'assets/audio/hover.mp3',
         lose: 'assets/audio/lose.mp3',
-        bgm: 'assets/audio/bgm.mp3',
-        'vo-title': 'assets/audio/vo-title.mp3',
+        'vo-title': 'assets/audio/vo-titlez.mp3',
         'vo-intro': 'assets/audio/vo-intro.mp3',
         'vo-exit': 'assets/audio/vo-exit.mp3'
     },
@@ -106,19 +106,32 @@ const soundman = {
             this.stop('bgm');
         } else if (channelName === 'sfx' || channelName === 'voice') {
             this.channels[channelName].forEach(sound => {
-                sound.pause();
-                sound.currentTime = 0;
+                if (!sound.paused || !sound.ended) {
+                    try {
+                        sound.pause();
+                        sound.currentTime = 0;
+                    } catch (err) {
+                        console.warn(`Error stopping ${channelName} sound:`, err);
+                    }
+                }
             });
+    
             this.channels[channelName] = [];
         }
+    }
+    
+};
+
+soundman.isPlaying = function (name) {
+    if (name === 'bgm') {
+        const bgm = this.channels.bgm;
+        return !!(bgm && !bgm.paused && !bgm.ended);
+    } else {
+        const audio = this.sounds?.[name];
+        return !!(audio && !audio.paused && !audio.ended);
     }
 };
 
 window.addEventListener('DOMContentLoaded', () => {
     soundman.init();
-});
-
-document.getElementById('toggle-bgm').addEventListener('click', function () {
-    const isMuted = soundman.toggleMuteBGM();
-    this.textContent = isMuted ? '🔇' : '🔊';
 });

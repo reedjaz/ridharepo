@@ -1,15 +1,37 @@
-<div class="splash-screen flex column justify-center unsel items-center height-100 width-100 text-size-8 gap-4"
-    id="screen1">
+<div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+    id="screen1"
+    onclick="
+        soundman.play('bgm', bgmVol);
+        loadSceneTrans('title', 'both', 'zoom-out');
+        goFullscreen();
+    ">
     <img src="assets/tut-wuri.svg" class="height-17 unsel" alt="Kemendikdasmen" />
 </div>
-<div class="splash-screen flex column justify-center unsel items-center height-100 width-100 text-size-8 gap-4"
-    id="screen2">
+<div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+    id="screen2"
+    onclick="
+        soundman.play('bgm', bgmVol);
+        loadSceneTrans('title', 'both', 'zoom-out');
+        goFullscreen();
+    ">
     <img src="assets/thinkin.svg" class="height-16 unsel" alt="Thinkin Studio" />
 </div>
-<div class="splash-screen flex column justify-center items-center height-100 width-100 text-size-8 gap-4" id="screen3"
-    onclick="
-        soundman.play('bgm', 0.25);
+<div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4"
+    id="screen3">
+    <button class="btn-decide" onclick="
+        soundman.play('bgm', bgmVol);
         loadSceneTrans('title', 'both', 'zoom-out');
-    ">
-    <button>Mulai</button>
+        goFullscreen();
+    "><i data-lucide="play"></i>Mulai</button>
 </div>
+<!-- <div class="flex column justify-center items-center height-100 width-100 text-size-8 gap-4"
+    id="screen3">
+    <button class="btn-click"></i>Generic</button>
+    <button class="btn-click act-study"></i>Study</button>
+    <button class="btn-click act-listen"></i>Listen</button>
+    <button class="btn-click act-quiz"></i>Quiz</button>
+    <button class="btn-click act-play"></i>Play</button>
+    <button class="btn-click act-wrong"></i>Wrong</button>
+    <button class="btn-click act-correct"></i>Correct</button>
+    <button class="btn-click act-neutral"></i>Neutral</button>
+</div> -->

@@ -25,6 +25,7 @@ button, button.ultimate, button.medium,
 	position: relative;
 	bottom: var(--unit-3);
 	box-shadow: 0 var(--unit-3) 0 var(--action-pressed);
+	gap: var(--unit-6);
 }
 button:hover,
 .button:hover, .ultimate:hover {
@@ -315,4 +316,143 @@ button.large.onload:before,
 button.full,
 .button.full {
 	width: 100%;
+}
+
+button.btntext {
+	width: var(--btnwithcaption-width);
+	height: var(--btnwithcaption-height);
+	padding: var(--unit-2);
+}
+.btntext-wrapper {
+	width: var(--btnwithcaption-wrapper);
+}
+
+button .lucide {
+	width: var(--unit-11);
+	height: var(--unit-11);
+	stroke-width: calc(var(--unit-5) / 7);
+    position: relative;
+    top: var(--unit-1);
+}
+
+button.ico-sm .lucide {
+	width: var(--unit-9);
+	height: var(--unit-9);
+	border-radius: var(--unit-6);
+    top: 0;
+}
+button.ico-md .lucide {
+	width: var(--unit-11);
+	height: var(--unit-11);
+}
+button.ico-lg .lucide {
+	width: var(--unit-13);
+	height: var(--unit-13);
+}
+
+/* COLORFUL BUTTONS AHEYYYY */
+
+/* STUDY (INDIGO) */
+button.act-study, .button.act-study {
+	background: var(--indigo-500);
+	border-color: var(--indigo-500);
+	box-shadow: 0 var(--unit-3) 0 var(--indigo-700);
+}
+button.act-study:hover, .button.act-study:hover {
+	background: var(--indigo-400);
+	border-color: var(--indigo-400);
+	box-shadow: 0 var(--unit-3) 0 var(--indigo-600);
+}
+button.act-study:active, .button.act-study:active {
+	box-shadow: 0 0 0 var(--indigo-700);
+}
+
+/* LISTEN (LIME) */
+button.act-listen, .button.act-listen {
+	background: var(--lime-500);
+	border-color: var(--lime-500);
+	box-shadow: 0 var(--unit-3) 0 var(--lime-700);
+}
+button.act-listen:hover, .button.act-listen:hover {
+	background: var(--lime-400);
+	border-color: var(--lime-400);
+	box-shadow: 0 var(--unit-3) 0 var(--lime-600);
+}
+button.act-listen:active, .button.act-listen:active {
+	box-shadow: 0 0 0 var(--lime-700);
+}
+
+/* QUIZ (AMBER) */
+button.act-quiz, .button.act-quiz {
+	background: var(--amber-500);
+	border-color: var(--amber-500);
+	box-shadow: 0 var(--unit-3) 0 var(--amber-700);
+}
+button.act-quiz:hover, .button.act-quiz:hover {
+	background: var(--amber-400);
+	border-color: var(--amber-400);
+	box-shadow: 0 var(--unit-3) 0 var(--amber-700);
+}
+button.act-quiz:active, .button.act-quiz:active {
+	box-shadow: 0 0 0 var(--amber-700);
+}
+
+/* PLAY (PINK) */
+button.act-play, .button.act-play {
+	background: var(--pink-500);
+	border-color: var(--pink-500);
+	box-shadow: 0 var(--unit-3) 0 var(--pink-700);
+}
+button.act-play:hover, .button.act-play:hover {
+	background: var(--pink-400);
+	border-color: var(--pink-400);
+	box-shadow: 0 var(--unit-3) 0 var(--pink-600);
+}
+button.act-play:active, .button.act-play:active {
+	box-shadow: 0 0 0 var(--pink-700);
+}
+
+/* WRONG (RED) */
+button.act-wrong, .button.act-wrong {
+	background: var(--red-600);
+	border-color: var(--red-600);
+	box-shadow: 0 var(--unit-3) 0 var(--red-800);
+}
+button.act-wrong:hover, .button.act-wrong:hover {
+	background: var(--red-500);
+	border-color: var(--red-500);
+	box-shadow: 0 var(--unit-3) 0 var(--red-700);
+}
+button.act-wrong:active, .button.act-wrong:active {
+	box-shadow: 0 0 0 var(--red-800);
+}
+
+/* CORRECT (LIME) */
+button.act-correct, .button.act-correct {
+	background: var(--lime-600);
+	border-color: var(--lime-600);
+	box-shadow: 0 var(--unit-3) 0 var(--lime-800);
+}
+button.act-correct:hover, .button.act-correct:hover {
+	background: var(--lime-500);
+	border-color: var(--lime-500);
+	box-shadow: 0 var(--unit-3) 0 var(--lime-700);
+}
+button.act-correct:active, .button.act-correct:active {
+	box-shadow: 0 0 0 var(--lime-800);
+}
+
+/* NEUTRAL (SLATE) */
+button.act-neutral, .button.act-neutral {
+	background: var(--slate-400);
+	border-color: var(--slate-400);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-600);
+}
+button.act-neutral:hover, .button.act-neutral:hover {
+	background: var(--slate-500);
+	border-color: var(--slate-500);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-700);
+}
+button.act-neutral:active, .button.act-neutral:active {
+	box-shadow: 0 0 0 var(--slate-600);
 }
