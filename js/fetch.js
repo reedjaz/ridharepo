@@ -6,15 +6,16 @@ let currentBGM = null;
 
 // Mapping Kebutuhan VO
 const sceneVOMap = {
-    'title': { sound: 'vo-title', delay: 1500 },
+    'title': { sound: 'vo-titlez', delay: 1500 },
     // 'main-menu': { sound: 'vo-main-menu', delay: 1000 },
     // 'gameover': { sound: 'vo-lose', delay: 1500 },
 };
 
 // Mapping Kebutuhan BGM
 const sceneBGMMap = {
-    'title': { sound: 'bgm-menu' },
-    // 'a2-listen/p0': { sound: '[FO=1000]' },
+    'title': { sound: '[FO=1]&bgm-menu' },
+    'halt': { sound: '[FO=500]' },
+    'a2-listen/p0': { sound: '[FO=1000]&bgm-menu' },
     'a2-study/p1': { sound: '[FO=1000]&bgm-study' },
     'a2-listen/p1': { sound: '[FO=1000]&bgm-listen' },
     'a2-quiz/p1': { sound: '[FO=1000]&bgm-quiz' },

@@ -20,3 +20,7 @@
 .splash-screen button {
     pointer-events: auto;
 }
+
+.loading-screen.hidden {
+    display: none !important;
+}
