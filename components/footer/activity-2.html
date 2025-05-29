@@ -16,22 +16,29 @@
         </div>
     </div>
     <div class="flex row gap-7 justify-center shrink text-center text-slate-700 text-size-9 line-height-10">
-        <span><b>Aktivitas 1</b> Pengantar Pembelajaran</span>
+        <span><b>Aktivitas 2</b> Menyimak Dongeng</span>
     </div>
     <div class="flex row gap-7 justify-end shrink">
         <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
-            <button class="act-neutral btntext btn-click ico-sm" onclick="
-                    
-                "><i data-lucide="home"></i>
+            <button id="btn-reset" class="act-neutral btntext btn-click ico-sm" onclick="
+                    // Define melalui script di scene
+                "><i data-lucide="rotate-ccw"></i>
             </button>
-            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Menu Utama</span>
+            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Putar Ulang</span>
         </div>
         <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
-            <button class="act-neutral btntext btn-click ico-sm" onclick="
-                    openSettings();
-                "><i data-lucide="settings"></i>
+            <button id="btn-prev" class="act-neutral btntext btn-click ico-sm" onclick="
+                    // Define melalui script di scene
+                "><i data-lucide="chevron-left"></i>
             </button>
-            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Pengaturan</span>
+            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Sebelumnya</span>
+        </div>
+        <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
+            <button id="btn-next" class="act-neutral btntext btn-click ico-sm" onclick="
+                    // Define melalui script di scene
+                "><i data-lucide="chevron-right"></i>
+            </button>
+            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Selanjutnya</span>
         </div>
     </div>
 </section>

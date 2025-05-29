@@ -44,10 +44,21 @@ function setupToggles() {
 
     if (bgmCheckbox) {
         bgmCheckbox.addEventListener('change', function () {
+            const bgm = soundman.channels.bgm;
+            if (!bgm) return;
+
             if (this.checked) {
-                soundman.play('bgm', bgmVol);
+                // Jika bgm belum dimainkan, play dulu dengan volume bgmVol
+                if (bgm.paused) {
+                    soundman.play('bgm', bgmVol);
+                } else {
+                    // Kalau sudah main, hanya set volume
+                    bgm.volume = bgmVol;
+                    bgm.muted = false;
+                }
             } else {
-                soundman.stop('bgm');
+                // Mute saja tanpa stop
+                bgm.muted = true;
             }
         });
     }

@@ -1,18 +1,19 @@
 const soundman = {
     sources: {
-        bgm: 'assets/audio/bgm.mp3',
-        decide: 'assets/audio/decide.mp3',
-        click: 'assets/audio/click.mp3',
-        hover: 'assets/audio/hover.mp3',
-        lose: 'assets/audio/lose.mp3',
+        'bgm-menu': 'assets/audio/bgm-menu.mp3',
+        'bgm-study': 'assets/audio/bgm-study.mp3',
+        'bgm-listen': 'assets/audio/bgm-listen.mp3',
+        'bgm-quiz': 'assets/audio/bgm-quiz.mp3',
+        'bgm-play': 'assets/audio/bgm-play.mp3',
+        'click': 'assets/audio/click.mp3',
+        'decide': 'assets/audio/decide.mp3',
         'vo-title': 'assets/audio/vo-title.mp3',
-        'vo-intro': 'assets/audio/vo-intro.mp3',
-        'vo-exit': 'assets/audio/vo-exit.mp3'
     },
 
     sounds: {},
+
     channels: {
-        bgm: null,
+        bgm: {},
         sfx: [],
         voice: []
     },
@@ -22,9 +23,9 @@ const soundman = {
             const audio = new Audio(this.sources[name]);
             audio.preload = 'auto';
 
-            if (name === 'bgm') {
+            if (name.startsWith('bgm-')) {
                 audio.loop = true;
-                this.channels.bgm = audio;
+                this.channels.bgm[name] = audio;
             } else {
                 this.sounds[name] = audio;
             }
@@ -32,43 +33,43 @@ const soundman = {
     },
 
     play(name, volume = 1.0) {
-        if (name === 'bgm') {
-            const bgm = this.channels.bgm;
-            if (!bgm) return null;
-            bgm.currentTime = 0;
-            bgm.volume = volume;
-            bgm.play().catch(err => console.warn('Autoplay BGM gagal:', err));
-            return bgm;
+        if (name.startsWith('bgm-')) {
+            const bgmAudio = this.channels.bgm[name];
+            if (!bgmAudio) return null;
+            bgmAudio.currentTime = 0;
+            bgmAudio.volume = volume;
+            bgmAudio.play().catch(err => console.warn('Autoplay BGM gagal:', err));
+            return bgmAudio;
         }
-    
+
         let channelName = 'sfx';
         if (name.startsWith('vo-')) {
             channelName = 'voice';
         }
-    
+
         const baseSound = this.sounds[name];
         if (!baseSound) return null;
-    
+
         const clone = baseSound.cloneNode();
         clone.volume = volume;
         clone.play().catch(err => console.warn(`Play ${channelName} ${name} gagal:`, err));
-    
+
         this.channels[channelName].push(clone);
-    
+
         clone.addEventListener('ended', () => {
             const index = this.channels[channelName].indexOf(clone);
             if (index !== -1) this.channels[channelName].splice(index, 1);
         });
-    
+
         return clone;
-    },    
+    },
 
     stop(name) {
-        if (name === 'bgm') {
-            const bgm = this.channels.bgm;
-            if (!bgm) return;
-            bgm.pause();
-            bgm.currentTime = 0;
+        if (name.startsWith('bgm-')) {
+            const bgmAudio = this.channels.bgm[name];
+            if (!bgmAudio) return;
+            bgmAudio.pause();
+            bgmAudio.currentTime = 0;
             return;
         }
 
@@ -79,23 +80,26 @@ const soundman = {
         }
     },
 
-    setVolume(channelName, volume) {
-        if (channelName === 'bgm') {
-            const bgm = this.channels.bgm;
-            if (!bgm) return;
-            bgm.volume = volume;
-        } else if (channelName === 'sfx' || channelName === 'voice') {
-            this.channels[channelName].forEach(sound => {
+    setVolume(name, volume) {
+        if (name.startsWith('bgm-')) {
+            const bgmAudio = this.channels.bgm[name];
+            if (!bgmAudio) return;
+            bgmAudio.volume = volume;
+        } else if (name === 'bgm') {
+            // legacy bgm control (optional)
+        } else if (name === 'sfx' || name === 'voice') {
+            this.channels[name].forEach(sound => {
                 sound.volume = volume;
             });
         }
     },
 
-    toggleMuteBGM() {
-        const bgm = this.channels.bgm;
-        if (!bgm) return false;
-        bgm.muted = !bgm.muted;
-        return bgm.muted;
+    toggleMuteBgm(name) {
+        if (!name.startsWith('bgm-')) return false;
+        const bgmAudio = this.channels.bgm[name];
+        if (!bgmAudio) return false;
+        bgmAudio.muted = !bgmAudio.muted;
+        return bgmAudio.muted;
     },
 
     isBgmMuted() {
@@ -120,8 +124,41 @@ const soundman = {
     
             this.channels[channelName] = [];
         }
-    }
+    },
+
+    fadeOut(name, duration = 1000) {
+        return new Promise((resolve) => {
+            if (!name.startsWith('bgm-')) {
+                // Kalau bukan BGM, resolve langsung (atau kamu bisa tambahin handler lain)
+                resolve();
+                return;
+            }
+            const audio = this.channels.bgm[name];
+            if (!audio) {
+                resolve();
+                return;
+            }
     
+            const step = 50;
+            const stepsCount = duration / step;
+            let currentStep = 0;
+            const startVol = audio.volume;
+    
+            const fadeInterval = setInterval(() => {
+                currentStep++;
+                const newVol = startVol * (1 - currentStep / stepsCount);
+                audio.volume = Math.max(newVol, 0);
+    
+                if (currentStep >= stepsCount) {
+                    clearInterval(fadeInterval);
+                    audio.pause();
+                    audio.currentTime = 0;
+                    resolve();
+                }
+            }, step);
+        });
+    },      
+     
 };
 
 soundman.isPlaying = function (name) {

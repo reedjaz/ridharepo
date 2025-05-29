@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="scene/a2-listen/load.css">
+<section class="scene-bg bg-p1 flex column justify-center items-center height-100 pt-12 pb-13">
+</section>
+<script>
+    loadFooter('activity-2');
+    setTimeout(() => {
+        const btnReset = document.getElementById('btn-reset');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        if (btnReset) {
+            btnReset.onclick = () => loadSceneTrans('a2-listen/p0', 'both', 'fade');
+        }
+
+        if (btnPrev) {
+            btnPrev.onclick = () => { };
+            const parentPrev = btnPrev.parentElement;
+            if (parentPrev) parentPrev.classList.add('disabled');
+        }
+
+        if (btnNext) {
+            btnNext.onclick = () => loadSceneTrans('a2-listen/p2', 'footer', 'slide-left');
+        }
+    }, 50);
+</script>

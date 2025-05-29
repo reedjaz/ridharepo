@@ -2,12 +2,23 @@
 let isLoadingScene = false;
 let voTimeoutId = null;
 let bgmVol = 0.25;
+let currentBGM = null;
 
 // Mapping Kebutuhan VO
 const sceneVOMap = {
-    'title': { sound: 'vo-titlez', delay: 1500 },
-    'main-menu': { sound: 'vo-main-menu', delay: 1000 },
-    'gameover': { sound: 'vo-lose', delay: 1500 }
+    'title': { sound: 'vo-title', delay: 1500 },
+    // 'main-menu': { sound: 'vo-main-menu', delay: 1000 },
+    // 'gameover': { sound: 'vo-lose', delay: 1500 },
+};
+
+// Mapping Kebutuhan BGM
+const sceneBGMMap = {
+    'title': { sound: 'bgm-menu' },
+    // 'a2-listen/p0': { sound: '[FO=1000]' },
+    'a2-study/p1': { sound: '[FO=1000]&bgm-study' },
+    'a2-listen/p1': { sound: '[FO=1000]&bgm-listen' },
+    'a2-quiz/p1': { sound: '[FO=1000]&bgm-quiz' },
+    'a2-play/p1': { sound: '[FO=1000]&bgm-play' },
 };
 
 // Fungsi Load Popup
@@ -53,7 +64,7 @@ function loadHTML(selector, url, options = {}) {
         if (!el) throw new Error(`Elemen ${selector} tidak ditemukan di DOM`);
         
         el.innerHTML = html;
-        runScripts(el);  // Jalankan script yang ada
+        runScripts(el);
         
         if (options.name) {
             el.classList.add(`scene-${options.name}`);
@@ -102,17 +113,59 @@ function loadScene(name, hideHUD = 'none') {
     }
     
     soundman.stopChannel('voice');
+    
+    Object.keys(soundman.channels.bgm).forEach(bgmName => {
+        soundman.stop(bgmName);
+    });
+    
     lucide.createIcons();
     applyAmazingTitleEffect();
     setupBtnSFX();
     loadAndRenderAllVoTexts();
     
-    const config = sceneVOMap[name];
-    if (config) {
+    const configVO = sceneVOMap[name];
+    if (configVO) {
         voTimeoutId = setTimeout(() => {
-            soundman.play(config.sound);
+            soundman.play(configVO.sound);
             voTimeoutId = null;
-        }, config.delay);
+        }, configVO.delay);
+    }
+    
+    const configBGM = sceneBGMMap[name];
+    if (configBGM) {
+        const sound = configBGM.sound;
+        
+        const fadeAndPlayMatch = sound.match(/^\[FO=(\d+)\](?:&(.+))?$/);
+        if (fadeAndPlayMatch) {
+            const fadeDuration = parseInt(fadeAndPlayMatch[1], 10);
+            const nextBGM = fadeAndPlayMatch[2];
+            
+            if (nextBGM && !soundman.channels.bgm[nextBGM]?.paused) {
+                return;
+            }
+            
+            Promise.all(
+                Object.keys(soundman.channels.bgm).map(bgmName =>
+                    soundman.fadeOut(bgmName, fadeDuration)
+                )
+            ).then(() => {
+                if (nextBGM) {
+                    soundman.play(nextBGM, configBGM.volume ?? bgmVol);
+                }
+            });
+            
+        } else if (sound === '[STOP]') {
+            Object.keys(soundman.channels.bgm).forEach(bgmName => {
+                soundman.stop(bgmName);
+            });
+            
+        } else {
+            if (!soundman.channels.bgm[sound]?.paused) {
+                return;
+            }
+            
+            soundman.play(sound, configBGM.volume ?? bgmVol);
+        }
     }
     
     return loadHTML('#main .scene', `scene/${name}.html`, { hideHUD, name })
@@ -120,6 +173,7 @@ function loadScene(name, hideHUD = 'none') {
         isLoadingScene = false;
     });
 }
+
 
 // Fungsi Load Scene dengan transisi
 function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
@@ -147,19 +201,27 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
     .then(html => {
         newWrapper.innerHTML = html;
         
-        runScripts(newWrapper); // Jalankan script di scene baru
+        runScripts(newWrapper);
         
-        newWrapper.classList.add(`scene-${name}`);
+        newWrapper.classList.add(`scene-${name.replace(/\//g, '-')}`);
         main.appendChild(newWrapper);
         
         void newWrapper.offsetWidth;
         newWrapper.classList.remove(`transition-in-${transition}`);
         
-        const prevScene = main.querySelector('.scene-prev');
+        const prevScene = document.querySelector('.scene-prev');
         if (prevScene) {
             prevScene.classList.add(`transition-out-${transition}`);
+            console.log('Transisi keluar dimulai, prevScene:', prevScene);
             setTimeout(() => {
-                prevScene.remove();
+                const prev = document.querySelector('.scene-prev');
+                if (prev) {
+                    console.log('Timeout selesai, akan remove prevScene');
+                    prev.remove();
+                    console.log('prevScene dihapus dari DOM');
+                } else {
+                    console.warn('prevScene sudah tidak ada saat timeout');
+                }
             }, 500);
         }
         
@@ -197,6 +259,43 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
             }, config.delay);
         }
         
+        const configBGM = sceneBGMMap[name];
+        if (configBGM) {
+            const sound = configBGM.sound;
+            
+            const fadeAndPlayMatch = sound.match(/^\[FO=(\d+)\](?:&(.+))?$/);
+            if (fadeAndPlayMatch) {
+                const fadeDuration = parseInt(fadeAndPlayMatch[1], 10);
+                const nextBGM = fadeAndPlayMatch[2];
+                
+                if (nextBGM && !soundman.channels.bgm[nextBGM]?.paused) {
+                    return;
+                }
+                
+                Promise.all(
+                    Object.keys(soundman.channels.bgm).map(bgmName =>
+                        soundman.fadeOut(bgmName, fadeDuration)
+                    )
+                ).then(() => {
+                    if (nextBGM) {
+                        soundman.play(nextBGM, configBGM.volume ?? bgmVol);
+                    }
+                });
+                
+            } else if (sound === '[STOP]') {
+                Object.keys(soundman.channels.bgm).forEach(bgmName => {
+                    soundman.stop(bgmName);
+                });
+                
+            } else {
+                if (!soundman.channels.bgm[sound]?.paused) {
+                    return;
+                }
+                
+                soundman.play(sound, configBGM.volume ?? bgmVol);
+            }
+        }
+        
     })
     .finally(() => {
         isLoadingScene = false;
@@ -214,7 +313,7 @@ function loadHeader(name = 'hdr-empty') {
         const el = document.querySelector('header') || document.querySelector('#header');
         if (el) {
             el.innerHTML = html;
-            runScripts(el); // jalankan script header jika ada
+            runScripts(el);
             lucide.createIcons();
             console.log(`Header '${name}' loaded.`);
         } else {
@@ -235,7 +334,7 @@ function loadFooter(name = 'ftr-empty') {
         const el = document.querySelector('footer') || document.querySelector('#footer');
         if (el) {
             el.innerHTML = html;
-            runScripts(el); // jalankan script footer jika ada
+            runScripts(el);
             lucide.createIcons();
             console.log(`Footer '${name}' loaded.`);
         } else {
@@ -244,7 +343,6 @@ function loadFooter(name = 'ftr-empty') {
     })
     .catch(err => console.error('Error loadFooter:', err));
 }
-
 
 // DOM Ready
 window.addEventListener('load', () => {

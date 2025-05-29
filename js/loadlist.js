@@ -22,7 +22,7 @@ const cssFiles = [
     'switch',
     'transitions',
     'typography',
-    'variables'
+    'variables',
 ];
 
 cssFiles.forEach(file => {

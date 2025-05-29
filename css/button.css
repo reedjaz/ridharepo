@@ -528,3 +528,11 @@ button.selected:active, .button.selected:active {
 	border-color: var(--slate-500);
 	transform: scale(0.99);
 }
+
+/* DISABLED NEUTRAL */
+.disabled,
+.disabled button.act-neutral,
+.disabled .button.act-neutral {
+	opacity: 0.5;
+	pointer-events: none;
+}
