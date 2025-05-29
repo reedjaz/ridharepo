@@ -5,7 +5,7 @@ const soundman = {
         click: 'assets/audio/click.mp3',
         hover: 'assets/audio/hover.mp3',
         lose: 'assets/audio/lose.mp3',
-        'vo-title': 'assets/audio/vo-titlez.mp3',
+        'vo-title': 'assets/audio/vo-title.mp3',
         'vo-intro': 'assets/audio/vo-intro.mp3',
         'vo-exit': 'assets/audio/vo-exit.mp3'
     },

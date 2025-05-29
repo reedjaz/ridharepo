@@ -1,5 +1,6 @@
 const cssFiles = [
     'anim',
+    'autosync',
     'button',
     'colors',
     'elevations',

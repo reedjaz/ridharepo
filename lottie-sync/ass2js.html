@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ASS Karaoke Parser to JS</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+            background: #f0f0f0;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+        }
+        
+        input[type="file"] {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎵 ASS Karaoke Parser to JS</h1>
+    <input type="file" id="fileInput" accept=".ass" />
+    <textarea id="output" placeholder="Parsed result appears here..."></textarea>
+    
+    <script>
+        function timeToSeconds(hh, mm, ss) {
+            return parseInt(hh) * 3600 + parseInt(mm) * 60 + parseFloat(ss);
+        }
+        
+        function parseAssToVoTranscript(content) {
+            const lines = content.split(/\r?\n/);
+            const result = [];
+            
+            for (let rawLine of lines) {
+                const line = rawLine.trim();
+                if (!line.startsWith("Dialogue:")) continue;
+                
+                const timeMatch = line.match(/^Dialogue:\s*\d,(\d+):(\d+):(\d+\.\d+),/);
+                if (!timeMatch) continue;
+                
+                const [, h, m, s] = timeMatch;
+                const startTime = parseInt(h) * 3600 + parseInt(m) * 60 + parseFloat(s);
+                
+                const textParts = line.split(",");
+                const text = textParts.slice(9).join(",").trim();
+                
+                const regex = /{\\k(\d+)}([^{}]*)/g;
+                let current = startTime;
+                let match;
+                while ((match = regex.exec(text)) !== null) {
+                    const dur = parseInt(match[1], 10) / 100;
+                    const word = match[2];
+                    if (word.trim()) {
+                        result.push({
+                            word: word.trim(),
+                            start: +current.toFixed(2),
+                            end: +(current + dur).toFixed(2)
+                        });
+                    }
+                    current += dur;
+                }
+            }
+            
+            let output = "window.voIntroTranscript = [\n";
+            for (const w of result) {
+                output += `  { word: "${w.word}", start: ${w.start}, end: ${w.end} },\n`;
+            }
+            output += "];";
+            return output;
+        }
+        
+        document.getElementById("fileInput").addEventListener("change", e => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function (evt) {
+                const result = parseAssToVoTranscript(evt.target.result);
+                document.getElementById("output").value = result;
+            };
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+
+</html>

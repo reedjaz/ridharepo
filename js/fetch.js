@@ -5,7 +5,7 @@ let bgmVol = 0.25;
 
 // Mapping Kebutuhan VO
 const sceneVOMap = {
-    'title': { sound: 'vo-title', delay: 1500 },
+    'title': { sound: 'vo-titlez', delay: 1500 },
     'main-menu': { sound: 'vo-main-menu', delay: 1000 },
     'gameover': { sound: 'vo-lose', delay: 1500 }
 };

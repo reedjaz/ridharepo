@@ -457,6 +457,56 @@ button.act-neutral:active, .button.act-neutral:active {
 	box-shadow: 0 0 0 var(--slate-500);
 }
 
+/* ANSWER (SLATE) */
+button.act-answer, .button.act-answer {
+	color: var(--slate-800);
+	font-size: var(--unit-11);
+	background: var(--slate-100);
+	border-color: var(--slate-300);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
+}
+button.act-answer:hover, .button.act-answer:hover {
+	background: var(--slate-200);
+	border-color: var(--slate-400);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-400);
+}
+button.act-answer:active, .button.act-answer:active {
+	box-shadow: 0 0 0 var(--slate-400);
+}
+
+/* CHOICE (WHITE) */
+button.act-choice, .button.act-choice {
+	font-weight: normal;
+	color: var(--slate-800);
+	background: var(--white);
+	border-color: var(--slate-300);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
+}
+button.act-choice:hover, .button.act-choice:hover {
+	background: var(--slate-200);
+	border-color: var(--slate-400);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-400);
+}
+button.act-choice:active, .button.act-choice:active {
+	box-shadow: 0 0 0 var(--slate-400);
+}
+
+/* SELECTED (BLUE) */
+button.selected, .button.selected {
+	color: var(--slate-800);
+	background: var(--blue-100);
+	border-color: var(--blue-300);
+	box-shadow: 0 var(--unit-3) 0 var(--blue-300);
+}
+button.selected:hover, .button.selected:hover {
+	background: var(--blue-200);
+	border-color: var(--blue-400);
+	box-shadow: 0 var(--unit-3) 0 var(--blue-400);
+}
+button.selected:active, .button.selected:active {
+	box-shadow: 0 0 0 var(--blue-400);
+}
+
 .halt-btn {
 	font-size: var(--unit-6);
 	padding: var(--unit-3) var(--unit-5);
