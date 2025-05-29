@@ -2,6 +2,9 @@ body {
     padding: 0;
     margin: 0;
 }
+body, html {
+    overscroll-behavior-x: none;
+}
 .stage {
     background-color: var(--slate-100);
     display: flex;

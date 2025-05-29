@@ -187,6 +187,59 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
 // DOM Ready
 window.addEventListener('load', () => {
     firstScene = 'splash';
+    
+    document.body.addEventListener('touchmove', function (e) {
+        if (e.touches.length === 1 && Math.abs(e.touches[0].clientX) < 50) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    const allAssets = [
+
+// ANIMATIONS
+'assets/anim/gantar-splash.json',
+
+// SFX
+'assets/audio/bgm.mp3',
+'assets/audio/click.mp3',
+'assets/audio/decide.mp3',
+'assets/audio/hover.mp3',
+
+// VO
+'assets/audio/vo-title.mp3',
+
+// SPLASH IMAGES
+'assets/tut-wuri.svg',
+'assets/thinkin.svg',
+
+// IMAGES
+'assets/bg-title.jpg',
+'assets/ic-1.svg',
+'assets/ic-2.svg',
+'assets/ic-3.svg',
+'assets/ic-4.svg',
+'assets/sw-check.svg',
+'assets/sw-uncheck.svg',
+
+// FONTS
+'css/fonts/funny-bk.ttf',
+'css/fonts/funny-bk-it.ttf',
+'css/fonts/funny-bd.ttf',
+'css/fonts/funny-bd-it.ttf',
+'css/fonts/funny-lt.ttf',
+'css/fonts/funny-lt-it.ttf',
+'css/fonts/funny-md.ttf',
+'css/fonts/funny-md-it.ttf',
+'css/fonts/funny-rg.ttf',
+'css/fonts/funny-rg-it.ttf',
+'css/fonts/funny-ul.ttf',
+'css/fonts/funny-ul-it.ttf',
+
+    ];
+    preloadAssets(allAssets, () => {
+        console.log('Load OK');
+    });
+    
     Promise.all([
         loadHTML('#header', 'components/header/hdr-empty.html'),
         loadHTML('#footer', 'components/footer/ftr-empty.html'),

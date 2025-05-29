@@ -1,83 +1,83 @@
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-Light.otf');
+	src: url('fonts/funny-li.ttf');
 	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-LightItalic.otf');
+	src: url('fonts/funny-li-it.ttf');
 	font-weight: 300;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-Regular.otf');
+	src: url('fonts/funny-rg.ttf');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-RegularItalic.otf');
+	src: url('fonts/funny-rg-it.ttf');
 	font-weight: 400;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-Medium.otf');
+	src: url('fonts/funny-md.ttf');
 	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-MediumItalic.otf');
+	src: url('fonts/funny-md-it.ttf');
 	font-weight: 500;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-Bold.otf');
+	src: url('fonts/funny-bd.ttf');
 	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-BoldItalic.otf');
+	src: url('fonts/funny-bd-it.ttf');
 	font-weight: 700;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-Black.otf');
+	src: url('fonts/funny-bk.ttf');
 	font-weight: 800;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-BlackItalic.otf');
+	src: url('fonts/funny-bk-it.ttf');
 	font-weight: 800;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-Ultra.otf');
+	src: url('fonts/funny-ul.ttf');
 	font-weight: 900;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Mikado';
-	src: url('fonts/HvDTrial_Mikado-UltraItalic.otf');
+	src: url('fonts/funny-ul-it.ttf');
 	font-weight: 900;
 	font-style: italic;
 }

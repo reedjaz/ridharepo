@@ -446,13 +446,35 @@ button.act-correct:active, .button.act-correct:active {
 button.act-neutral, .button.act-neutral {
 	background: var(--slate-400);
 	border-color: var(--slate-400);
-	box-shadow: 0 var(--unit-3) 0 var(--slate-600);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-500);
 }
 button.act-neutral:hover, .button.act-neutral:hover {
 	background: var(--slate-500);
 	border-color: var(--slate-500);
-	box-shadow: 0 var(--unit-3) 0 var(--slate-700);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-600);
 }
 button.act-neutral:active, .button.act-neutral:active {
-	box-shadow: 0 0 0 var(--slate-600);
+	box-shadow: 0 0 0 var(--slate-500);
+}
+
+.halt-btn {
+	font-size: var(--unit-6);
+	padding: var(--unit-3) var(--unit-5);
+	font-weight: bold;
+	color: var(--slate-700);
+	border: var(--unit-1) solid;
+	border-radius: var(--rounded-16);
+	user-select: none;
+	transition: all var(--transition-fast) ease;
+	cursor: pointer;
+}
+.halt-btn:hover {
+	color: var(--slate-600);
+	transform: scale(1.01);
+}
+.halt-btn:active {
+	color: var(--slate-900);
+	background-color: var(--slate-500);
+	border-color: var(--slate-500);
+	transform: scale(0.99);
 }

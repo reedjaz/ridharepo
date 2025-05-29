@@ -1,5 +1,5 @@
 function openSettings() {
-	const popup = document.getElementById('popup-buffer');
+	const popup = document.getElementById('settings-popup');
 	const bgmCheckbox = document.getElementById('toggle-bgm-checkbox');
 	const fsCheckbox = document.getElementById('toggle-fs-checkbox');
     
@@ -14,7 +14,23 @@ function openSettings() {
 }
 
 function closeSettings() {
-	const popup = document.getElementById('popup-buffer');
+	const popup = document.getElementById('settings-popup');
+	popup.classList.remove('show');
+	popup.addEventListener('transitionend', function handler() {
+		popup.classList.add('hidden');
+		popup.removeEventListener('transitionend', handler);
+	}, { once: true });
+}
+
+function openExit() {
+	const popup = document.getElementById('exit-popup');
+	popup.classList.remove('hidden');
+	void popup.offsetWidth;
+	popup.classList.add('show');
+}
+
+function closeExit() {
+	const popup = document.getElementById('exit-popup');
 	popup.classList.remove('show');
 	popup.addEventListener('transitionend', function handler() {
 		popup.classList.add('hidden');

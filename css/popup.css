@@ -43,7 +43,7 @@
 .popup-content {
     background: var(--amber-100);
     padding: var(--unit-10);
-    border-radius: var(--rounded-32);
+    border-radius: var(--rounded-64);
     width: 100vw;
     max-width: var(--vh-72);
     border: var(--unit-3) solid var(--amber-500);
