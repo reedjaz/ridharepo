@@ -14,27 +14,15 @@ body, html {
     flex-direction: column;
     overflow: hidden;
 }
-.stage.init:before {
-    content: "";
+.stage.init #header,
+.stage.init #footer,
+.stage #header,
+.stage #footer {
     transition: none;
-    opacity: 1;
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    pointer-events: none;
-    user-select: none;
 }
-.stage:before {
-    content: "";
-    background: var(--white);
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    opacity: 0;
+.stage #header.animate,
+.stage #footer.animate {
     transition: all var(--transition-slow) ease;
-    z-index: 50;
-    pointer-events: none;
-    user-select: none;
 }
 .stage .hud {
     transition: all var(--transition-slow) ease;

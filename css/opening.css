@@ -1,3 +1,27 @@
+/* .stage.init:before {
+    content: "";
+    transition: none;
+    opacity: 1;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    pointer-events: none;
+    user-select: none;
+}
+
+.stage:before {
+    content: "";
+    background: var(--white);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+    transition: all var(--transition-slow) ease;
+    z-index: 50;
+    pointer-events: none;
+    user-select: none;
+} */
+
 .splash-screen {
     position: absolute;
     transition: opacity 0.5s ease;
@@ -21,6 +45,9 @@
     pointer-events: auto;
 }
 
+.loading-screen {
+    z-index: 99;
+}
 .loading-screen.hidden {
     display: none !important;
 }

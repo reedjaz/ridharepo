@@ -2,18 +2,25 @@
     <h2>Loading</h2>
     <progress id="loading-progress" value="0" max="10"></progress>
 </div>
-
-<div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
-    id="screen1">
-    <img src="assets/tut-wuri.svg" class="height-17 unsel" alt="Kemendikdasmen" />
-</div>
-<div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
-    id="screen2">
-    <img src="assets/thinkin.svg" class="height-16 unsel" alt="Thinkin Studio" />
-</div>
-<div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4"
-    id="screen3">
-    <button class="act-correct btn-decide"><i data-lucide="play"></i>Mulai</button>
+<div class="splash-sequence">
+    <div class="splash-screen flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+        id="screen1">
+    </div>
+    <div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+        id="screen2">
+        <img src="assets/tut-wuri.svg" class="height-17 unsel" alt="Kemendikdasmen" />
+    </div>
+    <div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4 unsel-reset"
+        id="screen3">
+        <img src="assets/thinkin.svg" class="height-16 unsel" alt="Thinkin Studio" />
+    </div>
+    <div class="splash-screen hidden flex column justify-center items-center height-100 width-100 text-size-8 gap-4"
+        id="screen4">
+        <button class="act-correct" onclick="
+            loadSceneTrans('title', 'both', 'zoom-out');
+            goFullscreen();
+        "><i data-lucide="play"></i>Mulai</button>
+    </div>
 </div>
 <!-- <div class="flex column justify-center items-center height-100 width-100 text-size-8 gap-4"
     id="screen3">

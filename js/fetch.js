@@ -409,11 +409,9 @@ window.addEventListener('load', () => {
         const stage = document.querySelector('.stage');
         if (stage) {
             stage.classList.remove('showheader', 'showfooter');
-            setTimeout(() => {
-                stage.classList.add('immersive');
-                stage.classList.remove('init');
-                document.body.classList.remove('init');
-            }, 300);
+            stage.classList.add('immersive');
+            stage.classList.remove('init');
+            document.body.classList.remove('init');
         }
     });
 });

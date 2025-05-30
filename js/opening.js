@@ -44,9 +44,9 @@ function preloadAssetsWithProgress() {
 }
 
 function startSplashScreenSequence() {
-    const screens = Array.from(document.querySelectorAll(".splash-screen"));
+    const screens = Array.from(document.querySelectorAll(".splash-sequence .splash-screen"));
     
-    if (screens.length < 3) {
+    if (screens.length < 4) {
         console.error("Splash screen belum lengkap");
         return;
     }
@@ -68,18 +68,22 @@ function startSplashScreenSequence() {
         });
         
         if (index < screens.length - 1) {
+            var waitTime;
+            if (index == 0){
+                waitTime = 500;
+            } else {
+                waitTime = 1500;
+            }
             setTimeout(() => {
                 current.classList.remove("show");
                 setTimeout(() => showScreen(index + 1), 500);
-            }, 1500);
+            }, waitTime);
         }
     }
     
-    // 👇 Splash mulai dari screen pertama
     showScreen(0);
 }
 
-// ✅ Eksekusi urut
 fetch('scene/splash.html')
 .then(response => {
     if (!response.ok) throw new Error('Gagal load splash.html');
@@ -90,34 +94,17 @@ fetch('scene/splash.html')
     return new Promise(resolve => requestAnimationFrame(resolve));
 })
 .then(() => preloadAssetsWithProgress())
+.then(() => document.querySelector('.loading-screen')?.classList.add('hidden'))
 .then(() => {
-    // ✅ Setelah preload selesai, sembunyikan loading & mulai splash
-    document.querySelector('.loading-screen')?.classList.add('hidden');
+    
     startSplashScreenSequence();
     
-    // 👇 Event untuk lanjut dari splash ke scene berikut
-    const finalButton = document.querySelector('#screen3 .btn-decide');
-    if (finalButton) {
-        finalButton.addEventListener('click', () => {
-            loadSceneTrans('title', 'both', 'zoom-out');
-            goFullscreen();
-        });
-    }
-    
-    // Optional: bisa lanjut dari screen 1/2 juga
     document.querySelectorAll('#screen1, #screen2').forEach(el => {
         el.addEventListener('click', () => {
             loadSceneTrans('title', 'both', 'zoom-out');
             goFullscreen();
         });
     });
-    
-    // Atur tampilan immersive
-    const stage = document.querySelector('.stage');
-    if (stage) {
-        stage.classList.remove('showheader', 'showfooter');
-        setTimeout(() => stage.classList.add('immersive'), 300);
-    }
 })
 .catch(err => {
     console.error('Error loading splash.html:', err);
