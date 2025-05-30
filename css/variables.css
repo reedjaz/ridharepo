@@ -1070,6 +1070,7 @@
 /*----------------------*/
 /* TRANSITION SPEED */
 
+--transition-mega-slow : 1.25s;
 --transition-extra-slow : 0.65s;
 --transition-slow : 0.45s;
 --transition-medium : 0.3s;

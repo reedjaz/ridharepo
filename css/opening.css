@@ -51,7 +51,39 @@
 
 .loading-screen {
     z-index: 99;
+    justify-content: center;
+    align-items: center;
 }
 .loading-screen.hidden {
     display: none !important;
+}
+
+progress {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: var(--vh-2);
+    border-radius: var(--rounded-full);
+    background-color: var(--slate-300);
+    overflow: hidden;
+    border: none;
+}
+
+/* Bar warna untuk Chrome & Edge */
+progress::-webkit-progress-bar {
+    background-color: var(--slate-300);
+    border-radius: var(--rounded-full);
+}
+
+progress::-webkit-progress-value {
+    background: var(--indigo-600);
+    border-radius: var(--rounded-full);
+    transition: width var(--transition-slow) ease;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+    background: var(--indigo-600);
+    border-radius: var(--rounded-full);
+    transition: width var(--transition-slow) ease;
 }

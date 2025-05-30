@@ -52,6 +52,7 @@ body, html {
     height: var(--site-footer);
     position: relative;
     flex-shrink: 0;
+    background: var(--slate-200);
 }
 .progress-bar {
     display: flex;
@@ -129,6 +130,10 @@ body, html {
     width: 100%;
     justify-self: center;
     padding: 0 !important;
+    background: var(--slate-100);
+}
+.scene-bg.ingame {
+    padding: 0 calc(var(--unit-12) + var(--unit-12)) !important;
 }
 
 .scene-bg > div {
@@ -179,4 +184,22 @@ body, html {
 .act-icon {
     width: calc(var(--unit-13) * 6);
     height: calc(var(--unit-13) * 3);
+}
+
+.footer-bar {
+    padding: 0 calc(var(--unit-12) + var(--unit-12));
+}
+
+.ingame .lay {
+    gap: var(--unit-6);
+}
+.ingame .lay .out1,
+.ingame .lay .out2 {
+    flex-grow: 1;
+}
+.ingame .lay .out1 {
+    width: 27%;
+}
+.ingame .lay .out2 {
+    width: 73%;
 }

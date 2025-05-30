@@ -596,3 +596,7 @@ button.selected:active, .button.selected:active {
 	height: var(--unit-10);
 	stroke-width: 2.5px;
 }
+
+#btn-action {
+	width: calc(var(--unit-13) * 4);
+}

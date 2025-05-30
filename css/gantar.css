@@ -2,8 +2,14 @@
     position: relative;
     transform: scale(1.65);
     transform-origin: 50% 50%;
-    margin: 20vh 0 0 5vh;
+    margin: var(--vh-20) 0 0 var(--vh-5);
     pointer-events: none;
-    animation: slideInUp 1.25s ease forwards;
+    animation: slideInUp var(--transition-mega-slow) ease forwards;
     z-index: 10;
+}
+#gantar-ingame {
+    position: relative;
+    pointer-events: none;
+    z-index: 10;
+    transform: scale(1.35);
 }

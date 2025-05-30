@@ -15,11 +15,14 @@ const sceneVOMap = {
 const sceneBGMMap = {
     'title': { sound: '[FO=1]&bgm-menu' },
     'halt': { sound: '[FO=500]' },
+    'a1-study/p0': { sound: '[FO=1000]&bgm-menu' },
     'a2-listen/p0': { sound: '[FO=1000]&bgm-menu' },
-    'a2-study/p1': { sound: '[FO=1000]&bgm-study' },
+    'a3-quiz/p0': { sound: '[FO=1000]&bgm-menu' },
+    'a4-play/p0': { sound: '[FO=1000]&bgm-menu' },
+    'a1-study/p1': { sound: '[FO=1000]&bgm-study' },
     'a2-listen/p1': { sound: '[FO=1000]&bgm-listen' },
-    'a2-quiz/p1': { sound: '[FO=1000]&bgm-quiz' },
-    'a2-play/p1': { sound: '[FO=1000]&bgm-play' },
+    'a3-quiz/p1': { sound: '[FO=1000]&bgm-quiz' },
+    'a4-play/p1': { sound: '[FO=1000]&bgm-play' },
 };
 
 // Fungsi Load Popup
