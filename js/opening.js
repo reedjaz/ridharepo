@@ -6,7 +6,11 @@ function preloadAssetsWithProgress() {
         'assets/thinkin.svg'
     ];
     const audioPaths = Object.values(soundman?.sources || {});
-    const assets = [...imagePaths, ...audioPaths];
+    const jsonPaths = [
+        'assets/anim/gantar-splash.json'
+    ];
+    
+    const assets = [...imagePaths, ...audioPaths, ...jsonPaths];
     
     if (assets.length === 0) {
         return Promise.resolve();
@@ -30,6 +34,11 @@ function preloadAssetsWithProgress() {
                 audio.preload = 'auto';
                 audio.src = src;
             });
+        } else if (src.endsWith('.json')) {
+            return fetch(src)
+            .then(res => res.json())
+            .then(() => updateProgress())
+            .catch(() => updateProgress());
         } else {
             return new Promise(resolve => {
                 const img = new Image();
@@ -100,7 +109,7 @@ fetch('scene/splash.html')
     startSplashScreenSequence();
     
     document.querySelector('.scene').classList.add('scene-splash');
-
+    
     document.querySelectorAll('#screen2, #screen3').forEach(el => {
         el.addEventListener('click', () => {
             loadSceneTrans('title', 'both', 'zoom-out');

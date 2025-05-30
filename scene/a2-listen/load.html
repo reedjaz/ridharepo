@@ -5,33 +5,43 @@
     </div>
 </section>
 <script>
-    function preloadImages(urls, onProgress, onComplete) {
+    function preloadAssets(urls, onProgress, onComplete) {
         let loaded = 0;
         const total = urls.length;
         
+        const update = () => {
+            loaded++;
+            if (onProgress) onProgress(loaded, total);
+            if (loaded === total && onComplete) onComplete();
+        };
+        
         urls.forEach(url => {
-            const img = new Image();
-            img.onload = img.onerror = () => {
-                loaded++;
-                if (onProgress) onProgress(loaded, total);
-                if (loaded === total && onComplete) onComplete();
-            };
-            img.src = url;
+            if (url.endsWith('.jpg') || url.endsWith('.png') || url.endsWith('.svg')) {
+                const img = new Image();
+                img.onload = img.onerror = update;
+                img.src = url;
+            } else if (url.endsWith('.json')) {
+                fetch(url).then(res => res.json()).then(update).catch(update);
+            } else {
+                update(); // fallback
+            }
         });
     }
     
-    var progressBar = document.getElementById('loading-progress');
+    const progressBar = document.getElementById('loading-progress');
     
-    var images = [];
-    for (let i = 1; i <= 9; i++) {
-        images.push(`scene/a2-listen/img/p${i}.jpg`);
-        images.push(`scene/a2-listen/img/book.png`);
-    }
+    const assets = [
+    ...Array.from({ length: 9 }, (_, i) => `scene/a2-listen/img/p${i + 1}.jpg`),
+    'scene/a2-listen/img/book.png',
+    'assets/anim/gantar-splash.json' // ← JSON ditambahkan
+    ];
     
-    preloadImages(images, (loaded, total) => {
+    if (progressBar) progressBar.max = assets.length;
+    
+    preloadAssets(assets, (loaded, total) => {
         if (progressBar) progressBar.value = loaded;
     }, () => {
-        console.log("Semua gambar sudah preload, siap lanjut!");
+        console.log("Semua aset sudah preload, siap lanjut!");
         
         const loadingScreen = document.querySelector('.loading-screen');
         if (loadingScreen) loadingScreen.remove();
