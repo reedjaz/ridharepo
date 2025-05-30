@@ -4,11 +4,11 @@
     "start_url": "./index.html",
     "display": "fullscreen",
     "background_color": "#ffffff",
-    "theme_color": "#ffffff",
+    "theme_color": "#6366F0",
     "icons": [
       {
-        "src": "icon2.png",
-        "sizes": "192x192",
+        "src": "icon.png",
+        "sizes": "512x512",
         "type": "image/png"
       }
     ]
