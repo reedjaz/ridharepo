@@ -5,10 +5,16 @@ self.addEventListener('fetch', function(event) {
 function goFullscreen() {
   const elem = document.documentElement; // bisa diganti ke canvas juga
   if (elem.requestFullscreen) {
-    elem.requestFullscreen();
+    elem.requestFullscreen({
+      navigationUI: "hide"
+    });
   } else if (elem.webkitRequestFullscreen) { // Safari
-    elem.webkitRequestFullscreen();
+    elem.webkitRequestFullscreen({
+      navigationUI: "hide"
+    });
   } else if (elem.msRequestFullscreen) { // IE/Edge lama
-    elem.msRequestFullscreen();
+    elem.msRequestFullscreen({
+      navigationUI: "hide"
+    });
   }
 }
