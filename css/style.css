@@ -7,6 +7,7 @@ body {
 }
 body, html {
     overscroll-behavior-x: none;
+    overscroll-behavior-y: contain;
 }
 .stage {
     background-color: var(--slate-100);
@@ -130,7 +131,7 @@ body, html {
     width: 100%;
     justify-self: center;
     padding: 0 !important;
-    background: var(--slate-100);
+    background-color: var(--slate-100);
 }
 .scene-bg.ingame {
     padding: 0 calc(var(--unit-12) + var(--unit-12)) !important;

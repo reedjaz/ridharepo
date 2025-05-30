@@ -547,8 +547,8 @@ button.selected:active, .button.selected:active {
 	background: var(--amber-500);
 	border-color: var(--amber-500);
 	box-shadow: 0 calc(var(--unit-2) + var(--unit-1)) 0 var(--amber-600);
-	margin-top: calc(var(--unit-2); + var(--unit-1))
-	bottom: calc(var(--unit-2); + var(--unit-1))
+	margin-top: calc(var(--unit-2) + var(--unit-1));
+	bottom: calc(var(--unit-2) + var(--unit-1));
 }
 .read-btn .lucide {
 	width: var(--unit-9);
@@ -600,3 +600,14 @@ button.selected:active, .button.selected:active {
 #btn-action {
 	width: calc(var(--unit-13) * 4);
 }
+
+#btn-title .lucide {
+    width: var(--vh-8);
+    height: var(--vh-8);
+    stroke-width: 2px;
+}
+
+.act-study .lucide { color: var(--indigo-50) }
+.act-listen .lucide { color: var(--lime-50) }
+.act-quiz .lucide { color: var(--amber-50) }
+.act-play .lucide { color: var(--pink-50) }
