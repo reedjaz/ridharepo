@@ -202,10 +202,10 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
     .then(html => {
         newWrapper.innerHTML = html;
         
-        runScripts(newWrapper);
-        
         newWrapper.classList.add(`scene-${name.replace(/\//g, '-')}`);
         main.appendChild(newWrapper);
+        
+        runScripts(newWrapper);
         
         void newWrapper.offsetWidth;
         newWrapper.classList.remove(`transition-in-${transition}`);
@@ -214,6 +214,17 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
         if (prevScene) {
             prevScene.classList.add(`transition-out-${transition}`);
             console.log('Transisi keluar dimulai, prevScene:', prevScene);
+            const inputBlocker = document.createElement('div');
+            inputBlocker.style.position = 'fixed';
+            inputBlocker.style.top = '0';
+            inputBlocker.style.left = '0';
+            inputBlocker.style.width = '100vw';
+            inputBlocker.style.height = '100vh';
+            inputBlocker.style.zIndex = '9999';
+            inputBlocker.style.background = 'transparent';
+            inputBlocker.style.pointerEvents = 'all';
+            inputBlocker.id = 'input-blocker';
+            document.body.appendChild(inputBlocker);
             setTimeout(() => {
                 const prev = document.querySelector('.scene-prev');
                 if (prev) {
@@ -223,6 +234,10 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
                 } else {
                     console.warn('prevScene sudah tidak ada saat timeout');
                 }
+                
+                // ✅ Hapus input blocker setelah selesai
+                const blocker = document.getElementById('input-blocker');
+                if (blocker) blocker.remove();
             }, 500);
         }
         
@@ -412,6 +427,11 @@ window.addEventListener('load', () => {
             stage.classList.add('immersive');
             stage.classList.remove('init');
             document.body.classList.remove('init');
+            console.log('BGM loaded:', Object.keys(soundman.channels.bgm));
+            Object.entries(soundman.channels.bgm).forEach(([name, entry]) => {
+                console.log(`${name}: buffer =`, entry.buffer);
+            });
+            
         }
     });
 });

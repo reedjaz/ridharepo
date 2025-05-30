@@ -856,12 +856,14 @@
 
 .ratio-1-1		{ 	aspect-ratio: 1 / 1 !important		;	}
 
+.ratio-2-1		{ 	aspect-ratio: 2 / 1 !important		;	}
 .ratio-3-2		{ 	aspect-ratio: 3 / 2 !important		;	}
 .ratio-4-3		{ 	aspect-ratio: 4 / 3 !important		;	}
 .ratio-5-4		{ 	aspect-ratio: 5 / 4 !important		;	}
 .ratio-16-9		{ 	aspect-ratio: 16 / 9 !important		;	}
 .ratio-16-10	{ 	aspect-ratio: 16 / 10 !important	;	}
 
+.ratio-1-2		{ 	aspect-ratio: 1 / 2 !important		;	}
 .ratio-2-3		{ 	aspect-ratio: 2 / 3 !important		;	}
 .ratio-3-4		{ 	aspect-ratio: 3 / 4 !important		;	}
 .ratio-4-5		{ 	aspect-ratio: 4 / 5 !important		;	}

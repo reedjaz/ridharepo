@@ -1,41 +1,45 @@
 function openSettings() {
-	const popup = document.getElementById('settings-popup');
-	const bgmCheckbox = document.getElementById('toggle-bgm-checkbox');
-	const fsCheckbox = document.getElementById('toggle-fs-checkbox');
-    
-    bgmCheckbox.checked = !soundman.channels.bgm.paused;
-	fsCheckbox.checked = !!document.fullscreenElement;
+    const popup = document.getElementById('settings-popup');
+    const bgmCheckbox = document.getElementById('toggle-bgm-checkbox');
+    const fsCheckbox = document.getElementById('toggle-fs-checkbox');
 
-	popup.classList.remove('hidden');
-	void popup.offsetWidth;
-	popup.classList.add('show');
-    
-    setupToggles();
+    if (bgmCheckbox && soundman.channels.bgm) {
+        bgmCheckbox.checked = !soundman.channels.bgm.paused;
+    }
+    if (fsCheckbox) {
+        fsCheckbox.checked = !!document.fullscreenElement;
+    }
+
+    popup.classList.remove('hidden');
+    void popup.offsetWidth; // Trigger reflow untuk animasi
+    popup.classList.add('show');
+
+    setupToggles();  // Pasang event listener, tapi aman dari duplikat
 }
 
 function closeSettings() {
-	const popup = document.getElementById('settings-popup');
-	popup.classList.remove('show');
-	popup.addEventListener('transitionend', function handler() {
-		popup.classList.add('hidden');
-		popup.removeEventListener('transitionend', handler);
-	}, { once: true });
+    const popup = document.getElementById('settings-popup');
+    popup.classList.remove('show');
+    popup.addEventListener('transitionend', function handler() {
+        popup.classList.add('hidden');
+        popup.removeEventListener('transitionend', handler);
+    }, { once: true });
 }
 
 function openExit() {
-	const popup = document.getElementById('exit-popup');
-	popup.classList.remove('hidden');
-	void popup.offsetWidth;
-	popup.classList.add('show');
+    const popup = document.getElementById('exit-popup');
+    popup.classList.remove('hidden');
+    void popup.offsetWidth;
+    popup.classList.add('show');
 }
 
 function closeExit() {
-	const popup = document.getElementById('exit-popup');
-	popup.classList.remove('show');
-	popup.addEventListener('transitionend', function handler() {
-		popup.classList.add('hidden');
-		popup.removeEventListener('transitionend', handler);
-	}, { once: true });
+    const popup = document.getElementById('exit-popup');
+    popup.classList.remove('show');
+    popup.addEventListener('transitionend', function handler() {
+        popup.classList.add('hidden');
+        popup.removeEventListener('transitionend', handler);
+    }, { once: true });
 }
 
 function setupToggles() {
@@ -43,25 +47,19 @@ function setupToggles() {
     const fsCheckbox = document.getElementById('toggle-fs-checkbox');
 
     if (bgmCheckbox) {
-        bgmCheckbox.addEventListener('change', function () {
-            const bgm = soundman.channels.bgm;
-            if (!bgm) return;
+        const newBgmCheckbox = bgmCheckbox.cloneNode(true);
+        bgmCheckbox.parentNode.replaceChild(newBgmCheckbox, bgmCheckbox);
 
-            if (this.checked) {
-                if (bgm.paused) {
-                    soundman.play('bgm', bgmVol);
-                } else {
-                    bgm.volume = bgmVol;
-                    bgm.muted = false;
-                }
-            } else {
-                bgm.muted = true;
-            }
+        newBgmCheckbox.addEventListener('change', function () {
+			soundman.toggleMuteAllBgm(!newBgmCheckbox.checked ? true : false);
         });
     }
 
     if (fsCheckbox) {
-        fsCheckbox.addEventListener('change', function () {
+        const newFsCheckbox = fsCheckbox.cloneNode(true);
+        fsCheckbox.parentNode.replaceChild(newFsCheckbox, fsCheckbox);
+
+        newFsCheckbox.addEventListener('change', function () {
             if (this.checked) {
                 goFullscreen();
             } else {

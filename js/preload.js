@@ -38,7 +38,6 @@ function preloadAssets(assets = [], onComplete = () => {}) {
             document.head.appendChild(script);
 
         } else {
-            // fallback: hit pakai fetch
             fetch(asset).then(checkDone).catch(checkDone);
         }
     });

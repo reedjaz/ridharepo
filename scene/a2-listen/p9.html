@@ -1,32 +1,32 @@
 <link rel="stylesheet" href="scene/a2-listen/load.css">
-<section class="scene-bg bg-p1">
+<section class="scene-bg bg-p9">
 </section>
 <script>
-    
+
     loadFooter('activity-2');
-    
+
     setTimeout(() => {
         const buttons = {
             reset: document.getElementById('btn-reset'),
             prev: document.getElementById('btn-prev'),
             next: document.getElementById('btn-next'),
         };
-        
+
         const checks = {
             reset: () => { },
-            prev: () => {
-                const p = buttons.prev?.parentElement;
+            prev: () => { },
+            next: () => {
+                const p = buttons.next?.parentElement;
                 if (p) p.classList.add('disabled');
-            },
-            next: () => { }
+            }
         };
-        
+
         const actions = {
             reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
-            prev: () => { },
-            next: () => loadSceneTrans('a2-listen/p2', 'footer', 'slide-left'),
+            prev: () => loadSceneTrans('a2-listen/p8', 'footer', 'slide-right'),
+            next: () => { },
         };
-        
+
         for (const key in buttons) {
             if (buttons[key]) {
                 checks[key]();
@@ -34,5 +34,5 @@
             }
         }
     }, 50);
-    
+
 </script>

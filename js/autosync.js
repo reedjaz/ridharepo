@@ -23,16 +23,23 @@ function readAloud(nameKebab, play = true) {
 }
 
 function renderTranscriptToElement(el, transcript) {
-    el.innerHTML = '';
+    const wrapper = el.querySelector('.vo-text-wrap');
+    if (!wrapper) {
+        console.warn('Elemen .vo-text-wrap tidak ditemukan di dalam', el);
+        return;
+    }
+
+    wrapper.innerHTML = '';
+
     transcript.forEach((item, index) => {
         const span = document.createElement('span');
         span.textContent = item.word;
         span.dataset.start = item.start;
         span.dataset.end = item.end;
-        el.appendChild(span);
-        
+        wrapper.appendChild(span);
+
         if (index < transcript.length - 1) {
-            el.appendChild(document.createTextNode(' '));
+            wrapper.appendChild(document.createTextNode(' '));
         }
     });
 }
@@ -68,6 +75,8 @@ function playVOForElement(nameKebab) {
         return;
     }
     renderTranscriptToElement(el, transcript);
+    
+    soundman.stopChannel('voice');
     
     const audio = soundman.play(nameKebab);
     if (!audio) {

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="scene/a2-listen/load.css">
-<section class="scene-bg bg-p1">
+<section class="scene-bg bg-p8 flex column justify-center items-center height-100 pt-12 pb-13">
 </section>
 <script>
     
@@ -14,17 +14,14 @@
         
         const checks = {
             reset: () => { },
-            prev: () => {
-                const p = buttons.prev?.parentElement;
-                if (p) p.classList.add('disabled');
-            },
+            prev: () => { },
             next: () => { }
         };
         
         const actions = {
             reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
-            prev: () => { },
-            next: () => loadSceneTrans('a2-listen/p2', 'footer', 'slide-left'),
+            prev: () => loadSceneTrans('a2-listen/p7', 'footer', 'slide-right'),
+            next: () => loadSceneTrans('a2-listen/p9', 'footer', 'slide-left'),
         };
         
         for (const key in buttons) {

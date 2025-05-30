@@ -99,7 +99,9 @@ fetch('scene/splash.html')
     
     startSplashScreenSequence();
     
-    document.querySelectorAll('#screen1, #screen2').forEach(el => {
+    document.querySelector('.scene').classList.add('scene-splash');
+
+    document.querySelectorAll('#screen2, #screen3').forEach(el => {
         el.addEventListener('click', () => {
             loadSceneTrans('title', 'both', 'zoom-out');
             goFullscreen();

@@ -171,6 +171,12 @@ soundman.isPlaying = function (name) {
     }
 };
 
+soundman.toggleMuteAllBgm = function(mute) {
+    Object.values(this.channels.bgm).forEach(audio => {
+        audio.muted = mute;
+    });
+};
+
 window.addEventListener('DOMContentLoaded', () => {
     soundman.init();
 });

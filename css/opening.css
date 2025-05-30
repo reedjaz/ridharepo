@@ -22,6 +22,10 @@
     user-select: none;
 } */
 
+.scene.scene-splash {
+    background-color: var(--white);
+}
+
 .splash-screen {
     position: absolute;
     transition: opacity 0.5s ease;

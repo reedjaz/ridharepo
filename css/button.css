@@ -535,4 +535,32 @@ button.selected:active, .button.selected:active {
 .disabled .button.act-neutral {
 	opacity: 0.5;
 	pointer-events: none;
+	transition: all var(--transition-fast) ease;
+}
+
+.read-btn {
+    width: var(--unit-12);
+    height: var(--unit-12);
+    padding: var(--unit-2);
+    border-radius: var(--rounded-full);
+    z-index: 22;
+	background: var(--amber-500);
+	border-color: var(--amber-500);
+	box-shadow: 0 calc(var(--unit-2) + var(--unit-1)) 0 var(--amber-600);
+	margin-top: calc(var(--unit-2); + var(--unit-1))
+	bottom: calc(var(--unit-2); + var(--unit-1))
+}
+.read-btn .lucide {
+	width: var(--unit-9);
+	height: var(--unit-9);
+	border-radius: var(--unit-6);
+	top: 0;
+}
+.read-btn:hover {
+	background: var(--amber-400);
+	border-color: var(--amber-400);
+	box-shadow: 0 calc(var(--unit-2) + var(--unit-1)) 0 var(--amber-600);
+}
+.read-btn:active {
+	box-shadow: 0 0 0 var(--amber-600);
 }
