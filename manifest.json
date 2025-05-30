@@ -1,13 +1,13 @@
 {
-    "name": "Belajar Bersama Gantar",
-    "short_name": "App",
+    "name": "Gantar - Serunya Belajar",
+    "short_name": "Gantar",
     "start_url": "./index.html",
     "display": "fullscreen",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "icons": [
       {
-        "src": "icon.png",
+        "src": "icon2.png",
         "sizes": "192x192",
         "type": "image/png"
       }
