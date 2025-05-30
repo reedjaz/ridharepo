@@ -7,6 +7,8 @@
     { "word": "si", "start": 3.48, "end": 3.86 },
     { "word": "gajah", "start": 3.86, "end": 4.29 },
     { "word": "pintar!", "start": 4.29, "end": 5.38 },
+    { "word": "<br>"},
+    { "word": "<br>"},
     { "word": "Hari", "start": 5.38, "end": 5.66 },
     { "word": "ini", "start": 5.66, "end": 6.46 },
     { "word": "kita", "start": 6.46, "end": 6.74 },

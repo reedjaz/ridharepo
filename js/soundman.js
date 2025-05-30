@@ -6,7 +6,9 @@ const soundman = {
         'bgm-quiz': 'assets/audio/bgm-quiz.mp3',
         'bgm-play': 'assets/audio/bgm-play.mp3',
         'click': 'assets/audio/click.mp3',
+        'cancel': 'assets/audio/cancel.mp3',
         'decide': 'assets/audio/decide.mp3',
+        'enter': 'assets/audio/enter.mp3',
         'vo-title': 'assets/audio/vo-title.mp3',
     },
 

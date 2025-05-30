@@ -32,14 +32,21 @@ function renderTranscriptToElement(el, transcript) {
     wrapper.innerHTML = '';
 
     transcript.forEach((item, index) => {
-        const span = document.createElement('span');
-        span.textContent = item.word;
-        span.dataset.start = item.start;
-        span.dataset.end = item.end;
-        wrapper.appendChild(span);
+        if (item.word === '<br>' || item.word === '<br><br>') {
+            const count = item.word === '<br><br>' ? 2 : 1;
+            for (let i = 0; i < count; i++) {
+                wrapper.appendChild(document.createElement('br'));
+            }
+        } else {
+            const span = document.createElement('span');
+            span.innerHTML = item.word;
+            if (item.start !== undefined) span.dataset.start = item.start;
+            if (item.end !== undefined) span.dataset.end = item.end;
+            wrapper.appendChild(span);
 
-        if (index < transcript.length - 1) {
-            wrapper.appendChild(document.createTextNode(' '));
+            if (index < transcript.length - 1) {
+                wrapper.appendChild(document.createTextNode(' '));
+            }
         }
     });
 }

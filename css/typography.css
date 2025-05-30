@@ -358,6 +358,11 @@ h1 {
 	line-height: calc(var(--unit-13) * 2);
 }
 
+.big-title-b {
+	font-size: calc((var(--unit-13) * 2) + var(--unit-6));
+	line-height: calc((var(--unit-13) * 2) + var(--unit-6));
+}
+
 .name-fase {
 	width: calc(var(--unit-12) * 2);
 	height: calc(var(--unit-12) * 2);

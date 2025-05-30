@@ -175,6 +175,23 @@ function loadScene(name, hideHUD = 'none') {
     });
 }
 
+function applyInputBlocker(duration = 1800) {
+    const inputBlocker = document.createElement('div');
+    inputBlocker.style.position = 'fixed';
+    inputBlocker.style.top = '0';
+    inputBlocker.style.left = '0';
+    inputBlocker.style.width = '100vw';
+    inputBlocker.style.height = '100vh';
+    inputBlocker.style.zIndex = '9999';
+    inputBlocker.style.background = 'transparent';
+    inputBlocker.style.pointerEvents = 'all';
+    inputBlocker.id = 'input-blocker-priority';
+    document.body.appendChild(inputBlocker);
+    setTimeout(() => {
+        const blocker = document.getElementById('input-blocker-priority');
+        if (blocker) blocker.remove();
+    }, duration);
+}
 
 // Fungsi Load Scene dengan transisi
 function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
@@ -235,7 +252,6 @@ function loadSceneTrans(name, hideHUD = 'none', transition = 'fade') {
                     console.warn('prevScene sudah tidak ada saat timeout');
                 }
                 
-                // ✅ Hapus input blocker setelah selesai
                 const blocker = document.getElementById('input-blocker');
                 if (blocker) blocker.remove();
             }, 500);

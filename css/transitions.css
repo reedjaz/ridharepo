@@ -186,28 +186,24 @@ body.init *,
 /* cover (scene lama "digeser" dari arah tertentu) */
 .scene-prev.transition-out-cover-up {
 	opacity: 1;
-	transform: translateY(100%);
 	pointer-events: none;
 	z-index: 1;
 }
 
 .scene-prev.transition-out-cover-right {
 	opacity: 1;
-	transform: translateX(-100%);
 	pointer-events: none;
 	z-index: 1;
 }
 
 .scene-prev.transition-out-cover-down {
 	opacity: 1;
-	transform: translateY(-100%);
 	pointer-events: none;
 	z-index: 1;
 }
 
 .scene-prev.transition-out-cover-left {
 	opacity: 1;
-	transform: translateX(100%);
 	pointer-events: none;
 	z-index: 1;
 }

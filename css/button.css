@@ -330,7 +330,7 @@ button.btntext {
 button .lucide {
 	width: var(--unit-11);
 	height: var(--unit-11);
-	stroke-width: calc(var(--unit-5) / 7);
+	stroke-width: 2.5px;
     position: relative;
     top: var(--unit-1);
 }
@@ -563,4 +563,36 @@ button.selected:active, .button.selected:active {
 }
 .read-btn:active {
 	box-shadow: 0 0 0 var(--amber-600);
+}
+
+.top-button {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	gap: var(--unit-5);
+	justify-content: center;
+	align-items: center;
+	color: var(--slate-700);
+	z-index: 100;
+	cursor: pointer;
+	margin: calc(var(--unit-4) * -1) calc(var(--unit-6) * -1);
+	padding: var(--unit-4) var(--unit-6);
+	border-radius: var(--rounded-20);
+	transition: all var(--transition-fast) ease;
+}
+.top-button:hover {
+	background-color: var(--amber-100);
+}
+.top-button:active {
+	background-color: var(--amber-200);
+}
+.top-button span {
+	font-size: var(--unit-10);
+	line-height: var(--unit-10);
+	font-weight: bold;
+}
+.top-button .lucide {
+	width: var(--unit-10);
+	height: var(--unit-10);
+	stroke-width: 2.5px;
 }
