@@ -204,3 +204,13 @@ body, html {
 .ingame .lay .out2 {
     width: 73%;
 }
+
+.book-cover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.book-cover-bg {
+    background-color: var(--white-0-75);
+}
