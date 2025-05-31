@@ -1,5 +1,5 @@
 .vo-text-wrap span {
-    display: inline-flex;
+    display: inline;
     border-radius: var(--rounded-16);
     transition: background-color var(--transition-fast), color var(--transition-fast);
     margin: 0 calc(var(--unit-3) * -1) calc(var(--unit-1) * -1) calc(var(--unit-3) * -1);

@@ -48,6 +48,7 @@ body, html {
 }
 .stage .main section {
     padding: 0 calc(var(--unit-12) + var(--unit-12));
+	overflow: visible;
 }
 .stage .footer {
     height: var(--site-footer);

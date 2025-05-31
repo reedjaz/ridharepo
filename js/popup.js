@@ -11,10 +11,10 @@ function openSettings() {
     }
 
     popup.classList.remove('hidden');
-    void popup.offsetWidth; // Trigger reflow untuk animasi
+    void popup.offsetWidth;
     popup.classList.add('show');
 
-    setupToggles();  // Pasang event listener, tapi aman dari duplikat
+    setupToggles();
 }
 
 function closeSettings() {
@@ -79,7 +79,7 @@ function setupToggles() {
             if (this.checked) {
                 goFullscreen();
             } else {
-                document.exitFullscreen?.();
+                exitFullscreen();
             }
         });
     }

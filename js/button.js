@@ -26,11 +26,16 @@ function checkAnswer(group, correctAnswers) {
 
     soundman.play(isCorrect ? "correct" : "wrong");
     
+    window.score = window.score || 0;
+    window.combo = window.combo || 0;
+
     if (isCorrect) {
-        window.score = (window.score || 0) + 1;
-        console.log(`✅ Benar! Skor sekarang: ${window.score}`);
+        window.score += 1;
+        window.combo += 1;
+        console.log(`✅ Benar! Skor: ${window.score}, Kombo: ${window.combo}`);
     } else {
-        console.log("❌ Salah. Skor tidak bertambah.");
+        window.combo = 0;
+        console.log(`❌ Salah. Skor tetap: ${window.score}, Kombo direset.`);
     }
     
     return isCorrect;

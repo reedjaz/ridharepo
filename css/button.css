@@ -327,6 +327,16 @@ button.btntext {
 	width: var(--btnwithcaption-wrapper);
 }
 
+.check-full {
+    display: none !important;
+    visibility: hidden;
+}
+
+body.fullscreen .check-full {
+	display: flex !important;
+	visibility: visible;
+}
+
 button .lucide {
 	width: var(--unit-11);
 	height: var(--unit-11);
@@ -545,9 +555,9 @@ button.selected:active, .button.selected:active {
 
 .read-btn {
     width: var(--unit-12);
-    height: var(--unit-12);
+    height: calc(var(--unit-12) - var(--unit-3));
     padding: var(--unit-2);
-    border-radius: var(--rounded-full);
+    border-radius: 100%;
     z-index: 22;
 	background: var(--amber-500);
 	border-color: var(--amber-500);
