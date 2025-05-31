@@ -1,7 +1,7 @@
 // Variabel Global
 let isLoadingScene = false;
 let voTimeoutId = null;
-let bgmVol = 0.25;
+let bgmVol = 0.35;
 let currentBGM = null;
 
 // Mapping Kebutuhan VO

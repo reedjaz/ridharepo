@@ -39,13 +39,13 @@ button:active,
 	bottom: 0;
 	box-shadow: 0 0 0 var(--action-pressed);
 }
-button:disabled, button.disabled,
+/* button:disabled, button.disabled,
 .button:disabled, .button.disabled, .ultimate.disabled, .destructive.disabled {
 	background: var(--interactive-disabled) !important;
 	color: var(--text-disabled);
 	border: var(--unit-2) solid var(--interactive-disabled) !important;
 	pointer-events: none;
-}
+} */
 
 /* Primary */
 button.primary,
@@ -461,6 +461,7 @@ button.act-neutral:active, .button.act-neutral:active {
 button.act-answer, .button.act-answer {
 	color: var(--slate-800);
 	font-size: var(--unit-11);
+    line-height: var(--unit-11);
 	background: var(--slate-50);
 	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
@@ -479,6 +480,10 @@ button.act-choice, .button.act-choice {
 	font-weight: normal;
 	color: var(--slate-800);
 	background: var(--white);
+	flex-direction: column;
+	gap: var(--unit-3);
+    font-size: var(--unit-10);
+    line-height: var(--unit-11);
 	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
 }
@@ -615,3 +620,19 @@ button.selected:active, .button.selected:active {
 .act-answer.tall { height: calc(var(--unit-14) * 2) }
 .act-answer.medium { height: calc(var(--unit-13) * 2) }
 .act-answer.short { height: calc(var(--unit-12) * 2) }
+
+.act-choice .choice-img {
+	width: 100%;
+    height: auto;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.act-choice .choice-img img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+.choice-img.cover img {
+	object-fit: cover;
+}

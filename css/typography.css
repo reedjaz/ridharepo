@@ -468,8 +468,18 @@ h1 {
 	width: var(--unit-12);
 	height: var(--unit-12);
 	position: absolute;
-	top: var(--unit-11);
+	top: calc(50% - (var(--unit-11) / 2));
 	left: calc((var(--unit-12) / 2) * -1);
+}
+.callout.top {
+	top: var(--unit-11);
+}
+.callout.middle {
+	top: calc(50% - (var(--unit-11) / 2));
+}
+.callout.bottom {
+	top: unset;
+	bottom: var(--unit-11);
 }
 
 .m-char {
@@ -477,4 +487,7 @@ h1 {
 }
 .m-thing {
 	color: var(--indigo-500);
+}
+.m-key {
+	color: var(--lime-600);
 }

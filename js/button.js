@@ -14,6 +14,7 @@ function setupBtnSFX() {
 }
 
 function checkAnswer(group, correctAnswers) {
+
     const userAnswer = window.selectedAnswers?.[group];
     if (!userAnswer) {
         console.log("Belum ada jawaban dipilih.");
@@ -23,9 +24,15 @@ function checkAnswer(group, correctAnswers) {
     const correctList = Array.isArray(correctAnswers) ? correctAnswers : [correctAnswers];
     const isCorrect = correctList.includes(userAnswer);
 
-    console.log(isCorrect ? "Benar!" : "Salah.");
-    
     soundman.play(isCorrect ? "correct" : "wrong");
-
+    
+    if (isCorrect) {
+        window.score = (window.score || 0) + 1;
+        console.log(`✅ Benar! Skor sekarang: ${window.score}`);
+    } else {
+        console.log("❌ Salah. Skor tidak bertambah.");
+    }
+    
     return isCorrect;
+
 }

@@ -1088,7 +1088,7 @@
 /* SITEWIDE VARIABLES */
 
 --site-theme-color : var(--blue-70);
---site-header  : calc(var(--unit-14) * 2);
+--site-header  : calc(var(--unit-13) * 2);
 --site-footer  : calc(var(--unit-14) * 2);
 --site-padding  : var(--unit-8);
 --site-banner  : calc(var(--unit-14) * 5);

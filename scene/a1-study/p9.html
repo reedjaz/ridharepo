@@ -5,19 +5,19 @@
             <dotlottie-player src="assets/anim/gantar-splash.json" background="transparent" speed="1" renderer="svg"
                 id="gantar-ingame" class="flex full height-full" loop autoplay>
             </dotlottie-player>
-            <div class="flex row full justify-end items-center absolute bottom-0 p-7"><button class="read-btn" onclick="readAloud('vo-gantar-msg1')"><i data-lucide="volume-2"></i></button></div>
+            <div class="flex row full justify-end items-center absolute bottom-0 p-7"><button class="read-btn" onclick="readAloud('vo-gantar-msg9')"><i data-lucide="volume-2"></i></button></div>
         </div>
         <div class="out2 flex column">
-            <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg1">
+            <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg9">
                 <div class="callout"></div>
-                <div class="vo-text-wrap">Halo, teman-teman! Sebelum kita mulai mendengarkan dongeng, <span class="m-char">Gantar</span> punya <span class="m-thing">pertanyaan seru</span> untuk kalian. Apakah kalian siap untuk menjawabnya?</div>
+                <div class="vo-text-wrap">Kalian sudah tidak sabar untuk mendengar kisah dongeng yang menarik ini, bukan? Yuk, kita simak dongeng <span class="m-thing">“Kue Kimu”</span> sekarang!</div>
             </div>
         </div>
     </div>
 </section>
 <script>
     
-    loadFooter('activity-1');
+    loadFooter('activity-1-b');
     
     setTimeout(() => {
         const buttons = {
@@ -29,7 +29,7 @@
         };
         
         const actions = {
-            action: () => loadSceneTrans('a1-study/p2', 'none', 'slide-left'),
+            action: () => loadSceneTrans('a2-listen/load', 'both', 'zoom-in'),
         };
         
         for (const key in buttons) {

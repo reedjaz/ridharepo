@@ -5,33 +5,36 @@
             <dotlottie-player src="assets/anim/gantar-splash.json" background="transparent" speed="1" renderer="svg"
                 id="gantar-ingame" class="flex full height-full" loop autoplay>
             </dotlottie-player>
-            <div class="flex row full justify-end items-center absolute bottom-0 p-7"><button class="read-btn" onclick="readAloud('vo-gantar-msg1')"><i data-lucide="volume-2"></i></button></div>
+            <div class="flex row full justify-end items-center absolute bottom-0 p-7"><button class="read-btn"
+                    onclick="readAloud('vo-gantar-msg1')"><i data-lucide="volume-2"></i></button></div>
         </div>
         <div class="out2 flex column">
             <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg1">
                 <div class="callout"></div>
-                <div class="vo-text-wrap">Halo, teman-teman! Sebelum kita mulai mendengarkan dongeng, <span class="m-char">Gantar</span> punya <span class="m-thing">pertanyaan seru</span> untuk kalian. Apakah kalian siap untuk menjawabnya?</div>
+                <div class="vo-text-wrap">Halo, teman-teman! Sebelum kita mulai mendengarkan dongeng, <span
+                        class="m-char">Gantar</span> punya <span class="m-thing">pertanyaan seru</span> untuk kalian.
+                    Apakah kalian siap untuk menjawabnya?</div>
             </div>
         </div>
     </div>
 </section>
 <script>
-    
-    loadFooter('activity-1');
-    
+
+    loadFooter('activity-4');
+
     setTimeout(() => {
         const buttons = {
             action: document.getElementById('btn-action'),
         };
-        
+
         const checks = {
             action: () => { }
         };
-        
+
         const actions = {
-            action: () => loadSceneTrans('a1-study/p2', 'footer', 'slide-left'),
+            action: () => loadSceneTrans('a4-play/p2', 'none', 'slide-left'),
         };
-        
+
         for (const key in buttons) {
             if (buttons[key]) {
                 checks[key]();
@@ -39,5 +42,5 @@
             }
         }
     }, 450);
-    
+
 </script>

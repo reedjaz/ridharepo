@@ -6,20 +6,20 @@
                 id="gantar-ingame" class="flex full height-full" loop autoplay>
             </dotlottie-player>
             <div class="flex row full justify-end items-center absolute bottom-0 p-7">
-                <button class="read-btn" onclick="readAloud('vo-gantar-msg2')">
+                <button class="read-btn" onclick="readAloud('vo-gantar-msg6')">
                     <i data-lucide="volume-2"></i>
                 </button>
             </div>
         </div>
         <div class="out2 flex column gap-11">
-            <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg2">
+            <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg6">
                 <div class="callout bottom"></div>
-                <div class="vo-text-wrap">Jika kalian mendengar kabar teman yang sakit, apa yang akan kalian lakukan?</div>
+                <div class="vo-text-wrap">Sebelum mulai menyimak dongeng yang menarik ini, apakah kalian sudah tahu apa itu <span class="m-thing">dongeng</span>?</div>
             </div>
             <div class="flex row animate-fadeInUp duration-6 delay-4 easing-ease gap-10">
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p2">Mendoakan</button>
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p2">Menjenguk</button>
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p2">Menghibur</button>
+                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p6">Tahu</button>
+                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p6">Tidak tahu</button>
+                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p6">Lupa</button>
             </div>
         </div>
     </div>
@@ -39,20 +39,20 @@
         
         const actions = {
             action: () => {
-                const isCorrect = checkAnswer("soal-a1-p2", [
-                "Mendoakan",
-                "Menjenguk",
-                "Menghibur",
+                const isCorrect = checkAnswer("soal-a1-p6", [
+                "Tahu",
+                "Tidak tahu",
+                "Lupa",
                 ]);
                 const title = isCorrect
-                ? "Hebat!"
+                ? "Oke!"
                 : "Aduh!";
                 const message = isCorrect
-                ? "Kalian menunjukkan kepedulian yang luar biasa!"
+                ? undefined
                 : "Sepertinya itu kurang tepat.";
                 
                 showFeedbackSheet(isCorrect, title, message, () => {
-                    loadSceneTrans('a1-study/p3', 'none', 'slide-left');
+                    loadSceneTrans('a1-study/p7', 'none', 'slide-left');
                 });
             },
         };

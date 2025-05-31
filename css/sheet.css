@@ -16,12 +16,13 @@
     transform: translateY(100%);
     transition: transform var(--transition-fast) ease;
     z-index: 9999;
-    height: calc(var(--unit-13) * 3);
+    height: var(--site-footer);
     pointer-events: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 #sheet-buffer:has(.sheet.show) {
