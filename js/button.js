@@ -1,16 +1,22 @@
-function replaceAndAttach(selector, event, handler) {
-    document.querySelectorAll(selector).forEach(el => {
-        const clone = el.cloneNode(true);
-        clone.addEventListener(event, handler);
-        el.replaceWith(clone);
-    });
-}
+const sfxHandlers = {
+    decide: () => soundman.play('decide'),
+    cancel: () => soundman.play('cancel'),
+    click: () => soundman.play('click'),
+    enter: () => soundman.play('enter'),
+};
 
 function setupBtnSFX() {
-    replaceAndAttach('.btn-decide', 'click', () => soundman.play('decide'));
-    replaceAndAttach('.btn-cancel', 'click', () => soundman.play('cancel'));
-    replaceAndAttach('.btn-click', 'click', () => soundman.play('click'));
-    replaceAndAttach('.btn-enter', 'click', () => soundman.play('enter'));
+    document.querySelectorAll('.btn-decide').forEach(el => el.addEventListener('click', sfxHandlers.decide));
+    document.querySelectorAll('.btn-cancel').forEach(el => el.addEventListener('click', sfxHandlers.cancel));
+    document.querySelectorAll('.btn-click').forEach(el => el.addEventListener('click', sfxHandlers.click));
+    document.querySelectorAll('.btn-enter').forEach(el => el.addEventListener('click', sfxHandlers.enter));
+}
+
+function detachBtnSFX() {
+    document.querySelectorAll('.btn-decide').forEach(el => el.removeEventListener('click', sfxHandlers.decide));
+    document.querySelectorAll('.btn-cancel').forEach(el => el.removeEventListener('click', sfxHandlers.cancel));
+    document.querySelectorAll('.btn-click').forEach(el => el.removeEventListener('click', sfxHandlers.click));
+    document.querySelectorAll('.btn-enter').forEach(el => el.removeEventListener('click', sfxHandlers.enter));
 }
 
 function checkAnswer(group, correctAnswers) {
@@ -40,4 +46,45 @@ function checkAnswer(group, correctAnswers) {
     
     return isCorrect;
 
+}
+
+function updateStepIndicator(progress) {
+    const indicator = document.getElementById('step-indicator');
+    if (!indicator) return;
+
+    const stepEl = indicator.querySelector('#step');
+    const stepsEl = indicator.querySelector('#steps');
+
+    if (stepEl) stepEl.textContent = progress.value + 1;
+    if (stepsEl) stepsEl.textContent = progress.max + 1;
+}
+
+function updateProgress(delta, id = 'activity-progress') {
+    const progress = document.getElementById(id);
+    if (!progress) return;
+
+    progress.value = Math.min(progress.max, Math.max(0, progress.value + delta));
+    updateStepIndicator(progress);
+}
+
+function progressInit(max, value = 0, id = 'activity-progress') {
+    const progress = document.getElementById(id);
+    if (!progress) return;
+
+    progress.max = max;
+    progress.value = Math.min(Math.max(0, value), max);
+    updateStepIndicator(progress);
+}
+
+function progressIncrease(id) {
+    updateProgress(1, id);
+}
+
+function progressDecrease(id) {
+    updateProgress(-1, id);
+}
+
+function progressGet(id = 'activity-progress') {
+    const progress = document.getElementById(id);
+    return progress.max;
 }

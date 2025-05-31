@@ -65,6 +65,8 @@ const soundman = {
             if (index !== -1) this.channels[channelName].splice(index, 1);
         });
 
+        console.log(`NAMA SUARA: ${name}`);
+
         return clone;
     },
 

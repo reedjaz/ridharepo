@@ -29,7 +29,10 @@
         };
         
         const actions = {
-            action: () => loadSceneTrans('a1-study/p8', 'none', 'slide-left'),
+            action: () => {
+                loadSceneTrans('a1-study/p8', 'none', 'slide-left');
+                progressIncrease();
+            }
         };
         
         for (const key in buttons) {

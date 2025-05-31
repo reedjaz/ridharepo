@@ -1,59 +1,86 @@
 <link rel="stylesheet" href="scene/a3-quiz/load.css">
 <section class="flex column justify-center items-center height-100 pt-12 pb-13"
-    style="background-image: url('assets/bg-title.jpg');">
-    <div class="flex row gap-10 full height-full">
-        <div class="flex column width-50 gap-11 justify-center">
-            <div class="flex row gap-7 justify-start absolute top-0">
-                <div class="top-button btn-cancel" onclick="
-                    loadSceneTrans('title', 'both', 'slide-right');
-                    ">
-                    <i data-lucide="arrow-left"></i>
-                    <span>Kembali</span>
-                </div>
-            </div>
-            <div class="flex column justify-center items-center text-center">
-                <div class="act-icon flex column animate-fadeInUp duration-6 delay-1 easing-ease">
-                    <img src="assets/act-3.svg" alt="Aktivitas 3">
-                </div>
-                <h1
-                    class="text-m-off text-center text-balance text-indigo-900 text-size-12 line-height-12 pb-5 unsel animate-fadeInUp duration-6 delay-2 easing-ease">
-                    Berburu Bintang dengan</h1>
-                <h2
-                    class="amazing-title big-title-b funny weight-800 unsel animate-fadeInDown duration-6 delay-3 easing-ease">
-                    Kuis Seru</h2>
-                <div class="spacer-11 vertical"></div>
-                <button class="act-study btn-enter animate-fadeInDown duration-6 delay-4 easing-ease" onclick="
-                    loadSceneTrans('a3-quiz/p1', 'footer', 'slide-left');
-                ">Coba Kuis</button>
-            </div>
-        </div>
-        <div class="flex column width-50 height-full justify-between">
-            <div class="flex row gap-7 justify-end">
-                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
-                    <button class="act-neutral btntext btn-click ico-sm" onclick="openSettings()">
-                        <i data-lucide="settings"></i>
-                    </button>
-                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Pengaturan</span>
-                </div>
-                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
-                    <button class="act-neutral btntext btn-click ico-sm" onclick="">
-                        <i data-lucide="menu"></i>
-                    </button>
-                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Lainnya</span>
-                </div>
-                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
-                    <button class="act-neutral btntext btn-click ico-sm" onclick="openExit()">
-                        <i data-lucide="x"></i>
-                    </button>
-                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Keluar</span>
-                </div>
-            </div>
-            <dotlottie-player src="assets/anim/gantar-splash.json" background="transparent" speed="1" renderer="svg"
-                id="gantar-splash" class="flex full height-full" loop autoplay>
-            </dotlottie-player>
+style="background-image: url('assets/bg-title.jpg');">
+<div class="flex row gap-10 full height-full">
+    <div class="flex column width-50 gap-11 justify-center">
+        <div class="flex row gap-7 justify-start absolute top-0">
+            <div class="top-button btn-cancel" onclick="
+            loadSceneTrans('title', 'both', 'slide-right');
+            ">
+            <i data-lucide="arrow-left"></i>
+            <span>Kembali</span>
         </div>
     </div>
+    <div class="flex column justify-center items-center text-center">
+        <div class="act-icon flex column animate-fadeInUp duration-6 delay-1 easing-ease">
+            <img src="assets/act-3.svg" alt="Aktivitas 3">
+        </div>
+        <h1
+        class="text-m-off text-center text-balance text-indigo-900 text-size-12 line-height-12 pb-5 unsel animate-fadeInUp duration-6 delay-2 easing-ease">
+        Berburu Bintang dengan</h1>
+        <h2
+        class="amazing-title big-title-b funny weight-800 unsel animate-fadeInDown duration-6 delay-3 easing-ease">
+        Kuis Seru</h2>
+        <div class="spacer-11 vertical"></div>
+        <button class="act-study btn-enter animate-fadeInDown duration-6 delay-4 easing-ease" onclick="
+        loadSceneTrans('a3-quiz/p1', 'none', 'slide-left');
+        ">Coba Kuis</button>
+    </div>
+</div>
+<div class="flex column width-50 height-full justify-between">
+    <div class="flex row gap-7 justify-end">
+        <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
+            <button class="act-neutral btntext btn-click ico-sm" onclick="openSettings()">
+                <i data-lucide="settings"></i>
+            </button>
+            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Pengaturan</span>
+        </div>
+        <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
+            <button class="act-neutral btntext btn-click ico-sm" onclick="">
+                <i data-lucide="menu"></i>
+            </button>
+            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Lainnya</span>
+        </div>
+        <div class="btntext-wrapper check-full flex column text-center gap-5 justify-center items-center">
+            <button class="act-neutral btntext btn-click ico-sm" onclick="openExit()">
+                <i data-lucide="x"></i>
+            </button>
+            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Keluar</span>
+        </div>
+    </div>
+    <dotlottie-player src="assets/anim/gantar-splash.json" background="transparent" speed="1" renderer="svg"
+    id="gantar-splash" class="flex full height-full" loop autoplay>
+</dotlottie-player>
+</div>
+</div>
 </section>
 <script>
+    
+    progressInit(10, 0);
     applyInputBlocker(1000);
+    
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+        
+        const checks = {
+            action: () => { }
+        };
+        
+        const actions = {
+            action: () => {
+                loadSceneTrans('a3-quiz/p2', 'none', 'slide-left');
+                progressIncrease();
+            }
+        };
+        
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+    }, 450);
+    
 </script>

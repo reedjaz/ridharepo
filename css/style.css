@@ -38,6 +38,7 @@ body, html {
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
+    z-index: 888;
 }
 .stage .main {
     flex-grow: 1;
@@ -143,6 +144,16 @@ body, html {
     gap: 0;
 }
 
+.scene-bg.ingame .question {
+    text-align: center;
+    font-size: var(--unit-12);
+    line-height: var(--unit-13);
+    color: var(--slate-800);
+    text-wrap: balance;
+    font-weight: bold;
+    z-index: 20;
+}
+
 .scene-bg .vo-text {
     text-align: center;
     font-size: var(--unit-10);
@@ -188,6 +199,20 @@ body, html {
     height: calc(var(--unit-13) * 3);
 }
 
+.stage:not(.immersive) #header:has(.slim) {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    pointer-events: none;
+}
+.stage:not(.immersive) #header:has(.slim) .header-bar {
+    padding: 0;
+}
+
+.header-bar {
+    padding: 0 calc(var(--unit-12) + var(--unit-12));
+    height: 100%;
+}
 .footer-bar {
     padding: 0 calc(var(--unit-12) + var(--unit-12));
 }

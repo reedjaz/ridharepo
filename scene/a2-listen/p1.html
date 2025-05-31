@@ -5,6 +5,7 @@
 </section>
 <script>
     
+    loadHeader('activity-2');
     loadFooter('activity-2');
     
     setTimeout(() => {
@@ -26,7 +27,10 @@
         const actions = {
             reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
             prev: () => { },
-            next: () => loadSceneTrans('a2-listen/p2', 'footer', 'slide-left'),
+            next: () => {
+                loadSceneTrans('a2-listen/p2', 'footer', 'slide-left');
+                progressIncrease();
+            },
         };
         
         for (const key in buttons) {

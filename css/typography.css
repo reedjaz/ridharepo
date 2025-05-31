@@ -482,6 +482,10 @@ h1 {
 	bottom: var(--unit-11);
 }
 
+.inline {
+	display: inline;
+}
+
 .m-char {
 	color: var(--amber-600);
 }

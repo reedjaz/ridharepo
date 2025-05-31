@@ -637,6 +637,9 @@ button.selected:active, .button.selected:active {
 	display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
 }
 .act-choice .choice-img img {
 	width: 100%;

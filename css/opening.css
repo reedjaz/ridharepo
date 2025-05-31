@@ -33,6 +33,7 @@
     z-index: 1024;
     opacity: 0;
     visibility: visible;
+    cursor: none;
 }
 
 .splash-screen.show {
@@ -47,6 +48,10 @@
 
 .splash-screen button {
     pointer-events: auto;
+}
+
+#screen4 {
+    cursor: auto;
 }
 
 .loading-screen {
@@ -85,5 +90,52 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
     background: var(--indigo-600);
     border-radius: var(--rounded-full);
+    transition: width var(--transition-slow) ease;
+}
+
+#activity-progress {
+    height: var(--vh-3);
+}
+
+#step-indicator, #point-indicator {
+    font-size: var(--unit-10);
+    line-height: var(--unit-10);
+    font-weight: bold;
+    gap: var(--unit-2);
+    align-items: center;
+}
+#point-indicator {
+    gap: var(--unit-5);
+}
+
+#point-icon {
+    width: var(--unit-13);
+    height: var(--unit-13);
+}
+
+#header:has(.slim) progress {
+    height: var(--unit-2);
+    border-radius: 0;
+    background-color: var(--transparent);
+    overflow: hidden;
+    border: none;
+}
+
+/* Bar warna untuk Chrome & Edge */
+#header:has(.slim) progress::-webkit-progress-bar {
+    background-color: var(--transparent);
+    border-radius: 0;
+}
+
+#header:has(.slim) progress::-webkit-progress-value {
+    background: var(--indigo-600);
+    border-radius: 0;
+    transition: width var(--transition-slow) ease;
+}
+
+/* Firefox */
+#header:has(.slim) progress::-moz-progress-bar {
+    background: var(--indigo-600);
+    border-radius: 0;
     transition: width var(--transition-slow) ease;
 }

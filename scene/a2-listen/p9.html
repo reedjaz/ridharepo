@@ -21,7 +21,7 @@
             <div class="story-text" style="transform: translate(0vh, 29vh);">
                 <button class="act-correct btn-decide" onclick="
                     loadSceneTrans('a2-listen/p10', 'footer', 'slide-left');
-                    goFullscreen();
+                    progressIncrease();
                 "><i data-lucide="book-open-check"></i>Selesai</button>
             </div>
         </div>
@@ -51,7 +51,11 @@
 
         const actions = {
             reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
-            prev: () => loadSceneTrans('a2-listen/p8', 'footer', 'slide-right'),
+            prev: () => {
+                loadSceneTrans('a2-listen/p8', 'footer', 'slide-right');
+                progressDecrease();
+
+            },
             next: () => { },
         };
 

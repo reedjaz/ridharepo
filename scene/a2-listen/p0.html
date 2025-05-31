@@ -41,7 +41,7 @@
                     </button>
                     <span class="text-size-6 line-height-6 weight-bold text-slate-800">Lainnya</span>
                 </div>
-                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
+                <div class="btntext-wrapper check-full flex column text-center gap-5 justify-center items-center">
                     <button class="act-neutral btntext btn-click ico-sm" onclick="openExit()">
                         <i data-lucide="x"></i>
                     </button>
@@ -55,5 +55,41 @@
     </div>
 </section>
 <script>
+
+    progressInit(9, 0);
     applyInputBlocker(1000);
+    
+    setTimeout(() => {
+        const buttons = {
+            reset: document.getElementById('btn-reset'),
+            prev: document.getElementById('btn-prev'),
+            next: document.getElementById('btn-next'),
+        };
+
+        const checks = {
+            reset: () => { },
+            prev: () => {
+                const p = buttons.prev?.parentElement;
+                if (p) p.classList.add('disabled');
+            },
+            next: () => { }
+        };
+
+        const actions = {
+            reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
+            prev: () => { },
+            next: () => {
+                loadSceneTrans('a2-listen/p2', 'footer', 'slide-left');
+                progressIncrease();
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+    }, 450);
+
 </script>

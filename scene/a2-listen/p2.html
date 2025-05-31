@@ -52,8 +52,14 @@
         
         const actions = {
             reset: () => loadSceneTrans('a2-listen/p0', 'both', 'zoom-out'),
-            prev: () => loadSceneTrans('a2-listen/p1', 'footer', 'slide-right'),
-            next: () => loadSceneTrans('a2-listen/p3', 'footer', 'slide-left'),
+            prev: () => {
+                loadSceneTrans('a2-listen/p1', 'footer', 'slide-right');
+                progressDecrease();
+            },
+            next: () => {
+                loadSceneTrans('a2-listen/p3', 'footer', 'slide-left');
+                progressIncrease();
+            },
         };
         
         for (const key in buttons) {
