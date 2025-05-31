@@ -9,6 +9,8 @@ const soundman = {
         'cancel': 'assets/audio/cancel.mp3',
         'decide': 'assets/audio/decide.mp3',
         'enter': 'assets/audio/enter.mp3',
+        'correct': 'assets/audio/correct.mp3',
+        'wrong': 'assets/audio/wrong.mp3',
         'vo-title': 'assets/audio/vo-title.mp3',
     },
 

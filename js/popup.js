@@ -26,6 +26,22 @@ function closeSettings() {
     }, { once: true });
 }
 
+function openOther() {
+    const popup = document.getElementById('other-popup');
+    popup.classList.remove('hidden');
+    void popup.offsetWidth;
+    popup.classList.add('show');
+}
+
+function closeOther() {
+    const popup = document.getElementById('other-popup');
+    popup.classList.remove('show');
+    popup.addEventListener('transitionend', function handler() {
+        popup.classList.add('hidden');
+        popup.removeEventListener('transitionend', handler);
+    }, { once: true });
+}
+
 function openExit() {
     const popup = document.getElementById('exit-popup');
     popup.classList.remove('hidden');

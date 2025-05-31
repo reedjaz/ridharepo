@@ -461,12 +461,12 @@ button.act-neutral:active, .button.act-neutral:active {
 button.act-answer, .button.act-answer {
 	color: var(--slate-800);
 	font-size: var(--unit-11);
-	background: var(--slate-100);
-	border-color: var(--slate-300);
+	background: var(--slate-50);
+	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
 }
 button.act-answer:hover, .button.act-answer:hover {
-	background: var(--slate-200);
+	background: var(--slate-100);
 	border-color: var(--slate-400);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-400);
 }
@@ -479,7 +479,7 @@ button.act-choice, .button.act-choice {
 	font-weight: normal;
 	color: var(--slate-800);
 	background: var(--white);
-	border-color: var(--slate-300);
+	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
 }
 button.act-choice:hover, .button.act-choice:hover {
@@ -611,3 +611,7 @@ button.selected:active, .button.selected:active {
 .act-listen .lucide { color: var(--lime-50) }
 .act-quiz .lucide { color: var(--amber-50) }
 .act-play .lucide { color: var(--pink-50) }
+
+.act-answer.tall { height: calc(var(--unit-14) * 2) }
+.act-answer.medium { height: calc(var(--unit-13) * 2) }
+.act-answer.short { height: calc(var(--unit-12) * 2) }
