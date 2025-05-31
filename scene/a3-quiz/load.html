@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="scene/a2-listen/load.css">
+<link rel="stylesheet" href="scene/a3-quiz/load.css">
 <section class="flex column justify-center items-center height-100 gap-10">
     <div class="loading-screen">
         <div class="text-size-8 line-height-8 weight-bold text-slate-700">Memuat...</div>
@@ -9,26 +9,24 @@
 
     var progressBar = document.getElementById('loading-progress');
     var assets = [
-        ...Array.from({ length: 9 }, (_, i) => `scene/a2-listen/img/p${i + 1}.jpg`),
-        'scene/a2-listen/img/book.png',
         'assets/anim/gantar-splash.json'
     ];
-    
+
     if (progressBar) progressBar.max = assets.length;
-    
+
     preloadAssets(assets,
-    (loaded, total) => {
-        if (progressBar) progressBar.value = loaded;
-    },
-    () => {
-        console.log("Semua aset sudah preload, siap lanjut!");
-        const loadingScreen = document.querySelector('.loading-screen');
-        if (loadingScreen) loadingScreen.remove();
-        loadSceneTrans('a2-listen/p0', 'both', 'zoom-in');
-    }
+        (loaded, total) => {
+            if (progressBar) progressBar.value = loaded;
+        },
+        () => {
+            console.log("Semua aset sudah preload, siap lanjut!");
+            const loadingScreen = document.querySelector('.loading-screen');
+            if (loadingScreen) loadingScreen.remove();
+            loadSceneTrans('a3-quiz/p0', 'both', 'zoom-in');
+        }
     );
 
     delete progressBar;
     delete assets;
-    
+
 </script>
