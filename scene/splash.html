@@ -46,3 +46,28 @@
         <button class="btn-click act-choice selected">Answer Selected</button>
     </div>
 </div> -->
+
+<script>
+
+    var progressBar = document.getElementById('loading-progress');
+    var assets = [
+        'assets/anim/gantar-splash.json'
+    ];
+
+    if (progressBar) progressBar.max = assets.length;
+
+    preloadAssets(assets,
+        (loaded, total) => {
+            if (progressBar) progressBar.value = loaded;
+        },
+        () => {
+            console.log("Semua aset sudah preload, siap lanjut!");
+            const loadingScreen = document.querySelector('.loading-screen');
+            if (loadingScreen) loadingScreen.remove();
+        }
+    );
+
+    delete progressBar;
+    delete assets;
+
+</script>
