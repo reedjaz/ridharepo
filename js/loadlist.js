@@ -7,6 +7,7 @@ const cssFiles = [
     'flexbox',
     'grid',
     'gantar',
+    'interactive',
     'normalize',
     'opening',
     'popup',

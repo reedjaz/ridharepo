@@ -153,6 +153,18 @@ body, html {
     font-weight: bold;
     z-index: 20;
 }
+.scene-bg.ingame .hint {
+    text-align: center;
+    font-size: var(--unit-10);
+    line-height: var(--unit-11);
+    color: var(--white);
+    padding: var(--unit-4) var(--unit-8);
+    border-radius: var(--rounded-20);
+    background-color: var(--amber-600);
+    text-wrap: balance;
+    font-weight: bold;
+    z-index: 20;
+}
 
 .scene-bg .vo-text {
     text-align: center;

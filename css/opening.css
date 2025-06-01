@@ -112,6 +112,11 @@ progress::-moz-progress-bar {
     width: var(--unit-13);
     height: var(--unit-13);
 }
+#point-icon img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
 
 #header:has(.slim) progress {
     height: var(--unit-2);

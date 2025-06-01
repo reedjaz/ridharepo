@@ -645,6 +645,9 @@ button.selected:active, .button.selected:active {
 	width: 100%;
 	height: auto;
 	object-fit: contain;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
 }
 .choice-img.cover img {
 	object-fit: cover;

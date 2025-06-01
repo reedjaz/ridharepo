@@ -444,6 +444,31 @@ window.addEventListener('load', () => {
         loadHTML('#footer', 'components/footer/ftr-empty.html'),
         loadPopup()
     ]).then(() => {
+        
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F11') {
+              console.log('F11 pressed!');
+              e.preventDefault();
+            }
+        });
+        document.addEventListener('keydown', function (e) {
+            if ((e.ctrlKey && e.key === 'r') || // Ctrl+R
+                (e.key === 'F5') ||             // F5
+                (e.ctrlKey && e.shiftKey && e.key === 'I')) { // Ctrl+Shift+I
+              e.preventDefault();
+              console.log('Shortcut prevented!');
+            }
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12') {
+              e.preventDefault(); // 🚫 Ini biasanya TIDAK akan berfungsi
+              console.log("F12 pressed - trying to prevent...");
+            }
+        });
+
         const stage = document.querySelector('.stage');
         if (stage) {
             stage.classList.remove('showheader', 'showfooter');

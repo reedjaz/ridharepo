@@ -1,13 +1,23 @@
 <link rel="stylesheet" href="scene/a3-quiz/load.css">
 <section class="scene-bg ingame">
     <div class="lay flex column justify-center items-center gap-12">
-        <div class="question flex column">
-            <span class="inline">Manakah yang merupakan tokoh utama dalam cerita <span class="m-thing">“Kue Kimu”</span>?</span>
+        <div class="out-top flex column justify-center items-center gap-7">
+            <div class="hint">Lengkapi kata berikut ini.</div>
+            <div class="question flex column">
+                <span class="inline">Siapa yang membantu <span class="m-char">Kimu</span> ketika membuat kue <span class="m-thing">bingka pisang</span>?</span>
+            </div>
         </div>
-        <div class="flex row gap-12 full">
-            <button id="btn-answer" class="act-choice medium full" data-btn-group="soal-a3-p1"><div class="choice-img"><img class="ratio-3-2" src="scene/a1-study/img/ca-kue-putu-ayu.svg" alt=""></div>Beru</button>
-            <button id="btn-answer" class="act-choice medium full" data-btn-group="soal-a3-p1"><div class="choice-img"><img class="ratio-3-2" src="scene/a1-study/img/ca-kue-lumpur.svg" alt=""></div>Kimu</button>
-            <button id="btn-answer" class="act-choice medium full" data-btn-group="soal-a3-p1"><div class="choice-img"><img class="ratio-3-2" src="scene/a1-study/img/ca-dadar-gulung.svg" alt=""></div>Nara</button>
+        <div class="syllable-split flex column gap-4 full justify-center items-center">
+            <div class="final-answer flex row">
+                <button id="btn-answer" class="act-answer medium locked" data-btn-group="soal-a3-p2">KA</button>
+            </div>
+            <div class="separator-12 vertical full border-color-slate-300"></div>
+            <div class="answer-choices flex row">
+                <button id="btn-answer" class="act-answer medium" data-btn-group="soal-a3-p2">KAK</button>
+                <button id="btn-answer" class="act-answer medium" data-btn-group="soal-a3-p2">KI</button>
+                <button id="btn-answer" class="act-answer medium" data-btn-group="soal-a3-p2">KU</button>
+                <button id="btn-answer" class="act-answer medium" data-btn-group="soal-a3-p2">KE</button>
+            </div>
         </div>
     </div>
 </section>
@@ -27,8 +37,8 @@
 
         const actions = {
             action: () => {
-                const isCorrect = checkAnswer("soal-a3-p1", [
-                    "Kimu",
+                const isCorrect = checkAnswer("soal-a3-p2", [
+                    "KAKAK",
                 ]);
                 const title = isCorrect
                     ? "Tepat!"
@@ -81,7 +91,9 @@
         });
 
     }, 450);
-    
+
     applyInputBlocker(1200);
+
+    initSyllableSplit(1);
 
 </script>
