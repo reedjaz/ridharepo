@@ -4,19 +4,19 @@
         <div class="out-top flex column justify-center items-center gap-7">
             <div class="hint">Lengkapi kata berikut ini.</div>
             <div class="question flex column">
-                <span class="inline">Siapa yang membantu <span class="m-char">Kimu</span> ketika membuat kue <span class="m-thing">bingka pisang</span>?</span>
+                <span class="inline">INI BELUM YA, LANJUT DULU</span>
             </div>
         </div>
         <div class="build-answer flex column gap-4 full justify-center items-center">
             <div class="final-answer flex row">
-                <button class="btn-answer extralegible act-answer medium locked" data-btn-group="soal-a3-p2">KA</button>
+                <button class="btn-answer extralegible act-answer medium locked" data-btn-group="soal-a3-p4">KAR</button>
             </div>
             <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
             <div class="answer-choices flex row">
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KAK</button>
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KI</button>
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KU</button>
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p2">KEK</button>
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">DUS</button>
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">PET</button>
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">MA</button>
+                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">ENA</button>
             </div>
         </div>
     </div>
@@ -36,24 +36,20 @@
 
         const actions = {
             action: () => {
-                const isCorrect = checkAnswer("soal-a3-p2", [
-                    "KAKAK",
+                const isCorrect = checkAnswer("soal-a3-p4", [
+                    "KARMA",
                 ]);
                 const title = isCorrect
-                    ? "Jawaban benar!"
+                    ? "Tepat!"
                     : "Salah...";
                 const message = isCorrect
-                    ? "Kakak membantu Kimu meniup api di tungku."
-                    : getFinalAnswerText() === "KAKI"
-                        ? "Kaki siapa yang dimaksud?"
-                        : getFinalAnswerText() === "KAKU"
-                            ? "Aduh, apa yang kaku?"
-                            : "Apakah kakek ada dalam cerita?";
+                    ? "Selera kalian boleh juga!"
+                    : "Sepertinya itu kurang tepat.";
                 
                 showFeedbackSheet(isCorrect, title, message, () => {
                     progressIncrease();
                     destroyBuildAnswer();
-                    loadSceneTrans('a3-quiz/p3', 'none', 'slide-left');
+                    loadSceneTrans('a3-quiz/p5', 'none', 'slide-left');
                 });
             },
         };

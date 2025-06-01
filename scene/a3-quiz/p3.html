@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="scene/a3-quiz/load.css">
+<section class="scene-bg ingame">
+    <div class="lay flex column justify-center items-center gap-12">
+        <div class="out-top flex column justify-center items-center gap-7">
+            <div class="hint">Susunlah huruf-huruf berikut ini.</div>
+            <div class="question flex column">
+                <span class="inline">Apa bagian tubuh <span class="m-char">Nara</span> yang sakit?</span>
+            </div>
+        </div>
+        <div class="build-answer flex column gap-4 full justify-center items-center">
+            <div class="final-answer flex row gap-8 full">
+            </div>
+            <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
+            <div class="answer-choices flex row gap-8 full">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+    loadFooter('activity-3');
+
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+
+        const checks = {
+            action: () => { }
+        };
+
+        const actions = {
+            action: () => {
+                const isCorrect = checkAnswer("soal-a3-p3", [
+                    "KAKI",
+                ]);
+                const title = isCorrect
+                    ? "Ya, betul!"
+                    : "Duh, maaf...";
+                const message = isCorrect
+                    ? "Yang sakit adalah kaki Nara."
+                    : `${String(getFinalAnswerText()).charAt(0).toUpperCase() + String(getFinalAnswerText()).slice(1).toLowerCase()} masih belum tepat!`;
+                
+                showFeedbackSheet(isCorrect, title, message, () => {
+                    progressIncrease();
+                    destroyBuildAnswer();
+                    loadSceneTrans('a3-quiz/p4', 'none', 'slide-left');
+                });
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+        
+        initBuildAnswer();
+        
+    }, 450);
+    
+    populateAnswerLetters('KAKI', 'soal-a3-p3', 8, true);
+    applyInputBlocker(800);
+
+</script>

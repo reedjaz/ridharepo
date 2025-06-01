@@ -58,6 +58,22 @@ function closeExit() {
     }, { once: true });
 }
 
+function openBackHome() {
+    const popup = document.getElementById('backhome-popup');
+    popup.classList.remove('hidden');
+    void popup.offsetWidth;
+    popup.classList.add('show');
+}
+
+function closeBackHome() {
+    const popup = document.getElementById('backhome-popup');
+    popup.classList.remove('show');
+    popup.addEventListener('transitionend', function handler() {
+        popup.classList.add('hidden');
+        popup.removeEventListener('transitionend', handler);
+    }, { once: true });
+}
+
 function setupToggles() {
     const bgmCheckbox = document.getElementById('toggle-bgm-checkbox');
     const fsCheckbox = document.getElementById('toggle-fs-checkbox');

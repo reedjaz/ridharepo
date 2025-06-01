@@ -7,7 +7,7 @@ button, button.ultimate, button.medium,
 	justify-content: center;
 	padding: var(--unit-7) var(--unit-11);
 	margin-top: var(--unit-3);
-	background: var(--action-default);
+	background-color: var(--action-default);
 	border: var(--unit-2) solid var(--action-default);
 	border-radius: var(--unit-7);
 	color: var(--white);
@@ -29,19 +29,19 @@ button, button.ultimate, button.medium,
 }
 button:hover,
 .button:hover, .ultimate:hover {
-	background: var(--action-hovered);
+	background-color: var(--action-hovered);
 	border: var(--unit-2) solid var(--action-hovered);
 }
 button:active,
 .button:active, .ultimate:active {
-	background: var(--action-pressed);
+	background-color: var(--action-pressed);
 	border: var(--unit-2) solid var(--action-pressed);
 	bottom: 0;
 	box-shadow: 0 0 0 var(--action-pressed);
 }
 /* button:disabled, button.disabled,
 .button:disabled, .button.disabled, .ultimate.disabled, .destructive.disabled {
-	background: var(--interactive-disabled) !important;
+	background-color: var(--interactive-disabled) !important;
 	color: var(--text-disabled);
 	border: var(--unit-2) solid var(--interactive-disabled) !important;
 	pointer-events: none;
@@ -50,13 +50,13 @@ button:active,
 /* Primary */
 button.primary,
 .button.primary {
-	background: var(--action-neutral-default);
+	background-color: var(--action-neutral-default);
 	border: var(--unit-2) solid var(--action-neutral-default);
 
 }
 button.primary:hover,
 .button.primary:hover {
-	background: var(--action-neutral-hovered);
+	background-color: var(--action-neutral-hovered);
 	border: var(--unit-2) solid var(--action-neutral-hovered);
 }
 button.primary:focus,
@@ -65,7 +65,7 @@ button.primary:focus,
 }
 button.primary:active,
 .button.primary:active {
-	background: var(--action-neutral-pressed);
+	background-color: var(--action-neutral-pressed);
 	border: var(--unit-2) solid var(--action-neutral-pressed);
 	box-shadow: none;
 }
@@ -79,17 +79,17 @@ button.secondary,
 }
 button.secondary:hover,
 .button.secondary:hover {
-	background: var(--surface-subdued);
+	background-color: var(--surface-subdued);
 	border: var(--unit-2) solid var(--border-default);
 }
 button.secondary:focus,
 .button.secondary:focus {
-	background: var(--surface-default);
+	background-color: var(--surface-default);
 	box-shadow: var(--shadow-white), var(--shadow-blue-50);
 }
 button.secondary:active,
 .button.secondary:active {
-	background: var(--surface-pressed);
+	background-color: var(--surface-pressed);
 	border: var(--unit-2) solid var(--border-default);
 	box-shadow: none;
 }
@@ -99,11 +99,11 @@ button.secondary[data-icon].only:before,
 }
 button.secondary[data-icon].only:active,
 .button.secondary[data-icon].only:active {
-	background: var(--surface-hovered);
+	background-color: var(--surface-hovered);
 }
 button.secondary.disabled,
 .button.secondary.disabled {
-	background: var(--surface-disabled) !important;
+	background-color: var(--surface-disabled) !important;
 	border: var(--unit-2) solid var(--border-disabled);
 	color: var(--text-disabled);
 }
@@ -111,12 +111,12 @@ button.secondary.disabled,
 /* Destructive */
 button.destructive,
 .button.destructive {
-	background: var(--interactive-critical);
+	background-color: var(--interactive-critical);
 	border: var(--unit-2) solid var(--border-critical);
 }
 button.destructive:hover,
 .button.destructive:hover {
-	background: var(--red-80);
+	background-color: var(--red-80);
 	border: var(--unit-2) solid var(--red-80);
 }
 button.destructive:focus,
@@ -125,7 +125,7 @@ button.destructive:focus,
 }
 button.destructive:active,
 .button.destructive:active {
-	background: var(--red-90);
+	background-color: var(--red-90);
 	border: var(--unit-2) solid var(--red-90);
 	box-shadow: none;
 }
@@ -139,12 +139,12 @@ button.quiet,
 }
 button.quiet:hover,
 .button.quiet:hover {
-	background: var(--surface-hovered);
+	background-color: var(--surface-hovered);
 	border: var(--unit-2) solid var(--surface-hovered);
 }
 button.quiet:focus,
 .button.quiet:focus {
-	background: var(--surface-default);
+	background-color: var(--surface-default);
 	box-shadow: var(--shadow-white), var(--shadow-blue-50);
 }
 button.quiet:active,
@@ -156,7 +156,7 @@ button.quiet:active,
 }
 button.quiet.disabled,
 .button.quiet.disabled {
-	background: var(--action-disabled);
+	background-color: var(--action-disabled);
 	color: var(--text-disabled);
 }
 button.quiet.disabled[data-icon],
@@ -166,7 +166,7 @@ button.quiet.disabled[data-icon],
 }
 button.quiet.disabled[data-icon].only,
 .button.quiet.disabled[data-icon].only {
-	background: var(--surface-disabled) !important;
+	background-color: var(--surface-disabled) !important;
 }
 
 /* Button Sizes */
@@ -364,12 +364,12 @@ button.ico-lg .lucide {
 
 /* STUDY (INDIGO) */
 button.act-study, .button.act-study {
-	background: var(--indigo-500);
+	background-color: var(--indigo-500);
 	border-color: var(--indigo-500);
 	box-shadow: 0 var(--unit-3) 0 var(--indigo-700);
 }
 button.act-study:hover, .button.act-study:hover {
-	background: var(--indigo-400);
+	background-color: var(--indigo-400);
 	border-color: var(--indigo-400);
 	box-shadow: 0 var(--unit-3) 0 var(--indigo-600);
 }
@@ -379,12 +379,12 @@ button.act-study:active, .button.act-study:active {
 
 /* LISTEN (LIME) */
 button.act-listen, .button.act-listen {
-	background: var(--lime-500);
+	background-color: var(--lime-500);
 	border-color: var(--lime-500);
 	box-shadow: 0 var(--unit-3) 0 var(--lime-700);
 }
 button.act-listen:hover, .button.act-listen:hover {
-	background: var(--lime-400);
+	background-color: var(--lime-400);
 	border-color: var(--lime-400);
 	box-shadow: 0 var(--unit-3) 0 var(--lime-600);
 }
@@ -394,12 +394,12 @@ button.act-listen:active, .button.act-listen:active {
 
 /* QUIZ (AMBER) */
 button.act-quiz, .button.act-quiz {
-	background: var(--amber-500);
+	background-color: var(--amber-500);
 	border-color: var(--amber-500);
 	box-shadow: 0 var(--unit-3) 0 var(--amber-700);
 }
 button.act-quiz:hover, .button.act-quiz:hover {
-	background: var(--amber-400);
+	background-color: var(--amber-400);
 	border-color: var(--amber-400);
 	box-shadow: 0 var(--unit-3) 0 var(--amber-700);
 }
@@ -409,12 +409,12 @@ button.act-quiz:active, .button.act-quiz:active {
 
 /* PLAY (PINK) */
 button.act-play, .button.act-play {
-	background: var(--pink-500);
+	background-color: var(--pink-500);
 	border-color: var(--pink-500);
 	box-shadow: 0 var(--unit-3) 0 var(--pink-700);
 }
 button.act-play:hover, .button.act-play:hover {
-	background: var(--pink-400);
+	background-color: var(--pink-400);
 	border-color: var(--pink-400);
 	box-shadow: 0 var(--unit-3) 0 var(--pink-600);
 }
@@ -424,12 +424,12 @@ button.act-play:active, .button.act-play:active {
 
 /* WRONG (RED) */
 button.act-wrong, .button.act-wrong {
-	background: var(--red-600);
+	background-color: var(--red-600);
 	border-color: var(--red-600);
 	box-shadow: 0 var(--unit-3) 0 var(--red-800);
 }
 button.act-wrong:hover, .button.act-wrong:hover {
-	background: var(--red-500);
+	background-color: var(--red-500);
 	border-color: var(--red-500);
 	box-shadow: 0 var(--unit-3) 0 var(--red-700);
 }
@@ -439,12 +439,12 @@ button.act-wrong:active, .button.act-wrong:active {
 
 /* CORRECT (LIME) */
 button.act-correct, .button.act-correct {
-	background: var(--lime-600);
+	background-color: var(--lime-600);
 	border-color: var(--lime-600);
 	box-shadow: 0 var(--unit-3) 0 var(--lime-800);
 }
 button.act-correct:hover, .button.act-correct:hover {
-	background: var(--lime-500);
+	background-color: var(--lime-500);
 	border-color: var(--lime-500);
 	box-shadow: 0 var(--unit-3) 0 var(--lime-700);
 }
@@ -454,12 +454,12 @@ button.act-correct:active, .button.act-correct:active {
 
 /* NEUTRAL (SLATE) */
 button.act-neutral, .button.act-neutral {
-	background: var(--slate-400);
+	background-color: var(--slate-400);
 	border-color: var(--slate-400);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-500);
 }
 button.act-neutral:hover, .button.act-neutral:hover {
-	background: var(--slate-500);
+	background-color: var(--slate-500);
 	border-color: var(--slate-500);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-600);
 }
@@ -472,12 +472,13 @@ button.act-answer, .button.act-answer {
 	color: var(--slate-800);
 	font-size: var(--unit-11);
     line-height: var(--unit-11);
-	background: var(--slate-50);
+	padding: var(--unit-7) var(--unit-7);
+	background-color: var(--slate-50);
 	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
 }
 button.act-answer:hover, .button.act-answer:hover {
-	background: var(--slate-100);
+	background-color: var(--slate-100);
 	border-color: var(--slate-400);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-400);
 }
@@ -489,16 +490,18 @@ button.act-answer:active, .button.act-answer:active {
 button.act-choice, .button.act-choice {
 	font-weight: normal;
 	color: var(--slate-800);
-	background: var(--white);
+	background-color: var(--white);
+	padding: var(--unit-7) var(--unit-7);
 	flex-direction: column;
 	gap: var(--unit-3);
     font-size: var(--unit-10);
     line-height: var(--unit-11);
 	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
+	position: relative;
 }
 button.act-choice:hover, .button.act-choice:hover {
-	background: var(--slate-200);
+	background-color: var(--slate-200);
 	border-color: var(--slate-400);
 	box-shadow: 0 var(--unit-3) 0 var(--slate-400);
 }
@@ -506,15 +509,31 @@ button.act-choice:active, .button.act-choice:active {
 	box-shadow: 0 0 0 var(--slate-400);
 }
 
+button.act-choice.is-image:before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	position: absolute;
+	background-color: var(--transparent);
+	transition: all var(--transition-fast) ease;
+}
+button.act-choice.is-image:hover:before {
+	background-color: var(--slate-400);
+}
+button.act-choice.is-image.selected:before {
+	background-color: var(--blue-500);
+}
+
 /* SELECTED (BLUE) */
 button.selected, .button.selected {
 	color: var(--slate-800);
-	background: var(--blue-100);
+	background-color: var(--blue-100);
 	border-color: var(--blue-300);
 	box-shadow: 0 var(--unit-3) 0 var(--blue-300);
 }
 button.selected:hover, .button.selected:hover {
-	background: var(--blue-200);
+	background-color: var(--blue-200);
 	border-color: var(--blue-400);
 	box-shadow: 0 var(--unit-3) 0 var(--blue-400);
 }
@@ -559,7 +578,7 @@ button.selected:active, .button.selected:active {
     padding: var(--unit-2);
     border-radius: 100%;
     z-index: 22;
-	background: var(--amber-500);
+	background-color: var(--amber-500);
 	border-color: var(--amber-500);
 	box-shadow: 0 calc(var(--unit-2) + var(--unit-1)) 0 var(--amber-600);
 	margin-top: calc(var(--unit-2) + var(--unit-1));
@@ -572,7 +591,7 @@ button.selected:active, .button.selected:active {
 	top: 0;
 }
 .read-btn:hover {
-	background: var(--amber-400);
+	background-color: var(--amber-400);
 	border-color: var(--amber-400);
 	box-shadow: 0 calc(var(--unit-2) + var(--unit-1)) 0 var(--amber-600);
 }
@@ -612,7 +631,7 @@ button.selected:active, .button.selected:active {
 	stroke-width: 2.5px;
 }
 
-#btn-action {
+#btn-action, #btn-action-old {
 	width: calc(var(--unit-13) * 4);
 }
 
@@ -651,4 +670,10 @@ button.selected:active, .button.selected:active {
 }
 .choice-img.cover img {
 	object-fit: cover;
+}
+
+.extralegible {
+    font-size: var(--unit-13) !important;
+    line-height: var(--unit-14) !important;
+    padding: var(--unit-6) var(--unit-9) var(--unit-8) var(--unit-9) !important;
 }

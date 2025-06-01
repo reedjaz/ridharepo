@@ -1,4 +1,4 @@
-.syllable-split {
+.build-answer {
     display: flex;
     flex-direction: column;
     gap: var(--unit-2);
@@ -6,23 +6,44 @@
     justify-content: center;
     align-items: center;
 }
-.syllable-split .final-answer,
-.syllable-split .answer-choices {
+.build-answer .final-answer,
+.build-answer .answer-choices,
+.build-answer .final-answer-old,
+.build-answer .answer-choices-old {
     display: flex;
     flex-direction: row;
     gap: var(--unit-12);
+    justify-content: center;
 }
 
-.final-answer button[disabled] {
+.final-answer, .answer-choices,
+.final-answer-old, .answer-choices-old {
+    height: 14vh;
+}
+
+.final-answer.full > *, .answer-choices.full > *,
+.final-answer-old.full > *, .answer-choices-old.full > * {
+    width: calc(var(--unit-12) * 2);
+}
+
+.final-answer > *, .answer-choices > *,
+.final-answer-old > *, .answer-choices-old > * {
+    height: 100% !important;
+}
+
+.final-answer button[disabled],
+.final-answer-old button[disabled] {
     cursor: default;
     pointer-events: none;
 }
 
-.answer-choices button, .answer-choices button.taken {
+.answer-choices button,
+.answer-choices-old button {
     transition: none;
 }
 
-.answer-choices button.taken {
+.answer-choices button.taken,
+.answer-choices-old button.taken {
     opacity: 1;
     pointer-events: none;
     top: 0;

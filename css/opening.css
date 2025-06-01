@@ -113,6 +113,8 @@ progress::-moz-progress-bar {
     height: var(--unit-13);
 }
 #point-icon img {
+    width: 100%;
+    height: 100%;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;

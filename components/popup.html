@@ -62,7 +62,7 @@
                 </div>
             <div class="flex column gap-6">
                 <div class="flex row full gap-6">
-                    <button class="full act-wrong btn-click" onclick="
+                    <button class="full act-wrong btn-decide" onclick="
                         exitFullscreen();
                         closeExit();
                         loadSceneTrans('halt', 'both', 'fade');
@@ -70,6 +70,33 @@
                     </button>
                     <button class="full act-neutral btn-click" onclick="
                         closeExit();
+                    ">Tidak
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="backhome-popup" class="popup hidden">
+    <div class="popup-overlay" onclick="closeBackHome()"></div>
+    <div class="popup-content-wrapper">
+        <div class="popup-content exit-popup flex column gap-10">
+            <div class="close-btn" onclick="closeBackHome()"></div>
+            <h2 class="text-size-13 line-height-13 funny amazing-title weight-bold text-indigo-700 full text-center">
+                Perhatian</h2>
+                <div class="flex full gap-6 justify-center items-center text-center text-balance weight-bold text-size-9 line-height-9 pb-5">
+                    Kembali ke Menu Utama sekarang?
+                </div>
+            <div class="flex column gap-6">
+                <div class="flex row full gap-6">
+                    <button class="full act-wrong btn-decide" onclick="
+                        closeBackHome();
+                        loadSceneTrans('title', 'both', 'zoom-in');
+                    ">Ya
+                    </button>
+                    <button class="full act-neutral btn-click" onclick="
+                        closeBackHome();
                     ">Tidak
                     </button>
                 </div>

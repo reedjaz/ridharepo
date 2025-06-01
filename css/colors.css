@@ -1,4 +1,5 @@
 /* Text Colors */
+.text-transparent { color: var(--transparent) !important; }
 .text-black { color: var(--black) !important; }
 .text-white { color: var(--white) !important; }
 
@@ -245,6 +246,7 @@
 .text-rose-900 { color: var(--rose-900) !important; }
 
 /* Surface Colors */
+.surface-transparent { background: var(--transparent) !important; }
 .surface-black { background: var(--black) !important; }
 .surface-white { background: var(--white) !important; }
 
@@ -491,6 +493,7 @@
 .surface-rose-900 { background: var(--rose-900) !important; }
 
 /* Border Colors */
+.border-transparent { border: calc(var(--unit-1) / 2) solid var(--transparent) !important; }
 .border-black { border: calc(var(--unit-1) / 2) solid var(--black) !important; }
 .border-white { border: calc(var(--unit-1) / 2) solid var(--white) !important; }
 
@@ -737,6 +740,7 @@
 .border-rose-900 { border: calc(var(--unit-1) / 2) solid var(--rose-900) !important; }
 
 /* Border Set Colors */
+.border-color-transparent { border-color: var(--transparent) !important; }
 .border-color-black { border-color: var(--black) !important; }
 .border-color-white { border-color: var(--white) !important; }
 

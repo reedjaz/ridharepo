@@ -399,7 +399,7 @@ window.addEventListener('load', () => {
         'assets/anim/gantar-splash.json',
         
         // SFX
-        'assets/audio/bgm.mp3',
+        'assets/audio/bgm-menu.mp3',
         'assets/audio/click.mp3',
         'assets/audio/decide.mp3',
         'assets/audio/hover.mp3',

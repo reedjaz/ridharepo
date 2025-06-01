@@ -17,9 +17,9 @@
                 <div class="vo-text-wrap">Jika kalian mendengar kabar teman yang sakit, apa yang akan kalian lakukan?</div>
             </div>
             <div class="flex row animate-fadeInUp duration-6 delay-4 easing-ease gap-10">
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p2">Mendoakan</button>
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p2">Menjenguk</button>
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p2">Menghibur</button>
+                <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p2">Mendoakan</button>
+                <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p2">Menjenguk</button>
+                <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p2">Menghibur</button>
             </div>
         </div>
     </div>
@@ -45,10 +45,10 @@
                 "Menghibur",
                 ]);
                 const title = isCorrect
-                ? "Hebat!"
+                ? "Luar biasa!"
                 : "Aduh!";
                 const message = isCorrect
-                ? "Kalian menunjukkan kepedulian yang luar biasa!"
+                ? `${window.selectedAnswers['soal-a1-p2']}nya adalah sikap yang sangat baik!`
                 : "Sepertinya itu kurang tepat.";
                 
                 showFeedbackSheet(isCorrect, title, message, () => {
@@ -65,13 +65,13 @@
             }
         }
         
-        const allButtons = document.querySelectorAll('#btn-answer');
+        const allButtons = document.querySelectorAll('.btn-answer');
         
         allButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const group = button.dataset.btnGroup;
                 
-                document.querySelectorAll(`#btn-answer[data-btn-group="${group}"]`)
+                document.querySelectorAll(`.btn-answer[data-btn-group="${group}"]`)
                 .forEach(btn => btn.classList.remove('selected'));
                 
                 soundman.play('click');

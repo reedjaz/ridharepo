@@ -17,9 +17,9 @@
                 <div class="vo-text-wrap">Sebelum mulai menyimak dongeng yang menarik ini, apakah kalian sudah tahu apa itu <span class="m-thing">dongeng</span>?</div>
             </div>
             <div class="flex row animate-fadeInUp duration-6 delay-4 easing-ease gap-10">
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p6">Tahu</button>
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p6">Tidak tahu</button>
-                <button id="btn-answer" class="act-answer medium full" data-btn-group="soal-a1-p6">Lupa</button>
+                <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p6">Tahu</button>
+                <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p6">Tidak tahu</button>
+                <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p6">Lupa</button>
             </div>
         </div>
     </div>
@@ -45,11 +45,19 @@
                 "Lupa",
                 ]);
                 const title = isCorrect
-                ? "Oke!"
-                : "Aduh!";
+                    ? window.selectedAnswers['soal-a1-p6'] === "Tahu"
+                        ? "Keren!"
+                        : window.selectedAnswers['soal-a1-p6'] === "Tidak tahu"
+                            ? "Wah, tidak apa-apa!"
+                            : "Tidak apa-apa!"
+                    : "Aduh!";
                 const message = isCorrect
-                ? undefined
-                : "Sepertinya itu kurang tepat.";
+                    ? window.selectedAnswers['soal-a1-p6'] === "Tahu"
+                        ? "Benarkah kalian sudah tahu apa itu dongeng?"
+                        : window.selectedAnswers['soal-a1-p6'] === "Tidak tahu"
+                            ? "Kita akan cari tahu sebentar lagi."
+                            : "Yuk, kita ingat-ingat kembali."
+                    : "Sepertinya itu kurang tepat.";
                 
                 showFeedbackSheet(isCorrect, title, message, () => {
                     loadSceneTrans('a1-study/p7', 'none', 'slide-left');
@@ -65,13 +73,13 @@
             }
         }
         
-        const allButtons = document.querySelectorAll('#btn-answer');
+        const allButtons = document.querySelectorAll('.btn-answer');
         
         allButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const group = button.dataset.btnGroup;
                 
-                document.querySelectorAll(`#btn-answer[data-btn-group="${group}"]`)
+                document.querySelectorAll(`.btn-answer[data-btn-group="${group}"]`)
                 .forEach(btn => btn.classList.remove('selected'));
                 
                 soundman.play('click');

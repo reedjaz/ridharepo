@@ -36,3 +36,34 @@ function toggleFullscreen() {
     exitFullscreen();
   }
 }
+
+function checkAspectRatio() {
+  const overlay = document.getElementById('unsupported-overlay');
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const ratio = width / height;
+
+  // Rasio-ratio yang tidak didukung
+  const unsupportedRatios = [
+    { max: 0.9 },            // portrait (<= 0.9)
+    { min: 0.9,  max: 1.1 }, // square-ish
+    { min: 1.1,  max: 1.24 }, // 5:4 area
+    { min: 1.24, max: 1.52 }  // 3:2 & 4:3 area
+  ];
+
+  const isUnsupported = unsupportedRatios.some(r => {
+    const min = r.min !== undefined ? r.min : -Infinity;
+    const max = r.max !== undefined ? r.max : Infinity;
+  
+    return ratio >= min && ratio <= max;
+  });
+
+  if (isUnsupported) {
+    overlay.style.display = 'flex';
+  } else {
+    overlay.style.display = 'none';
+  }
+}
+
+window.addEventListener('resize', checkAspectRatio);
+window.addEventListener('load', checkAspectRatio);
