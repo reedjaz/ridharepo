@@ -84,6 +84,8 @@ function updateProgress(delta, id = 'activity-progress') {
     progress.value = Math.min(progress.max, Math.max(0, progress.value + delta));
     updateStepIndicator(progress);
     updatePointIndicator(window.score || 0);
+    console.log("UPDATE PROGRESS!");
+    
 }
 
 function progressInit(max, value = 0, id = 'activity-progress') {

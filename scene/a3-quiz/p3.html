@@ -42,10 +42,9 @@
                     : `${String(getFinalAnswerText()).charAt(0).toUpperCase() + String(getFinalAnswerText()).slice(1).toLowerCase()} masih belum tepat!`;
                 
                 showFeedbackSheet(isCorrect, title, message, () => {
-                    progressIncrease();
                     destroyBuildAnswer();
                     loadSceneTrans('a3-quiz/p4', 'none', 'slide-left');
-                });
+                }, undefined, true);
             },
         };
 

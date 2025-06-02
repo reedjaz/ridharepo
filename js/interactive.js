@@ -302,6 +302,10 @@ function destroyBuildAnswer() {
     answerChoices.classList.remove('answer-choices');
 
     window.selectedAnswers = {};
+    
+    setTimeout(() => {
+        document.querySelector('.scene-prev').innerHTML = '';
+    }, 150);
 
     console.log("--- DESTROYED BUILD ANSWER ---");
 }
@@ -317,10 +321,25 @@ function destroyAnswerButton() {
     if (btnAction) {
         btnAction.id = 'btn-action-old';
     }
+    
+    setTimeout(() => {
+        document.querySelector('.scene-prev').innerHTML = '';
+    }, 150);
 
     window.selectedAnswers = {};
 
     console.log("--- DESTROYED ANSWER BUTTON ---");
+}
+
+function destroyMatchingGame() {
+    
+    setTimeout(() => {
+        document.querySelector('.scene-prev').innerHTML = '';
+    }, 150);
+
+    window.selectedAnswers = {};
+
+    console.log("--- DESTROYED MATCHING GAME ---");
 }
 
 function populateAnswerLetters(answer, groupName, total = 8, extralegible = false, callback) {
@@ -481,6 +500,109 @@ function setupBuildAnswerListeners() {
             btnAction.classList.toggle('disabled', !allGroupsAnswered);
         });
     });
+}
+
+function setupMatchingGame(correctPairs, nextSceneId) {
+    console.log("--- SETUP MATCHING GAME ---");
+
+    const srcButtons = document.querySelectorAll('.choice-src .btn-answer');
+    const dstButtons = document.querySelectorAll('.choice-dst .btn-answer');
+
+    let selectedSrcBtn = null;
+    let selectedDstBtn = null;
+
+    srcButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('disabled')) return;
+
+            srcButtons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedSrcBtn = btn;
+            checkPair();
+        });
+    });
+
+    dstButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('disabled')) return;
+
+            dstButtons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedDstBtn = btn;
+            checkPair();
+        });
+    });
+
+    function checkPair() {
+        if (!selectedSrcBtn || !selectedDstBtn) return;
+    
+        const srcLabel = selectedSrcBtn.textContent.trim();
+        const dstLabel = selectedDstBtn.textContent.trim();
+    
+        const correctMatch = correctPairs[srcLabel];
+    
+        if (dstLabel === correctMatch) {
+            // Tambah kelas glance-correct dulu
+            selectedSrcBtn.classList.add('glance-correct');
+            selectedDstBtn.classList.add('glance-correct');
+    
+            // Setelah 200ms hapus glance-correct dan beri class disabled
+            setTimeout(() => {
+                selectedSrcBtn.classList.remove('glance-correct');
+                selectedDstBtn.classList.remove('glance-correct');
+    
+                selectedSrcBtn.classList.add('disabled');
+                selectedDstBtn.classList.add('disabled');
+    
+                selectedSrcBtn.classList.remove('selected');
+                selectedDstBtn.classList.remove('selected');
+    
+                selectedSrcBtn = null;
+                selectedDstBtn = null;
+    
+                checkAllMatched();
+            }, 200);
+    
+            soundman.play('correct');
+        } else {
+            // Tambah kelas glance-wrong dulu
+            selectedSrcBtn.classList.add('glance-wrong');
+            selectedDstBtn.classList.add('glance-wrong');
+    
+            soundman.play('wrong');
+            showFeedbackSheet(false, 'Salah', 'Itu bukan pasangan yang benar.', undefined, 'Coba Lagi');
+    
+            setTimeout(() => {
+                // Hapus glance-wrong dan remove selected
+                selectedSrcBtn.classList.remove('glance-wrong');
+                selectedDstBtn.classList.remove('glance-wrong');
+    
+                if (selectedSrcBtn) selectedSrcBtn.classList.remove('selected');
+                if (selectedDstBtn) selectedDstBtn.classList.remove('selected');
+    
+                selectedSrcBtn = null;
+                selectedDstBtn = null;
+            }, 200);
+        }
+    }    
+
+    function checkAllMatched() {
+        const allSrcDisabled = Array.from(srcButtons).every(btn => btn.classList.contains('disabled'));
+        const allDstDisabled = Array.from(dstButtons).every(btn => btn.classList.contains('disabled'));
+
+        if (allSrcDisabled && allDstDisabled) {
+            setTimeout(() => {
+                showFeedbackSheet(
+                    true,
+                    'Hebat sekali!',
+                    'Semua pasangan kata sudah ditemukan.',
+                    () => {
+                        destroyMatchingGame();
+                        loadSceneTrans(nextSceneId, 'none', 'slide-left');
+                    }, undefined, true);
+            }, 0);
+        }
+    }
 }
 
 function btnActionUpdateState(finalText) {

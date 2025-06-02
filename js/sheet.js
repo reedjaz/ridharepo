@@ -1,4 +1,4 @@
-function showFeedbackSheet(isCorrect, title, message, whatToDo) {
+function showFeedbackSheet(isCorrect, title, message, whatToDo, btnLabel = "Selanjutnya", increase = false) {
     const sheetBuffer = document.getElementById("sheet-buffer");
 
     const finalTitle = title || (isCorrect ? "Jawaban Benar" : "Jawaban Salah");
@@ -21,7 +21,7 @@ function showFeedbackSheet(isCorrect, title, message, whatToDo) {
                 </div>
                 <div class="flex row gap-7 justify-end shrink width-auto">
                     <button id="btn-action" class="${isCorrect ? "act-correct" : "act-wrong"} btn-click">
-                        Selanjutnya
+                        ${btnLabel}
                     </button>
                 </div>
             </div>
@@ -29,6 +29,7 @@ function showFeedbackSheet(isCorrect, title, message, whatToDo) {
     `;
 
     lucide.createIcons();
+    if (increase) progressIncrease();
 
     setTimeout(() => {
         const sheet = sheetBuffer.querySelector('.sheet');

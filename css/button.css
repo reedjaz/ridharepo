@@ -672,6 +672,19 @@ button.selected:active, .button.selected:active {
 	object-fit: cover;
 }
 
+.glance-correct {
+	color: var(--lime-800) !important;
+	background-color: var(--lime-50) !important;
+	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--lime-300) !important;
+	box-shadow: 0 var(--unit-3) 0 var(--lime-300) !important;
+}
+.glance-wrong {
+	color: var(--red-800) !important;
+	background-color: var(--red-50) !important;
+	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--red-300) !important;
+	box-shadow: 0 var(--unit-3) 0 var(--red-300) !important;
+}
+
 .extralegible {
     font-size: var(--unit-13) !important;
     line-height: var(--unit-14) !important;

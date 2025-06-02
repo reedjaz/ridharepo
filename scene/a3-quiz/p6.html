@@ -2,12 +2,12 @@
 <section class="scene-bg ingame">
     <div class="lay flex column justify-center items-center gap-12">
         <div class="question flex column">
-            <span class="inline">Terbuat dari bahan apa <span class="m-thing">kue</span> yang dibuat oleh <span class="m-char">Kimu</span>?</span>
+            <span class="inline">Apa nama <span class="m-thing">kue</span> yang dibuat oleh <span class="m-char">Kimu</span> untuk <span class="m-char">Nara</span>?</span>
         </div>
         <div class="flex row gap-12 full">
-            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-pisang.svg" alt=""></div>Pisang</button>
-            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-jagung.svg" alt=""></div>Jagung</button>
-            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p5"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-nanas.svg" alt=""></div>Nanas</button>
+            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p6"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-putu-ayu.svg" alt=""></div>Putu Ayu</button>
+            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p6"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-bingka-pisang.svg" alt=""></div>Bingka Pisang</button>
+            <button class="btn-answer act-choice medium full" data-btn-group="soal-a3-p6"><div class="choice-img"><img class="ratio-3-2" src="scene/a3-quiz/img/ca-dadar-gulung.svg" alt=""></div>Dadar Gulung</button>
         </div>
     </div>
 </section>
@@ -26,15 +26,15 @@
 
         const actions = {
             action: () => {
-                const isCorrect = checkAnswer("soal-a3-p5", [
-                    "Pisang",
+                const isCorrect = checkAnswer("soal-a3-p6", [
+                    "Bingka Pisang",
                 ]);
                 const title = isCorrect
-                    ? "Tepat sekali!"
-                    : "Kurang tepat!";
+                    ? "Jawabannya betul!"
+                    : "Wah, salah!";
                 const message = isCorrect
-                    ? "Kimu membuat kue bingka pisang."
-                    : `Kue yang dibuat oleh Kimu bukan kue bingka ${window.selectedAnswers['soal-a3-p5'].toLowerCase()}.`;
+                    ? "Kue yang dibuat Kimu untuk Nara adalah bingka pisang."
+                    : "Kue yang dibuat Kimu untuk Nara adalah bingka pisang.";
 
                 showFeedbackSheet(isCorrect, title, message, () => {
                     destroyAnswerButton();

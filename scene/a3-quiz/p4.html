@@ -1,23 +1,18 @@
 <link rel="stylesheet" href="scene/a3-quiz/load.css">
 <section class="scene-bg ingame">
-    <div class="lay flex column justify-center items-center gap-12">
-        <div class="out-top flex column justify-center items-center gap-7">
-            <div class="hint">Lengkapi kata berikut ini.</div>
-            <div class="question flex column">
-                <span class="inline">INI BELUM YA, LANJUT DULU</span>
-            </div>
+    <div class="lay flex column justify-center items-center gap-9">
+        <div class="question flex column">
+            <span class="inline">Yuk, cari pasangannya! Cocokkan nama benda dengan gambarnya.</span>
         </div>
-        <div class="build-answer flex column gap-4 full justify-center items-center">
-            <div class="final-answer flex row">
-                <button class="btn-answer extralegible act-answer medium locked" data-btn-group="soal-a3-p4">KAR</button>
-            </div>
-            <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
-            <div class="answer-choices flex row">
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">DUS</button>
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">PET</button>
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">MA</button>
-                <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a3-p4">ENA</button>
-            </div>
+        <div class="choice-src flex row gap-12 full">
+            <button class="btn-answer act-answer medium full" data-btn-group="soal-a3-p4">Kue</button>
+            <button class="btn-answer act-answer medium full" data-btn-group="soal-a3-p4">Minyak</button>
+            <button class="btn-answer act-answer medium full" data-btn-group="soal-a3-p4">Pisang</button>
+        </div>
+        <div class="choice-dst flex row gap-12 full">
+            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ca-pisang-cho.svg');">Pisang</button>
+            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ca-kue-cho.svg');">Kue</button>
+            <button class="btn-answer act-choice medium full text-transparent ratio-16-9 bg-normalize contain" data-btn-group="soal-a3-p1" style="background-image: url('scene/a3-quiz/img/ca-minyak-cho.svg');">Minyak</button>
         </div>
     </div>
 </section>
@@ -35,23 +30,7 @@
         };
 
         const actions = {
-            action: () => {
-                const isCorrect = checkAnswer("soal-a3-p4", [
-                    "KARMA",
-                ]);
-                const title = isCorrect
-                    ? "Tepat!"
-                    : "Salah...";
-                const message = isCorrect
-                    ? "Selera kalian boleh juga!"
-                    : "Sepertinya itu kurang tepat.";
-                
-                showFeedbackSheet(isCorrect, title, message, () => {
-                    progressIncrease();
-                    destroyBuildAnswer();
-                    loadSceneTrans('a3-quiz/p5', 'none', 'slide-left');
-                });
-            },
+            action: () => { }
         };
 
         for (const key in buttons) {
@@ -61,7 +40,11 @@
             }
         }
 
-        initBuildAnswer(1);
+        setupMatchingGame({
+            "Kue": "Kue",
+            "Minyak": "Minyak",
+            "Pisang": "Pisang"
+        }, 'a3-quiz/p5');
 
     }, 450);
 

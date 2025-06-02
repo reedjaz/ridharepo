@@ -51,10 +51,9 @@
                             : "Apakah kakek ada dalam cerita?";
                 
                 showFeedbackSheet(isCorrect, title, message, () => {
-                    progressIncrease();
                     destroyBuildAnswer();
                     loadSceneTrans('a3-quiz/p3', 'none', 'slide-left');
-                });
+                }, undefined, true);
             },
         };
 
