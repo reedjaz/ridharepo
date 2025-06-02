@@ -43,13 +43,16 @@
 }
 
 .answer-choices button.taken,
-.answer-choices-old button.taken {
+.answer-choices-old button.taken,
+.answer-choices button.taken:hover,
+.answer-choices-old button.taken:hover {
     opacity: 1;
     pointer-events: none;
     top: 0;
     box-shadow: none;
-    background-color: var(--slate-300);
-    color: var(--slate-300);
+    background-color: var(--slate-200);
+    color: var(--slate-200);
+    border-color: var(--slate-200);
 }
 
 .flying-clone {
