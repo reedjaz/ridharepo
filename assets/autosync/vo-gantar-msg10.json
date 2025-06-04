@@ -1,0 +1,87 @@
+[
+  {
+    "word": "Bagaimana",
+    "start": 0,
+    "end": 0.8
+  },
+  {
+    "word": "pendapatmu",
+    "start": 0.8,
+    "end": 1.39
+  },
+  {
+    "word": "tentang",
+    "start": 1.39,
+    "end": 1.8
+  },
+  {
+    "word": "cerita",
+    "start": 1.8,
+    "end": 2.24
+  },
+  {
+    "word": "<span class=\"m-thing\">Kue</span>",
+    "start": 2.24,
+    "end": 2.44
+  },
+  {
+    "word": "<span class=\"m-thing\">Kimu</span>?",
+    "start": 2.44,
+    "end": 3.24
+  },
+  {
+    "word": "Seru",
+    "start": 3.24,
+    "end": 3.5
+  },
+  {
+    "word": "sekali,",
+    "start": 3.5,
+    "end": 3.99
+  },
+  {
+    "word": "bukan?",
+    "start": 3.99,
+    "end": 5.04
+  },
+  {
+    "word": "Ayo",
+    "start": 5.04,
+    "end": 5.66
+  },
+  {
+    "word": "kita",
+    "start": 5.66,
+    "end": 6
+  },
+  {
+    "word": "jawab",
+    "start": 6,
+    "end": 6.36
+  },
+  {
+    "word": "pertanyaan",
+    "start": 6.36,
+    "end": 7.01
+  },
+  {
+    "word": "tentang",
+    "start": 7.01,
+    "end": 7.46
+  },
+  {
+    "word": "cerita",
+    "start": 7.46,
+    "end": 8.08
+  },
+  {
+    "word": "<span class=\"m-thing\">Kue</span>",
+    "start": 8.08,
+    "end": 8.4
+  },
+  {
+    "word": "<span class=\"m-thing\">Kimu</span>!",
+    "start": 8.4,
+    "end": 8.94
+  }
+]

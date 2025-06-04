@@ -1,0 +1,102 @@
+[
+  {
+    "word": "Kamu",
+    "start": 0,
+    "end": 0.48
+  },
+  {
+    "word": "pasti",
+    "start": 0.48,
+    "end": 0.83
+  },
+  {
+    "word": "sudah",
+    "start": 0.83,
+    "end": 1.12
+  },
+  {
+    "word": "tidak",
+    "start": 1.12,
+    "end": 1.35
+  },
+  {
+    "word": "sabar",
+    "start": 1.35,
+    "end": 1.96
+  },
+  {
+    "word": "untuk",
+    "start": 1.96,
+    "end": 2.33
+  },
+  {
+    "word": "mendengar",
+    "start": 2.33,
+    "end": 3.06
+  },
+  {
+    "word": "kisah",
+    "start": 3.06,
+    "end": 3.49
+  },
+  {
+    "word": "dongeng",
+    "start": 3.49,
+    "end": 3.93
+  },
+  {
+    "word": "yang",
+    "start": 3.93,
+    "end": 4.1
+  },
+  {
+    "word": "menarik",
+    "start": 4.1,
+    "end": 4.46
+  },
+  {
+    "word": "ini,",
+    "start": 4.46,
+    "end": 4.83
+  },
+  {
+    "word": "bukan?",
+    "start": 4.83,
+    "end": 5.78
+  },
+  {
+    "word": "Yuk,",
+    "start": 5.78,
+    "end": 6.15
+  },
+  {
+    "word": "kita",
+    "start": 6.15,
+    "end": 6.38
+  },
+  {
+    "word": "simak",
+    "start": 6.38,
+    "end": 6.81
+  },
+  {
+    "word": "dongeng",
+    "start": 6.81,
+    "end": 7.32
+  },
+  {
+    "word": "<span class=\"m-thing\">“Kue</span>",
+    "start": 7.32,
+    "end": 7.63
+  },
+  {
+    "word": "<span class=\"m-thing\">Kimu”</span>",
+    "start": 7.63,
+    "end": 8.03
+  },
+  {
+    "word": "sekarang!",
+    "start": 8.03,
+    "end": 8.64
+  }
+]

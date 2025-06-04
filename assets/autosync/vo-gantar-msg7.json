@@ -1,0 +1,107 @@
+[
+  {
+    "word": "<span class=\"m-thing\">Dongeng</span>",
+    "start": 0,
+    "end": 0.8
+  },
+  {
+    "word": "adalah",
+    "start": 0.8,
+    "end": 1.32
+  },
+  {
+    "word": "cerita",
+    "start": 1.32,
+    "end": 1.79
+  },
+  {
+    "word": "yang",
+    "start": 1.79,
+    "end": 1.99
+  },
+  {
+    "word": "dibuat",
+    "start": 1.99,
+    "end": 2.67
+  },
+  {
+    "word": "untuk",
+    "start": 2.67,
+    "end": 3.07
+  },
+  {
+    "word": "<span class=\"m-key\">menghibur</span>",
+    "start": 3.07,
+    "end": 3.81
+  },
+  {
+    "word": "<span class=\"m-key\">dan</span>",
+    "start": 3.81,
+    "end": 4.12
+  },
+  {
+    "word": "<span class=\"m-key\">memberi</span>",
+    "start": 4.12,
+    "end": 4.56
+  },
+  {
+    "word": "<span class=\"m-key\">pelajaran</span>.",
+    "start": 4.56,
+    "end": 5.53
+  },
+  {
+    "word": "Tokohnya",
+    "start": 5.53,
+    "end": 6.32
+  },
+  {
+    "word": "bisa",
+    "start": 6.32,
+    "end": 6.63
+  },
+  {
+    "word": "berupa",
+    "start": 6.63,
+    "end": 6.94
+  },
+  {
+    "word": "manusia,",
+    "start": 6.94,
+    "end": 7.97
+  },
+  {
+    "word": "hewan,",
+    "start": 7.97,
+    "end": 8.83
+  },
+  {
+    "word": "atau",
+    "start": 8.83,
+    "end": 9.21
+  },
+  {
+    "word": "bahkan",
+    "start": 9.21,
+    "end": 9.65
+  },
+  {
+    "word": "benda",
+    "start": 9.65,
+    "end": 10.26
+  },
+  {
+    "word": "yang",
+    "start": 10.26,
+    "end": 10.5
+  },
+  {
+    "word": "dapat",
+    "start": 10.5,
+    "end": 10.85
+  },
+  {
+    "word": "berbicara!",
+    "start": 10.85,
+    "end": 11.68
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "word": "Sebelum",
+    "start": 0,
+    "end": 0.52
+  },
+  {
+    "word": "kita",
+    "start": 0.52,
+    "end": 0.78
+  },
+  {
+    "word": "mulai",
+    "start": 0.78,
+    "end": 1.06
+  },
+  {
+    "word": "mendengarkan",
+    "start": 1.06,
+    "end": 1.7
+  },
+  {
+    "word": "dongeng,",
+    "start": 1.7,
+    "end": 2.37
+  },
+  {
+    "word": "<span class=\"m-char\">Gantar</span>",
+    "start": 2.37,
+    "end": 2.93
+  },
+  {
+    "word": "punya",
+    "start": 2.93,
+    "end": 3.17
+  },
+  {
+    "word": "<span class=\"m-thing\">pertanyaan</span>",
+    "start": 3.17,
+    "end": 3.61
+  },
+  {
+    "word": "<span class=\"m-thing\">seru</span>",
+    "start": 3.61,
+    "end": 3.98
+  },
+  {
+    "word": "untuk",
+    "start": 3.98,
+    "end": 4.24
+  },
+  {
+    "word": "kamu.",
+    "start": 4.24,
+    "end": 5.16
+  },
+  {
+    "word": "Apakah",
+    "start": 5.16,
+    "end": 5.56
+  },
+  {
+    "word": "kamu",
+    "start": 5.56,
+    "end": 5.81
+  },
+  {
+    "word": "siap",
+    "start": 5.81,
+    "end": 6.18
+  },
+  {
+    "word": "untuk",
+    "start": 6.18,
+    "end": 6.41
+  },
+  {
+    "word": "menjawabnya?",
+    "start": 6.41,
+    "end": 7.34
+  }
+]

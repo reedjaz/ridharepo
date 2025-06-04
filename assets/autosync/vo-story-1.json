@@ -1,0 +1,32 @@
+[
+  {
+    "word": "Nara",
+    "start": 0,
+    "end": 0.56
+  },
+  {
+    "word": "tidak",
+    "start": 0.56,
+    "end": 0.85
+  },
+  {
+    "word": "masuk",
+    "start": 0.85,
+    "end": 1.15
+  },
+  {
+    "word": "sekolah.<br>",
+    "start": 1.15,
+    "end": 2.43
+  },
+  {
+    "word": "Dia",
+    "start": 2.43,
+    "end": 2.76
+  },
+  {
+    "word": "sakit.",
+    "start": 2.76,
+    "end": 3.52
+  }
+]

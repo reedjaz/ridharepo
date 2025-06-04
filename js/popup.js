@@ -76,6 +76,9 @@ function closeBackHome() {
 
 function openIntro() {
     openPopup('intro-popup');
+    setTimeout(() => {
+        readAloud('vo-intro');
+    }, 450);
 }
 function closeIntro() {
     closePopup('intro-popup');
@@ -83,6 +86,9 @@ function closeIntro() {
 
 function openOutro() {
     openPopup('outro-popup');
+    setTimeout(() => {
+        readAloud('vo-outro');
+    }, 450);
 }
 function closeOutro() {
     closePopup('outro-popup');

@@ -1,0 +1,92 @@
+[
+  {
+    "word": "Apakah",
+    "start": 0,
+    "end": 0.63
+  },
+  {
+    "word": "kamu",
+    "start": 0.63,
+    "end": 0.95
+  },
+  {
+    "word": "pernah",
+    "start": 0.95,
+    "end": 1.21
+  },
+  {
+    "word": "melihat",
+    "start": 1.21,
+    "end": 1.65
+  },
+  {
+    "word": "<span class=\"m-thing\">kue</span>",
+    "start": 1.65,
+    "end": 1.83
+  },
+  {
+    "word": "ini",
+    "start": 1.83,
+    "end": 1.98
+  },
+  {
+    "word": "di",
+    "start": 1.98,
+    "end": 2.13
+  },
+  {
+    "word": "pasar?",
+    "start": 2.13,
+    "end": 3.02
+  },
+  {
+    "word": "Jika",
+    "start": 3.02,
+    "end": 3.36
+  },
+  {
+    "word": "kamu",
+    "start": 3.36,
+    "end": 3.6
+  },
+  {
+    "word": "pernah",
+    "start": 3.6,
+    "end": 3.82
+  },
+  {
+    "word": "mencobanya,",
+    "start": 3.82,
+    "end": 4.82
+  },
+  {
+    "word": "<span class=\"m-thing\">kue</span>",
+    "start": 4.82,
+    "end": 5.03
+  },
+  {
+    "word": "mana",
+    "start": 5.03,
+    "end": 5.53
+  },
+  {
+    "word": "yang",
+    "start": 5.53,
+    "end": 5.74
+  },
+  {
+    "word": "menurutmu",
+    "start": 5.74,
+    "end": 6.43
+  },
+  {
+    "word": "paling",
+    "start": 6.43,
+    "end": 6.74
+  },
+  {
+    "word": "enak?",
+    "start": 6.74,
+    "end": 7.24
+  }
+]
