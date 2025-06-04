@@ -51,6 +51,8 @@
                 ? "Enak sekali! Seleramu boleh juga!"
                 : "Sepertinya itu kurang tepat.";
                 
+                stopAllVOHighlight();
+
                 showFeedbackSheet(isCorrect, title, message, () => {
                     loadSceneTrans('a1-study/p4', 'none', 'slide-left');
                     progressIncrease();

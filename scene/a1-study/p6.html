@@ -59,6 +59,8 @@
                             : "Yuk, kita ingat-ingat kembali."
                     : "Sepertinya itu kurang tepat.";
                 
+                stopAllVOHighlight();
+
                 showFeedbackSheet(isCorrect, title, message, () => {
                     loadSceneTrans('a1-study/p7', 'none', 'slide-left');
                     progressIncrease();

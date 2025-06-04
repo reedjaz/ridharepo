@@ -82,6 +82,7 @@ function openIntro() {
 }
 function closeIntro() {
     closePopup('intro-popup');
+    stopAllVOHighlight();
 }
 
 function openOutro() {
@@ -92,6 +93,7 @@ function openOutro() {
 }
 function closeOutro() {
     closePopup('outro-popup');
+    stopAllVOHighlight();
 }
 
 // === Checkbox Setup Logic ===

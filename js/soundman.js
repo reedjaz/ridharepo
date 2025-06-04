@@ -13,6 +13,7 @@ const soundman = {
         'hover': 'assets/audio/hover.mp3',
         'wrong': 'assets/audio/wrong.mp3',
         'victory': 'assets/audio/victory.mp3',
+        'fail': 'assets/audio/fail.mp3',
 
         'vo-gantar-despair': 'assets/audio/vo-gantar-despair.mp3',
         'vo-gantar-game1': 'assets/audio/vo-gantar-game1.mp3',

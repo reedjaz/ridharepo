@@ -1,3 +1,5 @@
+const highlightAnimationMap = new Map();
+
 function kebabToCamel(str) {
     return str.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
 }
@@ -53,6 +55,7 @@ function renderTranscriptToElement(el, transcript) {
 
 function highlightTranscriptDuringAudio(audio, el) {
     const words = el.querySelectorAll('span');
+
     function update() {
         const time = audio.currentTime;
         words.forEach(word => {
@@ -60,11 +63,50 @@ function highlightTranscriptDuringAudio(audio, el) {
             const end = parseFloat(word.dataset.end);
             word.classList.toggle('highlight', time >= start && time <= end);
         });
+
         if (!audio.paused && !audio.ended) {
-            requestAnimationFrame(update);
+            const id = requestAnimationFrame(update);
+            highlightAnimationMap.set(audio, id);
         }
     }
-    requestAnimationFrame(update);
+
+    const id = requestAnimationFrame(update);
+    highlightAnimationMap.set(audio, id);
+}
+
+function stopHighlighting(audio, el) {
+    const animId = highlightAnimationMap.get(audio);
+    if (animId) {
+        cancelAnimationFrame(animId);
+        highlightAnimationMap.delete(audio);
+    }
+
+    if (el) {
+        const words = el.querySelectorAll('span');
+        words.forEach(word => word.classList.remove('highlight'));
+    }
+}
+
+function stopAllVOHighlight() {
+    for (const [audio, animId] of highlightAnimationMap.entries()) {
+        cancelAnimationFrame(animId);
+        highlightAnimationMap.delete(audio);
+
+        const audioKey = Object.keys(soundman.channels).find(
+            key => soundman.channels[key] === audio
+        );
+
+        if (audioKey) {
+            const el = document.getElementById(audioKey);
+            if (el) {
+                const words = el.querySelectorAll('span');
+                words.forEach(word => word.classList.remove('highlight'));
+            }
+        }
+
+        audio.pause();
+        audio.currentTime = 0;
+    }
 }
 
 function playVOForElement(nameKebab) {

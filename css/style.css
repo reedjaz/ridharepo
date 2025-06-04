@@ -267,3 +267,201 @@ body, html {
 .game-end-scr .out-end2 {
     width: 35%;
 }
+
+.levelbox-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--unit-10);
+    height: 100%;
+}
+.levelbox {
+    padding: var(--unit-10);
+    border-radius: var(--rounded-24);
+    background: var(--sky-100);
+    border: calc(var(--unit-2) + var(--unit-1)) solid var(--sky-300);
+    box-shadow: 0 var(--unit-4) 0 var(--sky-400);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--transition-medium) ease;
+    cursor: pointer;
+}
+.levelbox.locked {
+    background: var(--slate-200);
+    border: calc(var(--unit-2) + var(--unit-1)) solid var(--slate-300);
+    box-shadow: 0 var(--unit-4) 0 var(--slate-400);
+    filter: contrast(0.75) brightness(1.1) saturate(0);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.levelbox-name {
+    font-size: calc(var(--unit-12) + var(--unit-2));
+    line-height: calc(var(--unit-13) + var(--unit-5));
+    font-weight: 800;
+}
+.levelbox-name.amazing-shadow {
+    -webkit-text-stroke: var(--unit-4) var(--white);
+}
+.levelbox-name.amazing-under {
+    -webkit-text-stroke: var(--unit-4) var(--indigo-300);
+    top: var(--unit-2);
+}
+.levelbox .levelbox-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--unit-5);
+    width: 100%;
+    height: 100%;
+}
+.levelbox .title, .levelbox .description {
+    text-align: center;
+    text-wrap: balance;
+    color: var(--slate-800);
+    margin: 0;
+    padding: 0;
+}
+.levelbox .title {
+    font-size: var(--unit-9);
+    line-height: var(--unit-9);
+    font-weight: bold;
+}
+.levelbox .description {
+    font-size: var(--unit-6);
+    line-height: var(--unit-7);
+}
+.levelbox .gift-img {
+    width: var(--unit-12);
+    height: var(--unit-12);
+    justify-content: center;
+    align-items: center;
+    margin: calc(var(--unit-6) * -1) 0;
+    user-select: none;
+    position: relative;
+	bottom: calc(var(--unit-2) * -1);
+    display: none;
+}
+.levelbox .gift-img img {
+    width: 100%;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.levelbox.obtained .cta .gift-img {
+    display: flex;
+}
+.levelbox .hint {
+    font-size: calc(var(--unit-4) + var(--unit-1));
+    line-height: calc(var(--unit-4) + var(--unit-2));
+    margin-top: calc(var(--unit-5) * -1);
+    text-align: center;
+    text-wrap: balance;
+    visibility: visible;
+    opacity: 1;
+}
+.levelbox.obtained .hint {
+    visibility: hidden;
+    opacity: 0;
+}
+.levelbox .cta {
+    display: flex;
+    position: relative;
+    color: var(--white);
+    font-size: var(--unit-6);
+    line-height: var(--unit-7);
+    font-weight: bold;
+    padding: var(--unit-3) var(--unit-5);
+    border-radius: var(--rounded-12);
+    box-shadow: 0 var(--unit-2) 0 var(--lime-700);
+    margin: var(--unit-4) 0;
+	background-color: var(--lime-500);
+	border-color: var(--lime-500);
+	bottom: var(--unit-2);
+    gap: var(--unit-5);
+    overflow: visible;
+}
+/* .levelbox .cta:hover {
+	background-color: var(--lime-600);
+	border-color: var(--lime-600);
+	box-shadow: 0 var(--unit-2) 0 var(--lime-700);
+}
+.levelbox .cta:active {
+	box-shadow: 0 0 0 var(--lime-700);
+	bottom: 0;
+}
+.levelbox .cta:hover .gift-img {
+    transform: scale(1.1);
+}
+.levelbox .cta:active .gift-img {
+	bottom: 0;
+    transform: scale(0.98);
+} */
+
+.levelbox .levelbox-lock {
+    background-size: (var(--unit-12) * 2);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../assets/locked.svg");
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+.levelbox .levelbox-lock {
+    display: none;
+}
+.levelbox.locked .levelbox-lock {
+    display: flex;
+}
+.levelbox .levelbox-content {
+    display: flex;
+}
+.levelbox.locked .levelbox-content {
+    display: none;
+}
+
+.levelbox:not(.locked):hover {
+    transform: scale(1.02);
+    background: var(--sky-50);
+    border: calc(var(--unit-2) + var(--unit-1)) solid var(--sky-200);
+    box-shadow: 0 var(--unit-4) 0 var(--sky-300);
+}
+.levelbox:not(.locked):active {
+    transform: scale(0.99);
+    filter: brightness(0.8);
+    transition: all var(--transition-fast) ease;
+}
+.levelbox .levelbox-stars {
+    display: flex;
+    flex-direction: row;
+    gap: var(--unit-1);
+}
+.levelbox .i-star {
+    width: var(--unit-12);
+    height: var(--unit-12);
+    display: flex;
+    transition: all var(--transition-fast) ease;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../assets/star-empty.svg");
+}
+.levelbox .i-star.filled {
+    background-image: url("../assets/star-filled.svg");
+}
+
+.quest-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.quest-img img {
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}

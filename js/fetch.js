@@ -24,10 +24,14 @@ const sceneBGMMap = {
     'a1-study/p1': { sound: '[FO=1000]&bgm-study' },
     'a2-listen/p1': { sound: '[FO=1000]&bgm-listen' },
     'a3-quiz/p1': { sound: '[FO=1000]&bgm-quiz' },
-    'a4-play/p1': { sound: '[FO=1000]&bgm-play' },
+    'a4-play/lobby': { sound: '[FO=1000]&bgm-play' },
 
     'a2-listen/p10': { sound: '[FO=500]&bgm-menu' },
     'a3-quiz/end': { sound: '[FO=150]' },
+    'a4-play/level-1/end': { sound: '[FO=150]' },
+    'a4-play/level-2/end': { sound: '[FO=150]' },
+    'a4-play/level-3/end': { sound: '[FO=150]' },
+    'a4-play/level-4/end': { sound: '[FO=150]' },
 };
 
 // Fungsi Load Popup

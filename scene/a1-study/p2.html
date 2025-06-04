@@ -51,6 +51,8 @@
                 ? `${window.selectedAnswers['soal-a1-p2']}nya adalah sikapmu yang sangat baik!`
                 : "Sepertinya itu kurang tepat.";
                 
+                stopAllVOHighlight();
+
                 showFeedbackSheet(isCorrect, title, message, () => {
                     loadSceneTrans('a1-study/p3', 'none', 'slide-left');
                     progressIncrease();

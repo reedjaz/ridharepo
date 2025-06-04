@@ -1,0 +1,203 @@
+<link rel="stylesheet" href="scene/a4-play/load.css">
+<section class="flex column justify-center items-center height-100 pt-12 gap-12"
+    style="background-image: url('assets/bg-title.jpg');">
+    <div class="flex row gap-10 full">
+        <div class="flex column width-50 gap-11 justify-center">
+            <div class="flex row gap-7 justify-start absolute top-0">
+                <div class="top-button btn-cancel" onclick="
+                        loadSceneTrans('title', 'both', 'slide-right');
+                        ">
+                    <i data-lucide="arrow-left"></i>
+                    <span>Kembali</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex column width-50 height-full justify-between">
+            <div class="flex row gap-7 justify-end">
+                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
+                    <button class="act-neutral btntext btn-click ico-sm" onclick="openSettings()">
+                        <i data-lucide="settings"></i>
+                    </button>
+                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Pengaturan</span>
+                </div>
+                <div class="btntext-wrapper check-full flex column text-center gap-5 justify-center items-center">
+                    <button class="act-neutral btntext btn-click ico-sm" onclick="openExit()">
+                        <i data-lucide="x"></i>
+                    </button>
+                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Keluar</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex column gap-10 full height-full">
+        <div class="levelbox-wrapper height-55">
+            <div id="level-1" class="levelbox btn-enter  animate-zoomOut duration-6 delay-2 easing-ease" onclick="
+                loadSceneTrans('a4-play/level-1/p1', 'none', 'zoom-in');
+            ">
+                <div class="levelbox-stars">
+                    <div class="i-star"></div>
+                    <div class="i-star"></div>
+                    <div class="i-star"></div>
+                </div>
+                <div class="levelbox-name amazing-title funny">Level 1</div>
+                <div class="levelbox-lock"></div>
+                <div class="levelbox-content">
+                    <h2 class="title">Cari Suku Kata</h2>
+                    <p class="description">Bantu Kimu menyusun bagian kata yang hilang.</p>
+                    <div class="cta">
+                        Hadiah
+                        <div class="gift-img">
+                            <img src="assets/gift-pisang.svg" alt="Pisang">
+                        </div>
+                    </div>
+                    <div class="hint">Dapatkan minimal <b>2 bintang</b>.</div>
+                </div>
+            </div>
+            <div id="level-2" class="levelbox locked btn-enter  animate-zoomOut duration-6 delay-3 easing-ease" onclick="
+            
+            ">
+                <div class="levelbox-stars">
+                    <div class="i-star filled"></div>
+                    <div class="i-star"></div>
+                    <div class="i-star"></div>
+                </div>
+                <div class="levelbox-name amazing-title funny">Level 2</div>
+                <div class="levelbox-lock"></div>
+                <div class="levelbox-content">
+                    <h2 class="title">Huruf Ajaib</h2>
+                    <p class="description">Susun huruf menjadi kata penting dalam dongeng.</p>
+                    <div class="cta">
+                        Hadiah
+                        <div class="gift-img">
+                            <img src="assets/gift-telur.svg" alt="Telur">
+                        </div>
+                    </div>
+                    <div class="hint">Dapatkan minimal <b>2 bintang</b>.</div>
+                </div>
+            </div>
+            <div id="level-3" class="levelbox locked btn-enter  animate-zoomOut duration-6 delay-4 easing-ease" onclick="
+            
+            ">
+                <div class="levelbox-stars">
+                    <div class="i-star filled"></div>
+                    <div class="i-star"></div>
+                    <div class="i-star"></div>
+                </div>
+                <div class="levelbox-name amazing-title funny">Level 3</div>
+                <div class="levelbox-lock"></div>
+                <div class="levelbox-content">
+                    <h2 class="title">Dengar dan Tebak</h2>
+                    <p class="description">Dengarkan dan pilih pilihan kata yang tepat.</p>
+                    <div class="cta">
+                        Hadiah
+                        <div class="gift-img">
+                            <img src="assets/gift-tepung.svg" alt="Tepung">
+                        </div>
+                    </div>
+                    <div class="hint">Dapatkan minimal <b>2 bintang</b>.</div>
+                </div>
+            </div>
+            <div id="level-4" class="levelbox locked btn-enter  animate-zoomOut duration-6 delay-5 easing-ease" onclick="
+            
+            ">
+                <div class="levelbox-stars">
+                    <div class="i-star filled"></div>
+                    <div class="i-star"></div>
+                    <div class="i-star"></div>
+                </div>
+                <div class="levelbox-name amazing-title funny">Level 4</div>
+                <div class="levelbox-lock"></div>
+                <div class="levelbox-content">
+                    <h2 class="title">Rangkai Kalimat</h2>
+                    <p class="description">Susun suku kata menjadi kata lalu menjadi kalimat.</p>
+                    <div class="cta">
+                        Hadiah
+                        <div class="gift-img">
+                            <img src="assets/gift-minyak.svg" alt="Minyak">
+                        </div>
+                    </div>
+                    <div class="hint">Dapatkan minimal <b>2 bintang</b>.</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex column full justify-between height-45">
+            BARIS2
+        </div>
+    </div>
+</section>
+<script>
+    applyInputBlocker(1000);
+    
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+        
+        const checks = {
+            action: () => { }
+        };
+        
+        const actions = {
+            action: () => {
+                loadSceneTrans('a4-quiz/p2', 'none', 'slide-left');
+                progressIncrease();
+            }
+        };
+        
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+    }, 450);
+
+    for (let level = 1; level <= 4; level++) {
+        const keyStars = `level${level}-stars`;
+        const keyGift = `level${level}-gift-obtained`;
+        const stars = parseInt(localStorage.getItem(keyStars)) || 0;
+        const giftObtained = stars >= 2;
+
+        const levelBox = document.querySelector(`#level-${level}`);
+        const starsBox = levelBox?.querySelector('.levelbox-stars');
+
+        // Set .obtained jika minimal 2 bintang
+        if (giftObtained) {
+            localStorage.setItem(keyGift, 'true');
+            levelBox?.classList.add('obtained');
+        }
+
+        // Update tampilan bintang
+        if (starsBox) {
+            starsBox.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                const star = document.createElement('div');
+                star.className = 'i-star';
+                if (i < stars) {
+                    star.classList.add('filled');
+                }
+                starsBox.appendChild(star);
+            }
+        }
+
+        // Unlock level berikutnya jika level ini obtained
+        if (giftObtained && level < 4) {
+            const nextLevel = level + 1;
+            const nextKeyUnlocked = `level${nextLevel}-unlocked`;
+            localStorage.setItem(nextKeyUnlocked, 'true');
+        }
+    }
+
+    // Terpisah: cek dan buka kunci level yang telah di-unlock
+    for (let level = 1; level <= 4; level++) {
+        const keyUnlocked = `level${level}-unlocked`;
+        const isUnlocked = localStorage.getItem(keyUnlocked) === 'true';
+        const levelBox = document.querySelector(`#level-${level}`);
+
+        if (isUnlocked && levelBox) {
+            levelBox.classList.remove('locked');
+        }
+    }
+
+</script>

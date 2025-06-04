@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="scene/a4-play/level-1/load.css">
+<section class="scene-bg ingame">
+    <div class="lay flex row justify-center items-center gap-12">
+        <div class="out1 flex column relative height-full">
+            <div class="quest-img">
+                <img src="scene/a4-play/level-1/img/qst-4.svg" alt="">
+            </div>
+        </div>
+        <div class="out2 flex column relative gap-12">
+            <div class="out-top flex column justify-center items-center gap-7">
+                <div class="question flex column">
+                    <span class="inline">Perhatikan gambar di samping dan lengkapi bagian yang hilang.</span>
+                </div>
+            </div>
+            <div class="build-answer flex column gap-4 full justify-center items-center">
+                <div class="final-answer flex row">
+                    <button class="btn-answer extralegible act-answer medium locked" data-btn-group="soal-a4-l1-p4">JA</button>
+                </div>
+                <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
+                <div class="answer-choices flex row">
+                    <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a4-l1-p4">GU</button>
+                    <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a4-l1-p4">NG</button>
+                    <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a4-l1-p4">RA</button>
+                    <button class="btn-answer extralegible act-answer medium" data-btn-group="soal-a4-l1-p4">MU</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+    loadFooter('activity-4');
+
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+
+        const checks = {
+            action: () => { }
+        };
+
+        const actions = {
+            action: () => {
+                const isCorrect = checkAnswer("soal-a4-l1-p4", [
+                    "JAGUNG",
+                ]);
+                const title = isCorrect
+                    ? "Ya, betul!"
+                    : "Aduh!";
+                const message = isCorrect
+                    ? "Itu adalah gambar jagung."
+                    : "Tapi kamu tahu gambar apa itu, ‘kan?";
+
+                showFeedbackSheet(isCorrect, title, message, () => {
+                    destroyBuildAnswer();
+                    loadSceneTrans('a4-play/level-1/p5', 'none', 'slide-left');
+                }, undefined, true);
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+        initBuildAnswer(2);
+
+    }, 450);
+
+    applyInputBlocker(800);
+
+</script>
