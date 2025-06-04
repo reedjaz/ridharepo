@@ -3,6 +3,7 @@ const sfxHandlers = {
     cancel: () => soundman.play('cancel'),
     click: () => soundman.play('click'),
     enter: () => soundman.play('enter'),
+    hover: () => soundman.play('hover'),
 };
 
 function setupBtnSFX() {
@@ -10,6 +11,7 @@ function setupBtnSFX() {
     document.querySelectorAll('.btn-cancel').forEach(el => el.addEventListener('click', sfxHandlers.cancel));
     document.querySelectorAll('.btn-click').forEach(el => el.addEventListener('click', sfxHandlers.click));
     document.querySelectorAll('.btn-enter').forEach(el => el.addEventListener('click', sfxHandlers.enter));
+    // document.querySelectorAll('button').forEach(el => el.addEventListener('mouseenter', sfxHandlers.hover));
 }
 
 function detachBtnSFX() {
@@ -17,6 +19,7 @@ function detachBtnSFX() {
     document.querySelectorAll('.btn-cancel').forEach(el => el.removeEventListener('click', sfxHandlers.cancel));
     document.querySelectorAll('.btn-click').forEach(el => el.removeEventListener('click', sfxHandlers.click));
     document.querySelectorAll('.btn-enter').forEach(el => el.removeEventListener('click', sfxHandlers.enter));
+    // // document.querySelectorAll('button').forEach(el => el.removeEventListener('mouseenter', sfxHandlers.hover));
 }
 
 function checkAnswer(group, correctAnswers) {
@@ -58,6 +61,12 @@ function checkAnswer(group, correctAnswers) {
     
 }
 
+function makeItCorrect() {
+    window.score += 1;
+    window.combo += 1;
+    console.log(`✅ Benar! Skor: ${window.score}, Kombo: ${window.combo}`);
+}
+
 function updateStepIndicator(progress) {
     const indicator = document.getElementById('step-indicator');
     if (!indicator) return;
@@ -90,12 +99,14 @@ function updateProgress(delta, id = 'activity-progress') {
 
 function progressInit(max, value = 0, id = 'activity-progress') {
     const progress = document.getElementById(id);
-    if (!progress) return;
 
     progress.max = max;
     progress.value = Math.min(Math.max(0, value), max);
     updateStepIndicator(progress);
     updatePointIndicator(window.score || 0);
+
+    console.log("PROGRESS BAR INITIALIZED");
+    
 }
 
 function progressIncrease(id) {

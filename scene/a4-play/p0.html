@@ -22,8 +22,8 @@
                     class="text-m-off text-center text-balance text-indigo-900 text-size-12 line-height-12 pt-6 pb-5 unsel animate-fadeInDown duration-6 delay-3 easing-ease">
                     bersama Gantar</h1>
                 <div class="spacer-11 vertical"></div>
-                <button class="act-study btn-enter animate-fadeInDown duration-6 delay-4 easing-ease" onclick="
-                    loadSceneTrans('a4-play/p1', 'none', 'slide-left');
+                <button class="act-study btn-click animate-fadeInDown duration-6 delay-4 easing-ease" onclick="
+                    openOutro();
                 ">Ayo Main</button>
             </div>
         </div>
@@ -34,12 +34,6 @@
                         <i data-lucide="settings"></i>
                     </button>
                     <span class="text-size-6 line-height-6 weight-bold text-slate-800">Pengaturan</span>
-                </div>
-                <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
-                    <button class="act-neutral btntext btn-click ico-sm" onclick="">
-                        <i data-lucide="menu"></i>
-                    </button>
-                    <span class="text-size-6 line-height-6 weight-bold text-slate-800">Lainnya</span>
                 </div>
                 <div class="btntext-wrapper check-full flex column text-center gap-5 justify-center items-center">
                     <button class="act-neutral btntext btn-click ico-sm" onclick="openExit()">
@@ -56,4 +50,33 @@
 </section>
 <script>
     applyInputBlocker(1000);
+    
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+        
+        const checks = {
+            action: () => { }
+        };
+        
+        const actions = {
+            action: () => {
+                loadSceneTrans('a4-quiz/p2', 'none', 'slide-left');
+                progressIncrease();
+            }
+        };
+        
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+    }, 450);
+
+    window.score = 0;
+    window.combo = 0;
+    
 </script>

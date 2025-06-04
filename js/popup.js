@@ -1,78 +1,94 @@
-function openSettings() {
-    const popup = document.getElementById('settings-popup');
-    const bgmCheckbox = document.getElementById('toggle-bgm-checkbox');
-    const fsCheckbox = document.getElementById('toggle-fs-checkbox');
+function openPopup(id, onOpen) {
+    const popup = document.getElementById(id);
+    if (!popup) return;
 
-    if (bgmCheckbox && soundman.channels.bgm) {
-        bgmCheckbox.checked = !soundman.channels.bgm.paused;
+    // Overlay click behavior
+    const overlay = popup.querySelector('.popup-overlay');
+    if (overlay) {
+        overlay.onclick = null;
+        const shouldClose = popup.dataset.closeOverlay !== "false";
+        if (shouldClose) {
+            overlay.onclick = () => closePopup(id);
+        }
     }
-    if (fsCheckbox) {
-        fsCheckbox.checked = !!document.fullscreenElement;
-    }
+
+    // Jalankan kode tambahan (khusus settings, dll)
+    if (typeof onOpen === 'function') onOpen();
 
     popup.classList.remove('hidden');
     void popup.offsetWidth;
     popup.classList.add('show');
+}
 
-    setupToggles();
+function closePopup(id) {
+    const popup = document.getElementById(id);
+    if (!popup) return;
+
+    popup.classList.remove('show');
+    popup.addEventListener('transitionend', function handler() {
+        popup.classList.add('hidden');
+        popup.removeEventListener('transitionend', handler);
+    }, { once: true });
+}
+
+// === Custom Logic untuk masing-masing popup ===
+
+function openSettings() {
+    openPopup('settings-popup', () => {
+        const bgmCheckbox = document.getElementById('toggle-bgm-checkbox');
+        const fsCheckbox = document.getElementById('toggle-fs-checkbox');
+
+        if (bgmCheckbox && soundman.channels.bgm) {
+            bgmCheckbox.checked = !soundman.channels.bgm.paused;
+        }
+        if (fsCheckbox) {
+            fsCheckbox.checked = !!document.fullscreenElement;
+        }
+
+        setupToggles();
+    });
 }
 
 function closeSettings() {
-    const popup = document.getElementById('settings-popup');
-    popup.classList.remove('show');
-    popup.addEventListener('transitionend', function handler() {
-        popup.classList.add('hidden');
-        popup.removeEventListener('transitionend', handler);
-    }, { once: true });
+    closePopup('settings-popup');
 }
 
 function openOther() {
-    const popup = document.getElementById('other-popup');
-    popup.classList.remove('hidden');
-    void popup.offsetWidth;
-    popup.classList.add('show');
+    openPopup('other-popup');
 }
-
 function closeOther() {
-    const popup = document.getElementById('other-popup');
-    popup.classList.remove('show');
-    popup.addEventListener('transitionend', function handler() {
-        popup.classList.add('hidden');
-        popup.removeEventListener('transitionend', handler);
-    }, { once: true });
+    closePopup('other-popup');
 }
 
 function openExit() {
-    const popup = document.getElementById('exit-popup');
-    popup.classList.remove('hidden');
-    void popup.offsetWidth;
-    popup.classList.add('show');
+    openPopup('exit-popup');
 }
-
 function closeExit() {
-    const popup = document.getElementById('exit-popup');
-    popup.classList.remove('show');
-    popup.addEventListener('transitionend', function handler() {
-        popup.classList.add('hidden');
-        popup.removeEventListener('transitionend', handler);
-    }, { once: true });
+    closePopup('exit-popup');
 }
 
 function openBackHome() {
-    const popup = document.getElementById('backhome-popup');
-    popup.classList.remove('hidden');
-    void popup.offsetWidth;
-    popup.classList.add('show');
+    openPopup('backhome-popup');
+}
+function closeBackHome() {
+    closePopup('backhome-popup');
 }
 
-function closeBackHome() {
-    const popup = document.getElementById('backhome-popup');
-    popup.classList.remove('show');
-    popup.addEventListener('transitionend', function handler() {
-        popup.classList.add('hidden');
-        popup.removeEventListener('transitionend', handler);
-    }, { once: true });
+function openIntro() {
+    openPopup('intro-popup');
 }
+function closeIntro() {
+    closePopup('intro-popup');
+}
+
+function openOutro() {
+    openPopup('outro-popup');
+}
+function closeOutro() {
+    closePopup('outro-popup');
+}
+
+// === Checkbox Setup Logic ===
 
 function setupToggles() {
     const bgmCheckbox = document.getElementById('toggle-bgm-checkbox');
@@ -83,7 +99,7 @@ function setupToggles() {
         bgmCheckbox.parentNode.replaceChild(newBgmCheckbox, bgmCheckbox);
 
         newBgmCheckbox.addEventListener('change', function () {
-			soundman.toggleMuteAllBgm(!newBgmCheckbox.checked ? true : false);
+            soundman.toggleMuteAllBgm(!newBgmCheckbox.checked);
         });
     }
 

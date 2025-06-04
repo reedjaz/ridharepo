@@ -35,11 +35,11 @@
                     "KAKI",
                 ]);
                 const title = isCorrect
-                    ? "Ya, betul!"
+                    ? "Ya, kamu betul!"
                     : "Duh, maaf...";
                 const message = isCorrect
                     ? "Yang sakit adalah kaki Nara."
-                    : `${String(getFinalAnswerText()).charAt(0).toUpperCase() + String(getFinalAnswerText()).slice(1).toLowerCase()} masih belum tepat!`;
+                    : `${String(getFinalAnswerText()).charAt(0).toUpperCase() + String(getFinalAnswerText()).slice(1).toLowerCase()} bukan jawaban yang tepat!`;
                 
                 showFeedbackSheet(isCorrect, title, message, () => {
                     destroyBuildAnswer();

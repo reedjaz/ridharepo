@@ -27,6 +27,7 @@ const sceneBGMMap = {
     'a4-play/p1': { sound: '[FO=1000]&bgm-play' },
 
     'a2-listen/p10': { sound: '[FO=500]&bgm-menu' },
+    'a3-quiz/end': { sound: '[FO=150]' },
 };
 
 // Fungsi Load Popup

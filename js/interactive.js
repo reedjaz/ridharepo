@@ -591,16 +591,14 @@ function setupMatchingGame(correctPairs, nextSceneId) {
         const allDstDisabled = Array.from(dstButtons).every(btn => btn.classList.contains('disabled'));
 
         if (allSrcDisabled && allDstDisabled) {
-            setTimeout(() => {
-                showFeedbackSheet(
-                    true,
-                    'Hebat sekali!',
-                    'Semua pasangan kata sudah ditemukan.',
-                    () => {
-                        destroyMatchingGame();
-                        loadSceneTrans(nextSceneId, 'none', 'slide-left');
-                    }, undefined, true);
-            }, 0);
+            showFeedbackSheet(
+                true,
+                'Hebat sekali!',
+                'Semua pasangan kata sudah ditemukan.',
+                () => {
+                    destroyMatchingGame();
+                    loadSceneTrans(nextSceneId, 'none', 'slide-left');
+                }, undefined, true, true);
         }
     }
 }
@@ -613,5 +611,59 @@ function btnActionUpdateState(finalText) {
         btnAction.classList.remove('disabled');
     } else {
         btnAction.classList.add('disabled');
+    }
+}
+
+let startTime = 0;
+let elapsedTime = 0;
+let timerRunning = false;
+
+function startStopwatch() {
+  if (timerRunning) return;
+  timerRunning = true;
+  startTime = Date.now() - elapsedTime;
+}
+
+function stopStopwatch() {
+  if (!timerRunning) return;
+  timerRunning = false;
+  elapsedTime = Date.now() - startTime;
+  console.log(elapsedTime);
+}
+
+function resetStopwatch() {
+  timerRunning = false;
+  startTime = 0;
+  elapsedTime = 0;
+}
+
+function getElapsedTime() {
+  let time = elapsedTime;
+  if (timerRunning) {
+    time = Date.now() - startTime;
+  }
+
+  const hours = Math.floor(time / 3600000).toString().padStart(2, '0');
+  const minutes = Math.floor((time % 3600000) / 60000).toString().padStart(2, '0');
+  const seconds = Math.floor((time % 60000) / 1000).toString().padStart(2, '0');
+
+  console.log(`Elapsed time = ${hours}:${minutes}:${seconds}`);
+
+  return { hours, minutes, seconds };
+}
+
+function getElapsedTimeBaked() {
+    const { hours, minutes, seconds } = getElapsedTime();
+  
+    const h = parseInt(hours);
+    const m = parseInt(minutes);
+    const s = parseInt(seconds);
+  
+    if (h > 0) {
+      return `${hours}:${minutes}:${seconds}`;
+    } else if (m > 0) {
+      return `${minutes}:${seconds}`;
+    } else {
+      return `${s} detik`;
     }
 }

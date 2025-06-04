@@ -14,7 +14,7 @@
         <div class="out2 flex column gap-11">
             <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg2">
                 <div class="callout bottom"></div>
-                <div class="vo-text-wrap">Jika kalian mendengar kabar teman yang sakit, apa yang akan kalian lakukan?</div>
+                <div class="vo-text-wrap">Jika kamu mendengar kabar teman yang sakit, apa yang akan kamu lakukan?</div>
             </div>
             <div class="flex row animate-fadeInUp duration-6 delay-4 easing-ease gap-10">
                 <button class="btn-answer act-answer medium full" data-btn-group="soal-a1-p2">Mendoakan</button>
@@ -48,7 +48,7 @@
                 ? "Luar biasa!"
                 : "Aduh!";
                 const message = isCorrect
-                ? `${window.selectedAnswers['soal-a1-p2']}nya adalah sikap yang sangat baik!`
+                ? `${window.selectedAnswers['soal-a1-p2']}nya adalah sikapmu yang sangat baik!`
                 : "Sepertinya itu kurang tepat.";
                 
                 showFeedbackSheet(isCorrect, title, message, () => {

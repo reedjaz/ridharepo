@@ -1,4 +1,4 @@
-function showFeedbackSheet(isCorrect, title, message, whatToDo, btnLabel = "Selanjutnya", increase = false) {
+function showFeedbackSheet(isCorrect, title, message, whatToDo, btnLabel = "Selanjutnya", increase = false, forceCorrect = false) {
     const sheetBuffer = document.getElementById("sheet-buffer");
 
     const finalTitle = title || (isCorrect ? "Jawaban Benar" : "Jawaban Salah");
@@ -29,6 +29,7 @@ function showFeedbackSheet(isCorrect, title, message, whatToDo, btnLabel = "Sela
     `;
 
     lucide.createIcons();
+    if (forceCorrect) makeItCorrect();
     if (increase) progressIncrease();
 
     setTimeout(() => {

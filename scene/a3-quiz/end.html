@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="scene/a1-study/load.css">
+<section class="scene-bg game-end-scr">
+    <div class="end-scr lay flex row justify-center items-center">
+        <div class="out-end1 flex column gap-11 px-12 py-11 justify-center items-center">
+            <div class="flex column gap-7 justify-center items-center">
+                <div id="star-container" class="flex row"></div>
+                <span id="moti-title" class="title inline animate-fadeInUp duration-6 delay-2 easing-ease"></span>
+                <span id="moti-subtitle" class="subtitle inline animate-fadeInDown duration-6 delay-3 easing-ease"></span>
+            </div>
+            <div class="end-rec full">
+                <div class="param green animate-fadeInUp duration-6 delay-4 easing-ease">
+                    <div class="flex column py-4">Jawaban Benar</div>
+                    <div id="result-correct" class="param-c"></div>
+                </div>
+                <div class="param yellow animate-fadeInUp duration-6 delay-5 easing-ease">
+                    <div class="flex column py-4">Kurang Tepat</div>
+                    <div id="result-wrong" class="param-c"></div>
+                </div>
+                <div class="param blue animate-fadeInUp duration-6 delay-6 easing-ease">
+                    <div class="flex column py-4">Durasi</div>
+                    <div id="result-duration" class="param-c"></div>
+                </div>
+            </div>
+            <button class="act-study btn-click animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
+                loadSceneTrans('a4-play/load', 'both', 'slide-left');
+            ">Lanjut Bermain</button>
+        </div>
+        <div class="out-end2 flex column relative">
+            <dotlottie-player src="assets/anim/gantar-splash.json" background="transparent" speed="1" renderer="svg"
+                id="gantar-ingame" class="flex full height-full" loop autoplay>
+            </dotlottie-player>
+        </div>
+    </div>
+</section>
+<script>
+
+(() => {
+    
+    const localStarCount = window.score;
+
+    const resultCorrect = localStarCount;
+    const resultWrong = document.getElementById('activity-progress').max - localStarCount;
+    const resultDuration = getElapsedTimeBaked();
+
+    console.log(`
+        resultCorrect = ${resultCorrect}
+        resultWrong = ${resultWrong}
+        resultDuration = ${resultDuration}
+    `);
+
+    function setMotivationMessage(stars) {
+        let title = "";
+        let subtitle = "";
+
+        switch (stars) {
+            case 6:
+                title = "Keren banget!";
+                subtitle = "Kamu dapat 6 bintang!";
+                break;
+            case 5:
+                title = "Hebat!";
+                subtitle = "Kamu berhasil kumpulkan 5 bintang!";
+                break;
+            case 4:
+                title = "Bagus!";
+                subtitle = "4 bintang untukmu!";
+                break;
+            case 3:
+                title = "Lumayan!";
+                subtitle = "Dapat 3 bintang, semangat terus!";
+                break;
+            case 2:
+                title = "Gak apa-apa!";
+                subtitle = "Ini bagian dari belajar. 2 bintang ya!";
+                break;
+            case 1:
+                title = "Tetap semangat!";
+                subtitle = "Kamu dapat 1 bintang.";
+                break;
+            case 0:
+            default:
+                title = "Belum dapat bintang...";
+                subtitle = "Tapi jangan menyerah! Coba lagi yuk!";
+                break;
+        }
+
+        document.getElementById("moti-title").innerHTML = title;
+        document.getElementById("moti-subtitle").innerHTML = subtitle;
+    }
+
+    const container = document.getElementById("star-container");
+    let starsHTML = "";
+
+    for (let i = 0; i < localStarCount; i++) {
+        const delay = (i * 0.1).toFixed(1);
+        starsHTML += `
+            <span class="point-icon animate-zoomOut duration-6 easing-ease" style="animation-delay: ${delay}s;">
+                <img src="assets/star.svg" alt="Poin">
+            </span>
+        `;
+    }
+
+    container.innerHTML = starsHTML;
+
+    setMotivationMessage(localStarCount);
+
+    document.getElementById('result-correct').innerHTML = resultCorrect;
+    document.getElementById('result-wrong').innerHTML = resultWrong;
+    document.getElementById('result-duration').innerHTML = resultDuration;
+
+    setTimeout(() => {
+        soundman.play('victory');
+    }, 450);
+
+    applyInputBlocker(2000);
+
+})();
+
+</script>

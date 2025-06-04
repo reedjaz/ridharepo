@@ -14,7 +14,7 @@
         <div class="out2 flex column gap-11">
             <div class="msgbox vo-text animate-fadeInRight duration-6 delay-2 easing-ease" id="vo-gantar-msg3">
                 <div class="callout bottom"></div>
-                <div class="vo-text-wrap">Apakah kalian pernah melihat <span class="m-thing">kue</span> ini di pasar? Jika kalian pernah mencobanya, <span class="m-thing">kue</span> mana yang menurut kalian paling enak?</div>
+                <div class="vo-text-wrap">Apakah kamu pernah melihat <span class="m-thing">kue</span> ini di pasar? Jika kamu pernah mencobanya, <span class="m-thing">kue</span> mana yang menurutmu paling enak?</div>
             </div>
             <div class="flex row animate-fadeInUp duration-6 delay-4 easing-ease gap-10">
                 <button class="btn-answer act-choice medium full" data-btn-group="soal-a1-p3"><div class="choice-img"><img class="ratio-3-2" src="scene/a1-study/img/ca-putu-ayu.svg" alt=""></div>Putu Ayu</button>
@@ -48,7 +48,7 @@
                 ? `Hmm, ${window.selectedAnswers['soal-a1-p3'].toLowerCase()}...`
                 : "Wah, terlalu asin?";
                 const message = isCorrect
-                ? "Enak sekali! Selera kalian boleh juga!"
+                ? "Enak sekali! Seleramu boleh juga!"
                 : "Sepertinya itu kurang tepat.";
                 
                 showFeedbackSheet(isCorrect, title, message, () => {

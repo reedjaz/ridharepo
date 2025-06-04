@@ -23,7 +23,9 @@ style="background-image: url('assets/bg-title.jpg');">
         Kuis Seru</h2>
         <div class="spacer-11 vertical"></div>
         <button class="act-study btn-enter animate-fadeInDown duration-6 delay-4 easing-ease" onclick="
+        // loadSceneTrans('a3-quiz/end', 'both', 'slide-left');
         loadSceneTrans('a3-quiz/p1', 'none', 'slide-left');
+        startStopwatch();
         ">Coba Kuis</button>
     </div>
 </div>
@@ -34,12 +36,6 @@ style="background-image: url('assets/bg-title.jpg');">
                 <i data-lucide="settings"></i>
             </button>
             <span class="text-size-6 line-height-6 weight-bold text-slate-800">Pengaturan</span>
-        </div>
-        <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
-            <button class="act-neutral btntext btn-click ico-sm" onclick="">
-                <i data-lucide="menu"></i>
-            </button>
-            <span class="text-size-6 line-height-6 weight-bold text-slate-800">Lainnya</span>
         </div>
         <div class="btntext-wrapper check-full flex column text-center gap-5 justify-center items-center">
             <button class="act-neutral btntext btn-click ico-sm" onclick="openExit()">
@@ -55,8 +51,6 @@ style="background-image: url('assets/bg-title.jpg');">
 </div>
 </section>
 <script>
-    
-    progressInit(10, 0);
     applyInputBlocker(1000);
     
     setTimeout(() => {
@@ -81,6 +75,7 @@ style="background-image: url('assets/bg-title.jpg');">
                 buttons[key].onclick = actions[key];
             }
         }
+
     }, 450);
 
     window.score = 0;

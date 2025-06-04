@@ -252,3 +252,18 @@ body, html {
 .book-cover-bg {
     background-color: var(--white-0-75);
 }
+
+.ingame .lay .out-end1,
+.ingame .lay .out-end2 {
+    flex-grow: 1;
+}
+
+.game-end-scr {
+    padding: 0 calc(var(--unit-12) + var(--unit-12)) var(--unit-12) calc(var(--unit-12) + var(--unit-12)) !important;
+}
+.game-end-scr .out-end1 {
+    width: 65%;
+}
+.game-end-scr .out-end2 {
+    width: 35%;
+}

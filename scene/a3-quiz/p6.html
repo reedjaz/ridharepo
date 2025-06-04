@@ -13,8 +13,6 @@
 </section>
 <script>
 
-    loadFooter('activity-3');
-
     setTimeout(() => {
         const buttons = {
             action: document.getElementById('btn-action'),
@@ -38,7 +36,8 @@
 
                 showFeedbackSheet(isCorrect, title, message, () => {
                     destroyAnswerButton();
-                    loadSceneTrans('a3-quiz/p6', 'none', 'slide-left');
+                    stopStopwatch();
+                    loadSceneTrans('a3-quiz/end', 'both', 'zoom-out');
                 }, undefined, true);
             },
         };
