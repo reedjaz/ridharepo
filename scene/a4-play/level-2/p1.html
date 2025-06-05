@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="scene/a4-play/level-2/load.css">
+<section class="scene-bg ingame">
+    <div class="lay flex column justify-center items-center gap-12">
+        <div class="out-top flex column justify-center items-center gap-7">
+            <div class="hint">Susunlah huruf-huruf berikut ini.</div>
+            <div class="question flex column">
+                <span class="inline">Apa yang <span class="m-char">Kimu</span> rasakan saat mengetahui <span class="m-char">Nara</span> sakit?</span>
+            </div>
+        </div>
+        <div class="build-answer flex column gap-4 full justify-center items-center">
+            <div class="final-answer flex row gap-8 full">
+            </div>
+            <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
+            <div class="answer-choices flex row gap-8 full">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+    loadHeader('activity-4');
+    loadFooter('activity-4');
+
+    setTimeout(() => {
+        const buttons = {
+            action: document.getElementById('btn-action'),
+        };
+
+        const checks = {
+            action: () => { }
+        };
+
+        const actions = {
+            action: () => {
+                const isCorrect = checkAnswer("soal-a4-l2-p1", [
+                    "CEMAS",
+                ]);
+                const title = isCorrect
+                    ? "Ya, kamu betul!"
+                    : "Duh, maaf...";
+                const message = isCorrect
+                    ? "Kimu merasa cemas."
+                    : `${String(getFinalAnswerText()).charAt(0).toUpperCase() + String(getFinalAnswerText()).slice(1).toLowerCase()} bukan jawaban yang tepat!`;
+
+                showFeedbackSheet(isCorrect, title, message, () => {
+                    destroyBuildAnswer();
+                    loadSceneTrans('a4-play/level-2/p2', 'none', 'slide-left');
+                }, undefined, true);
+            },
+        };
+
+        for (const key in buttons) {
+            if (buttons[key]) {
+                checks[key]();
+                buttons[key].onclick = actions[key];
+            }
+        }
+
+        initBuildAnswer();
+        progressInit(5, 0);
+
+    }, 450);
+
+    populateAnswerLetters('CEMAS', 'soal-a4-l2-p1', 6, true);
+    applyInputBlocker(800);
+
+</script>
