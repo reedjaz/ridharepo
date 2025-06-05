@@ -13,3 +13,11 @@
     z-index: 10;
     transform: scale(1.35);
 }
+#gantar-lobby {
+    position: relative;
+    transform: scale(1.35);
+    transform-origin: 50% 50%;
+    margin: 0 0 calc(var(--vh-40) * -1) var(--vh-5);
+    pointer-events: none;
+    z-index: 10;
+}

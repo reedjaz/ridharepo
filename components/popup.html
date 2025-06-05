@@ -5,33 +5,35 @@
         <div class="popup-content settings-popup flex column gap-12">
             <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Pengaturan</h2>
-            <div class="flex row full gap-6">
-                <div class="ctrl-toggle flex column full">
-                    <span class="label">
-                        Musik Latar
-                    </span>
-                    <label class="switch large">
-                        <input type="checkbox" id="toggle-bgm-checkbox" checked>
-                        <span class="mark">
+            <div class="flex column full gap-10">
+                <div class="flex row full gap-9">
+                    <div class="ctrl-toggle flex column full">
+                        <span class="label">
+                            Musik Latar
                         </span>
-                    </label>
-                </div>
-                <div class="ctrl-toggle flex column full">
-                    <span class="label">
-                        Layar Penuh
-                    </span>
-                    <label class="switch large">
-                        <input type="checkbox" id="toggle-fs-checkbox" checked>
-                        <span class="mark">
+                        <label class="switch large">
+                            <input type="checkbox" id="toggle-bgm-checkbox" checked>
+                            <span class="mark">
+                            </span>
+                        </label>
+                    </div>
+                    <div class="ctrl-toggle flex column full">
+                        <span class="label">
+                            Layar Penuh
                         </span>
-                    </label>
+                        <label class="switch large">
+                            <input type="checkbox" id="toggle-fs-checkbox" checked>
+                            <span class="mark">
+                            </span>
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="flex column full gap-6">
-                <button class="full act-wrong btn-click" onclick="
-                    openConfirmReset();
-                    ">Mulai dari Awal
-                </button>
+                <div class="flex column full gap-6">
+                    <button class="full act-wrong btn-click" onclick="
+                        openConfirmReset();
+                        ">Mulai dari Awal
+                    </button>
+                </div>
             </div>
         </div>
     </div>

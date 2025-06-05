@@ -489,6 +489,37 @@ h1 {
 	display: inline-flex;
 }
 
+.msgbox.lobby {
+	padding: var(--unit-7) var(--unit-10);
+	font-size: var(--unit-9);
+	line-height: var(--unit-10);
+    color: var(--slate-800);
+    display: flex;
+	flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-wrap: balance;
+    gap: var(--unit-8);
+}
+
+.msgbox.lobby .callout {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url(../assets/callout.svg);
+	width: var(--unit-12);
+	height: var(--unit-12);
+	position: absolute;
+    top: calc(50% - (var(--unit-12) / 2));
+    right: calc((var(--unit-12) / 2) * -1);
+    transform: scaleX(-1);
+    left: unset;
+}
+
+.msgbox.lobby .callout.middle {
+	top: calc(50% - (var(--unit-11) / 2));
+}
+
 .m-char {
 	color: var(--amber-600);
 }

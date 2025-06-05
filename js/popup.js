@@ -82,6 +82,7 @@ function closeBackHome() {
 }
 
 function openIntro() {
+    applyInputBlocker(1250);
     openPopup('intro-popup');
     setTimeout(() => {
         readAloud('vo-intro');
@@ -93,6 +94,7 @@ function closeIntro() {
 }
 
 function openOutro() {
+    applyInputBlocker(3250);
     openPopup('outro-popup');
     setTimeout(() => {
         readAloud('vo-outro');
