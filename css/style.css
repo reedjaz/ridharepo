@@ -368,19 +368,25 @@ body, html {
 .levelbox .cta {
     display: flex;
     position: relative;
-    color: var(--white);
+    color: var(--lime-500);
     font-size: var(--unit-6);
     line-height: var(--unit-7);
     font-weight: bold;
     padding: var(--unit-3) var(--unit-5);
     border-radius: var(--rounded-12);
-    /* box-shadow: 0 var(--unit-2) 0 var(--lime-700); */
+    box-shadow: 0 var(--unit-2) 0 var(--lime-400);
     margin: var(--unit-4) 0;
-	background-color: var(--lime-500);
-	border-color: var(--lime-500);
+	background-color: var(--lime-300);
+	border-color: var(--lime-300);
 	bottom: var(--unit-2);
     gap: var(--unit-5);
     overflow: visible;
+}
+.levelbox.obtained .cta {
+    color: var(--white);
+    box-shadow: 0 var(--unit-2) 0 var(--lime-700);
+    background-color: var(--lime-500);
+    border-color: var(--lime-500);
 }
 /* .levelbox .cta:hover {
 	background-color: var(--lime-600);

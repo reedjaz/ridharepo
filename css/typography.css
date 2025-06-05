@@ -485,6 +485,9 @@ h1 {
 .inline {
 	display: inline;
 }
+.inline-flex {
+	display: inline-flex;
+}
 
 .m-char {
 	color: var(--amber-600);

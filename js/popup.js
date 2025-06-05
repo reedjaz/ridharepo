@@ -67,6 +67,13 @@ function closeExit() {
     closePopup('exit-popup');
 }
 
+function openConfirmReset() {
+    openPopup('confirmreset-popup');
+}
+function closeConfirmReset() {
+    closePopup('confirmreset-popup');
+}
+
 function openBackHome() {
     openPopup('backhome-popup');
 }
@@ -89,7 +96,7 @@ function openOutro() {
     openPopup('outro-popup');
     setTimeout(() => {
         readAloud('vo-outro');
-    }, 450);
+    }, 1500);
 }
 function closeOutro() {
     closePopup('outro-popup');

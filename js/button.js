@@ -61,6 +61,39 @@ function checkAnswer(group, correctAnswers) {
     
 }
 
+function checkAnswerAdv(group, correctAnswers) {
+    let userAnswer = getFinalAnswerAdvancedText();
+
+    if (!userAnswer) {
+        console.log("Belum ada jawaban dipilih.");
+        return false;
+    }
+
+    const correctList = Array.isArray(correctAnswers) ? correctAnswers : [correctAnswers];
+    const isCorrect = correctList
+        .map(ans => ans.toUpperCase().trim())
+        .includes(userAnswer.toUpperCase());
+
+    soundman.play(isCorrect ? "correct" : "wrong");
+
+    window.score = window.score || 0;
+    window.combo = window.combo || 0;
+
+    if (isCorrect) {
+        window.score += 1;
+        window.combo += 1;
+        console.log(`✅ Benar! Skor: ${window.score}, Kombo: ${window.combo}`);
+    } else {
+        window.combo = 0;
+        console.log(`❌ Salah. Skor tetap: ${window.score}, Kombo direset.`);
+    }
+
+    console.log(`Jawaban Pemain: "${userAnswer}"`);
+    console.log(`Jawaban Benar: ${correctList.map(a => `"${a}"`).join(', ')}`);
+
+    return isCorrect;
+}
+
 function makeItCorrect() {
     window.score += 1;
     window.combo += 1;

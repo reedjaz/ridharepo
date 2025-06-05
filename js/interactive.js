@@ -1,9 +1,26 @@
+let celebrateInterval = null;
+
 function getFinalAnswerText(withSpace = false) {
     const finalAnswer = document.querySelector('.final-answer');
     if (!finalAnswer) return '';
     return Array.from(finalAnswer.children)
         .map(btn => btn.textContent.trim())
         .join(withSpace ? ' ' : '');
+}
+
+function getFinalAnswerAdvancedText() {
+    const finalAnswer = document.querySelector('.final-answer');
+    if (!finalAnswer) return '';
+
+    let result = '';
+    Array.from(finalAnswer.children).forEach(btn => {
+        result += btn.textContent;
+        if (btn.classList.contains('end-word')) {
+            result += ' ';
+        }
+    });
+
+    return result.trim();
 }
 
 function disableTransitionTemporarily(el, fn) {
@@ -293,6 +310,142 @@ function initBuildAnswer(options) {
     });
 }
 
+function initBuildAnswerAdv(options) {
+    requestAnimationFrame(() => {
+        console.log("--- INITIALIZE BUILD ANSWER ADVANCED ---");
+
+        setupBuildAnswerListeners();
+        if (typeof options === 'number') {
+            options = { maxSlots: options };
+        }
+
+        const { maxSlots } = options || {};
+
+        const finalAnswer = document.querySelector('.final-answer');
+        const answerChoices = document.querySelector('.answer-choices');
+        if (!finalAnswer || !answerChoices) return;
+
+        const choices = answerChoices.querySelectorAll('button');
+
+        const fixedTexts = Array.from(finalAnswer.children).map(btn => btn.textContent.trim());
+
+        requestAnimationFrame(() => {
+            choices.forEach(choiceBtn => {
+                const text = choiceBtn.textContent.trim();
+                if (fixedTexts.includes(text)) {
+                    choiceBtn.classList.add('taken');
+                    choiceBtn.disabled = true;
+                }
+
+                choiceBtn.onclick = () => {
+                    if (choiceBtn.classList.contains('taken')) return;
+
+                    const usedSlots = countUsedSlots(finalAnswer);
+                    if (maxSlots !== undefined && usedSlots >= maxSlots) {
+                        console.warn(`Max slots (${maxSlots}) sudah penuh!`);
+                        return;
+                    }
+
+                    const newBtn = choiceBtn.cloneNode(true);
+                    newBtn.setAttribute('data-btn-id', choiceBtn.getAttribute('data-btn-id'));
+                    newBtn.classList.remove('taken');
+                    newBtn.disabled = false;
+                    newBtn.classList.add('show');
+                    newBtn.classList.add('btn-click');
+                    newBtn.style.opacity = '0';
+
+                    const ghost = newBtn.cloneNode(true);
+                    ghost.style.visibility = 'hidden';
+                    ghost.style.position = 'relative';
+                    finalAnswer.appendChild(ghost);
+                    const ghostRect = ghost.getBoundingClientRect();
+                    finalAnswer.removeChild(ghost);
+
+                    const childrenBefore = Array.from(finalAnswer.children);
+                    const positionsBefore = childrenBefore.map(el => el.getBoundingClientRect());
+
+                    finalAnswer.appendChild(newBtn);
+
+                    const finalText = getFinalAnswerAdvancedText();
+                    btnActionUpdateState(finalText);
+
+                    const childrenAfter = Array.from(finalAnswer.children);
+                    const positionsAfter = childrenAfter.map(el => el.getBoundingClientRect());
+
+                    childrenAfter.forEach((el, i) => {
+                        const before = positionsBefore.find((_, j) => childrenBefore[j] === el);
+                        const after = positionsAfter[i];
+                        if (!before) return;
+
+                        const dx = before.left - after.left;
+                        const dy = before.top - after.top;
+
+                        if (dx !== 0 || dy !== 0) {
+                            el.style.transition = 'none';
+                            el.style.transform = `translate(${dx}px, ${dy}px)`;
+                            void el.offsetWidth;
+                            el.style.transition = 'transform var(--transition-medium) ease';
+                            el.style.transform = '';
+                        }
+                    });
+
+                    choiceBtn.classList.add('taken');
+                    choiceBtn.disabled = true;
+
+                    animateFlyToPoint(choiceBtn, ghostRect.left, ghostRect.top, () => {
+                        newBtn.style.transition = 'none';
+                        newBtn.style.opacity = '1';
+
+                        console.log('Final Answer:', getFinalAnswerAdvancedText());
+                    });
+
+                    childrenAfter.forEach(el => {
+                        el.addEventListener('transitionend', function cleanup(e) {
+                            if (e.propertyName === 'transform') {
+                                el.style.transition = '';
+                                el.style.transform = '';
+                                el.removeEventListener('transitionend', cleanup);
+                            }
+                        });
+                    });
+
+                    newBtn.onclick = () => {
+                        const targetBtn = Array.from(answerChoices.children).find(
+                            btn => isSameButton(btn, newBtn)
+                        );
+                        if (!targetBtn) return;
+
+                        soundman.play('click');
+
+                        disableTransitionTemporarily(newBtn, () => {
+                            animateFlyToTarget(newBtn, targetBtn, () => {
+                                disableTransitionTemporarily(newBtn, () => {
+                                    newBtn.remove();
+                                    targetBtn.classList.remove('taken');
+                                    targetBtn.disabled = false;
+
+                                    const finalText = getFinalAnswerAdvancedText();
+                                    btnActionUpdateState(finalText);
+
+                                    console.log('Final Answer:', finalText);
+                                });
+                            });
+                        });
+
+                        animateShiftInFinalAnswer(finalAnswer, newBtn);
+                    };
+                };
+            });
+        });
+
+        Array.from(finalAnswer.children).forEach(btn => {
+            btn.classList.add('show');
+            btn.setAttribute('disabled', 'true');
+            btn.onclick = null;
+        });
+    });
+}
+
 function destroyBuildAnswer() {
     const finalAnswer = document.querySelector('.final-answer');
     finalAnswer.classList.add('final-answer-old');
@@ -384,6 +537,58 @@ function populateAnswerLetters(answer, groupName, total = 8, extralegible = fals
     });
 
     
+    if (typeof callback === 'function') {
+        callback();
+    }
+}
+
+function populateJumbledSentence(sentence, groupName, extralegible = false, callback) {
+    const container = document.querySelector('.answer-choices');
+    if (!container) return;
+
+    console.log('Container found:', container);
+
+    const words = sentence.trim().split(' ');
+    const parts = [];
+
+    words.forEach((word, wordIndex) => {
+        const syllables = word.split('-');
+        syllables.forEach((part, partIndex) => {
+            let role = '';
+            if (syllables.length === 1) {
+                role = 'begin-word end-word';
+            } else if (partIndex === 0) {
+                role = 'begin-word';
+            } else if (partIndex === syllables.length - 1) {
+                role = 'end-word';
+            } else {
+                role = 'mid-word';
+            }
+
+            parts.push({
+                text: part,
+                role,
+                uniqueId: `${groupName}-${wordIndex}-${partIndex}-${part}` // Unik untuk tombol ini
+            });
+        });
+    });
+
+    for (let i = parts.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [parts[i], parts[j]] = [parts[j], parts[i]];
+    }
+
+    container.innerHTML = '';
+
+    parts.forEach(({ text, role, uniqueId }) => {
+        const btn = document.createElement('button');
+        btn.className = `btn-answer act-answer medium${extralegible ? ' extralegible' : ''} ${role}`;
+        btn.setAttribute('data-btn-group', groupName);
+        btn.setAttribute('data-btn-id', uniqueId);
+        btn.textContent = text;
+        container.appendChild(btn);
+    });
+
     if (typeof callback === 'function') {
         callback();
     }
@@ -665,5 +870,59 @@ function getElapsedTimeBaked() {
       return `${minutes}:${seconds}`;
     } else {
       return `${s} detik`;
+    }
+}
+
+function launchConfettiCelebration() {
+    const duration = 8500;
+    const animationEnd = Date.now() + duration;
+    const defaults = {
+        startVelocity: 60,
+        spread: 120,
+        ticks: 60,
+        zIndex: 9999,
+        scalar: 2.5
+    };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    // Simpan interval ID supaya bisa di-clear dari luar
+    celebrateInterval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            clearInterval(celebrateInterval);
+            celebrateInterval = null;
+            return;
+        }
+
+        // Kiri
+        confetti({
+            ...defaults,
+            particleCount: 8,
+            angle: 60,
+            spread: 75,
+            origin: { x: 0, y: randomInRange(0.2, 0.8) }
+        });
+
+        // Kanan
+        confetti({
+            ...defaults,
+            particleCount: 8,
+            angle: 120,
+            spread: 75,
+            origin: { x: 1, y: randomInRange(0.2, 0.8) }
+        });
+
+    }, 250);
+}
+
+function stopConfettiCelebration() {
+    if (celebrateInterval !== null) {
+        clearInterval(celebrateInterval);
+        celebrateInterval = null;
+        confetti.reset();
     }
 }

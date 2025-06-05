@@ -31,7 +31,7 @@
     </div>
     <div class="flex column gap-10 full height-full">
         <div class="levelbox-wrapper height-55">
-            <div id="level-1" class="levelbox btn-enter  animate-zoomOut duration-6 delay-2 easing-ease" onclick="
+            <div id="level-1" class="levelbox btn-enter animate-zoomOut duration-4 delay-2 easing-ease" onclick="
                 loadSceneTrans('a4-play/level-1/p1', 'none', 'zoom-in');
                 startStopwatch();
             ">
@@ -54,7 +54,7 @@
                     <div class="hint">Dapatkan minimal <b>2 bintang</b>.</div>
                 </div>
             </div>
-            <div id="level-2" class="levelbox locked btn-enter  animate-zoomOut duration-6 delay-3 easing-ease" onclick="
+            <div id="level-2" class="levelbox locked btn-enter animate-zoomOut duration-4 delay-3 easing-ease" onclick="
                 loadSceneTrans('a4-play/level-2/p1', 'none', 'zoom-in');
                 startStopwatch();
             ">
@@ -77,7 +77,7 @@
                     <div class="hint">Dapatkan minimal <b>2 bintang</b>.</div>
                 </div>
             </div>
-            <div id="level-3" class="levelbox locked btn-enter  animate-zoomOut duration-6 delay-4 easing-ease" onclick="
+            <div id="level-3" class="levelbox locked btn-enter animate-zoomOut duration-4 delay-4 easing-ease" onclick="
                 loadSceneTrans('a4-play/level-3/p1', 'none', 'zoom-in');
                 startStopwatch();
             ">
@@ -100,7 +100,7 @@
                     <div class="hint">Dapatkan minimal <b>2 bintang</b>.</div>
                 </div>
             </div>
-            <div id="level-4" class="levelbox locked btn-enter  animate-zoomOut duration-6 delay-5 easing-ease" onclick="
+            <div id="level-4" class="levelbox locked btn-enter animate-zoomOut duration-4 delay-5 easing-ease" onclick="
                 loadSceneTrans('a4-play/level-4/p1', 'none', 'zoom-in');
                 startStopwatch();
             ">
@@ -130,7 +130,10 @@
     </div>
 </section>
 <script>
-    applyInputBlocker(1000);
+
+(() => {
+
+    applyInputBlocker(1500);
     
     setTimeout(() => {
         const buttons = {
@@ -166,13 +169,11 @@
         const levelBox = document.querySelector(`#level-${level}`);
         const starsBox = levelBox?.querySelector('.levelbox-stars');
 
-        // Set .obtained jika minimal 2 bintang
         if (giftObtained) {
             localStorage.setItem(keyGift, 'true');
             levelBox?.classList.add('obtained');
         }
 
-        // Update tampilan bintang
         if (starsBox) {
             starsBox.innerHTML = '';
             for (let i = 0; i < 3; i++) {
@@ -185,7 +186,6 @@
             }
         }
 
-        // Unlock level berikutnya jika level ini obtained
         if (giftObtained && level < 4) {
             const nextLevel = level + 1;
             const nextKeyUnlocked = `level${nextLevel}-unlocked`;
@@ -193,7 +193,6 @@
         }
     }
 
-    // Terpisah: cek dan buka kunci level yang telah di-unlock
     for (let level = 1; level <= 4; level++) {
         const keyUnlocked = `level${level}-unlocked`;
         const isUnlocked = localStorage.getItem(keyUnlocked) === 'true';
@@ -203,5 +202,26 @@
             levelBox.classList.remove('locked');
         }
     }
+
+    const allGiftsObtained = [1, 2, 3, 4].every(level => {
+        return localStorage.getItem(`level${level}-gift-obtained`) === 'true';
+    });
+
+    if (allGiftsObtained) {
+        console.log('🎉 Semua hadiah telah diperoleh!');
+        setTimeout(() => {
+            openOutro();
+            soundman.play('victory');
+            launchConfettiCelebration();
+        }, 150);
+    }
+
+    document.querySelectorAll('.levelbox').forEach(box => {
+        box.addEventListener('animationend', () => {
+            box.classList.remove('animate-zoomOut');
+        });
+    });
+
+})();
 
 </script>

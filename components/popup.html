@@ -1,27 +1,37 @@
 <div id="settings-popup" class="popup hidden">
     <div class="popup-overlay" onclick="closeSettings()"></div>
     <div class="popup-content-wrapper">
-        <div class="close-btn btn-cancel" onclick="closeSettings()"></div>
-        <div class="popup-content setting-popup flex column gap-10">
-            <h2 class="text-size-13 line-height-13 funny amazing-title weight-bold text-indigo-700 full text-center">
+        <div class="close-btn btn-cancel" onclick="closeSettings()"><i data-lucide="circle-x"></i></div>
+        <div class="popup-content settings-popup flex column gap-12">
+            <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Pengaturan</h2>
             <div class="flex row full gap-6">
-                <label class="switch full large">
-                    <input type="checkbox" id="toggle-bgm-checkbox" checked>
-                    <span class="mark">
-                    </span>
+                <div class="ctrl-toggle flex column full">
                     <span class="label">
                         Musik Latar
                     </span>
-                </label>
-                <label class="switch full large">
-                    <input type="checkbox" id="toggle-fs-checkbox" checked>
-                    <span class="mark">
-                    </span>
+                    <label class="switch large">
+                        <input type="checkbox" id="toggle-bgm-checkbox" checked>
+                        <span class="mark">
+                        </span>
+                    </label>
+                </div>
+                <div class="ctrl-toggle flex column full">
                     <span class="label">
                         Layar Penuh
                     </span>
-                </label>
+                    <label class="switch large">
+                        <input type="checkbox" id="toggle-fs-checkbox" checked>
+                        <span class="mark">
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="flex column full gap-6">
+                <button class="full act-wrong btn-click" onclick="
+                    openConfirmReset();
+                    ">Mulai dari Awal
+                </button>
             </div>
         </div>
     </div>
@@ -30,9 +40,9 @@
 <div id="other-popup" class="popup hidden">
     <div class="popup-overlay" onclick="closeOther()"></div>
     <div class="popup-content-wrapper">
-        <div class="close-btn btn-cancel" onclick="closeOther()"></div>
-        <div class="popup-content other-popup flex column gap-10">
-            <h2 class="text-size-13 line-height-13 funny amazing-title weight-bold text-indigo-700 full text-center">
+        <div class="close-btn btn-cancel" onclick="closeOther()"><i data-lucide="circle-x"></i></div>
+        <div class="popup-content other-popup flex column gap-12">
+            <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Lainnya</h2>
             <div class="flex column full gap-6">
                 <button class="full act-study btn-click" onclick="
@@ -53,9 +63,9 @@
 <div id="exit-popup" class="popup hidden">
     <div class="popup-overlay" onclick="closeExit()"></div>
     <div class="popup-content-wrapper">
-        <div class="close-btn btn-cancel" onclick="closeExit()"></div>
-        <div class="popup-content exit-popup flex column gap-10">
-            <h2 class="text-size-13 line-height-13 funny amazing-title weight-bold text-indigo-700 full text-center">
+        <div class="close-btn btn-cancel" onclick="closeExit()"><i data-lucide="circle-x"></i></div>
+        <div class="popup-content exit-popup flex column gap-12">
+            <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Perhatian</h2>
             <div class="flex full gap-6 justify-center items-center text-center weight-bold text-size-9 line-height-9 pb-5">
                 Sudah cukup belajarnya?
@@ -78,12 +88,42 @@
     </div>
 </div>
 
+<div id="confirmreset-popup" class="popup hidden">
+    <div class="popup-overlay" onclick="closeConfirmReset()"></div>
+    <div class="popup-content-wrapper">
+        <div class="close-btn btn-cancel" onclick="closeConfirmReset()"><i data-lucide="circle-x"></i></div>
+        <div class="popup-content confirmreset-popup flex column gap-12">
+            <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
+                Perhatian</h2>
+            <div
+                class="flex full gap-6 justify-center items-center text-center weight-bold text-size-9 line-height-9 pb-5">
+                Hapus semua data dan mulai dari awal?
+            </div>
+            <div class="flex column gap-6">
+                <div class="flex row full gap-6">
+                    <button class="full act-wrong btn-cancel" onclick="
+                        closeConfirmReset();
+                        closeSettings();
+                        localStorage.clear();
+                        loadSceneTrans('halt', 'both', 'fade');
+                    ">Ya
+                    </button>
+                    <button class="full act-neutral btn-click" onclick="
+                        closeConfirmReset();
+                    ">Tidak
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="backhome-popup" class="popup hidden">
     <div class="popup-overlay" onclick="closeBackHome()"></div>
     <div class="popup-content-wrapper">
-        <div class="close-btn btn-cancel" onclick="closeBackHome()"></div>
-        <div class="popup-content exit-popup flex column gap-10">
-            <h2 class="text-size-13 line-height-13 funny amazing-title weight-bold text-indigo-700 full text-center">
+        <div class="close-btn btn-cancel" onclick="closeBackHome()"><i data-lucide="circle-x"></i></div>
+        <div class="popup-content exit-popup flex column gap-12">
+            <h2 class="text-size-13 line-height-13 text-indigo-500 funny weight-bold full text-center">
                 Perhatian</h2>
             <div class="flex full gap-6 justify-center items-center text-center text-balance weight-bold text-size-9 line-height-9 pb-5">
                 Kembali ke Menu Utama sekarang?
@@ -110,8 +150,8 @@
 <div id="intro-popup" class="popup hidden" data-close-overlay="false">
     <div class="popup-overlay" onclick="closeIntro()"></div>
     <div class="popup-content-wrapper">
-        <div class="close-btn inverted btn-cancel" onclick="closeIntro()"></div>
-        <div class="popup-content intro-popup flex column bg-normalize cover">
+        <div class="close-btn inverted btn-cancel" onclick="closeIntro()"><i data-lucide="circle-x"></i></div>
+        <div class="popup-content intro-popup flex column bg-normalize cove2">
             <div class="flex height-half">
             </div>
             <div class="story-area height-half">
@@ -135,8 +175,11 @@
 <div id="outro-popup" class="popup hidden" data-close-overlay="false">
     <div class="popup-overlay" onclick="closeOutro()"></div>
     <div class="popup-content-wrapper">
-        <div class="close-btn inverted btn-cancel" onclick="closeOutro()"></div>
-        <div class="popup-content outro-popup flex column bg-normalize cover">
+        <div class="close-btn inverted btn-cancel" onclick="
+            closeOutro();
+            stopConfettiCelebration();
+        "><i data-lucide="circle-x"></i></div>
+        <div class="popup-content outro-popup flex column bg-normalize cove2">
             <div class="flex height-half">
             </div>
             <div class="story-area height-half">
@@ -150,6 +193,7 @@
                 </div>
                 <button class="act-study btn-enter animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
                     closeOutro();
+                    stopConfettiCelebration();
                     loadSceneTrans('title', 'both', 'zoom-out');
                 ">Menu Utama</button>
             </div>

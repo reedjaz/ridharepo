@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="scene/a4-play/level-2/load.css">
+<link rel="stylesheet" href="scene/a4-play/level-4/load.css">
 <section class="scene-bg game-end-scr alter">
     <div class="end-scr lay flex row justify-center items-center">
         <div class="out-end1 flex column gap-11 px-12 py-11 justify-center items-center">
@@ -26,7 +26,7 @@
                     <div class="end-gift locked">
                         <h3 class="gift-title">Hadiah</h3>
                         <div class="gift">
-                            <img src="assets/gift-big-telur.svg" alt="">
+                            <img src="assets/gift-big-minyak.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -36,11 +36,8 @@
                     loadSceneTrans('a4-play/lobby', 'both', 'zoom-out');
                 ">Lihat Level Lainnya</button>
                 <button id="btn-tryagain" class="act-study btn-enter full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
-                    loadSceneTrans('a4-play/level-2/p1', 'none', 'zoom-in');
+                    loadSceneTrans('a4-play/level-3/p1', 'none', 'zoom-in');
                 ">Coba Lagi</button>
-                <button id="btn-continue" class="act-study btn-decide full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
-                    loadSceneTrans('a4-play/level-3/p1', 'none', 'slide-left');
-                ">Lanjut ke Level 3</button>
             </div>
         </div>
         <div class="out-end2 flex column relative">
@@ -145,14 +142,14 @@
     applyInputBlocker(2000);
 
     const endGift = document.querySelector('.end-gift');
-    const storedStars = parseInt(localStorage.getItem('level2-stars') || "0");
+    const storedStars = parseInt(localStorage.getItem('level4-stars') || "0");
 
     if (localStarCount > storedStars) {
-        localStorage.setItem('level2-stars', localStarCount.toString());
+        localStorage.setItem('level4-stars', localStarCount.toString());
     }
 
     if (localStarCount >= 2 && endGift.classList.contains('locked')) {
-        const alreadyObtained = localStorage.getItem('level2-gift-obtained') === 'true';
+        const alreadyObtained = localStorage.getItem('level4-gift-obtained') === 'true';
 
         if (alreadyObtained) {
             endGift.classList.remove('locked');
@@ -174,13 +171,9 @@
 
     if (localStarCount >= 2) {
         document.getElementById('btn-tryagain').style.display = 'none';
-        document.getElementById('btn-continue').style.display = 'flex';
-
-        localStorage.setItem('level2-gift-obtained', 'true');
-        localStorage.setItem('level3-unlocked', 'true');
+        localStorage.setItem('level4-gift-obtained', 'true');
     } else {
         document.getElementById('btn-tryagain').style.display = 'flex';
-        document.getElementById('btn-continue').style.display = 'none';
     }
 
 })();

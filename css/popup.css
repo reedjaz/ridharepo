@@ -18,7 +18,7 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-medium) ease;
     backdrop-filter: blur(var(--unit-6));
 }
 
@@ -31,7 +31,7 @@
     position: relative;
     opacity: 0;
     transform: scale(0.95);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity var(--transition-medium) ease, transform var(--transition-medium) ease;
     z-index: 1;
 }
 
@@ -41,14 +41,21 @@
 }
 
 .popup-content {
-    background: var(--amber-100);
-    padding: var(--unit-10);
-    border-radius: var(--rounded-64);
+    background: var(--slate-50);
+    padding: var(--unit-12);
+    border-radius: var(--rounded-40);
     width: 100vw;
     max-width: var(--vh-72);
-    border: var(--unit-3) solid var(--amber-500);
-    box-shadow: 0 var(--unit-4) 0 var(--amber-700);
-    padding-top: var(--unit-13);
+    box-shadow: 0 var(--unit-5) var(--unit-12) var(--black-0-25);
+}
+
+.settings-popup {
+    max-width: calc(var(--unit-13) * 15);
+}
+
+.ctrl-toggle {
+    justify-content: center;
+    align-items: center;
 }
 
 .popup-content .amazing-wrapper {
@@ -60,10 +67,21 @@
     position: absolute;
     width: var(--unit-12);
     height: var(--unit-12);
-    background-color: var(--white-0-63);
-    top: var(--unit-12);
-    right: var(--unit-12);
+    top: var(--unit-9);
+    right: var(--unit-9);
     cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+.popup .close-btn:hover {
+    opacity: 0.75;
+}
+.popup .close-btn svg {
+    width: 100%;
+    height: 100%;
+    color: var(--slate-400);
+}
+.popup .close-btn.inverted svg {
+    color: var(--white);
 }
 
 #intro-popup, #outro-popup {
@@ -81,7 +99,7 @@
     max-width: unset;
     background-color: var(--white);
     border: none;
-    box-shadow: 0 var(--unit-3) var(--unit-8) var(--black-0-38);
+    box-shadow: 0 var(--unit-5) var(--unit-12) var(--black-0-25);
     border-radius: var(--rounded-64);
     padding: var(--unit-10);
 }

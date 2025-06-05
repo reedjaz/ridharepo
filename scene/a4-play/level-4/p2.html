@@ -1,17 +1,22 @@
-<link rel="stylesheet" href="scene/a4-play/level-2/load.css">
+<link rel="stylesheet" href="scene/a4-play/level-4/load.css">
 <section class="scene-bg ingame">
     <div class="lay flex column justify-center items-center gap-12">
         <div class="out-top flex column justify-center items-center gap-7">
-            <div class="hint">Susunlah huruf-huruf berikut ini.</div>
             <div class="question flex column">
-                <span class="inline">Dengan apa <span class="m-char">Kimu</span> akhirnya menghias kuenya?</span>
+                <span class="inline">
+                    Dengarkan suara berikut
+                    <button class="read-btn mx-3 inline-flex" onclick="soundman.play('vo-gantar-game2b');">
+                        <i data-lucide="volume-2"></i>
+                    </button>
+                    lalu susun suku kata di bawah ini menjadi sebuah kalimat yang tepat.
+                </span>
             </div>
         </div>
         <div class="build-answer flex column gap-4 full justify-center items-center">
-            <div class="final-answer flex row gap-8 full">
+            <div class="final-answer advanced flex row">
             </div>
             <div class="separator-0 pb-5 mb-3 vertical full border-color-slate-300"></div>
-            <div class="answer-choices flex row gap-8 full">
+            <div class="answer-choices advanced flex row">
             </div>
         </div>
     </div>
@@ -31,19 +36,19 @@
 
         const actions = {
             action: () => {
-                const isCorrect = checkAnswer("soal-a4-l2-p5", [
-                    "BUNGA",
+                const isCorrect = checkAnswerAdv("soal-a4-l4-p2", [
+                    "KUE SUDAH MATANG",
                 ]);
                 const title = isCorrect
-                    ? "Bagus!"
-                    : "Belum tepat...";
+                    ? "Hebat!"
+                    : "Wah, masih salah.";
                 const message = isCorrect
-                    ? "Kimu menghias kuenya dengan taburan bunga."
-                    : "Kimu menghias kuenya dengan taburan bunga.";
+                    ? "Susunan kalimatmu benar."
+                    : "Nanti coba lagi, ya...";
 
                 showFeedbackSheet(isCorrect, title, message, () => {
                     destroyBuildAnswer();
-                    loadSceneTrans('a4-play/level-2/end', 'both', 'zoom-out');
+                    loadSceneTrans('a4-play/level-4/p3', 'none', 'slide-left');
                 }, undefined, true);
             },
         };
@@ -55,11 +60,15 @@
             }
         }
 
-        initBuildAnswer();
+        initBuildAnswerAdv();
+
+        setTimeout(() => {
+            soundman.play('vo-gantar-game2b');
+        }, 250)
 
     }, 450);
 
-    populateAnswerLetters('BUNGA', 'soal-a4-l2-p5', 8, true);
+    populateJumbledSentence("KU-E SU-DAH MA-TANG", "soal-a4-l4-p2");
     applyInputBlocker(800);
 
 </script>

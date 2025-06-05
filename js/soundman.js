@@ -5,6 +5,7 @@ const soundman = {
         'bgm-listen': 'assets/audio/bgm-listen.mp3',
         'bgm-quiz': 'assets/audio/bgm-quiz.mp3',
         'bgm-play': 'assets/audio/bgm-play.mp3',
+        
         'click': 'assets/audio/click.mp3',
         'cancel': 'assets/audio/cancel.mp3',
         'decide': 'assets/audio/decide.mp3',
@@ -16,20 +17,28 @@ const soundman = {
         'victory': 'assets/audio/victory.mp3',
         'fail': 'assets/audio/fail.mp3',
 
-        'vo-gantar-despair': 'assets/audio/vo-gantar-despair.mp3',
         'vo-gantar-game1': 'assets/audio/vo-gantar-game1.mp3',
+        'vo-gantar-game1a': 'assets/audio/vo-gantar-game1a.mp3',
+        'vo-gantar-game1b': 'assets/audio/vo-gantar-game1b.mp3',
+        'vo-gantar-game1c': 'assets/audio/vo-gantar-game1c.mp3',
+        'vo-gantar-game1d': 'assets/audio/vo-gantar-game1d.mp3',
+        'vo-gantar-game1e': 'assets/audio/vo-gantar-game1e.mp3',
+
         'vo-gantar-game2a': 'assets/audio/vo-gantar-game2a.mp3',
         'vo-gantar-game2b': 'assets/audio/vo-gantar-game2b.mp3',
         'vo-gantar-game2c': 'assets/audio/vo-gantar-game2c.mp3',
         'vo-gantar-game2d': 'assets/audio/vo-gantar-game2d.mp3',
-        'vo-gantar-game-2e': 'assets/audio/vo-gantar-game-2e.mp3',
+        'vo-gantar-game2e': 'assets/audio/vo-gantar-game2e.mp3',
+
         'vo-gantar-joy': 'assets/audio/vo-gantar-joy.mp3',
+        'vo-gantar-despair': 'assets/audio/vo-gantar-despair.mp3',
+
         'vo-gantar-motivate1': 'assets/audio/vo-gantar-motivate1.mp3',
         'vo-gantar-motivate2': 'assets/audio/vo-gantar-motivate2.mp3',
         'vo-gantar-motivate3': 'assets/audio/vo-gantar-motivate3.mp3',
         'vo-gantar-motivate4': 'assets/audio/vo-gantar-motivate4.mp3',
+
         'vo-gantar-msg1': 'assets/audio/vo-gantar-msg1.mp3',
-        'vo-gantar-msg10': 'assets/audio/vo-gantar-msg10.mp3',
         'vo-gantar-msg2': 'assets/audio/vo-gantar-msg2.mp3',
         'vo-gantar-msg3': 'assets/audio/vo-gantar-msg3.mp3',
         'vo-gantar-msg4': 'assets/audio/vo-gantar-msg4.mp3',
@@ -38,16 +47,18 @@ const soundman = {
         'vo-gantar-msg7': 'assets/audio/vo-gantar-msg7.mp3',
         'vo-gantar-msg8': 'assets/audio/vo-gantar-msg8.mp3',
         'vo-gantar-msg9': 'assets/audio/vo-gantar-msg9.mp3',
+        'vo-gantar-msg10': 'assets/audio/vo-gantar-msg10.mp3',
+
         'vo-gantar-obtain1': 'assets/audio/vo-gantar-obtain1.mp3',
         'vo-gantar-obtain2': 'assets/audio/vo-gantar-obtain2.mp3',
+
         'vo-gantar-star1': 'assets/audio/vo-gantar-star1.mp3',
         'vo-gantar-star2': 'assets/audio/vo-gantar-star2.mp3',
+
         'vo-intro': 'assets/audio/vo-intro.mp3',
         'vo-outro': 'assets/audio/vo-outro.mp3',
+
         'vo-story-1': 'assets/audio/vo-story-1.mp3',
-        'vo-story-10': 'assets/audio/vo-story-10.mp3',
-        'vo-story-11': 'assets/audio/vo-story-11.mp3',
-        'vo-story-12': 'assets/audio/vo-story-12.mp3',
         'vo-story-2': 'assets/audio/vo-story-2.mp3',
         'vo-story-3': 'assets/audio/vo-story-3.mp3',
         'vo-story-4': 'assets/audio/vo-story-4.mp3',
@@ -56,6 +67,10 @@ const soundman = {
         'vo-story-7': 'assets/audio/vo-story-7.mp3',
         'vo-story-8': 'assets/audio/vo-story-8.mp3',
         'vo-story-9': 'assets/audio/vo-story-9.mp3',
+        'vo-story-10': 'assets/audio/vo-story-10.mp3',
+        'vo-story-11': 'assets/audio/vo-story-11.mp3',
+        'vo-story-12': 'assets/audio/vo-story-12.mp3',
+
         'vo-title': 'assets/audio/vo-title.mp3',
     },
 

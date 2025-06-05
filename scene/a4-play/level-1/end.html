@@ -39,7 +39,7 @@
                     loadSceneTrans('a4-play/level-1/p1', 'none', 'zoom-in');
                 ">Coba Lagi</button>
                 <button id="btn-continue" class="act-study btn-decide full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
-                    loadSceneTrans('a4-play/level-2/p1', 'both', 'slide-left');
+                    loadSceneTrans('a4-play/level-2/p1', 'none', 'slide-left');
                 ">Lanjut ke Level 2</button>
             </div>
         </div>
@@ -53,11 +53,8 @@
 <script>
 
 (() => {
-    
     const totalQuestions = parseInt(document.getElementById('activity-progress').max);
-    
     const correctAnswers = window.score;
-
     const percentCorrect = correctAnswers / totalQuestions;
     let localStarCount = 0;
 
@@ -86,24 +83,12 @@
         let subtitle = "";
 
         switch (stars) {
-            case 6:
-                title = "Keren banget!";
-                subtitle = "Kamu dapat 6 bintang!";
-                break;
-            case 5:
-                title = "Hebat!";
-                subtitle = "Kamu berhasil kumpulkan 5 bintang!";
-                break;
-            case 4:
-                title = "Bagus!";
-                subtitle = "4 bintang untukmu!";
-                break;
             case 3:
-                title = "Lumayan!";
-                subtitle = "Dapat 3 bintang, semangat terus!";
+                title = "Sempurna!";
+                subtitle = "Kamu dapat 3 bintang!";
                 break;
             case 2:
-                title = "Gak apa-apa!";
+                title = "Bagus!";
                 subtitle = "Ini bagian dari belajar. 2 bintang ya!";
                 break;
             case 1:
@@ -125,16 +110,15 @@
     let starsHTML = "";
 
     for (let i = 0; i < localStarCount; i++) {
-        const delay = (i * 0.1).toFixed(1);
+        const delay = (1.25 + i * 0.1).toFixed(2);
         starsHTML += `
-            <span class="point-icon animate-zoomOut duration-6 easing-ease" style="animation-delay: ${delay}s;">
-                <img src="assets/star.svg" alt="Poin">
-            </span>
-        `;
+        <span class="point-icon animate-zoomOut duration-6 easing-ease" style="animation-delay: ${delay}s;">
+            <img src="assets/star.svg" alt="Bintang">
+        </span>
+    `;
     }
 
     container.innerHTML = starsHTML;
-
     setMotivationMessage(localStarCount);
 
     document.getElementById('result-correct').innerHTML = resultCorrect;
@@ -163,8 +147,16 @@
     const endGift = document.querySelector('.end-gift');
     const storedStars = parseInt(localStorage.getItem('level1-stars') || "0");
 
+    if (localStarCount > storedStars) {
+        localStorage.setItem('level1-stars', localStarCount.toString());
+    }
+
     if (localStarCount >= 2 && endGift.classList.contains('locked')) {
-        if (localStarCount < storedStars) {
+        const alreadyObtained = localStorage.getItem('level1-gift-obtained') === 'true';
+
+        if (alreadyObtained) {
+            endGift.classList.remove('locked');
+        } else if (localStarCount < storedStars) {
             endGift.classList.remove('locked');
         } else {
             setTimeout(() => {
@@ -179,14 +171,10 @@
             }, 2200);
         }
     }
-    
+
     if (localStarCount >= 2) {
         document.getElementById('btn-tryagain').style.display = 'none';
         document.getElementById('btn-continue').style.display = 'flex';
-
-        if (localStarCount >= storedStars) {
-            localStorage.setItem('level1-stars', localStarCount.toString());
-        }
 
         localStorage.setItem('level1-gift-obtained', 'true');
         localStorage.setItem('level2-unlocked', 'true');
@@ -194,7 +182,6 @@
         document.getElementById('btn-tryagain').style.display = 'flex';
         document.getElementById('btn-continue').style.display = 'none';
     }
-
 
 })();
 
