@@ -61,6 +61,10 @@
                     <span class="text-size-6 line-height-6 weight-bold text-slate-800">Keluar</span>
                 </div>
             </div>
+            <div class="msgbox titlescr vo-text animate-fadeInUp duration-6 delay-6 easing-ease" id="vo-title">
+                <div class="callout"></div>
+                <div class="vo-text-wrap">Halo, aku <span class="m-char">Gantar</span>, si gajah pintar! Hari ini kita akan belajar hal seru dari cerita dongeng! Yuk, belajar bersamaku!</div>
+            </div>
             <dotlottie-player
                 src="assets/anim/gantar-splash.json"
                 background="transparent"
@@ -71,6 +75,7 @@
                 loop
                 autoplay>
             </dotlottie-player>
+            <div id="gantar-splash" class="flex full height-full"></div>
             <div class="flex column items-end">
                 <h3 class="name-fase animate-zoomIn duration-6 delay-6 easing-bouncy">Fase A</h3>
             </div>
@@ -78,7 +83,26 @@
     </div>
 </section>
 <script>
-    document.querySelector('.stage #header').classList.add('animate');
-    document.querySelector('.stage #footer').classList.add('animate');
-    applyInputBlocker();
+    
+document.querySelector('.stage #header').classList.add('animate');
+document.querySelector('.stage #footer').classList.add('animate');
+applyInputBlocker();
+
+(() => {
+
+    const msgbox = document.querySelector('.msgbox.titlescr');
+
+    setTimeout(() => {
+        msgbox.classList.remove('animate-fadeInUp');
+        
+        readAloud('vo-title').then(() => {
+            setTimeout(() => {
+                msgbox.classList.add('hidden');
+            }, 200);
+        });
+
+    }, 1750);
+
+})();
+
 </script>

@@ -98,11 +98,11 @@
 
         setTimeout(() => {
 
-            readAloud('vo-gantar-game1');
-
-            setTimeout(() => {
-                soundman.play('vo-gantar-game1c');
-            }, 2000);
+            readAloud('vo-gantar-game1').then(() => {
+                setTimeout(() => {
+                    soundman.play('vo-gantar-game1c');
+                }, 150);
+            });
 
         }, 500);
 

@@ -245,4 +245,17 @@ soundman.toggleMuteAllBgm = function(mute) {
 
 window.addEventListener('DOMContentLoaded', () => {
     soundman.init();
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            soundman.toggleMuteAllBgm(true);
+            soundman.channels.sfx.forEach(s => s.muted = true);
+            soundman.channels.voice.forEach(s => s.muted = true);
+        } else {
+            soundman.toggleMuteAllBgm(false);
+            soundman.channels.sfx.forEach(s => s.muted = false);
+            soundman.channels.voice.forEach(s => s.muted = false);
+        }
+    });
+      
 });

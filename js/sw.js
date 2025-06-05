@@ -37,6 +37,24 @@ function toggleFullscreen() {
   }
 }
 
+function loadAnim({ containerId, path }) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+
+  el._anim?.destroy();
+  el.innerHTML = '';
+
+  el._anim = lottie.loadAnimation({
+      container: el,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path
+  });
+
+  return el._anim;
+}
+
 function checkAspectRatio() {
   const overlay = document.getElementById('unsupported-overlay');
   const width = window.innerWidth;

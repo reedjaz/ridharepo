@@ -14,11 +14,11 @@ function readAloud(nameKebab, play = true) {
     })
     .then(data => {
         window[nameCamel] = data;
-        
+
         if (play) {
-            playVOForElement(nameKebab);
+            return playVOForElement(nameKebab).then(() => data);
         }
-        
+
         return data;
     })
     .catch(err => console.error('Error di readAloud:', err));
@@ -110,33 +110,41 @@ function stopAllVOHighlight() {
 }
 
 function playVOForElement(nameKebab) {
-    const id = nameKebab;
-    const nameCamel = kebabToCamel(nameKebab);
-    const el = document.getElementById(id);
-    if (!el) {
-        console.warn('Elemen dengan id tidak ditemukan:', id);
-        return;
-    }
-    
-    const transcript = window[nameCamel];
-    if (!transcript) {
-        console.warn(`Transkrip tidak ditemukan di window['${nameCamel}']`);
-        return;
-    }
-    renderTranscriptToElement(el, transcript);
-    
-    soundman.stopChannel('voice');
-    
-    const audio = soundman.play(nameKebab);
-    if (!audio) {
-        console.warn(`Audio dengan key '${nameKebab}' tidak ditemukan atau gagal diputar.`);
-        return;
-    }
-    
-    audio.currentTime = 0;
-    audio.play().then(() => {
-        highlightTranscriptDuringAudio(audio, el);
-    }).catch(err => console.warn('Gagal mainkan audio:', err));
+    return new Promise((resolve, reject) => {
+        const id = nameKebab;
+        const nameCamel = kebabToCamel(nameKebab);
+        const el = document.getElementById(id);
+        if (!el) {
+            console.warn('Elemen dengan id tidak ditemukan:', id);
+            return reject(new Error(`Elemen id '${id}' tidak ditemukan`));
+        }
+
+        const transcript = window[nameCamel];
+        if (!transcript) {
+            console.warn(`Transkrip tidak ditemukan di window['${nameCamel}']`);
+            return reject(new Error(`Transkrip '${nameCamel}' tidak ditemukan`));
+        }
+
+        renderTranscriptToElement(el, transcript);
+        soundman.stopChannel('voice');
+
+        const audio = soundman.play(nameKebab);
+        if (!audio) {
+            console.warn(`Audio dengan key '${nameKebab}' tidak ditemukan atau gagal diputar.`);
+            return reject(new Error(`Audio '${nameKebab}' gagal diputar`));
+        }
+
+        audio.currentTime = 0;
+        audio.play()
+            .then(() => {
+                highlightTranscriptDuringAudio(audio, el);
+                audio.onended = () => resolve();
+            })
+            .catch(err => {
+                console.warn('Gagal mainkan audio:', err);
+                reject(err);
+            });
+    });
 }
 
 function loadAndRenderAllVoTexts() {

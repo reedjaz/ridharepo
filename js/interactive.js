@@ -881,7 +881,7 @@ function launchConfettiCelebration() {
         spread: 120,
         ticks: 60,
         zIndex: 9999,
-        scalar: 2.5
+        scalar: 2.2
     };
 
     function randomInRange(min, max) {
@@ -901,7 +901,7 @@ function launchConfettiCelebration() {
         // Kiri
         confetti({
             ...defaults,
-            particleCount: 8,
+            particleCount: 6,
             angle: 60,
             spread: 75,
             origin: { x: 0, y: randomInRange(0.2, 0.8) }
@@ -910,7 +910,7 @@ function launchConfettiCelebration() {
         // Kanan
         confetti({
             ...defaults,
-            particleCount: 8,
+            particleCount: 6,
             angle: 120,
             spread: 75,
             origin: { x: 1, y: randomInRange(0.2, 0.8) }

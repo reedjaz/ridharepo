@@ -268,6 +268,13 @@ body, html {
     width: 35%;
 }
 
+#star-container {
+    margin-bottom: calc(var(--unit-4) * -1);
+}
+#star-container .point-icon {
+    margin: calc(var(--unit-2) * -1);
+}
+
 .levelbox-wrapper {
     display: flex;
     flex-direction: row;
@@ -491,7 +498,7 @@ body, html {
     justify-content: center;
     align-items: center;
 }
-.ico-gift::after {
+.ico-gift:not(.locked)::after {
     content: "";
     width: var(--unit-11);
     height: var(--unit-11);

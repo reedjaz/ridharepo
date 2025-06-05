@@ -53,9 +53,6 @@
 .switch input:checked ~  .mark:before {
 	width: calc(100% - (var(--unit-7) / 2));
 }
-	background: var(--surface-selected-default);
-	border: calc(var(--unit-1) / 2) solid var(--gray-400);
-}
 .switch:hover input ~ .mark:before {
 	background: var(--action-hovered);
 }
@@ -360,7 +357,7 @@
 	width: calc(0% + (var(--unit-11) / 2));
 	height: var(--unit-11);
 	left: 0;
-	background: var(--action-default);
+	background: var(--lime-500);
 }
 
 .switch.large input:checked~.mark:before {
@@ -373,7 +370,7 @@
 }
 
 .switch.large:hover input~.mark:before {
-	background: var(--action-hovered);
+	background: var(--lime-400);
 }
 
 .switch.large:hover input~.mark:after {
@@ -383,12 +380,12 @@
 
 .switch.large input:checked~.mark {
 	background: var(--surface-default);
-	border: var(--unit-2) solid var(--action-default);
+	border: var(--unit-2) solid var(--lime-500);
 }
 
 .switch.large:hover input:checked~.mark {
 	background: var(--surface-subdued);
-	border: var(--unit-2) solid var(--action-hovered);
+	border: var(--unit-2) solid var(--lime-400);
 }
 
 .switch.large input:checked~.mark:after {
@@ -400,13 +397,13 @@
 	background-size: 70%;
 	background-position: center;
 	background-repeat: no-repeat;
-	color: var(--action-default);
-	box-shadow: 0 0 0 var(--unit-2) var(--action-default);
+	color: var(--lime-500);
+	box-shadow: 0 0 0 var(--unit-2) var(--lime-500);
 }
 
 .switch.large:hover input:checked~.mark:after {
-	color: var(--action-hovered);
-	box-shadow: 0 0 0 var(--unit-2) var(--action-hovered);
+	color: var(--lime-400);
+	box-shadow: 0 0 0 var(--unit-2) var(--lime-400);
 }
 
 .switch.large .mark:after {
@@ -446,7 +443,7 @@
 .switch.large input:disabled~.mark,
 .switch.large:hover input:disabled~.mark {
 	background: var(--surface-pressed);
-	border: var(--unit-2) solid var(--action-disabled);
+	border: var(--unit-2) solid var(--slate-400);
 }
 
 .switch.large input:disabled~.mark:before {
@@ -455,15 +452,15 @@
 
 .switch.large input:disabled~.mark:after {
 	color: var(--gray-400);
-	box-shadow: 0 0 0 var(--unit-2) var(--action-disabled);
+	box-shadow: 0 0 0 var(--unit-2) var(--slate-400);
 	background: var(--surface-disabled);
 }
 
 .switch.large input:disabled:checked~.mark:before {
-	background: var(--action-disabled);
+	background: var(--slate-400);
 }
 
 .switch.large input:disabled:checked~.mark:after {
 	color: var(--gray-400);
-	box-shadow: 0 0 0 var(--unit-2) var(--action-disabled);
+	box-shadow: 0 0 0 var(--unit-2) var(--slate-400);
 }

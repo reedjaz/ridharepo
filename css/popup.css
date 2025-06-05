@@ -16,7 +16,7 @@
 .popup-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: var(--black-0-5);
     opacity: 0;
     transition: opacity var(--transition-medium) ease;
     backdrop-filter: blur(var(--unit-6));
@@ -41,7 +41,7 @@
 }
 
 .popup-content {
-    background: var(--slate-50);
+    background-color: var(--slate-50);
     padding: var(--unit-12);
     border-radius: var(--rounded-40);
     width: 100vw;
@@ -58,10 +58,44 @@
     align-items: center;
     border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-200);
     border-radius: var(--rounded-24);
-    padding: var(--unit-11) var(--unit-12);
+    aspect-ratio: 16 / 9;
+    gap: var(--unit-10);
+    background-color: var(--white);
+    transition: all var(--transition-fast) ease;
+}
+.ctrl-toggle:hover {
+    background-color: var(--slate-50);
+    border-color: var(--slate-300);
+}
+.ctrl-toggle:active {
+    background-color: var(--slate-100);
+    border-color: var(--slate-400);
 }
 .ctrl-toggle .switch.large {
-    padding: var(--unit-6) var(--unit-0) var(--unit-6) calc(var(--unit-14) + var(--unit-2));
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.ctrl-toggle .switch.large .mark {
+    justify-self: anchor-center;
+    margin-top: var(--unit-14);
+}
+.ctrl-toggle .label {
+    display: flex;
+    flex-direction: row;
+    font-size: var(--unit-10);
+    line-height: var(--unit-10);
+    font-weight: bold;
+    gap: var(--unit-7);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-bottom: var(--unit-14);
+}
+.ctrl-toggle .label svg {
+    color: var(--indigo-500);
+    width: var(--unit-12);
+    height: var(--unit-12);
 }
 
 .popup-content .amazing-wrapper {
