@@ -27,7 +27,14 @@ const sceneBGMMap = {
     'a4-play/lobby': { sound: '[FO=1000]&bgm-play' },
 
     'a2-listen/p10': { sound: '[FO=500]&bgm-menu' },
+
     'a3-quiz/end': { sound: '[FO=150]' },
+
+    'a4-play/level-1/p1': { sound: '[FO=150]&bgm-play' },
+    'a4-play/level-2/p1': { sound: '[FO=150]&bgm-play' },
+    'a4-play/level-3/p1': { sound: '[FO=150]&bgm-play' },
+    'a4-play/level-4/p1': { sound: '[FO=150]&bgm-play' },
+
     'a4-play/level-1/end': { sound: '[FO=150]' },
     'a4-play/level-2/end': { sound: '[FO=150]' },
     'a4-play/level-3/end': { sound: '[FO=150]' },

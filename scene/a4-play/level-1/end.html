@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="scene/a4-play/level-1/load.css">
-<section class="scene-bg game-end-scr">
+<section class="scene-bg game-end-scr alter">
     <div class="end-scr lay flex row justify-center items-center">
         <div class="out-end1 flex column gap-11 px-12 py-11 justify-center items-center">
             <div class="flex column gap-7 justify-center items-center">
@@ -7,31 +7,38 @@
                 <span id="moti-title" class="title inline animate-fadeInUp duration-6 delay-2 easing-ease"></span>
                 <span id="moti-subtitle" class="subtitle inline animate-fadeInDown duration-6 delay-3 easing-ease"></span>
             </div>
-            <div class="flex">
+            <div class="end-info flex full px-10">
                 <div class="end-rec full">
-                    <div class="param green animate-fadeInUp duration-6 delay-4 easing-ease">
-                        <div class="flex column py-4">Jawaban Benar</div>
-                        <div id="result-correct" class="param-c"></div>
+                    <div class="param green animate-fadeInLeft duration-6 delay-4 easing-ease">
+                        <div class="flex column py-4 half">Jawaban Benar</div>
+                        <div id="result-correct" class="param-c half"></div>
                     </div>
-                    <div class="param yellow animate-fadeInUp duration-6 delay-5 easing-ease">
-                        <div class="flex column py-4">Kurang Tepat</div>
-                        <div id="result-wrong" class="param-c"></div>
+                    <div class="param yellow animate-fadeInLeft duration-6 delay-5 easing-ease">
+                        <div class="flex column py-4 half">Kurang Tepat</div>
+                        <div id="result-wrong" class="param-c half"></div>
                     </div>
-                    <div class="param blue animate-fadeInUp duration-6 delay-6 easing-ease">
-                        <div class="flex column py-4">Durasi</div>
-                        <div id="result-duration" class="param-c"></div>
+                    <div class="param blue animate-fadeInLeft duration-6 delay-6 easing-ease">
+                        <div class="flex column py-4 half">Durasi</div>
+                        <div id="result-duration" class="param-c half"></div>
                     </div>
                 </div>
-                <div class="flex">
-                    <div class="flex">HADIAH</div>
-                    <div class="gift"></div>
+                <div class="full animate-fadeInRight duration-6 delay-7 easing-ease">
+                    <div class="end-gift locked">
+                        <h3 class="gift-title">Hadiah</h3>
+                        <div class="gift">
+                            <img src="assets/gift-big-pisang.svg" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="flex row gap-7">
-                <button class="act-listen btn-click animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
+            <div class="flex row gap-7 full px-10">
+                <button class="act-listen btn-click full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
                     loadSceneTrans('a4-play/lobby', 'both', 'zoom-out');
                 ">Lihat Level Lainnya</button>
-                <button class="act-study btn-decide animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
+                <button id="btn-tryagain" class="act-study btn-enter full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
+                    loadSceneTrans('a4-play/level-1/p1', 'none', 'zoom-in');
+                ">Coba Lagi</button>
+                <button id="btn-continue" class="act-study btn-decide full animate-fadeInDown duration-6 delay-7 easing-ease" onclick="
                     loadSceneTrans('a4-play/level-2/p1', 'both', 'slide-left');
                 ">Lanjut ke Level 2</button>
             </div>
@@ -137,6 +144,29 @@
     }, 1700);
 
     applyInputBlocker(2000);
+
+    const endGift = document.querySelector('.end-gift');
+    if (localStarCount >= 2 && endGift.classList.contains('locked')) {
+        setTimeout(() => {
+            endGift.classList.add('just-unlocked');
+            
+            soundman.play('unlock');
+
+            setTimeout(() => {
+                endGift.classList.remove('locked');
+                const obt = Math.floor(Math.random() * 2) + 1;
+                soundman.play(`vo-gantar-obtain${obt}`);
+            }, 800);
+        }, 2200);
+    }
+    
+    if (localStarCount >= 2) {
+        document.getElementById('btn-tryagain').style.display = 'none';
+        document.getElementById('btn-continue').style.display = 'flex';
+    } else {
+        document.getElementById('btn-tryagain').style.display = 'flex';
+        document.getElementById('btn-continue').style.display = 'none';
+    }
 
 })();
 

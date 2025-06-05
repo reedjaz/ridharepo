@@ -55,7 +55,7 @@ body, html {
     height: var(--site-footer);
     position: relative;
     flex-shrink: 0;
-    background: var(--slate-200);
+    background-color: var(--slate-200);
 }
 .progress-bar {
     display: flex;
@@ -277,7 +277,7 @@ body, html {
 .levelbox {
     padding: var(--unit-10);
     border-radius: var(--rounded-24);
-    background: var(--sky-100);
+    background-color: var(--sky-100);
     border: calc(var(--unit-2) + var(--unit-1)) solid var(--sky-300);
     box-shadow: 0 var(--unit-4) 0 var(--sky-400);
     width: 100%;
@@ -290,7 +290,7 @@ body, html {
     cursor: pointer;
 }
 .levelbox.locked {
-    background: var(--slate-200);
+    background-color: var(--slate-200);
     border: calc(var(--unit-2) + var(--unit-1)) solid var(--slate-300);
     box-shadow: 0 var(--unit-4) 0 var(--slate-400);
     filter: contrast(0.75) brightness(1.1) saturate(0);
@@ -374,7 +374,7 @@ body, html {
     font-weight: bold;
     padding: var(--unit-3) var(--unit-5);
     border-radius: var(--rounded-12);
-    box-shadow: 0 var(--unit-2) 0 var(--lime-700);
+    /* box-shadow: 0 var(--unit-2) 0 var(--lime-700); */
     margin: var(--unit-4) 0;
 	background-color: var(--lime-500);
 	border-color: var(--lime-500);
@@ -423,7 +423,7 @@ body, html {
 
 .levelbox:not(.locked):hover {
     transform: scale(1.02);
-    background: var(--sky-50);
+    background-color: var(--sky-50);
     border: calc(var(--unit-2) + var(--unit-1)) solid var(--sky-200);
     box-shadow: 0 var(--unit-4) 0 var(--sky-300);
 }
