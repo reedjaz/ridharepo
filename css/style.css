@@ -529,3 +529,123 @@ body, html {
 .ico-telur { background-image: url("../assets/ico-telur.svg"); }
 .ico-tepung { background-image: url("../assets/ico-tepung.svg"); }
 .ico-minyak { background-image: url("../assets/ico-minyak.svg"); }
+
+.scene-about h2 {
+	color: var(--slate-700);
+	font-size: var(--unit-11);
+	line-height: var(--unit-11);
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+.basic-box {
+    background-color: var(--white);
+    border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-200);
+    border-radius: var(--rounded-24);
+    padding: var(--unit-11) var(--unit-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--unit-10);
+}
+#profil .profile {
+    gap: var(--unit-10);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#profil .profile-pic {
+    width: calc(var(--unit-12) * 2);
+    height: calc(var(--unit-12) * 2);
+    border-radius: var(--rounded-full);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#profil .profile-iden {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+}
+#profil .profile-name {
+	color: var(--slate-700);
+	font-size: var(--unit-9);
+	line-height: var(--unit-10);
+    font-weight: bold;
+}
+#profil .profile-desc {
+	color: var(--slate-400);
+	font-size: var(--unit-9);
+	line-height: var(--unit-10);
+}
+#profil .profile-story {
+	color: var(--slate-600);
+	font-size: var(--unit-9);
+	line-height: var(--unit-10);
+}
+#profil .profile-lnk {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    gap: var(--unit-10);
+}
+#profil .profile-lnk > * {
+    display: flex;
+    width: var(--unit-12);
+    height: var(--unit-12);
+    align-items: center;
+    justify-content: center;
+	background-color: var(--indigo-500);
+    overflow: hidden;
+    border-radius: var(--rounded-full);
+    transition: all var(--transition-fast) ease;
+}
+#profil .profile-lnk svg {
+    color: var(--white);
+    width: var(--unit-10);
+    height: var(--unit-10);
+}
+
+#profil .profile-lnk a:hover {
+    background-color: var(--indigo-400);
+    transform: scale(1.05);
+}
+
+#profil .profile-lnk a:active {
+    background-color: var(--indigo-600);
+    transform: scale(0.99);
+}
+
+.basic-box ul {
+    padding: 0 var(--unit-10);
+    line-height: var(--unit-11);
+}
+.basic-box ul li {
+    list-style: none;
+    margin-bottom: var(--unit-8);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.basic-box ul li:before {
+    content: "";
+    width: var(--unit-9);
+    height: var(--unit-9);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../assets/right.svg);
+    position: absolute;
+    top: calc(var(--unit-3) + var(--unit-1));
+    left: calc(var(--unit-11) * -1);
+}
+.basic-box ul li .sml {
+	font-size: var(--unit-6);
+    line-height: var(--unit-8);
+}
+.basic-box ul li:last-child {
+    margin-bottom: 0;
+}

@@ -1,4 +1,201 @@
-<div class="flex column justify-center items-center height-100 surface-slate-200 gap-10">
-    <h2 class="amazing-title text-size-13 line-height-13 funny weight-800 unsel easing-ease">Tentang</h2>
-    <button onclick="loadSceneTrans('title', 'both', 'zoom-out')">Kembali</button>
-</div>
+<section class="flex row justify-center items-center height-100 p-0">
+    <div class="flex column width-27 height-100 surface-slate-200 gap-12 p-12">
+        <div class="flex row gap-7 justify-start width-auto">
+            <div class="top-button btn-cancel" onclick="
+                loadSceneTrans('title', 'both', 'slide-up');
+                ">
+                <i data-lucide="arrow-left"></i>
+                <span>Kembali</span>
+            </div>
+        </div>
+        <div class="flex column tabs" id="mainTabs">
+            <button onclick="
+                openTab('profil', this, 'main');
+            " class="btn-click active">
+                Profil Pengembang
+            </button>
+            <button onclick="
+                openTab('referensi', this, 'main');
+            " class="btn-click">
+                Referensi
+            </button>
+            <button onclick="
+                openTab('petunjuk', this, 'main');
+                openTab('aktivitas1', document.querySelector('#subTabs button'), 'sub');
+            " class="btn-click">
+                Petunjuk
+            </button>
+            <button onclick="
+                openTab('kredit', this, 'main');
+            " class="btn-click">
+                Kredit
+            </button>
+        </div>
+    </div>
+    <div class="flex column justify-center items-center width-73 height-100 surface-slate-50 gap-10 p-0">
+
+        <div id="profil" class="tab-content active">
+            <div class="flex column gap-12">
+
+                <h2>Profil Pengembang</h2>
+
+                <div class="basic-box">
+                    <div class="profile">
+                        <div class="profile-pic" style="background-image: url('assets/dev1.jpg');"></div>
+                        <div class="profile-iden">
+                            <div class="profile-name">Muhamad Firdaus Jubaedi</div>
+                            <div class="profile-desc">Konten dan Desain</div>
+                        </div>
+                        <div class="profile-lnk">
+                            <a href="https://instagram.com/muhafir_" target="_blank" class="lnk-ig">
+                                <i data-lucide="instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/muhamad-firdaus-08810083/" target="_blank" class="lnk-li">
+                                <i data-lucide="linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-story">
+                        Seorang desainer grafis, pengarah kreatif, dan perancang pengalaman pengguna dengan pengalaman lebih dari 9 tahun di industri kreatif. Karir di dunia multimedia dimulai pada tahun 2016 di sektor makanan dan minuman. Terakhir, menjabat sebagai konsultan komunikasi visual di Direktorat Jenderal PAUD, Dikdas, dan Dikmen di Kemendikbudristek untuk periode 2022-2024, dengan komitmen untuk memberikan solusi yang inovatif.
+                    </div>
+                </div>
+
+                <div class="basic-box">
+                    <div class="profile">
+                        <div class="profile-pic" style="background-image: url('assets/dev2.jpg');"></div>
+                        <div class="profile-iden">
+                            <div class="profile-name">Muhammad Ridha Ridwan</div>
+                            <div class="profile-desc">Pengembang Teknologi dan Desainer Suara</div>
+                        </div>
+                        <div class="profile-lnk">
+                            <a href="https://instagram.com/reedjaz" target="_blank" class="lnk-ig">
+                                <i data-lucide="instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/reedjaz" target="_blank" class="lnk-li">
+                                <i data-lucide="linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-story">
+                        Bergerak dalam pengembangan antarmuka pengguna sejak tahun 2020. Terlibat dalam berbagai proyek besar, termasuk pengembangan situs web untuk sistem informasi kurikulum nasional, pusat studi kebijakan pendidikan, serta transisi PAUD ke SD yang menyenangkan, dan proyek-proyek lainnya.
+                    </div>
+                </div>
+
+                <div class="basic-box">
+                    <div class="profile">
+                        <div class="profile-pic" style="background-image: url('assets/dev3.jpg');"></div>
+                        <div class="profile-iden">
+                            <div class="profile-name">Moch Rizky Lutfi</div>
+                            <div class="profile-desc">Desain dan Ilustrasi</div>
+                        </div>
+                        <div class="profile-lnk">
+                            <a href="https://instagram.com/motjikari" target="_blank" class="lnk-ig">
+                                <i data-lucide="instagram"></i>
+                            </a>
+                            <a href="https://id.linkedin.com/in/moch-rizky-lutfi-b16207221" target="_blank" class="lnk-li">
+                                <i data-lucide="linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-story">
+                        Desainer grafis dan ilustrator profesional yang berfokus pada buku anak-anak, berlokasi di Bandung. Aktif dalam pengembangan konten media sosial dan identitas visual untuk beberapa program prioritas Kemendikbud pada tahun 2022-2024.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div id="referensi" class="tab-content">
+            <div class="flex column gap-12">
+            
+                <h2>Referensi</h2>
+            
+                <div class="basic-box">
+                    <ul>
+                        <li>
+                            <b>Kue Kimu</b>
+                            <span class="sml">https://buku.kemdikbud.go.id/katalog/kue-kimu</span>
+                        </li>
+                        <li>
+                            <b>Bahasa Indonesia Kelas 1</b>
+                            <span class="sml">https://buku.kemdikbud.go.id/katalog/bahasa-indonesia-aku-bisa-untuk-sd-mi-kelas-i-edisi-revisi</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        
+        <div id="petunjuk" class="tab-content">
+            <div class="flex column gap-12 height-full">
+
+                <div class="flex column gap-12 px-12 pt-12 pb-0">
+                    <h2>Petunjuk Aktivitas</h2>
+                    <div class="tabs" id="subTabs">
+                        <button onclick="openTab('aktivitas1', this, 'sub')" class="btn-click active">Aktivitas 1</button>
+                        <button onclick="openTab('aktivitas2', this, 'sub')" class="btn-click" >Aktivitas 2</button>
+                        <button onclick="openTab('aktivitas3', this, 'sub')" class="btn-click" >Aktivitas 3</button>
+                        <button onclick="openTab('aktivitas4', this, 'sub')" class="btn-click" >Aktivitas 4</button>
+                    </div>
+                </div>
+            
+                <div id="aktivitas1" class="tab-content active">
+                    <div class="basic-box">
+                        Isi Aktivitas 1
+                    </div>
+                </div>
+
+                <div id="aktivitas2" class="tab-content">
+                    <div class="basic-box">
+                        Isi Aktivitas 2
+                    </div>
+                </div>
+
+                <div id="aktivitas3" class="tab-content">
+                    <div class="basic-box">
+                        Isi Aktivitas 3
+                    </div>
+                </div>
+
+                <div id="aktivitas4" class="tab-content">
+                    <div class="basic-box">
+                        Isi Aktivitas 4
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="kredit" class="tab-content">
+            <div class="flex column gap-12">
+
+                <h2>Kredit</h2>
+                <p>Ini adalah isi dari Kredit.</p>
+
+            </div>
+        </div>
+
+        <!-- <h2 class="amazing-title text-size-13 line-height-13 funny weight-800 unsel easing-ease">Tentang</h2> -->
+        <!-- <button onclick="loadSceneTrans('title', 'both', 'slide-up')">Kembali</button> -->
+    </div>
+</section>
+<script>
+    function openTab(tabId, el, group) {
+        const container = group === 'main'
+            ? document.getElementById('mainTabs')
+            : document.getElementById('subTabs');
+
+        const contentScope = group === 'main'
+            ? document
+            : document.getElementById('petunjuk');
+
+        const contents = contentScope.querySelectorAll('.tab-content');
+
+        contents.forEach(c => c.classList.remove('active'));
+
+        container.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        el.classList.add('active');
+    }
+</script>    

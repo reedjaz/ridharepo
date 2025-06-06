@@ -48,7 +48,7 @@
                 </div>
                 <div class="btntext-wrapper flex column text-center gap-5 justify-center items-center">
                     <button class="act-neutral btntext btn-click ico-sm"
-                        onclick="openOther()">
+                        onclick="loadSceneTrans('about', 'both', 'slide-down');">
                         <i data-lucide="menu"></i>
                     </button>
                     <span class="text-size-6 line-height-6 weight-bold text-slate-800">Lainnya</span>
@@ -61,7 +61,7 @@
                     <span class="text-size-6 line-height-6 weight-bold text-slate-800">Keluar</span>
                 </div>
             </div>
-            <div class="msgbox titlescr vo-text animate-fadeInUp duration-6 delay-6 easing-ease" id="vo-title">
+            <div class="msgbox titlescr vo-text animate-fadeInDown duration-6 delay-4 easing-ease" id="vo-title">
                 <div class="callout"></div>
                 <div class="vo-text-wrap">Halo, aku <span class="m-char">Gantar</span>, si gajah pintar! Hari ini kita akan belajar hal seru dari cerita dongeng! Yuk, belajar bersamaku!</div>
             </div>
@@ -101,7 +101,7 @@ applyInputBlocker();
             }, 200);
         });
 
-    }, 1750);
+    }, 1250);
 
 })();
 

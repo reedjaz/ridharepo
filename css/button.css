@@ -690,3 +690,63 @@ button.selected:active, .button.selected:active {
     line-height: var(--unit-14) !important;
     padding: var(--unit-6) var(--unit-9) var(--unit-8) var(--unit-9) !important;
 }
+
+.tabs {
+	display: flex;
+	gap: var(--unit-1);
+}
+
+#subTabs {
+	gap: var(--unit-7);
+}
+#subTabs button {
+	width: 100%;
+    text-align: center;
+}
+
+.tabs button {
+	all: unset;
+	padding: var(--unit-6) var(--unit-7);
+	font-size: var(--unit-9);
+	line-height: var(--unit-10);
+	border-radius: var(--rounded-12);
+	transition: all var(--transition-medium) ease;
+	color: var(--slate-800);
+	background-color: var(--slate-200);
+	cursor: pointer;
+}
+.tabs button:hover {
+	background-color: var(--slate-100);
+}
+
+.tabs button.active {
+	font-weight: bold;
+	background-color: var(--blue-200);
+	color: var(--blue-600);
+}
+.tabs button.active:hover {
+	background-color: var(--blue-100);
+}
+
+.tab-content {
+	display: none;
+	padding: var(--unit-12);
+    width: 100%;
+    height: 100%;
+	color: var(--slate-600);
+	font-size: var(--unit-9);
+	line-height: var(--unit-10);
+	overflow: auto;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+#petunjuk .tab-content {
+	padding-top: 0;
+}
+
+#petunjuk {
+	padding: 0;
+}
