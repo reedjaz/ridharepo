@@ -572,19 +572,19 @@ body, html {
 }
 #profil .profile-name {
 	color: var(--slate-700);
-	font-size: var(--unit-9);
-	line-height: var(--unit-10);
+	font-size: var(--unit-10);
+	line-height: var(--unit-11);
     font-weight: bold;
 }
 #profil .profile-desc {
 	color: var(--slate-400);
 	font-size: var(--unit-9);
-	line-height: var(--unit-10);
+	line-height: var(--unit-11);
 }
 #profil .profile-story {
 	color: var(--slate-600);
 	font-size: var(--unit-9);
-	line-height: var(--unit-10);
+	line-height: var(--unit-11);
 }
 #profil .profile-lnk {
     display: flex;
@@ -648,4 +648,34 @@ body, html {
 }
 .basic-box ul li:last-child {
     margin-bottom: 0;
+}
+
+.basic-box .title-act {
+    width: calc(var(--unit-12) * 2);
+    height: calc(var(--unit-14) + var(--unit-2));
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--slate-700);
+    font-size: calc(var(--unit-9) + var(--unit-2));
+    line-height: var(--unit-10);
+}
+
+.basic-box .act-name {
+	color: var(--slate-700);
+	font-size: var(--unit-10);
+	line-height: var(--unit-11);
+    font-weight: bold;
+}
+
+#petunjuk .profile-story,
+#kredit .profile-story {
+    display: flex;
+    flex-direction: column;
+	color: var(--slate-600);
+	font-size: var(--unit-9);
+	line-height: var(--unit-11);
+}
+#kredit .credits-thing {
+    gap: var(--unit-10);
 }

@@ -15,15 +15,15 @@
                 Profil Pengembang
             </button>
             <button onclick="
-                openTab('referensi', this, 'main');
-            " class="btn-click">
-                Referensi
-            </button>
-            <button onclick="
                 openTab('petunjuk', this, 'main');
                 openTab('aktivitas1', document.querySelector('#subTabs button'), 'sub');
             " class="btn-click">
-                Petunjuk
+                Petunjuk Aktivitas
+            </button>
+            <button onclick="
+                openTab('referensi', this, 'main');
+            " class="btn-click">
+                Referensi
             </button>
             <button onclick="
                 openTab('kredit', this, 'main');
@@ -39,7 +39,7 @@
 
                 <h2>Profil Pengembang</h2>
 
-                <div class="basic-box">
+                <div class="basic-box animate-fadeInUp duration-6 delay-1 easing-ease">
                     <div class="profile">
                         <div class="profile-pic" style="background-image: url('assets/dev1.jpg');"></div>
                         <div class="profile-iden">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="basic-box">
+                <div class="basic-box animate-fadeInUp duration-6 delay-2 easing-ease">
                     <div class="profile">
                         <div class="profile-pic" style="background-image: url('assets/dev2.jpg');"></div>
                         <div class="profile-iden">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
 
-                <div class="basic-box">
+                <div class="basic-box animate-fadeInUp duration-6 delay-3 easing-ease">
                     <div class="profile">
                         <div class="profile-pic" style="background-image: url('assets/dev3.jpg');"></div>
                         <div class="profile-iden">
@@ -104,28 +104,7 @@
 
             </div>
         </div>
-        
-        <div id="referensi" class="tab-content">
-            <div class="flex column gap-12">
-            
-                <h2>Referensi</h2>
-            
-                <div class="basic-box">
-                    <ul>
-                        <li>
-                            <b>Kue Kimu</b>
-                            <span class="sml">https://buku.kemdikbud.go.id/katalog/kue-kimu</span>
-                        </li>
-                        <li>
-                            <b>Bahasa Indonesia Kelas 1</b>
-                            <span class="sml">https://buku.kemdikbud.go.id/katalog/bahasa-indonesia-aku-bisa-untuk-sd-mi-kelas-i-edisi-revisi</span>
-                        </li>
-                    </ul>
-                </div>
 
-            </div>
-        </div>
-        
         <div id="petunjuk" class="tab-content">
             <div class="flex column gap-12 height-full">
 
@@ -141,28 +120,134 @@
             
                 <div id="aktivitas1" class="tab-content active">
                     <div class="basic-box">
-                        Isi Aktivitas 1
+                        <div class="flex row gap-10 items-center">
+                            <div class="title-act" style="background-image: url('assets/title-act-1.svg');"></div>
+                            <h2 class="act-name flex">Mulai Belajar</h2>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Tujuan</h3>
+                            <div class="flex column">
+                                <ul>
+                                    <li>Membangkitkan minat awal murid terhadap topik pembelajaran.</li>
+                                    <li>Mengenalkan jenis teks dongeng fabel secara sederhana.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Deskripsi</h3>
+                            <div class="flex column">
+                                Pada bagian ini, murid akan diarahkan untuk menjawab pertanyaan pemantik yang berkaitan dengan pengalaman mereka terkait isi cerita dalam dongeng. Setelah itu, guru atau pendamping menyampaikan pengantar materi tentang dongeng, khususnya fabel, sebagai pengantar sebelum menyimak cerita. Aktivitas ini disampaikan melalui tampilan visual sederhana dan narasi pengantar yang disampaikan oleh teman belajar “Si Gantar”.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="aktivitas2" class="tab-content">
                     <div class="basic-box">
-                        Isi Aktivitas 2
+                        <div class="flex row gap-10 items-center">
+                            <div class="title-act" style="background-image: url('assets/title-act-2.svg');"></div>
+                            <h2 class="act-name flex">Simak Dongeng</h2>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Tujuan</h3>
+                            <div class="flex column">
+                                <ul>
+                                    <li>Mengembangkan kemampuan peserta didik dalam menyimak teks aural berbentuk sastra (dongeng).</li>
+                                    <li>Meningkatkan daya konsentrasi dan pemahaman isi cerita.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Deskripsi</h3>
+                            <div class="flex column">
+                                Pada bagian ini, murid diminta untuk menyimak dongeng “Kue Kimu” yang disajikan melalui audio-visual interaktif. Dongeng akan ditampilkan dengan narasi suara, ilustrasi tokoh dan latar, serta teks pendukung.
+                            </div>
+                            <div class="flex column">
+                                Guru atau pendamping dapat mengarahkan peserta didik untuk mendengarkan secara seksama, karena isi cerita akan menjadi dasar dalam kuis dan permainan pada bagian berikutnya.
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+                
                 <div id="aktivitas3" class="tab-content">
                     <div class="basic-box">
-                        Isi Aktivitas 3
+                        <div class="flex row gap-10 items-center">
+                            <div class="title-act" style="background-image: url('assets/title-act-3.svg');"></div>
+                            <h2 class="act-name flex">Coba Kuis</h2>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Tujuan</h3>
+                            <div class="flex column">
+                                <ul>
+                                    <li>Mengukur pemahaman murid terhadap isi cerita.</li>
+                                    <li>Mendorong peserta didik mengingat kembali informasi dari dongeng.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Deskripsi</h3>
+                            <div class="flex column">
+                                Bagian ini menyajikan soal-soal kuis interaktif yang dirancang berdasarkan isi dongeng. Soal-soal disusun dengan tingkat kesulitan yang sesuai untuk Fase A, menggunakan ilustrasi visual dan pilihan jawaban yang dapat diklik.
+                            </div>
+                            <div class="flex column">
+                                Murid dapat menjawab beberapa pertanyaan dengan umpan balik otomatis. Guru atau pendamping dapat membantu menjelaskan jika diperlukan.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="aktivitas4" class="tab-content">
                     <div class="basic-box">
-                        Isi Aktivitas 4
+                        <div class="flex row gap-10 items-center">
+                            <div class="title-act" style="background-image: url('assets/title-act-4.svg');"></div>
+                            <h2 class="act-name flex">Ayo Main</h2>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Tujuan</h3>
+                            <div class="flex column">
+                                <ul>
+                                    <li>Mendorong murid untuk menguatkan pemahaman mereka melalui aktivitas berbasis permainan.</li>
+                                    <li>Menyediakan tantangan berjenjang untuk mempertajam kemampuan menyimak dan mengenali kosakata sederhana.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Deskripsi</h3>
+                            <div class="flex column">
+                                Dalam bagian ini, murid akan menyelesaikan empat level permainan untuk membantu karakter “Kimu” mengumpulkan bahan-bahan kue. Setiap level berisi lima pertanyaan dengan variasi bentuk soal.
+                            </div>
+                            <div class="flex column">
+                                Murid akan mendapatkan satu bahan kue untuk setiap level yang diselesaikan. Jika berhasil menyelesaikan semua level dengan baik, murid akan melihat tampilan penutup sebagai misi akhir.
+                            </div>
+                            <div class="flex column">
+                                Guru atau pendamping dapat memantau dan memberi semangat selama proses berlangsung.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div id="referensi" class="tab-content">
+            <div class="flex column gap-12">
+        
+                <h2>Referensi</h2>
+        
+                <div class="basic-box animate-fadeInUp duration-6 delay-1 easing-ease">
+                    <ul>
+                        <li>
+                            <b>Kue Kimu</b>
+                            <span class="sml">https://buku.kemdikbud.go.id/katalog/kue-kimu</span>
+                        </li>
+                        <li>
+                            <b>Bahasa Indonesia Kelas 1</b>
+                            <span
+                                class="sml">https://buku.kemdikbud.go.id/katalog/bahasa-indonesia-aku-bisa-untuk-sd-mi-kelas-i-edisi-revisi</span>
+                        </li>
+                    </ul>
+                </div>
+        
             </div>
         </div>
 
@@ -170,13 +255,24 @@
             <div class="flex column gap-12">
 
                 <h2>Kredit</h2>
-                <p>Ini adalah isi dari Kredit.</p>
+        
+                <div class="basic-box animate-fadeInUp duration-6 delay-1 easing-ease">
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <div class="profile-story gap-3">
+                            <h3 class="flex column">Pena</h3>
+                            <div class="flex column">
+                                Pada bagng.
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
 
-        <!-- <h2 class="amazing-title text-size-13 line-height-13 funny weight-800 unsel easing-ease">Tentang</h2> -->
-        <!-- <button onclick="loadSceneTrans('title', 'both', 'slide-up')">Kembali</button> -->
     </div>
 </section>
 <script>
@@ -195,7 +291,11 @@
 
         container.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
 
-        document.getElementById(tabId).classList.add('active');
+        const tabContent = document.getElementById(tabId);
+        tabContent.classList.add('active');
         el.classList.add('active');
+
+        tabContent.scrollTop = 0;
     }
+
 </script>    
