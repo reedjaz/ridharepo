@@ -498,7 +498,7 @@ body, html {
     justify-content: center;
     align-items: center;
 }
-.ico-gift:not(.locked)::after {
+.ico-gift:not(.locked):after {
     content: "";
     width: var(--unit-11);
     height: var(--unit-11);
@@ -619,18 +619,26 @@ body, html {
     transform: scale(0.99);
 }
 
-.basic-box ul {
+#referensi ul {
     padding: 0 var(--unit-10);
     line-height: var(--unit-11);
 }
-.basic-box ul li {
+#referensi ul li {
     list-style: none;
     margin-bottom: var(--unit-8);
     display: flex;
     flex-direction: column;
     position: relative;
 }
-.basic-box ul li:before {
+#referensi ul li a {
+    color: var(--slate-600);
+    text-decoration: none;
+}
+#referensi ul li a:hover {
+    color: var(--slate-500);
+    text-decoration: underline;
+}
+#referensi ul li:before {
     content: "";
     width: var(--unit-9);
     height: var(--unit-9);
@@ -642,11 +650,11 @@ body, html {
     top: calc(var(--unit-3) + var(--unit-1));
     left: calc(var(--unit-11) * -1);
 }
-.basic-box ul li .sml {
+#referensi ul li .sml {
 	font-size: var(--unit-6);
     line-height: var(--unit-8);
 }
-.basic-box ul li:last-child {
+#referensi ul li:last-child {
     margin-bottom: 0;
 }
 
@@ -677,5 +685,61 @@ body, html {
 	line-height: var(--unit-11);
 }
 #kredit .credits-thing {
-    gap: var(--unit-10);
+    gap: var(--unit-9);
+}
+#kredit .credits-thing .descr {
+    font-weight: bold;
+    font-size: var(--unit-7);
+    line-height: var(--unit-8);
+    text-wrap: balance;
+    color: var(--slate-700);
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: var(--unit-2);
+}
+/* #kredit .credits-thing .descr:before {
+    content: "";
+    width: var(--unit-8);
+    border-bottom: var(--unit-1) solid;
+    position: absolute;
+    height: 100%;
+    padding-top: var(--unit-4);
+} */
+#kredit .credits-thing .person {
+    font-size: var(--unit-9);
+    line-height: var(--unit-10);
+    text-wrap: balance;
+    color: var(--slate-700);
+}
+
+#petunjuk ul li {
+    padding-left: var(--unit-11);
+    margin-bottom: var(--unit-3);
+    list-style: none;
+    position: relative;
+}
+#petunjuk ul li:last-child {
+    margin-bottom: 0;
+}
+#petunjuk ul li:before {
+    content: "";
+    width: var(--unit-4);
+    height: var(--unit-4);
+    background-color: var(--slate-600);
+    position: absolute;
+    top: calc(var(--unit-3) + var(--unit-4));
+    left: var(--unit-3);
+    border-radius: var(--rounded-full);
+}
+
+#kredit .credits.ico {
+    width: calc(var(--unit-12) + var(--unit-2));
+    height: calc(var(--unit-12) + var(--unit-2));
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+#kredit .credits.ico svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.25px;
 }

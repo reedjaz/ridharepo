@@ -3,14 +3,17 @@ const sfxHandlers = {
     cancel: () => soundman.play('cancel'),
     click: () => soundman.play('click'),
     enter: () => soundman.play('enter'),
+    error: () => soundman.play('error'),
     hover: () => soundman.play('hover'),
 };
 
 function setupBtnSFX() {
+    setupLockedAnswerShake();
     document.querySelectorAll('.btn-decide').forEach(el => el.addEventListener('click', sfxHandlers.decide));
     document.querySelectorAll('.btn-cancel').forEach(el => el.addEventListener('click', sfxHandlers.cancel));
     document.querySelectorAll('.btn-click').forEach(el => el.addEventListener('click', sfxHandlers.click));
     document.querySelectorAll('.btn-enter').forEach(el => el.addEventListener('click', sfxHandlers.enter));
+    document.querySelectorAll('.btn-error').forEach(el => el.addEventListener('click', sfxHandlers.error));
     // document.querySelectorAll('button').forEach(el => el.addEventListener('mouseenter', sfxHandlers.hover));
 }
 
@@ -19,6 +22,7 @@ function detachBtnSFX() {
     document.querySelectorAll('.btn-cancel').forEach(el => el.removeEventListener('click', sfxHandlers.cancel));
     document.querySelectorAll('.btn-click').forEach(el => el.removeEventListener('click', sfxHandlers.click));
     document.querySelectorAll('.btn-enter').forEach(el => el.removeEventListener('click', sfxHandlers.enter));
+    document.querySelectorAll('.btn-error').forEach(el => el.removeEventListener('click', sfxHandlers.error));
     // // document.querySelectorAll('button').forEach(el => el.removeEventListener('mouseenter', sfxHandlers.hover));
 }
 
@@ -154,3 +158,18 @@ function progressGet(id = 'activity-progress') {
     const progress = document.getElementById(id);
     return progress.max;
 }
+function setupLockedAnswerShake() {
+    function lockedClickHandler(event) {
+        const button = event.currentTarget;
+        button.classList.remove('shake');
+        void button.offsetWidth;
+        button.classList.add('shake');
+        console.log("Button is disabled!");
+    }
+    document.querySelectorAll('.btn-answer.locked').forEach(button => {
+        button.removeEventListener('click', lockedClickHandler);
+        button.addEventListener('click', lockedClickHandler);
+        button.classList.add('btn-error');
+    });
+}
+  

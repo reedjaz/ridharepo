@@ -11,23 +11,23 @@
         <div class="flex column tabs" id="mainTabs">
             <button onclick="
                 openTab('profil', this, 'main');
-            " class="btn-click active">
+            " class="tab-btn btn-click delay-1 easing-ease active">
                 Profil Pengembang
             </button>
             <button onclick="
                 openTab('petunjuk', this, 'main');
                 openTab('aktivitas1', document.querySelector('#subTabs button'), 'sub');
-            " class="btn-click">
+            " class="tab-btn btn-click delay-2 easing-ease">
                 Petunjuk Aktivitas
             </button>
             <button onclick="
                 openTab('referensi', this, 'main');
-            " class="btn-click">
+            " class="tab-btn btn-click delay-3 easing-ease">
                 Referensi
             </button>
             <button onclick="
                 openTab('kredit', this, 'main');
-            " class="btn-click">
+            " class="tab-btn btn-click delay-4 easing-ease">
                 Kredit
             </button>
         </div>
@@ -110,7 +110,7 @@
 
                 <div class="flex column gap-12 px-12 pt-12 pb-0">
                     <h2>Petunjuk Aktivitas</h2>
-                    <div class="tabs" id="subTabs">
+                    <div class="tabs animate-fadeInUp duration-6 delay-1 easing-ease" id="subTabs">
                         <button onclick="openTab('aktivitas1', this, 'sub')" class="btn-click active">Aktivitas 1</button>
                         <button onclick="openTab('aktivitas2', this, 'sub')" class="btn-click" >Aktivitas 2</button>
                         <button onclick="openTab('aktivitas3', this, 'sub')" class="btn-click" >Aktivitas 3</button>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             
-                <div id="aktivitas1" class="tab-content active">
+                <div id="aktivitas1" class="tab-content animate-fadeInUp duration-6 delay-1 easing-ease active">
                     <div class="basic-box">
                         <div class="flex row gap-10 items-center">
                             <div class="title-act" style="background-image: url('assets/title-act-1.svg');"></div>
@@ -142,7 +142,7 @@
                     </div>
                 </div>
 
-                <div id="aktivitas2" class="tab-content">
+                <div id="aktivitas2" class="tab-content animate-fadeInUp duration-6 delay-1 easing-ease">
                     <div class="basic-box">
                         <div class="flex row gap-10 items-center">
                             <div class="title-act" style="background-image: url('assets/title-act-2.svg');"></div>
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 
-                <div id="aktivitas3" class="tab-content">
+                <div id="aktivitas3" class="tab-content animate-fadeInUp duration-6 delay-1 easing-ease">
                     <div class="basic-box">
                         <div class="flex row gap-10 items-center">
                             <div class="title-act" style="background-image: url('assets/title-act-3.svg');"></div>
@@ -196,7 +196,7 @@
                     </div>
                 </div>
 
-                <div id="aktivitas4" class="tab-content">
+                <div id="aktivitas4" class="tab-content animate-fadeInUp duration-6 delay-1 easing-ease">
                     <div class="basic-box">
                         <div class="flex row gap-10 items-center">
                             <div class="title-act" style="background-image: url('assets/title-act-4.svg');"></div>
@@ -238,12 +238,12 @@
                     <ul>
                         <li>
                             <b>Kue Kimu</b>
-                            <span class="sml">https://buku.kemdikbud.go.id/katalog/kue-kimu</span>
+                            <span class="sml"><a href="https://buku.kemdikbud.go.id/katalog/kue-kimu" target="_blank">https://buku.kemdikbud.go.id/katalog/kue-kimu</a></span>
                         </li>
                         <li>
                             <b>Bahasa Indonesia Kelas 1</b>
                             <span
-                                class="sml">https://buku.kemdikbud.go.id/katalog/bahasa-indonesia-aku-bisa-untuk-sd-mi-kelas-i-edisi-revisi</span>
+                                class="sml"><a href="https://buku.kemdikbud.go.id/katalog/bahasa-indonesia-aku-bisa-untuk-sd-mi-kelas-i-edisi-revisi" target="_blank">https://buku.kemdikbud.go.id/katalog/bahasa-indonesia-aku-bisa-untuk-sd-mi-kelas-i-edisi-revisi</a></span>
                         </li>
                     </ul>
                 </div>
@@ -256,15 +256,162 @@
 
                 <h2>Kredit</h2>
         
-                <div class="basic-box animate-fadeInUp duration-6 delay-1 easing-ease">
+                <div class="basic-box animate-fadeInUp duration-6 delay-1 easing-ease gap-11">
+                    <div class="credits-thing flex row">
+                        <div class="profile-story">
+                            <div class="descr">
+                                Penyelenggara
+                            </div>
+                            <div class="person">
+                                Kementerian Pendidikan Dasar dan Menengah
+                            </div>
+                            <div class="person" style="font-size: 80%; line-height: 140%; font-weight: bold;">
+                                Direktorat Jenderal Pendidikan Anak Usia Dini, Pendidikan Dasar, dan Pendidikan Menengah
+                            </div>
+                            <div class="person" style="font-size: 70%; font-weight: bold; font-style: italic;">
+                                Direktorat Sekolah Dasar
+                            </div>
+                        </div>
+                    </div>
                     <div class="credits-thing flex row">
                         <div class="credits ico">
-                            <i data-lucide="play"></i>
+                            <i data-lucide="frame"></i>
                         </div>
-                        <div class="profile-story gap-3">
-                            <h3 class="flex column">Pena</h3>
-                            <div class="flex column">
-                                Pada bagng.
+                        <div class="profile-story">
+                            <div class="descr">
+                                Desain UI/UX
+                            </div>
+                            <div class="person">
+                                Muhamad Firdaus Jubaedi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="pen-tool"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                Ilustrasi Karakter dan Aset
+                            </div>
+                            <div class="person">
+                                Moch Rizky Lufti
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="music"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                Musik dan Efek Suara
+                            </div>
+                            <div class="person">
+                                Muhammad Ridha Ridwan
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="scroll-text"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                Alur Cerita dan Naskah Edukasi
+                            </div>
+                            <div class="person">
+                                Muhamad Firdaus Jubaedi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="video"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                Animasi Karakter
+                            </div>
+                            <div class="person">
+                                Muhammad Ridha Ridwan
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="mic-vocal"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                Pengisi Suara
+                            </div>
+                            <div class="person">
+                                Muhamad Firdaus Jubaedi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="code-xml"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                Pemrograman dan Interaktivitas
+                            </div>
+                            <div class="person">
+                                Muhammad Ridha Ridwan
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="monitor-check"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                Visual Antarmuka
+                            </div>
+                            <div class="person">
+                                Muhamad Firdaus Jubaedi
+                            </div>
+                            <div class="person">
+                                Moch Rizky Lufti
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="credits ico">
+                            <i data-lucide="flask-conical"></i>
+                        </div>
+                        <div class="profile-story">
+                            <div class="descr">
+                                <i>Quality Assurance</i> (QA)
+                            </div>
+                            <div class="person">
+                                Muhamad Firdaus Jubaedi
+                            </div>
+                            <div class="person">
+                                Muhammad Ridha Ridwan
+                            </div>
+                            <div class="person">
+                                Moch Rizky Lufti
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credits-thing flex row">
+                        <div class="profile-story">
+                            <div class="descr">
+                                Hak Cipta
+                            </div>
+                            <div class="person">
+                                © 2025 Kementerian Pendidikan Dasar dan Menengah
+                            </div>
+                            <div class="person" style="font-size: 80%; line-height: 140%; font-weight: bold;">
+                                Direktorat Sekolah Dasar
+                            </div>
+                            <div class="person" style="font-size: 70%; font-weight: bold; font-style: italic;">
+                                Didukung oleh: Thinkin Studio
                             </div>
                         </div>
                     </div>

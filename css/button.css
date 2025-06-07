@@ -750,3 +750,8 @@ button.selected:active, .button.selected:active {
 #petunjuk {
 	padding: 0;
 }
+
+.tabs .tab-btn {
+	opacity: 0;
+	animation: fadeInUp 0.5s ease forwards;
+}

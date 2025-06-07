@@ -1,4 +1,5 @@
 let celebrateInterval = null;
+let wrongAttempts = 0;
 
 function getFinalAnswerText(withSpace = false) {
     const finalAnswer = document.querySelector('.final-answer');
@@ -68,14 +69,14 @@ function animateShiftInFinalAnswer(finalAnswer, removedBtn = null) {
             // Trigger reflow
             void el.offsetWidth;
             
-            el.style.transition = 'transform var(--transition-medium) ease';
+            el.style.transition = 'all var(--transition-medium) ease';
             el.style.transform = '';
         }
     });
     
     childrenAfter.forEach(el => {
         el.addEventListener('transitionend', function cleanup(e) {
-            if (e.propertyName === 'transform') {
+            if (e.propertyName === 'all') {
                 el.style.transition = '';
                 el.style.transform = '';
                 el.removeEventListener('transitionend', cleanup);
@@ -162,7 +163,7 @@ function animateFlyToTarget(sourceEl, targetEl, onComplete) {
 
 // Hitung jumlah tombol yang "bisa dilepas" (bukan fixed)
 function countUsedSlots(finalAnswer) {
-    return Array.from(finalAnswer.children).filter(btn => !btn.disabled).length;
+    return Array.from(finalAnswer.children).filter(btn => !btn.classList.contains('locked')).length;
 }
 
 function initBuildAnswer(options) {
@@ -200,7 +201,9 @@ function initBuildAnswer(options) {
                 
                 choiceBtn.onclick = () => {
                     if (choiceBtn.classList.contains('taken')) return;
-                    
+                    document.querySelectorAll('.btn-answer.locked.shake').forEach(btn => {
+                        btn.classList.remove('shake');
+                    });
                     const usedSlots = countUsedSlots(finalAnswer);
                     if (maxSlots !== undefined && usedSlots >= maxSlots) {
                         console.warn(`Max slots (${maxSlots}) sudah penuh!`);
@@ -248,7 +251,7 @@ function initBuildAnswer(options) {
                             
                             void el.offsetWidth; // trigger reflow
                             
-                            el.style.transition = 'transform var(--transition-medium) ease';
+                            el.style.transition = 'all var(--transition-medium) ease';
                             el.style.transform = '';
                         }
                     });
@@ -265,7 +268,7 @@ function initBuildAnswer(options) {
                     
                     childrenAfter.forEach(el => {
                         el.addEventListener('transitionend', function cleanup(e) {
-                            if (e.propertyName === 'transform') {
+                            if (e.propertyName === 'all') {
                                 el.style.transition = '';
                                 el.style.transform = '';
                                 el.removeEventListener('transitionend', cleanup);
@@ -277,6 +280,9 @@ function initBuildAnswer(options) {
                         const targetBtn = Array.from(answerChoices.children).find(
                             btn => isSameButton(btn, newBtn)
                         );
+                        document.querySelectorAll('.btn-answer.locked.shake').forEach(btn => {
+                            btn.classList.remove('shake');
+                        });
                         if (!targetBtn) return;
                         
                         soundman.play('click');
@@ -304,7 +310,7 @@ function initBuildAnswer(options) {
         
         Array.from(finalAnswer.children).forEach(btn => {
             btn.classList.add('show');
-            btn.setAttribute('disabled', 'true');
+            // btn.setAttribute('disabled', 'true');
             btn.onclick = null;
         });
     });
@@ -339,7 +345,9 @@ function initBuildAnswerAdv(options) {
 
                 choiceBtn.onclick = () => {
                     if (choiceBtn.classList.contains('taken')) return;
-
+                    document.querySelectorAll('.btn-answer.locked.shake').forEach(btn => {
+                        btn.classList.remove('shake');
+                    });
                     const usedSlots = countUsedSlots(finalAnswer);
                     if (maxSlots !== undefined && usedSlots >= maxSlots) {
                         console.warn(`Max slots (${maxSlots}) sudah penuh!`);
@@ -384,7 +392,7 @@ function initBuildAnswerAdv(options) {
                             el.style.transition = 'none';
                             el.style.transform = `translate(${dx}px, ${dy}px)`;
                             void el.offsetWidth;
-                            el.style.transition = 'transform var(--transition-medium) ease';
+                            el.style.transition = 'all var(--transition-medium) ease';
                             el.style.transform = '';
                         }
                     });
@@ -413,6 +421,9 @@ function initBuildAnswerAdv(options) {
                         const targetBtn = Array.from(answerChoices.children).find(
                             btn => isSameButton(btn, newBtn)
                         );
+                        document.querySelectorAll('.btn-answer.locked.shake').forEach(btn => {
+                            btn.classList.remove('shake');
+                        });
                         if (!targetBtn) return;
 
                         soundman.play('click');
@@ -440,7 +451,7 @@ function initBuildAnswerAdv(options) {
 
         Array.from(finalAnswer.children).forEach(btn => {
             btn.classList.add('show');
-            btn.setAttribute('disabled', 'true');
+            // btn.setAttribute('disabled', 'true');
             btn.onclick = null;
         });
     });
@@ -770,25 +781,39 @@ function setupMatchingGame(correctPairs, nextSceneId) {
     
             soundman.play('correct');
         } else {
-            // Tambah kelas glance-wrong dulu
             selectedSrcBtn.classList.add('glance-wrong');
             selectedDstBtn.classList.add('glance-wrong');
-    
+        
+            wrongAttempts++;
+        
             soundman.play('wrong');
+        
+            if (wrongAttempts >= 3) {
+                showFeedbackSheet(
+                    false,
+                    'Masih salah, nih...',
+                    'Tidak apa-apa, nanti kamu coba lagi, ya!',
+                    () => {
+                        destroyMatchingGame();
+                        loadSceneTrans(nextSceneId, 'none', 'slide-left');
+                    }, undefined, true, false
+                );
+                return;
+            }
+        
             showFeedbackSheet(false, 'Salah', 'Itu bukan pasangan yang benar.', undefined, 'Coba Lagi');
-    
+        
             setTimeout(() => {
-                // Hapus glance-wrong dan remove selected
                 selectedSrcBtn.classList.remove('glance-wrong');
                 selectedDstBtn.classList.remove('glance-wrong');
-    
+        
                 if (selectedSrcBtn) selectedSrcBtn.classList.remove('selected');
                 if (selectedDstBtn) selectedDstBtn.classList.remove('selected');
-    
+        
                 selectedSrcBtn = null;
                 selectedDstBtn = null;
             }, 200);
-        }
+        }        
     }    
 
     function checkAllMatched() {

@@ -14,6 +14,7 @@
     flex-direction: row;
     gap: var(--unit-12);
     justify-content: center;
+    margin-bottom: calc(var(--unit-3) * -1);
 }
 
 .final-answer, .answer-choices,
@@ -345,4 +346,44 @@
 .build-answer .answer-choices.advanced .end-word {
     margin-left: 0;
     margin-right: 0;
+}
+
+.btn-answer.locked {
+    pointer-events: auto;
+    cursor: not-allowed;
+    background-color: var(--slate-50);
+    position: relative;
+    overflow: visible;
+}
+.btn-answer.locked:after {
+    content: "";
+    width: var(--unit-10);
+    height: var(--unit-10);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../assets/locked-gray.svg);
+    position: absolute;
+    background-color: var(--white);
+    border-radius: var(--rounded-full);
+    top: calc(var(--unit-5) * -1);
+    right: calc(var(--unit-5) * -1);
+    border: var(--unit-2) solid var(--slate-300);
+}
+.btn-answer.locked:hover,
+.btn-answer.locked:active {
+    color: var(--slate-800);
+	font-size: var(--unit-11);
+    line-height: var(--unit-11);
+	padding: var(--unit-7) var(--unit-7);
+	background-color: var(--slate-50);
+	border: calc(var(--unit-2) + (var(--unit-1) / 3)) solid var(--slate-300);
+	box-shadow: 0 var(--unit-3) 0 var(--slate-300);
+    bottom: var(--unit-3);
+}
+/* .is-locked {
+    margin-top: calc(var(--unit-3) * -1);
+} */
+.btn-answer.locked.shake {
+    animation: shake 0.35s ease forwards;
 }
