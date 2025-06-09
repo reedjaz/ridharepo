@@ -27,6 +27,16 @@
     width: calc(var(--unit-12) * 2);
 }
 
+.final-answer.fullword > *, .answer-choices.fullword > *,
+.final-answer-old.fullword > *, .answer-choices-old.fullword > * {
+    width: calc(var(--unit-11) * 6);
+}
+
+.final-answer.fullword2 > *, .answer-choices.fullword2 > *,
+.final-answer-old.fullword2 > *, .answer-choices-old.fullword2 > * {
+    width: calc(var(--unit-8) * 6);
+}
+
 .final-answer > *, .answer-choices > *,
 .final-answer-old > *, .answer-choices-old > * {
     height: 100% !important;
@@ -56,6 +66,21 @@
     border-color: var(--slate-200);
 }
 
+.final-answer {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-height: 50px;
+}
+
+.slot {
+    width: 80px;
+    height: 40px;
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    position: relative;
+}
 .flying-clone {
     pointer-events: none;
 }

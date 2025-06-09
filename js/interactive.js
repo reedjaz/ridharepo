@@ -216,9 +216,8 @@ function initBuildAnswer(options) {
                     newBtn.disabled = false;
                     newBtn.classList.add('show');
                     newBtn.classList.add('btn-click');
-                    newBtn.style.opacity = '0';  // Sembunyikan dulu tombol baru
+                    newBtn.style.opacity = '0';
                     
-                    // Buat ghost untuk posisi target fly dan posisi slide
                     const ghost = newBtn.cloneNode(true);
                     ghost.style.visibility = 'hidden';
                     ghost.style.position = 'relative';
@@ -249,7 +248,7 @@ function initBuildAnswer(options) {
                             el.style.transition = 'none';
                             el.style.transform = `translate(${dx}px, ${dy}px)`;
                             
-                            void el.offsetWidth; // trigger reflow
+                            void el.offsetWidth;
                             
                             el.style.transition = 'all var(--transition-medium) ease';
                             el.style.transform = '';
