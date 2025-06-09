@@ -2,9 +2,28 @@
 <section class="scene-bg ingame">
     <div class="lay flex row justify-center items-center">
         <div class="out1 flex column relative">
-            <dotlottie-player src="assets/anim/gantar-splash.json" background="transparent" speed="1" renderer="svg"
-                id="gantar-ingame" class="flex full height-full" loop autoplay>
-            </dotlottie-player>
+            <div id="gantar-ingame" class="lottie-wrap">
+                <dotlottie-player
+                    src="assets/anim/gantar-greet-talk.json"
+                    background="transparent"
+                    speed="1"
+                    renderer="svg"
+                    id="gantar-greet-talk"
+                    class="flex full height-full lt-anim lt-talk hidden lt-flip"
+                    loop
+                    autoplay>
+                </dotlottie-player>
+                <dotlottie-player
+                    src="assets/anim/gantar-greet.json"
+                    background="transparent"
+                    speed="1"
+                    renderer="svg"
+                    id="gantar-greet"
+                    class="flex full height-full lt-anim lt-static lt-flip"
+                    loop
+                    autoplay>
+                </dotlottie-player>
+            </div>
             <div class="flex row full justify-end items-center absolute bottom-0 p-7"><button class="read-btn" onclick="readAloud('vo-gantar-msg1')"><i data-lucide="volume-2"></i></button></div>
         </div>
         <div class="out2 flex column">

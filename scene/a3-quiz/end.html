@@ -29,9 +29,18 @@
             ">Lanjut Bermain</button>
         </div>
         <div class="out-end2 flex column relative">
-            <dotlottie-player src="assets/anim/gantar-splash.json" background="transparent" speed="1" renderer="svg"
-                id="gantar-ingame" class="flex full height-full" loop autoplay>
-            </dotlottie-player>
+            <div id="gantar-ingame" class="lottie-wrap">
+                <dotlottie-player
+                    src="assets/anim/gantar-correct.json"
+                    background="transparent"
+                    speed="1"
+                    renderer="svg"
+                    id="gantar-endscreen"
+                    class="flex full height-full lt-anim lt-static"
+                    loop
+                    autoplay>
+                </dotlottie-player>
+            </div>
         </div>
     </div>
 </section>
@@ -50,6 +59,14 @@
         resultWrong = ${resultWrong}
         resultDuration = ${resultDuration}
     `);
+
+    const dotlottiePlayer = document.getElementById("gantar-endscreen");
+
+    if (localStarCount <= 1) {
+        dotlottiePlayer.setAttribute("src", "assets/anim/gantar-despair.json");
+    } else {
+        dotlottiePlayer.setAttribute("src", "assets/anim/gantar-correct.json");
+    }
 
     function setMotivationMessage(stars) {
         let title = "";
@@ -126,7 +143,7 @@
             const rand = Math.floor(Math.random() * 4) + 1;
             soundman.play(`vo-gantar-motivate${rand}`);
         }
-    }, 1700);
+    }, 1300);
 
     applyInputBlocker(2000);
 

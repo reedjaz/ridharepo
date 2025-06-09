@@ -6,22 +6,36 @@ function kebabToCamel(str) {
 
 function readAloud(nameKebab, play = true) {
     const nameCamel = kebabToCamel(nameKebab);
+    const talkEls = document.querySelectorAll('.lt-talk');
+
+    console.log(`Jumlah talkEl ditemukan: ${talkEls.length}`);
     
+    setTimeout(() => {
+        talkEls.forEach(el => el.classList.remove('hidden'));
+    }, 300);
+
     return fetch(`assets/autosync/${nameKebab}.json`)
-    .then(res => {
-        if (!res.ok) throw new Error(`Gagal load ${nameKebab}.json`);
-        return res.json();
-    })
-    .then(data => {
-        window[nameCamel] = data;
+        .then(res => {
+            if (!res.ok) throw new Error(`Gagal load ${nameKebab}.json`);
+            return res.json();
+        })
+        .then(data => {
+            window[nameCamel] = data;
 
-        if (play) {
-            return playVOForElement(nameKebab).then(() => data);
-        }
+            if (play) {
+                return playVOForElement(nameKebab).then(() => {
+                    talkEls.forEach(el => el.classList.add('hidden'));
+                    return data;
+                });
+            }
 
-        return data;
-    })
-    .catch(err => console.error('Error di readAloud:', err));
+            talkEls.forEach(el => el.classList.add('hidden'));
+            return data;
+        })
+        .catch(err => {
+            console.error('Error di readAloud:', err);
+            talkEls.forEach(el => el.classList.add('hidden'));
+        });
 }
 
 function renderTranscriptToElement(el, transcript) {
@@ -148,22 +162,25 @@ function playVOForElement(nameKebab) {
 }
 
 function loadAndRenderAllVoTexts() {
+    const talkEls = document.querySelectorAll('.lt-talk');
+    talkEls.forEach(el => el.classList.add('hidden'));
+
     const elements = document.querySelectorAll('.vo-text');
     elements.forEach(el => {
         const id = el.id;
         if (!id) return;
-        
+
         const nameCamel = kebabToCamel(id);
-        
+
         fetch(`assets/autosync/${id}.json`)
-        .then(res => {
-            if (!res.ok) throw new Error(`Gagal load ${id}.json`);
-            return res.json();
-        })
-        .then(data => {
-            window[nameCamel] = data;
-            renderTranscriptToElement(el, data);
-        })
-        .catch(err => console.error(`Error load/render transcript ${id}:`, err));
+            .then(res => {
+                if (!res.ok) throw new Error(`Gagal load ${id}.json`);
+                return res.json();
+            })
+            .then(data => {
+                window[nameCamel] = data;
+                renderTranscriptToElement(el, data);
+            })
+            .catch(err => console.error(`Error load/render transcript ${id}:`, err));
     });
 }

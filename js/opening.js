@@ -7,7 +7,15 @@ function preloadAssetsWithProgress() {
     ];
     const audioPaths = Object.values(soundman?.sources || {});
     const jsonPaths = [
-        'assets/anim/gantar-splash.json'
+        'assets/anim/gantar-correct.json',
+        'assets/anim/gantar-correct-talk.json',
+        'assets/anim/gantar-explain.json',
+        'assets/anim/gantar-explain-talk.json',
+        'assets/anim/gantar-greet.json',
+        'assets/anim/gantar-greet-talk.json',
+        'assets/anim/gantar-listen.json',
+        'assets/anim/gantar-listen-talk.json',
+        'assets/anim/gantar-despair.json'
     ];
     
     const assets = [...imagePaths, ...audioPaths, ...jsonPaths];

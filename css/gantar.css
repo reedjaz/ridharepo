@@ -1,7 +1,7 @@
 #gantar-splash {
     position: relative;
-    transform: scale(1.65);
-    transform-origin: 50% 50%;
+    transform: scale(1.85);
+    transform-origin: 50% 25%;
     margin: var(--vh-20) 0 0 var(--vh-5);
     pointer-events: none;
     animation: slideInUp var(--transition-mega-slow) ease forwards;
@@ -15,9 +15,40 @@
 }
 #gantar-lobby {
     position: relative;
-    transform: scale(1.35);
-    transform-origin: 50% 50%;
-    margin: 0 0 calc(var(--vh-40) * -1) var(--vh-5);
     pointer-events: none;
     z-index: 10;
+    margin-bottom: calc(var(--vh-20) * -1);
+    transform: scale(2.25);
+    transform-origin: 40% 50%;
+}
+#gantar-title {
+    position: relative;
+    transform: scale(1.85);
+    transform-origin: 50% 25%;
+    pointer-events: none;
+    animation: slideInUp var(--transition-mega-slow) ease forwards;
+    z-index: 10;
+}
+
+.lottie-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.lottie-wrap .lt-anim {
+    position: absolute;
+}
+.lottie-wrap .lt-talk {
+    z-index: 100;
+    opacity: 1;
+}
+.lottie-wrap .lt-talk.hidden {
+    z-index: 100;
+    opacity: 0;
+}
+.lottie-wrap .lt-static {
+    z-index: 80;
+}
+.lottie-wrap .lt-flip {
+    transform: scaleX(-1);
 }

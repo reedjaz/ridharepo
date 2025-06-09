@@ -138,6 +138,9 @@ body, html {
 .scene-bg.ingame {
     padding: 0 calc(var(--unit-12) + var(--unit-12)) var(--unit-12) calc(var(--unit-12) + var(--unit-12)) !important;
 }
+.scene-bg.ingame.imm {
+    padding: calc(var(--unit-13) * 2) calc(var(--unit-12) + var(--unit-12)) var(--unit-12) calc(var(--unit-12) + var(--unit-12)) !important;
+}
 
 .scene-bg > div {
     height: 100%;
@@ -238,6 +241,7 @@ body, html {
 }
 .ingame .lay .out1 {
     width: 27%;
+    height: 100%;
 }
 .ingame .lay .out2 {
     width: 73%;
@@ -266,6 +270,7 @@ body, html {
 }
 .game-end-scr .out-end2 {
     width: 35%;
+    height: 100%;
 }
 
 #star-container {

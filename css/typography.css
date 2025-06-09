@@ -506,6 +506,7 @@ h1 {
 	text-align: center;
 	align-self: center;
 	transition: all var(--transition-slow) ease;
+	opacity: 0;
 }
 .msgbox.titlescr .callout {
 	top: unset;
@@ -529,7 +530,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     text-wrap: balance;
-    gap: var(--unit-8);
+    gap: var(--unit-12);
 }
 
 .msgbox.lobby .callout {

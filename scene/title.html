@@ -61,21 +61,32 @@
                     <span class="text-size-6 line-height-6 weight-bold text-slate-800">Keluar</span>
                 </div>
             </div>
-            <!-- <div class="msgbox titlescr vo-text animate-fadeInDown duration-6 delay-4 easing-ease" id="vo-title">
+            <div class="msgbox titlescr vo-text" id="vo-title">
                 <div class="callout"></div>
                 <div class="vo-text-wrap">Halo, aku <span class="m-char">Gantar</span>, si gajah pintar! Hari ini kita akan belajar hal seru dari cerita dongeng! Yuk, belajar bersamaku!</div>
-            </div> -->
-            <dotlottie-player
-                src="assets/anim/gantar-splash.json"
-                background="transparent"
-                speed="1"
-                renderer="svg"
-                id="gantar-splash"
-                class="flex full height-full"
-                loop
-                autoplay>
-            </dotlottie-player>
-            <div id="gantar-splash" class="flex full height-full"></div>
+            </div>
+            <div id="gantar-title" class="lottie-wrap">
+                <dotlottie-player
+                    src="assets/anim/gantar-explain-talk.json"
+                    background="transparent"
+                    speed="1"
+                    renderer="svg"
+                    id="gantar-explain-talk"
+                    class="flex full height-full lt-anim lt-talk hidden"
+                    loop
+                    autoplay>
+                </dotlottie-player>
+                <dotlottie-player
+                    src="assets/anim/gantar-explain.json"
+                    background="transparent"
+                    speed="1"
+                    renderer="svg"
+                    id="gantar-explain"
+                    class="flex full height-full lt-anim lt-static"
+                    loop
+                    autoplay>
+                </dotlottie-player>
+            </div>
             <div class="flex column items-end">
                 <h3 class="name-fase animate-zoomIn duration-6 delay-6 easing-bouncy">Fase A</h3>
             </div>
@@ -90,18 +101,9 @@ applyInputBlocker();
 
 (() => {
 
-    const msgbox = document.querySelector('.msgbox.titlescr');
-
     setTimeout(() => {
-        msgbox.classList.remove('animate-fadeInUp');
-        
-        readAloud('vo-title').then(() => {
-            setTimeout(() => {
-                msgbox.classList.add('hidden');
-            }, 200);
-        });
-
-    }, 1250);
+        readAloud('vo-title');
+    }, 1500);
 
 })();
 
